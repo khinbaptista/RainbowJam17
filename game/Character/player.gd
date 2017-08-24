@@ -11,6 +11,8 @@ func _ready():
 	set_process(true)
 	set_process_input(true)
 	
+	get_node("/root/colors").set_player(self.get_path())
+	
 func _process(delta):
 	if can_move:
 		input_movement(delta)
