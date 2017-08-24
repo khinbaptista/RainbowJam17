@@ -26,6 +26,7 @@ texture = ExtResource( 3 )
 [node name="player" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 617.036, 533.658 )
+colors_learned = 0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 

@@ -6,7 +6,9 @@ export(float, 0.0, 500.0, 0.1) var dash_speed = 120
 export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
 
 var moved = false	# has the player moved in this frame?
-var colors_learned = 0
+export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var colors_learned = 0
+
+signal new_color_learned(color)
 
 func _ready():
 	set_process(true)
@@ -57,3 +59,4 @@ func dash(direction):
 
 func learn_color(color):
 	colors_learned += color
+	emit_signal("new_color_learned", color)
