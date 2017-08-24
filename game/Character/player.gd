@@ -6,6 +6,7 @@ export(float, 0.0, 500.0, 0.1) var dash_speed = 120
 export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
 
 var moved = false	# has the player moved in this frame?
+var colors_learned = 0
 
 func _ready():
 	set_process(true)
@@ -16,7 +17,6 @@ func _ready():
 func _process(delta):
 	if can_move:
 		input_movement(delta)
-		
 
 func _input(event):
 	if can_move:
@@ -54,3 +54,6 @@ func dash(direction):
 		
 		timer += delta
 		yield(get_tree(), "idle_frame")
+
+func learn_color(color):
+	colors_learned += color
