@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Viewports/more-grass-or-lawn.jpg" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Character/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Colors/color_dimension.gd" type="Script" id=3]
+[ext_resource path="res://Character/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=5]
 
 [node name="stage" type="Sprite"]
 
@@ -17,10 +18,24 @@ visibility/light_mask = 2
 transform/pos = Vector2( 1392.15, 653.175 )
 transform/scale = Vector2( 5.87891, 5.84236 )
 texture = ExtResource( 2 )
+script/script = ExtResource( 3 )
+color_dimension = 2
+physics_body_path = null
 
-[node name="player" parent="." instance=ExtResource( 3 )]
+[node name="Sprite1" type="Sprite" parent="."]
 
-transform/pos = Vector2( 617.036, 533.658 )
+visibility/light_mask = 4
+transform/pos = Vector2( 1131.87, 519.608 )
+transform/scale = Vector2( 5.87891, 5.84236 )
+texture = ExtResource( 2 )
+script/script = ExtResource( 3 )
+color_dimension = 4
+physics_body_path = null
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1314.22, 584.922 )
+colors_learned = 0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
@@ -41,8 +56,9 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="BeamManager" parent="." instance=ExtResource( 4 )]
+[node name="BeamManager" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 617.036, 533.658 )
+transform/pos = Vector2( 1353.81, 520.3 )
+speed = -300
 
 

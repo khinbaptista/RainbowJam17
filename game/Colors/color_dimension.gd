@@ -1,7 +1,7 @@
 tool
 extends CanvasItem
 
-export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var color = 1 setget set_color
+export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var color_dimension = 1 setget set_color
 
 var player
 export(NodePath) var physics_body_path setget set_physics_body
@@ -21,8 +21,8 @@ func on_player_set(path):
 	player = get_node(path)
 
 func set_color(new_color):
-	color = new_color
-	set_light_mask(color)
+	color_dimension = new_color
+	set_light_mask(color_dimension)
 	update_physics_body()
 
 func set_physics_body(path):
@@ -34,4 +34,4 @@ func update_physics_body():
 	if not player: return
 	
 	var body = get_node(physics_body_path)
-	body.set_collision_mask_bit(0, player.colors_learned & color)	# if the user has the value and this object is colliding with this color
+	body.set_collision_mask_bit(0, player.colors_learned & color_dimension)	# if the user has the value and this object is colliding with this color
