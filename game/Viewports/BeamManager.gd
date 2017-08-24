@@ -8,7 +8,7 @@ var viewportSize
 func _ready():
 	set_process(true)
 	beams = get_children()
-	camera = get_parent()
+	camera = get_parent().get_node("player/Camera2D")
 	viewportSize = get_viewport().get_rect().size
 	MoveBeansInit()
 

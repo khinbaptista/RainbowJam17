@@ -41,7 +41,8 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="BeamManager" parent="player/Camera2D" instance=ExtResource( 4 )]
+[node name="BeamManager" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 617.036, 533.658 )
 
 
-[editable path="player/Camera2D/BeamManager"]
