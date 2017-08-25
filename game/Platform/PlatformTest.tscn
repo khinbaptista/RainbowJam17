@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Character/player.tscn" type="PackedScene" id=2]
+
+[node name="PlatformTest" type="Node"]
+
+[node name="platform" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 712.757, 456.054 )
+transform/scale = Vector2( 2.44779, 2.44779 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 323.986, 490.081 )
+colors_learned = 0
+
+
