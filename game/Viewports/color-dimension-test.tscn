@@ -13,7 +13,7 @@ texture = ExtResource( 1 )
 centered = false
 modulate = Color( 0.71875, 0.71875, 0.71875, 1 )
 script/script = ExtResource( 2 )
-color = 1
+color_dimension = 1
 physics_body_path = null
 
 [node name="Sprite" type="Sprite" parent="."]
