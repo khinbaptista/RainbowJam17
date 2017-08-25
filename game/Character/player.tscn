@@ -3,10 +3,10 @@
 [ext_resource path="res://Character/player.gd" type="Script" id=1]
 [ext_resource path="res://Character/sprites/pose.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 34.1707
+extents = Vector2( 30, 30 )
 
 [node name="player" type="KinematicBody2D"]
 
