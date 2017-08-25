@@ -7,7 +7,12 @@
 
 [node name="platform" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 712.757, 456.054 )
+transform/pos = Vector2( 712.757, 486.813 )
+transform/scale = Vector2( 2.44779, 2.44779 )
+
+[node name="platform1" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 329.305, 486.813 )
 transform/scale = Vector2( 2.44779, 2.44779 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
