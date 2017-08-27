@@ -41,26 +41,53 @@ func input_movement(delta):
 		movement.x -= 1
 	if Input.is_action_pressed("move_right"):
 		movement.x += 1
-	
-	moved = ( movement.length() != 0 )
-	
+
+	apply_movement(movement.normalized(), delta)
+
+func apply_movement(direction, delta):
 	var sprite = get_node("Sprite")
+	var moved = ( direction.length() != 0 )
 	
-	if moved:
-		self.move(movement.normalized() * movement_speed * delta)
-		
-		if movement.y >= 1:	sprite.play("run-down")
-		elif movement.y <= -1:	sprite.play("run-up")
-		
-		if movement.x >= 1:
-			sprite.play("run-right")
+	if moved and not self.moved:
+		if direction.y >= 1:	play_anim_beginloop("run-down")
+		elif direction.y <= -1:	play_anim_beginloop("run-up")
+		if direction.x >= 1:
 			sprite.set_flip_h(false)
-		elif movement.x <= -1:
-			sprite.play("run-right")
+			play_anim_beginloop("run-right")
+		elif direction.x <= -1:
 			sprite.set_flip_h(true)
-	else:
-		sprite.play("idle")
+			play_anim_beginloop("run-right")
+	elif moved and self.moved:
+		if direction.y >= 1:	sprite.play("run-down-loop")
+		elif direction.y <= -1:	sprite.play("run-up-loop")
+		if direction.x >= 1:
+			sprite.set_flip_h(false)
+			sprite.play("run-right-loop")
+		elif direction.x <= -1:
+			sprite.set_flip_h(true)
+			sprite.play("run-right-loop")
 	
+	self.moved = moved
+	if self.moved: self.move(direction * movement_speed * delta)
+	else: play_anim_stop()
+
+func play_anim_beginloop(anim):
+	var sprite = get_node("Sprite")
+	sprite.play(anim + "-begin")
+	yield(sprite, "finished")
+	if self.moved: sprite.play(anim + "-loop")
+
+func play_anim_stop():
+	var sprite = get_node("Sprite")
+	var anim_name = sprite.get_animation()
+	
+	if anim_name.ends_with("-loop"):	anim_name = anim_name.replace("-loop", "-stop")
+	elif anim_name.ends_with("-begin"):	anim_name = anim_name.replace("-begin", "-stop")
+	
+	sprite.play(anim_name)
+	yield(sprite, "finished")
+	if not moved: sprite.play("idle")
+
 
 func input_dash(input_event):
 	if not moved: return
