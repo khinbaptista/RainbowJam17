@@ -6,6 +6,7 @@ export(float, 0.0, 500.0, 0.1) var dash_speed = 120
 export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
 
 var moved = false	# has the player moved in this frame?
+var dashing = false
 var grounded = false
 var lastCheckpoint = Vector2(0, 0)
 export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var colors_learned = 0
@@ -40,10 +41,13 @@ func input_movement(delta):
 	if Input.is_action_pressed("move_right"):
 		movement.x += 1
 	
-	moved = movement.length() != 0
+	moved = ( movement.length() != 0 )
 	
 	if moved:
 		self.move(movement.normalized() * movement_speed * delta)
+		
+	else:
+		get_node("Sprite").play("idle")
 	
 
 func input_dash(input_event):
@@ -52,14 +56,16 @@ func input_dash(input_event):
 		dash(self.get_travel().normalized())
 
 func dash(direction):
-	var timer = 0.0
+	dashing = true
 	
+	var timer = 0.0
 	while timer < dash_duration:
 		var delta = get_process_delta_time()
 		self.move(direction * dash_speed * get_process_delta_time())
 		
 		timer += delta
 		yield(get_tree(), "idle_frame")
+	dashing = false
 
 func learn_color(color):
 	colors_learned += color
