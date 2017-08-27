@@ -1,12 +1,60 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=29 format=1]
 
 [ext_resource path="res://Character/player.gd" type="Script" id=1]
 [ext_resource path="res://Character/sprites/pose.png" type="Texture" id=2]
+[ext_resource path="res://Character/sprites/run-down/run-down-000.png" type="Texture" id=3]
+[ext_resource path="res://Character/sprites/run-down/run-down-001.png" type="Texture" id=4]
+[ext_resource path="res://Character/sprites/run-down/run-down-002.png" type="Texture" id=5]
+[ext_resource path="res://Character/sprites/run-down/run-down-003.png" type="Texture" id=6]
+[ext_resource path="res://Character/sprites/run-down/run-down-004.png" type="Texture" id=7]
+[ext_resource path="res://Character/sprites/run-down/run-down-005.png" type="Texture" id=8]
+[ext_resource path="res://Character/sprites/run-down/run-down-006.png" type="Texture" id=9]
+[ext_resource path="res://Character/sprites/run-down/run-down-007.png" type="Texture" id=10]
+[ext_resource path="res://Character/sprites/run-down/run-down-008.png" type="Texture" id=11]
+[ext_resource path="res://Character/sprites/run-down/run-down-009.png" type="Texture" id=12]
+[ext_resource path="res://Character/sprites/run-down/run-down-010.png" type="Texture" id=13]
+[ext_resource path="res://Character/sprites/run-down/run-down-011.png" type="Texture" id=14]
+[ext_resource path="res://Character/sprites/run-up/run-up-000.png" type="Texture" id=15]
+[ext_resource path="res://Character/sprites/run-up/run-up-001.png" type="Texture" id=16]
+[ext_resource path="res://Character/sprites/run-up/run-up-002.png" type="Texture" id=17]
+[ext_resource path="res://Character/sprites/run-up/run-up-003.png" type="Texture" id=18]
+[ext_resource path="res://Character/sprites/run-up/run-up-004.png" type="Texture" id=19]
+[ext_resource path="res://Character/sprites/run-up/run-up-005.png" type="Texture" id=20]
+[ext_resource path="res://Character/sprites/run-up/run-up-006.png" type="Texture" id=21]
+[ext_resource path="res://Character/sprites/run-up/run-up-007.png" type="Texture" id=22]
+[ext_resource path="res://Character/sprites/run-up/run-up-008.png" type="Texture" id=23]
+[ext_resource path="res://Character/sprites/run-up/run-up-009.png" type="Texture" id=24]
+[ext_resource path="res://Character/sprites/run-up/run-up-010.png" type="Texture" id=25]
+[ext_resource path="res://Character/sprites/run-up/run-up-011.png" type="Texture" id=26]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 34.1707
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "run-down",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "run-right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "run-up",
+"speed": 5.0
+} ]
 
 [node name="player" type="KinematicBody2D"]
 
@@ -24,11 +72,12 @@ dash_speed = 500.0
 dash_duration = 0.2
 colors_learned = 0
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 
 transform/pos = Vector2( -30.6056, -70.9788 )
 transform/scale = Vector2( 0.32362, 0.32362 )
-texture = ExtResource( 2 )
+frames = SubResource( 2 )
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
