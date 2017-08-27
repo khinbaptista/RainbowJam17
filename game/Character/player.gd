@@ -21,6 +21,8 @@ func _ready():
 func _process(delta):
 	if can_move:
 		input_movement(delta)
+	if not grounded:
+		death()
 
 func _input(event):
 	if can_move:
@@ -68,3 +70,6 @@ func set_grounded(value):
 	
 func update_checkpoint(pos):
 	lastCheckpoint = pos
+	
+func death():
+	self.set_global_pos(lastCheckpoint)
