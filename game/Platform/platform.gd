@@ -1,8 +1,9 @@
-extends Area2D
+extends Node2D
 
 func _ready():
-	self.connect("body_enter", self, "_on_body_enter")
-	self.connect("body_exit", self, "_on_body_exit")
+	var area = get_node("area")
+	area.connect("body_enter", self, "_on_body_enter")
+	area.connect("body_exit", self, "_on_body_exit")
 
 func _on_body_enter(body):
 	if body.has_method("entered_platform"):

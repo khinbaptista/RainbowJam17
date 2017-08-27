@@ -8,7 +8,11 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 17.1885 )
 
-[node name="platform" type="Area2D"]
+[node name="platform" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="area" type="Area2D" parent="."]
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -18,18 +22,17 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 1 )
 
-[node name="icon" type="Sprite" parent="."]
-
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
 
 transform/pos = Vector2( -0.55291, -0.287781 )
 transform/scale = Vector2( 3.17791, 1.82405 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="icon" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
 
 
