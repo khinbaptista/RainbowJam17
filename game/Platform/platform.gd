@@ -10,12 +10,11 @@ func _ready():
 	area.connect("area_exit", self, "_on_area_exit")
 
 func _on_body_enter(body):
-	if body.has_method("entered_platform"):
+	if body.has_method("entered_platform") and color_dimension == 1:
 		body.entered_platform()
 	
-		
 func _on_body_exit(body):
-	if body.has_method("left_platform"):
+	if body.has_method("left_platform") and color_dimension == 1:
 		body.left_platform()
 		
 func _on_area_enter(entered):
@@ -32,9 +31,11 @@ func _on_area_exit(exited):
 
 func update_physics(player, exec):
 	if exec:
-		area.set_monitorable(true)
+		area.set_layer_mask(1)
+		area.set_collision_mask(1)
 	else:
-		area.set_monitorable(false)
+		area.set_layer_mask(2)
+		area.set_collision_mask(2)
 		
 	if area.overlaps_body(player):
 		if exec:

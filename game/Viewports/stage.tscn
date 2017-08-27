@@ -33,7 +33,14 @@ color_dimension = 4
 
 [node name="platform" parent="." instance=ExtResource( 4 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 1321.42, 611.799 )
+transform/scale = Vector2( 4.58384, 4.58384 )
+
+[node name="platform1" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1420.08, 201.963 )
 transform/scale = Vector2( 4.58384, 4.58384 )
 color_dimension = 2
 
