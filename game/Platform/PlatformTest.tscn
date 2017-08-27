@@ -9,11 +9,13 @@
 
 transform/pos = Vector2( 712.757, 456.054 )
 transform/scale = Vector2( 2.44779, 2.44779 )
+physics_body_path = null
 
 [node name="platform1" parent="." instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 332.609, 456.054 )
 transform/scale = Vector2( 2.44779, 2.44779 )
+physics_body_path = null
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 

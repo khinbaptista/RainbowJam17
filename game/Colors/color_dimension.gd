@@ -4,7 +4,6 @@ extends CanvasItem
 export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var color_dimension = 1 setget set_color
 
 var player
-export(NodePath) var physics_body_path setget set_physics_body
 
 func _ready():
 	var colors = get_node("/root/colors")
@@ -17,7 +16,8 @@ func _ready():
 func on_player_set(path):
 	# with the player reference we can check which colors the player has already learned and get access to the color beams
 	# (all color beams are located at @"player/camera/beam"
-	if not has_node(path): return
+	if not has_node(path):
+		return
 	player = get_node(path)
 
 func set_color(new_color):
@@ -25,13 +25,9 @@ func set_color(new_color):
 	set_light_mask(color_dimension)
 	update_physics_body()
 
-func set_physics_body(path):
-	physics_body_path = path
-	update_physics_body()
-
 func update_physics_body():
-	if physics_body_path == null or not has_node(physics_body_path): return
-	if not player: return
-	
-	var body = get_node(physics_body_path)
-	body.set_collision_mask_bit(0, player.colors_learned & color_dimension)	# if the user has the value and this object is colliding with this color
+	if not player: return 
+	#body.set_collision_mask_bit(0, player.colors_learned & color_dimension)	# if the user has the value and this object is colliding with this color
+	if has_method("update_physics"):
+		#var pl = self.get_parent().get_node("player")
+		update_physics(player, player.colors_learned & color_dimension)

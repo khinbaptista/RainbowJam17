@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Viewports/mask.png" type="Texture" id=1]
 [ext_resource path="res://Viewports/beam.gd" type="Script" id=2]
+[ext_resource path="res://Viewports/more-grass-or-lawn.jpg" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.4938, 31.2276 )
 
 [node name="mask" type="Light2D"]
 
@@ -29,6 +35,13 @@ script/script = ExtResource( 2 )
 beam_color = 1
 color_value = Color( 1, 1, 1, 1 )
 
+[node name="more-grass-or-lawn" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( -55.0557, -182.516 )
+transform/rot = 0.034671
+texture = ExtResource( 3 )
+
 [node name="light" type="Light2D" parent="."]
 
 transform/rot = 0.034671
@@ -51,5 +64,26 @@ shadow/color = Color( 0, 0, 0, 0 )
 shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
+
+[node name="area" type="Area2D" parent="."]
+
+transform/pos = Vector2( -8.89242, 1.87178 )
+transform/scale = Vector2( 1.67433, 14.3774 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 2.99204, 0, 0, 1, 0.910893, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+
+transform/pos = Vector2( 0.910893, 0 )
+transform/scale = Vector2( 2.99204, 1 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 
