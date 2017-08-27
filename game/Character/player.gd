@@ -8,6 +8,7 @@ export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
 var moved = false	# has the player moved in this frame?
 var dashing = false
 var grounded = false
+var platforms = 0
 var lastCheckpoint = Vector2(0, 0)
 export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var colors_learned = 0
 
@@ -87,6 +88,15 @@ func set_grounded(value):
 	
 func update_checkpoint(pos):
 	lastCheckpoint = pos
+	
+func left_platform():
+	platforms = platforms - 1
+	if platforms < 1:
+		set_grounded(false)
+
+func entered_platform():
+	platforms = platforms + 1
+	set_grounded(true)
 	
 func death():
 	self.set_global_pos(lastCheckpoint)
