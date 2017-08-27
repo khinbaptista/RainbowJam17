@@ -22,7 +22,7 @@ func _ready():
 func _process(delta):
 	if can_move:
 		input_movement(delta)
-	if not grounded:
+	if not grounded and not dashing:
 		death()
 
 func _input(event):
@@ -43,11 +43,22 @@ func input_movement(delta):
 	
 	moved = ( movement.length() != 0 )
 	
+	var sprite = get_node("Sprite")
+	
 	if moved:
 		self.move(movement.normalized() * movement_speed * delta)
 		
+		if movement.y >= 1:	sprite.play("run-down")
+		elif movement.y <= -1:	sprite.play("run-up")
+		
+		if movement.x >= 1:
+			sprite.play("run-right")
+			sprite.set_flip_h(false)
+		elif movement.x <= -1:
+			sprite.play("run-right")
+			sprite.set_flip_h(true)
 	else:
-		get_node("Sprite").play("idle")
+		sprite.play("idle")
 	
 
 func input_dash(input_event):
@@ -79,3 +90,4 @@ func update_checkpoint(pos):
 	
 func death():
 	self.set_global_pos(lastCheckpoint)
+	grounded = true

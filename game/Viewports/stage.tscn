@@ -35,7 +35,6 @@ physics_body_path = null
 [node name="player" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1314.22, 584.922 )
-colors_learned = 0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
