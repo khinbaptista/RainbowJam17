@@ -6,6 +6,8 @@ export(float, 0.0, 500.0, 0.1) var dash_speed = 120
 export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
 
 var moved = false	# has the player moved in this frame?
+var grounded = false
+var lastCheckpoint = Vector2(0, 0)
 export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var colors_learned = 0
 
 signal new_color_learned(color)
@@ -19,6 +21,8 @@ func _ready():
 func _process(delta):
 	if can_move:
 		input_movement(delta)
+	if not grounded:
+		death()
 
 func _input(event):
 	if can_move:
@@ -60,3 +64,12 @@ func dash(direction):
 func learn_color(color):
 	colors_learned += color
 	emit_signal("new_color_learned", color)
+	
+func set_grounded(value):
+	grounded = value
+	
+func update_checkpoint(pos):
+	lastCheckpoint = pos
+	
+func death():
+	self.set_global_pos(lastCheckpoint)
