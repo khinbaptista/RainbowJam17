@@ -5,20 +5,20 @@ export(float, 0.0, 500.0, 0.1) var movement_speed = 100
 export(float, 0.0, 500.0, 0.1) var dash_speed = 120
 export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
 
-var moved = false	# has the player moved in this frame?
-var dashing = false
-var grounded = false
-var platforms = 0
-var lastCheckpoint = Vector2(0, 0)
-export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var colors_learned = 0
+var moved = false		# has the player moved in this frame?
+var dashing = false		# is the player dashing?
+var grounded = false	# is the player standing on ground?
 
+var lastCheckpoint = Vector2(0, 0)	# location to respawn
+
+export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var colors_learned = 0
 signal new_color_learned(color)
 
 func _ready():
 	set_process(true)
 	set_process_input(true)
 	
-	get_node("/root/colors").set_player(self.get_path())
+	lastCheckpoint = self.get_global_pos()
 	
 func _process(delta):
 	if can_move:
@@ -88,9 +88,8 @@ func play_anim_stop():
 	yield(sprite, "finished")
 	if not moved: sprite.play("idle")
 
-
 func input_dash(input_event):
-	if not moved: return
+	if not moved: return	# cannot dash if you're not walking
 	if input_event.is_action_pressed("dash") and not input_event.is_echo():
 		dash(self.get_travel().normalized())
 
@@ -109,22 +108,15 @@ func dash(direction):
 func learn_color(color):
 	colors_learned += color
 	emit_signal("new_color_learned", color)
-	
-func set_grounded(value):
-	grounded = value
-	
+
 func update_checkpoint(pos):
 	lastCheckpoint = pos
-	
-func left_platform():
-	platforms = platforms - 1
-	if platforms < 1:
-		set_grounded(false)
 
-func entered_platform():
-	platforms = platforms + 1
-	set_grounded(true)
-	
 func death():
+	var sprite = get_node("Sprite")
+	if sprite.get_sprite_frames().has_animation("death"):
+		sprite.play("death")
+		yield(sprite, "finished")
+	
 	self.set_global_pos(lastCheckpoint)
 	grounded = true

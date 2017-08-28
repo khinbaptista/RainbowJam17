@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 export(NodePath) var player_path = @"../player"
 onready var player = get_node(player_path)
@@ -10,10 +10,12 @@ var camera
 var viewportSize
 
 func _ready():
-	set_process(true)
 	beams = get_children()
-	camera = get_parent().get_node("player/Camera2D")
+	camera = player.get_node("Camera2D")
 	viewportSize = get_viewport().get_rect().size
+	offset *= get_scale().x
+	
+	set_process(true)
 	MoveBeansInit()
 
 func _process(delta):
@@ -21,10 +23,11 @@ func _process(delta):
 	for beam in beams:
 		var beam_pos = beam.get_global_pos()
 		var beam_new_pos
-		if(beam_pos.x < camera.get_camera_screen_center().x - viewportSize.x / 2 - offset):
-			beam_new_pos = Vector2(camera.get_camera_screen_center().x + viewportSize.x / 2 + offset, beam_pos.y)
+		var camera_center = camera.get_camera_screen_center()
+		if(beam_pos.x < camera_center.x - viewportSize.x / 2 - offset):
+			beam_new_pos = Vector2(camera_center.x + viewportSize.x / 2 + offset, camera_center.y)
 		else:
-			beam_new_pos = Vector2(beam_pos.x + (speed * delta), beam_pos.y)
+			beam_new_pos = Vector2(beam_pos.x + (speed * delta), camera_center.y)
 		beam.set_global_pos(beam_new_pos)
 		
 func MoveBeansInit():

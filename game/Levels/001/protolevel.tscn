@@ -1,93 +1,77 @@
 [gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=1]
-[ext_resource path="res://Levels/001/island.png" type="Texture" id=2]
-[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Colors/color_dimension.gd" type="Script" id=2]
+[ext_resource path="res://Levels/001/island.png" type="Texture" id=3]
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Character/player.tscn" type="PackedScene" id=6]
 
 [node name="protolevel" type="Node2D"]
 
-transform/pos = Vector2( 3172.93, 742.657 )
+[node name="bg" type="Sprite" parent="."]
 
-[node name="Sprite" type="Sprite" parent="."]
-
-transform/pos = Vector2( -53.22, 510.208 )
-transform/scale = Vector2( 115.884, 48.354 )
+transform/pos = Vector2( 20.4515, -29.6677 )
+transform/scale = Vector2( 97.3299, 66.34 )
 texture = ExtResource( 1 )
+script/script = ExtResource( 2 )
+color_dimension = 1
 
 [node name="island" type="Sprite" parent="."]
 
 visibility/light_mask = 0
 transform/scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
-
-[node name="platform" parent="island" instance=ExtResource( 3 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 11.425, 3.82016 )
-transform/scale = Vector2( 8.13983, 9.54225 )
-
-[node name="icon" parent="island/platform"]
-
-visibility/visible = false
-
-[node name="Checkpoint" parent="island" instance=ExtResource( 4 )]
-
-[node name="BeamManager" parent="." instance=ExtResource( 5 )]
-
-transform/scale = Vector2( 1, 3 )
-speed = -450
-offset = 651
+texture = ExtResource( 3 )
 
 [node name="platforms" type="Node2D" parent="."]
 
-editor/display_folded = true
+[node name="platform" parent="platforms" instance=ExtResource( 4 )]
 
-[node name="platform" parent="platforms" instance=ExtResource( 3 )]
+transform/pos = Vector2( 36.5924, 743.679 )
 
-transform/pos = Vector2( -692.982, -129.508 )
+[node name="platform1" parent="platforms" instance=ExtResource( 4 )]
 
-[node name="platform1" parent="platforms" instance=ExtResource( 3 )]
+transform/pos = Vector2( 298.811, 1037.63 )
 
-transform/pos = Vector2( 654.357, -156.773 )
+[node name="platform2" parent="platforms" instance=ExtResource( 4 )]
 
-[node name="platform2" parent="platforms" instance=ExtResource( 3 )]
+transform/pos = Vector2( 14.8802, 1349.96 )
 
-transform/pos = Vector2( 872.476, -329.451 )
+[node name="platform3" parent="platforms" instance=ExtResource( 4 )]
 
-[node name="platform3" parent="platforms" instance=ExtResource( 3 )]
+transform/pos = Vector2( -745.053, -216.676 )
 
-transform/pos = Vector2( 870.204, -524.849 )
+[node name="platform4" parent="platforms" instance=ExtResource( 4 )]
 
-[node name="platform4" parent="platforms" instance=ExtResource( 3 )]
+transform/pos = Vector2( 751.431, 50.5534 )
 
-transform/pos = Vector2( 1092.87, -531.665 )
+[node name="platform5" parent="platforms" instance=ExtResource( 4 )]
 
-[node name="platform5" parent="platforms" instance=ExtResource( 3 )]
+transform/pos = Vector2( 896.737, -253.42 )
 
-transform/pos = Vector2( 1276.91, -349.899 )
+[node name="platform6" parent="platforms" instance=ExtResource( 4 )]
 
-[node name="platform6" parent="platforms" instance=ExtResource( 3 )]
+transform/pos = Vector2( 1461.26, -104.774 )
 
-transform/pos = Vector2( 1413.23, -586.195 )
+[node name="platform7" parent="platforms" instance=ExtResource( 4 )]
 
-[node name="platform7" parent="platforms" instance=ExtResource( 3 )]
+transform/pos = Vector2( 1150.6, -54.6681 )
 
-transform/pos = Vector2( 34.0812, 579.379 )
+[node name="platform8" parent="platforms" instance=ExtResource( 4 )]
 
-[node name="platform8" parent="platforms" instance=ExtResource( 3 )]
+transform/pos = Vector2( 1454.58, -377.013 )
 
-transform/pos = Vector2( 168.133, 745.24 )
+[node name="platform9" parent="platforms" instance=ExtResource( 4 )]
 
-[node name="platform9" parent="platforms" instance=ExtResource( 3 )]
+transform/pos = Vector2( 1865.44, -375.343 )
 
-transform/pos = Vector2( 38.6252, 954.271 )
+[node name="BeamManager" parent="." instance=ExtResource( 5 )]
+
+speed = -450
+offset = 651
 
 [node name="player" parent="." instance=ExtResource( 6 )]
 
-editor/display_folded = true
 transform/scale = Vector2( 0.5, 0.5 )
 movement_speed = 350.0
 dash_duration = 0.3
@@ -115,13 +99,5 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-layer = -1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-
-
-[editable path="island/platform"]
 [editable path="player"]
