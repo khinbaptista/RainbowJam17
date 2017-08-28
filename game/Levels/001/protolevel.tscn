@@ -25,9 +25,12 @@ texture = ExtResource( 3 )
 
 [node name="platforms" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="platform" parent="platforms" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 36.5924, 743.679 )
+color_dimension = 34
 
 [node name="platform1" parent="platforms" instance=ExtResource( 4 )]
 
@@ -67,18 +70,14 @@ transform/pos = Vector2( 1865.44, -375.343 )
 
 [node name="BeamManager" parent="." instance=ExtResource( 5 )]
 
-speed = -450
-offset = 651
+speed = -300
 
 [node name="player" parent="." instance=ExtResource( 6 )]
 
+transform/pos = Vector2( 19.5266, 323.583 )
 transform/scale = Vector2( 0.5, 0.5 )
 movement_speed = 350.0
 dash_duration = 0.3
-
-[node name="Sprite" parent="player"]
-
-visibility/light_mask = 0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
@@ -100,4 +99,3 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
 
-[editable path="player"]

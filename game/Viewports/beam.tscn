@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Viewports/mask.png" type="Texture" id=1]
 [ext_resource path="res://Viewports/beam.gd" type="Script" id=2]
-[ext_resource path="res://Viewports/more-grass-or-lawn.jpg" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -35,13 +34,6 @@ script/script = ExtResource( 2 )
 beam_color = 1
 color_value = Color( 1, 1, 1, 1 )
 
-[node name="more-grass-or-lawn" type="Sprite" parent="."]
-
-visibility/visible = false
-transform/pos = Vector2( -55.0557, -182.516 )
-transform/rot = 0.034671
-texture = ExtResource( 3 )
-
 [node name="light" type="Light2D" parent="."]
 
 transform/rot = 0.034671
@@ -67,6 +59,8 @@ shadow/item_mask = 1
 
 [node name="area" type="Area2D" parent="."]
 
+editor/display_folded = true
+visibility/visible = false
 transform/pos = Vector2( -8.89242, 1.87178 )
 transform/scale = Vector2( 1.67433, 14.3774 )
 input/pickable = true
