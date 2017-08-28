@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Viewports/more-grass-or-lawn.jpg" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Colors/color_dimension.gd" type="Script" id=3]
-[ext_resource path="res://Character/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=6]
 
 [node name="stage" type="Sprite"]
 
@@ -32,7 +33,11 @@ script/script = ExtResource( 3 )
 color_dimension = 4
 physics_body_path = null
 
-[node name="player" parent="." instance=ExtResource( 4 )]
+[node name="platform" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1318.54, 575.364 )
+
+[node name="player" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1314.22, 584.922 )
 
@@ -55,7 +60,7 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="BeamManager" parent="." instance=ExtResource( 5 )]
+[node name="BeamManager" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1353.81, 520.3 )
 speed = -300
