@@ -25,3 +25,6 @@ func changed_color(new_color):
 	else:
 		get_node("light").set_item_mask(beam_color + 1)
 		set_item_mask(beam_color)
+		
+func check_color():
+	return beam_color

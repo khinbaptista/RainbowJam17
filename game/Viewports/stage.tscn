@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Viewports/more-grass-or-lawn.jpg" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Colors/color_dimension.gd" type="Script" id=3]
-[ext_resource path="res://Character/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=6]
 
 [node name="stage" type="Sprite"]
 
@@ -15,24 +16,35 @@ modulate = Color( 0.71875, 0.71875, 0.71875, 1 )
 [node name="Sprite" type="Sprite" parent="."]
 
 visibility/light_mask = 2
-transform/pos = Vector2( 1392.15, 653.175 )
+transform/pos = Vector2( 287.87, 858.093 )
 transform/scale = Vector2( 5.87891, 5.84236 )
 texture = ExtResource( 2 )
 script/script = ExtResource( 3 )
 color_dimension = 2
-physics_body_path = null
 
 [node name="Sprite1" type="Sprite" parent="."]
 
 visibility/light_mask = 4
-transform/pos = Vector2( 1131.87, 519.608 )
+transform/pos = Vector2( 342.556, 348.843 )
 transform/scale = Vector2( 5.87891, 5.84236 )
 texture = ExtResource( 2 )
 script/script = ExtResource( 3 )
 color_dimension = 4
-physics_body_path = null
 
-[node name="player" parent="." instance=ExtResource( 4 )]
+[node name="platform" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1321.42, 611.799 )
+transform/scale = Vector2( 4.58384, 4.58384 )
+
+[node name="platform1" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1420.08, 201.963 )
+transform/scale = Vector2( 4.58384, 4.58384 )
+color_dimension = 2
+
+[node name="player" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1314.22, 584.922 )
 
@@ -55,9 +67,10 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="BeamManager" parent="." instance=ExtResource( 5 )]
+[node name="BeamManager" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1353.81, 520.3 )
 speed = -300
 
 
+[editable path="platform"]

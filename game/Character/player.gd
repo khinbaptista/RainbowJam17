@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 export(bool) var can_move = true
-export(float, 0.0, 500.0, 0.1) var movement_speed = 100
-export(float, 0.0, 500.0, 0.1) var dash_speed = 120
+export(float, 0.0, 1500.0, 0.1) var movement_speed = 100
+export(float, 0.0, 1500.0, 0.1) var dash_speed = 120
 export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
 
 var moved = false		# has the player moved in this frame?
@@ -23,8 +23,7 @@ func _ready():
 func _process(delta):
 	if can_move:
 		input_movement(delta)
-	if not grounded and not dashing:
-		death()
+	if not grounded and not dashing: death()
 
 func _input(event):
 	if can_move:
@@ -68,7 +67,8 @@ func apply_movement(direction, delta):
 			sprite.play("run-right-loop")
 	
 	self.moved = moved
-	if self.moved: self.move(direction * movement_speed * delta)
+	if self.moved:
+		self.move(direction * movement_speed * delta)
 	else: play_anim_stop()
 
 func play_anim_beginloop(anim):
@@ -108,10 +108,10 @@ func dash(direction):
 func learn_color(color):
 	colors_learned += color
 	emit_signal("new_color_learned", color)
-
+	
 func update_checkpoint(pos):
 	lastCheckpoint = pos
-
+	
 func death():
 	var sprite = get_node("Sprite")
 	if sprite.get_sprite_frames().has_animation("death"):
@@ -119,4 +119,3 @@ func death():
 		yield(sprite, "finished")
 	
 	self.set_global_pos(lastCheckpoint)
-	grounded = true

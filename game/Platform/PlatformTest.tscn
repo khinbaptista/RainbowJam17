@@ -1,36 +1,24 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Character/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=3]
 
 [node name="PlatformTest" type="Node"]
 
 [node name="platform" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 541.565, 484.295 )
+transform/pos = Vector2( 712.757, 456.054 )
 transform/scale = Vector2( 2.44779, 2.44779 )
+physics_body_path = null
 
 [node name="platform1" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 329.305, 486.813 )
+transform/pos = Vector2( 332.609, 456.054 )
 transform/scale = Vector2( 2.44779, 2.44779 )
-
-[node name="platform2" parent="." instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 734.628, 484.295 )
-transform/scale = Vector2( 2.44779, 2.44779 )
+physics_body_path = null
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 323.986, 490.081 )
-
-[node name="Checkpoint" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 329.797, 493.436 )
-
-[node name="Checkpoint1" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 543.787, 485.884 )
 
 
