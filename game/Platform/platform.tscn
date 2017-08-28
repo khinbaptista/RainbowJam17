@@ -6,13 +6,13 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 43.3816, 57.0313 )
+extents = Vector2( 12.2408, 17.1885 )
 
 [node name="platform" type="Area2D"]
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.31572, 0, 0, 1.94304, 2.21893, -9.43089 )
+shapes/0/transform = Matrix32( 3.27979, 0, 0, 1.82405, 0.552508, -2.28778 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -22,14 +22,13 @@ script/script = ExtResource( 1 )
 
 [node name="icon" type="Sprite" parent="."]
 
-transform/pos = Vector2( -0.598755, -2.39496 )
-transform/scale = Vector2( 0.5, 0.5 )
+transform/scale = Vector2( 0.142022, 0.142022 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 2.21893, -9.43089 )
-transform/scale = Vector2( 3.31572, 1.94304 )
+transform/pos = Vector2( 0.552508, -2.28778 )
+transform/scale = Vector2( 3.27979, 1.82405 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
