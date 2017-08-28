@@ -74,7 +74,6 @@ speed = -300
 
 [node name="player" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 19.5266, 323.583 )
 transform/scale = Vector2( 0.5, 0.5 )
 movement_speed = 350.0
 dash_duration = 0.3

@@ -23,7 +23,7 @@ func _ready():
 func _process(delta):
 	if can_move:
 		input_movement(delta)
-	if not grounded and not dashing: death()
+#	if not grounded and not dashing: death()
 
 func _input(event):
 	if can_move:
