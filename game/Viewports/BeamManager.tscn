@@ -15,41 +15,41 @@ offset = 217
 
 range/item_mask = 2
 beam_color = 2
-color_value = Color( 1, 0, 0.2, 0.196078 )
+color_value = Color( 1, 0, 0.2, 0.117647 )
 
 [node name="Orange" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 217, 0 )
 range/item_mask = 4
 beam_color = 4
-color_value = Color( 0.71875, 0.4307, 0.140381, 0.196078 )
+color_value = Color( 1, 0.501961, 0, 0.117647 )
 
 [node name="Yellow" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 434, 0 )
 range/item_mask = 8
 beam_color = 8
-color_value = Color( 1, 0.901961, 0, 0.196078 )
+color_value = Color( 1, 0.901961, 0, 0.117647 )
 
 [node name="Green" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 651, 0 )
 range/item_mask = 16
 beam_color = 16
-color_value = Color( 0.101961, 0.701961, 0.301961, 0.196078 )
+color_value = Color( 0.101961, 0.701961, 0.301961, 0.117647 )
 
 [node name="Blue" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 868, 0 )
 range/item_mask = 32
 beam_color = 32
-color_value = Color( 0.101961, 0.4, 1, 0.196078 )
+color_value = Color( 0.101961, 0.4, 1, 0.117647 )
 
 [node name="Purple" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 1085, 0 )
 range/item_mask = 64
 beam_color = 64
-color_value = Color( 0.501961, 0.101961, 0.701961, 0.196078 )
+color_value = Color( 0.501961, 0.101961, 0.701961, 0.117647 )
 
 
