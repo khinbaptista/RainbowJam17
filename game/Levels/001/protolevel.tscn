@@ -82,8 +82,6 @@ speed = -250
 
 [node name="platforms" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="platform" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 127.475, 655.068 )
@@ -96,6 +94,7 @@ transform/pos = Vector2( 132.95, 962.652 )
 [node name="platform2" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 457.934, 959.164 )
+use_timers = true
 
 [node name="platform3" parent="platforms" instance=ExtResource( 3 )]
 

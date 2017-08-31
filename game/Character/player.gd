@@ -116,6 +116,7 @@ func advertise_colors():
 	if colors_learned & 64:	emit_signal("new_color_learned", 64)	# purple
 
 func learn_color(color):
+	if colors_learned & color: return	# color is aleady known
 	colors_learned += color
 	emit_signal("new_color_learned", color)
 	
