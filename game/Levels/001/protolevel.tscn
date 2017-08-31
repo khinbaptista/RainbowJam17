@@ -82,6 +82,8 @@ speed = -250
 
 [node name="platforms" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="platform" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 127.475, 655.068 )
@@ -98,6 +100,7 @@ transform/pos = Vector2( 457.934, 959.164 )
 [node name="platform3" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -745.053, -216.676 )
+use_timers = true
 
 [node name="platform4" parent="platforms" instance=ExtResource( 3 )]
 
@@ -269,9 +272,11 @@ _update_shape_index = 11
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
+editor/display_folded = true
 transform/scale = Vector2( 0.5, 0.5 )
 movement_speed = 350.0
 dash_duration = 0.3
+colors_learned = 126
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
@@ -291,5 +296,14 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="player" method="learn_color" binds= [ 4 ]]
 
 

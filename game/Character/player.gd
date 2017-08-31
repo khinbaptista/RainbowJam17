@@ -20,6 +20,8 @@ func _ready():
 	
 	lastCheckpoint = self.get_global_pos()
 	
+	advertise_colors()
+	
 func _process(delta):
 	if can_move:
 		input_movement(delta)
@@ -104,6 +106,14 @@ func dash(direction):
 		timer += delta
 		yield(get_tree(), "idle_frame")
 	dashing = false
+
+func advertise_colors():
+	if colors_learned & 2:	emit_signal("new_color_learned", 2)		# red
+	if colors_learned & 4:	emit_signal("new_color_learned", 4)		# orange
+	if colors_learned & 8:	emit_signal("new_color_learned", 8)		# yellow
+	if colors_learned & 16:	emit_signal("new_color_learned", 16)	# green
+	if colors_learned & 32:	emit_signal("new_color_learned", 32)	# blue
+	if colors_learned & 64:	emit_signal("new_color_learned", 64)	# purple
 
 func learn_color(color):
 	colors_learned += color

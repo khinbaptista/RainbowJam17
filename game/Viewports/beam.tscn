@@ -10,6 +10,7 @@ extents = Vector2( 10.4938, 31.2276 )
 
 [node name="mask" type="Light2D"]
 
+visibility/visible = false
 transform/scale = Vector2( 2, 2 )
 enabled = true
 editor_only = false

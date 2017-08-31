@@ -17,6 +17,8 @@ func _ready():
 	viewportSize = get_viewport().get_rect().size
 	offset *= get_scale().x
 	
+	player.connect("new_color_learned", self, "player_learned")
+	
 	for beam in beams:
 		if beam.check_color() == 2:
 			red_pos = beam.get_global_pos()
@@ -45,3 +47,17 @@ func _process(delta):
 func MoveBeansInit():
 	for beam in beams:
 		beam.move_local_x(viewportSize.x / 2, false)
+
+func color_index2string(index):
+	if index & 2:	return "red"
+	if index & 4:	return "orange"
+	if index & 8:	return "yellow"
+	if index & 16:	return "green"
+	if index & 32:	return "blue"
+	if index & 64:	return "purple"
+
+func player_learned(new_color):
+	var color_string = color_index2string(new_color)
+	if color_string == null: return
+	
+	get_tree().call_group(0, color_string, "color_revealed")

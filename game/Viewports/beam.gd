@@ -8,6 +8,9 @@ var distance_to_red = 0.0
 func _ready():
 	changed_color(beam_color)
 	changed_color_value(color_value)
+	
+	var color_string = color_index2string(beam_color)
+	if color_string: add_to_group(color_string)
 
 func changed_color_value(value):
 	color_value = value
@@ -30,3 +33,14 @@ func changed_color(new_color):
 		
 func check_color():
 	return beam_color
+
+func color_index2string(index):
+	if index & 2:	return "red"
+	if index & 4:	return "orange"
+	if index & 8:	return "yellow"
+	if index & 16:	return "green"
+	if index & 32:	return "blue"
+	if index & 64:	return "purple"
+
+func color_revealed():
+	show()
