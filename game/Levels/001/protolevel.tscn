@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=1]
-[ext_resource path="res://Colors/color_dimension.gd" type="Script" id=2]
-[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Levels/001/island.png" type="Texture" id=5]
-[ext_resource path="res://Character/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/001/island.png" type="Texture" id=4]
+[ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -74,10 +73,8 @@ extents = Vector2( 25.9422, 18.5657 )
 transform/pos = Vector2( 20.4515, -29.6677 )
 transform/scale = Vector2( 97.3299, 66.34 )
 texture = ExtResource( 1 )
-script/script = ExtResource( 2 )
-color_dimension = 1
 
-[node name="BeamManager" parent="." instance=ExtResource( 3 )]
+[node name="BeamManager" parent="." instance=ExtResource( 2 )]
 
 transform/rot = 24.0
 transform/scale = Vector2( 2.1, 1.5 )
@@ -85,50 +82,50 @@ speed = -250
 
 [node name="platforms" type="Node2D" parent="."]
 
-[node name="platform" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 127.475, 655.068 )
 color_dimension = 34
 
-[node name="platform1" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform1" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 132.95, 962.652 )
 
-[node name="platform2" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform2" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 457.934, 959.164 )
 
-[node name="platform3" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform3" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -745.053, -216.676 )
 
-[node name="platform4" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform4" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 660.548, 32.3768 )
 color_dimension = 2
 
-[node name="platform5" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform5" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1023.97, 28.3169 )
 color_dimension = 4
 
-[node name="platform7" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform7" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1025.64, -336.405 )
 color_dimension = 8
 
-[node name="platform8" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform8" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1561.37, -322.483 )
 transform/scale = Vector2( 3, 3 )
 color_dimension = 0
 
-[node name="platform9" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform9" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1525.49, 161.179 )
 color_dimension = 32
 
-[node name="platform10" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform10" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1754.97, -686.304 )
 color_dimension = 64
@@ -184,7 +181,7 @@ angular_damp = 1.0
 [node name="sprite" type="Sprite" parent="island"]
 
 visibility/light_mask = 0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="island"]
 
@@ -270,9 +267,8 @@ shape = SubResource( 12 )
 trigger = false
 _update_shape_index = 11
 
-[node name="player" parent="." instance=ExtResource( 6 )]
+[node name="player" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1540.46, -327.178 )
 transform/scale = Vector2( 0.5, 0.5 )
 movement_speed = 350.0
 dash_duration = 0.3

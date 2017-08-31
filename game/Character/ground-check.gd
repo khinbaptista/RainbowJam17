@@ -25,9 +25,6 @@ func _fixed_process(delta):
 		if not tile.has_node("sprite"): continue
 		var ground_mask = tile.get_node("sprite").get_light_mask()
 		
-		if tile.get_name() != "island":
-			printt(tile.get_name(), ground_mask)
-		
 		if ground_mask >= 2:	# has a color
 			if beam != null and ground_mask & beam.beam_color:
 				print(beam.get_name())

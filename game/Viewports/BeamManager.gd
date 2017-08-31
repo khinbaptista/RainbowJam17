@@ -17,8 +17,6 @@ func _ready():
 	viewportSize = get_viewport().get_rect().size
 	offset *= get_scale().x
 	
-	get_viewport().connect("size_changed", self, "update_viewport_size")
-	
 	for beam in beams:
 		if beam.check_color() == 2:
 			red_pos = beam.get_global_pos()
@@ -28,11 +26,7 @@ func _ready():
 	set_process(true)
 	MoveBeansInit()
 
-func update_viewport_size():
-	viewportSize = get_viewport().get_rect().size
-
 func _process(delta):
-	#print(camera.get_camera_screen_center())
 	for beam in beams:
 		var beam_pos = beam.get_global_pos()
 		var beam_new_pos
