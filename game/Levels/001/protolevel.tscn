@@ -108,7 +108,7 @@ color_dimension = 2
 
 [node name="platform5" parent="platforms" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1023.97, 28.3169 )
+transform/pos = Vector2( 671.611, -336.406 )
 color_dimension = 4
 
 [node name="platform7" parent="platforms" instance=ExtResource( 3 )]
