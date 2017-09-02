@@ -44,3 +44,14 @@ func color_index2string(index):
 
 func color_revealed():
 	show()
+	
+	var duration = 2.0
+	var timer = 0.0
+	var max_alpha = get_node("sprite").get_modulate().a
+	
+	while timer < duration:
+		var modulation = get_node("sprite").get_modulate()
+		modulation.a = (timer / duration) * max_alpha
+		get_node("sprite").set_modulate(modulation)
+		timer += get_process_delta_time()
+		yield(get_tree(), "idle_frame")
