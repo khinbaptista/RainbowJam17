@@ -11,12 +11,15 @@ var grounded = false	# is the player standing on ground?
 
 var lastCheckpoint = Vector2(0, 0)	# location to respawn
 
+var sound
+
 export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var colors_learned = 0
 signal new_color_learned(color)
 
 func _ready():
 	set_process(true)
 	set_process_input(true)
+	sound = get_parent().get_node("SamplePlayer2D")
 	
 	lastCheckpoint = self.get_global_pos()
 	
@@ -94,6 +97,7 @@ func input_dash(input_event):
 	if not moved: return	# cannot dash if you're not walking
 	if input_event.is_action_pressed("dash") and not input_event.is_echo():
 		dash(self.get_travel().normalized())
+		sound.play("dash1")
 
 func dash(direction):
 	dashing = true
