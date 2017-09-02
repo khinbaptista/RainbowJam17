@@ -91,7 +91,7 @@ func play_anim_stop():
 	
 	sprite.play(anim_name)
 	yield(sprite, "finished")
-	if not moved: sprite.play("idle")
+	get_node("timer_idle").start()
 
 func input_dash(input_event):
 	if not moved: return	# cannot dash if you're not walking
