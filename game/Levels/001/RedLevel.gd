@@ -9,4 +9,4 @@ func _ready():
 	music.set_loop_format(music.LOOP_FORWARD)
 	music.set_loop_begin(0)
 	music.set_loop_end(music.get_length())
-	get_node("SamplePlayer2D").play("Iris (Continuous Loop)")
+	get_node("player/SamplePlayer2D").play("Iris (Continuous Loop)")

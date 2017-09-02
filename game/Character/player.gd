@@ -19,11 +19,11 @@ signal new_color_learned(color)
 func _ready():
 	set_process(true)
 	set_process_input(true)
-	sound = get_parent().get_node("SamplePlayer2D")
+	sound = get_node("SamplePlayer2D")
 	
 	lastCheckpoint = self.get_global_pos()
 	
-	get_node("/root/save").load_saved(self)
+#	get_node("/root/save").load_saved(self)
 	
 	advertise_colors()
 	

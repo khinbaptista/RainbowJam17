@@ -28,7 +28,7 @@ animations = [ {
 "name": "spawn",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), null ],
 "loop": false,
 "name": "destroy",
 "speed": 8.0
@@ -66,6 +66,7 @@ angular_damp = 1.0
 script/script = ExtResource( 1 )
 color_dimension = 1
 use_timers = false
+destructible = false
 duration_on = 5.0
 duration_off = 3.0
 
@@ -107,6 +108,8 @@ process_mode = 1
 wait_time = 3.0
 one_shot = true
 autostart = false
+
+[connection signal="body_enter" from="." to="." method="_on_platform_body_enter"]
 
 [connection signal="timeout" from="Timer" to="Timer 2" method="start"]
 

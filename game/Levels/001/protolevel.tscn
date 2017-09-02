@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://Levels/001/protolevel.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
@@ -7,8 +7,7 @@
 [ext_resource path="res://Levels/001/island.png" type="Texture" id=5]
 [ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Character/player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sounds/Iris (Continuous Loop).wav" type="Sample" id=8]
-[ext_resource path="res://Sounds/dash1.wav" type="Sample" id=9]
+[ext_resource path="res://Sounds/Music.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -59,21 +58,6 @@ points = Vector2Array( 259.061, -166.338, 259.061, -67.6074, 216.102, -66.1001, 
 
 custom_solver_bias = 0.0
 points = Vector2Array( -187.112, 103.476, -23.5655, -136.191, 57.8309, -139.206, 115.11, 141.159, 42.7575, 194.67, -34.1169, 195.424, -123.05, 195.424 )
-
-[sub_resource type="SampleLibrary" id=11]
-
-"samples/Iris (Continuous Loop)" = {
-"db": 0.0,
-"pitch": 1.0,
-"priority": 0,
-"sample": ExtResource( 8 )
-}
-samples/dash1 = {
-"db": 0.0,
-"pitch": 1.0,
-"priority": 0,
-"sample": ExtResource( 9 )
-}
 
 [node name="protolevel" type="Node2D"]
 
@@ -149,7 +133,6 @@ color_dimension = 64
 "ground",
 ]]
 
-editor/display_folded = true
 transform/scale = Vector2( 2, 2 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -190,6 +173,8 @@ angular_damp = 1.0
 [node name="sprite" type="Sprite" parent="island"]
 
 visibility/light_mask = 0
+transform/pos = Vector2( -12.674, -6.64453 )
+transform/scale = Vector2( 0.167037, 0.167037 )
 texture = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island"]
@@ -240,16 +225,7 @@ wait_time = 5.0
 one_shot = true
 autostart = false
 
-[node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
-
-params/volume_db = 0.0
-params/pitch_scale = 1.0
-params/attenuation/min_distance = 1.0
-params/attenuation/max_distance = 2048.0
-params/attenuation/distance_exp = 1.0
-config/polyphony = 5
-config/samples = SubResource( 11 )
-config/pitch_random = 0.0
+[node name="SamplePlayer2D" parent="." instance=ExtResource( 8 )]
 
 [connection signal="timeout" from="Timer" to="player" method="learn_color" binds= [ 4 ]]
 

@@ -3,14 +3,20 @@ extends Area2D
 export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var color_dimension = 1
 onready var sprite = get_node("sprite")
 
+var activated = true
+
 export(bool) var use_timers = false
+export(bool) var destructible = false
 export(float) var duration_on = 5.0
 export(float) var duration_off = 3.0
 
 func _ready():
 	sprite.set_light_mask(color_dimension)
 	
-	if use_timers:
+	if destructible:
+		activated = false
+	
+	if use_timers and !destructible:
 		get_node("Timer").set_wait_time(duration_on)
 		get_node("Timer 2").set_wait_time(duration_off)
 		get_node("Timer").start()
@@ -40,13 +46,25 @@ func spawn():
 	set_collision_mask_bit(0, true)
 	set_layer_mask_bit(0, true)
 	get_node("AnimationPlayer").play_backwards("destroy")
+	if destructible:
+		activated = false
 
 func destroy():
-	sprite.play("destroy")
-	get_node("AnimationPlayer").play("destroy")
-	yield(sprite, "finished")
+	if activated: # if the platform is destructible, only destroy when activated
+		sprite.play("destroy")
+		get_node("AnimationPlayer").play("destroy")
+		yield(sprite, "finished")
 	
-	sprite.hide()
-	set_collision_mask_bit(0, false)
-	set_layer_mask_bit(0, false)
-	get_node("CollisionShape2D").set_scale(Vector2(1, 1))
+		sprite.hide()
+		set_collision_mask_bit(0, false)
+		set_layer_mask_bit(0, false)
+		get_node("CollisionShape2D").set_scale(Vector2(1, 1))
+
+
+func _on_platform_body_enter( body ): # if destructible, activates on body enter
+	if destructible and body.get_name() == "player":
+		body.connect("death", self, "spawn")
+		get_node("Timer").set_wait_time(duration_on)
+		get_node("Timer 2").set_wait_time(duration_off)
+		get_node("Timer").start()
+		activated = true
