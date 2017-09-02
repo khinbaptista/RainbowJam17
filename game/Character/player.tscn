@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=1]
+[gd_scene load_steps=37 format=1]
 
 [ext_resource path="res://Character/player.gd" type="Script" id=1]
 [ext_resource path="res://Character/sprites/pose.png" type="Texture" id=2]
@@ -16,22 +16,23 @@
 [ext_resource path="res://Character/sprites/run-up/005.png" type="Texture" id=14]
 [ext_resource path="res://Character/sprites/run-up/006.png" type="Texture" id=15]
 [ext_resource path="res://Character/sprites/run-up/007.png" type="Texture" id=16]
-[ext_resource path="res://Character/sprites/run-down/008.png" type="Texture" id=17]
-[ext_resource path="res://Character/sprites/run-down/009.png" type="Texture" id=18]
-[ext_resource path="res://Character/sprites/run-up/000.png" type="Texture" id=19]
-[ext_resource path="res://Character/sprites/run-up/001.png" type="Texture" id=20]
-[ext_resource path="res://Character/sprites/run-up/002.png" type="Texture" id=21]
-[ext_resource path="res://Character/sprites/run-right/007.png" type="Texture" id=22]
-[ext_resource path="res://Character/sprites/run-right/008.png" type="Texture" id=23]
-[ext_resource path="res://Character/sprites/run-right/009.png" type="Texture" id=24]
-[ext_resource path="res://Character/sprites/run-right/000.png" type="Texture" id=25]
-[ext_resource path="res://Character/sprites/run-right/001.png" type="Texture" id=26]
-[ext_resource path="res://Character/sprites/run-right/002.png" type="Texture" id=27]
-[ext_resource path="res://Character/sprites/run-right/003.png" type="Texture" id=28]
-[ext_resource path="res://Character/sprites/run-right/004.png" type="Texture" id=29]
-[ext_resource path="res://Character/sprites/run-right/005.png" type="Texture" id=30]
-[ext_resource path="res://Character/sprites/run-right/006.png" type="Texture" id=31]
+[ext_resource path="res://Character/sprites/run-right/000.png" type="Texture" id=17]
+[ext_resource path="res://Character/sprites/run-right/001.png" type="Texture" id=18]
+[ext_resource path="res://Character/sprites/run-right/002.png" type="Texture" id=19]
+[ext_resource path="res://Character/sprites/run-right/003.png" type="Texture" id=20]
+[ext_resource path="res://Character/sprites/run-right/004.png" type="Texture" id=21]
+[ext_resource path="res://Character/sprites/run-right/005.png" type="Texture" id=22]
+[ext_resource path="res://Character/sprites/run-right/006.png" type="Texture" id=23]
+[ext_resource path="res://Character/sprites/run-right/007.png" type="Texture" id=24]
+[ext_resource path="res://Character/sprites/run-right/008.png" type="Texture" id=25]
+[ext_resource path="res://Character/sprites/run-right/009.png" type="Texture" id=26]
+[ext_resource path="res://Character/sprites/run-down/008.png" type="Texture" id=27]
+[ext_resource path="res://Character/sprites/run-down/009.png" type="Texture" id=28]
+[ext_resource path="res://Character/sprites/run-up/000.png" type="Texture" id=29]
+[ext_resource path="res://Character/sprites/run-up/001.png" type="Texture" id=30]
+[ext_resource path="res://Character/sprites/run-up/002.png" type="Texture" id=31]
 [ext_resource path="res://Character/ground-check.gd" type="Script" id=32]
+[ext_resource path="res://Character/interaction.gd" type="Script" id=33]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -61,29 +62,29 @@ animations = [ {
 "name": "run-up-loop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "run-down-stop",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "run-up-begin",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "run-right-begin",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "run-right-loop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": false,
 "name": "run-right-stop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "run-right-begin",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "run-down-stop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": false,
+"name": "run-up-begin",
 "speed": 8.0
 } ]
 
@@ -91,6 +92,11 @@ animations = [ {
 
 custom_solver_bias = 0.0
 radius = 34.1707
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 225.584
 
 [node name="player" type="KinematicBody2D"]
 
@@ -114,6 +120,7 @@ animation = "idle"
 
 [node name="groundcheck" type="Area2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -127,6 +134,26 @@ script/script = ExtResource( 32 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="groundcheck"]
 
 shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="interaction_reach" type="Area2D" parent="."]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -72 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 33 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_reach"]
+
+transform/pos = Vector2( 0, -72 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
