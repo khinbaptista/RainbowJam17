@@ -5,7 +5,7 @@ export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet")
 export(NodePath) var player_path = @""
 onready var player = get_node(player_path)
 
-func activate():
+func interaction():
 	var sprite = get_node("Sprite")
 	if sprite.has_method("play"):
 		sprite.play("break")
