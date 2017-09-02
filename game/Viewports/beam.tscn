@@ -37,7 +37,6 @@ color_value = Color( 1, 1, 1, 1 )
 
 [node name="light" type="Light2D" parent="."]
 
-visibility/visible = false
 transform/rot = 0.034671
 enabled = true
 editor_only = false

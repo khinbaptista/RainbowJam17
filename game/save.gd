@@ -17,7 +17,7 @@ func load_saved(player):
 		printerr("Save file doesn't exist")
 		return
 	
-	file.open("user://savefile.txt", File.READ)
+	savefile.open("user://savefile.txt", File.READ)
 	
 	var dict = {}
 	dict.parse_json(savefile.get_line())
