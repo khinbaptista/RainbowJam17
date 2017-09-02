@@ -8,13 +8,13 @@
 [ext_resource path="res://Crystal/sprites/004.png" type="Texture" id=6]
 [ext_resource path="res://Crystal/sprites/005.png" type="Texture" id=7]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 30.3937
 height = 41.5416
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
@@ -26,7 +26,7 @@ animations = [ {
 [node name="crystal" type="StaticBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -42,15 +42,15 @@ player_path = NodePath("")
 [node name="sprite" type="AnimatedSprite" parent="."]
 
 transform/scale = Vector2( 0.3, 0.3 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 6
+frame = 9
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 visibility/visible = false
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
