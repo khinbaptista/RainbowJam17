@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=1]
 [ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/001/island.png" type="Texture" id=4]
-[ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Character/player.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -81,6 +82,8 @@ transform/scale = Vector2( 2.1, 1.5 )
 speed = -250
 
 [node name="platforms" type="Node2D" parent="."]
+
+editor/display_folded = true
 
 [node name="platform" parent="platforms" instance=ExtResource( 3 )]
 
@@ -269,13 +272,19 @@ shape = SubResource( 12 )
 trigger = false
 _update_shape_index = 11
 
-[node name="player" parent="." instance=ExtResource( 5 )]
+[node name="crystal" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 208.013, -180.881 )
+color = 2
+player_path = NodePath("../player")
+
+[node name="player" parent="." instance=ExtResource( 6 )]
 
 editor/display_folded = true
 transform/scale = Vector2( 0.5, 0.5 )
 movement_speed = 350.0
 dash_duration = 0.3
-colors_learned = 126
+colors_learned = 124
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
