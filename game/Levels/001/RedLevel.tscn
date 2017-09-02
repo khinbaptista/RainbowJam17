@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=1]
+[gd_scene load_steps=57 format=1]
 
 [ext_resource path="res://Levels/001/RedLevel.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Plants/Bush + shadow.png" type="Texture" id=11]
 [ext_resource path="res://Levels/001/Deer/Deer.gd" type="Script" id=12]
 [ext_resource path="res://Levels/001/Deer/AnimatedFrames.tres" type="SpriteFrames" id=13]
+[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -250,6 +251,8 @@ speed = -250
 
 [node name="platforms" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="platform10" parent="platforms" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1053, -2557 )
@@ -291,6 +294,7 @@ transform/pos = Vector2( 620, -2294 )
 "ground",
 ]]
 
+editor/display_folded = true
 transform/scale = Vector2( 2, 2 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -582,13 +586,6 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
-
-[node name="Timer" type="Timer" parent="."]
-
-process_mode = 1
-wait_time = 5.0
-one_shot = true
-autostart = true
 
 [node name="island1Flora" type="Node2D" parent="."]
 
@@ -943,7 +940,15 @@ transform/scale = Vector2( 0.72192, 0.72192 )
 texture = ExtResource( 10 )
 modulate = Color( 0.890625, 0.890625, 0.890625, 0.650275 )
 
-[connection signal="timeout" from="Timer" to="player" method="learn_color" binds= [ 4 ]]
+[node name="Checkpoint" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 878.5, -3457 )
+transform/scale = Vector2( 5.64063, 7.9375 )
+
+[node name="Checkpoint1" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 601, -2043 )
+transform/scale = Vector2( 5.64063, 2.875 )
 
 [connection signal="body_enter" from="island1Flora/Deer" to="island1Flora/Deer/Path2D" method="_on_Deer_body_enter"]
 
