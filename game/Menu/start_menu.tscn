@@ -1,25 +1,31 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://Menu/start_menu.gd" type="Script" id=1]
 [ext_resource path="res://Levels/001/RedLevel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=3]
-[ext_resource path="res://Menu/icons/play.png" type="Texture" id=4]
-[ext_resource path="res://Menu/icons/play2.png" type="Texture" id=5]
-[ext_resource path="res://Menu/icons/quit.png" type="Texture" id=6]
-[ext_resource path="res://Menu/icons/quit2.png" type="Texture" id=7]
-[ext_resource path="res://Platform/sprites/000.png" type="Texture" id=8]
-[ext_resource path="res://Plants/Tree + shadow.png" type="Texture" id=9]
-[ext_resource path="res://Character/sprites/idle/000.png" type="Texture" id=10]
-[ext_resource path="res://Character/sprites/idle/001.png" type="Texture" id=11]
-[ext_resource path="res://Character/sprites/idle/002.png" type="Texture" id=12]
-[ext_resource path="res://Character/sprites/idle/003.png" type="Texture" id=13]
-[ext_resource path="res://Character/sprites/idle/004.png" type="Texture" id=14]
-[ext_resource path="res://Character/sprites/idle/005.png" type="Texture" id=15]
+[ext_resource path="res://Menu/background.png" type="Texture" id=3]
+[ext_resource path="res://Menu/particle.png" type="Texture" id=4]
+[ext_resource path="res://Menu/icons/play.png" type="Texture" id=5]
+[ext_resource path="res://Menu/icons/play2.png" type="Texture" id=6]
+[ext_resource path="res://Menu/icons/quit.png" type="Texture" id=7]
+[ext_resource path="res://Menu/icons/quit2.png" type="Texture" id=8]
+[ext_resource path="res://Character/sprites/idle/000.png" type="Texture" id=9]
+[ext_resource path="res://Character/sprites/idle/001.png" type="Texture" id=10]
+[ext_resource path="res://Character/sprites/idle/002.png" type="Texture" id=11]
+[ext_resource path="res://Character/sprites/idle/003.png" type="Texture" id=12]
+[ext_resource path="res://Character/sprites/idle/004.png" type="Texture" id=13]
+[ext_resource path="res://Character/sprites/idle/005.png" type="Texture" id=14]
+[ext_resource path="res://Menu/Ground+tree.png" type="Texture" id=15]
+[ext_resource path="res://Menu/LOGO-IRIS.png" type="Texture" id=16]
+
+[sub_resource type="ColorRamp" id=2]
+
+offsets = FloatArray( 0, 0.303922, 0.656863, 1 )
+colors = ColorArray( 0.780392, 0.368627, 0.745098, 0, 1, 0.447059, 0.741176, 1, 0.878906, 0.377655, 0.718349, 1, 0.554051, 0.181274, 0.644531, 0 )
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "idle",
 "speed": 4.5
@@ -40,37 +46,68 @@ margin/bottom = 0.0
 script/script = ExtResource( 1 )
 next_scene = ExtResource( 2 )
 
-[node name="TextureFrame" type="TextureFrame" parent="."]
+[node name="background" type="Sprite" parent="."]
 
-rect/scale = Vector2( 30, 18 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 54.0
-margin/bottom = 52.0
+editor/display_folded = true
+transform/pos = Vector2( 1733.07, 478.385 )
+transform/scale = Vector2( 0.869792, 0.869792 )
 texture = ExtResource( 3 )
-stretch_mode = 0
+offset = Vector2( -1090, -10 )
+
+[node name="Particles2D1" type="Particles2D" parent="background"]
+
+transform/pos = Vector2( -538.144, -331.916 )
+transform/scale = Vector2( 1, 1 )
+config/amount = 10
+config/lifetime = 4.0
+config/time_scale = 0.5
+config/preprocess = 4.0
+config/process_mode = 1
+config/half_extents = Vector2( 500, 500 )
+config/texture = ExtResource( 4 )
+params/direction = 315.0
+params/spread = 40.0
+params/linear_velocity = 100.0
+params/spin_velocity = 2.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 1.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.2
+params/final_size = 0.1
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 1.0
+randomness/spread = 5.0
+randomness/linear_velocity = 0.4
+randomness/gravity_strength = 0.4
+randomness/initial_size = 0.3
+randomness/final_size = 0.2
+color/color = Color( 1, 0.447059, 0.741176, 1 )
+color/color_ramp = SubResource( 2 )
 
 [node name="start" type="TextureButton" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 300.0
-margin/top = 373.0
-margin/right = 454.0
-margin/bottom = 532.0
+margin/left = 190.0
+margin/top = 280.0
+margin/right = 430.0
+margin/bottom = 520.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 4 )
-textures/focused = ExtResource( 5 )
+textures/normal = ExtResource( 5 )
+textures/focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 0.6, 0.6 )
+params/scale = Vector2( 0.4, 0.4 )
 params/stretch_mode = 0
 
 [node name="focus" type="TextureButton" parent="start"]
@@ -87,28 +124,29 @@ margin/bottom = 40.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 5 )
+textures/normal = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 0.6, 0.6 )
+params/scale = Vector2( 0.4, 0.4 )
 params/stretch_mode = 0
 
 [node name="quit" type="TextureButton" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 305.0
-margin/top = 622.0
-margin/right = 444.0
-margin/bottom = 756.0
+margin/left = 190.0
+margin/top = 510.0
+margin/right = 430.0
+margin/bottom = 750.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 6 )
-textures/focused = ExtResource( 7 )
+textures/normal = ExtResource( 7 )
+textures/focused = ExtResource( 8 )
 params/resize_mode = 0
-params/scale = Vector2( 0.2, 0.2 )
+params/scale = Vector2( 0.4, 0.4 )
 params/stretch_mode = 0
 
 [node name="focus" type="TextureButton" parent="quit"]
@@ -125,34 +163,42 @@ margin/bottom = 40.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 7 )
+textures/normal = ExtResource( 8 )
 params/resize_mode = 0
-params/scale = Vector2( 0.2, 0.2 )
+params/scale = Vector2( 0.4, 0.4 )
 params/stretch_mode = 0
 
-[node name="000" type="Sprite" parent="."]
+[node name="idle" type="AnimatedSprite" parent="."]
 
-transform/pos = Vector2( 1109.02, 747.05 )
-texture = ExtResource( 8 )
-modulate = Color( 0.332031, 0.937378, 1, 1 )
+transform/pos = Vector2( 1140, 510 )
+transform/scale = Vector2( 0.360976, 0.360976 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 23
+playing = true
+offset = Vector2( -11.7238, 117.833 )
 
-[node name="Tree + shadow" type="Sprite" parent="."]
+[node name="ground+tree" type="Sprite" parent="."]
 
-transform/pos = Vector2( 1111.72, 426.829 )
-texture = ExtResource( 9 )
-modulate = Color( 0.20343, 0.28149, 0.515625, 1 )
+editor/display_folded = true
+transform/pos = Vector2( 1733.07, 478.385 )
+transform/scale = Vector2( 0.869792, 0.869792 )
+texture = ExtResource( 15 )
+offset = Vector2( -1090, -10 )
 
-[node name="Particles2D" type="Particles2D" parent="Tree + shadow"]
+[node name="Particles2D" type="Particles2D" parent="ground+tree"]
 
-transform/pos = Vector2( -181.167, -41.4064 )
-transform/scale = Vector2( 3.49234, 5.29218 )
+transform/pos = Vector2( -538.144, -331.916 )
 config/amount = 15
 config/lifetime = 4.0
 config/time_scale = 0.5
+config/preprocess = 4.0
 config/process_mode = 1
-params/direction = 0.0
-params/spread = 80.0
-params/linear_velocity = 8.0
+config/half_extents = Vector2( 500, 500 )
+config/texture = ExtResource( 4 )
+params/direction = 315.0
+params/spread = 40.0
+params/linear_velocity = 100.0
 params/spin_velocity = 2.0
 params/orbit_velocity = 0.0
 params/gravity_direction = 0.0
@@ -161,106 +207,25 @@ params/radial_accel = 0.0
 params/tangential_accel = 0.0
 params/damping = 0.0
 params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 1.0
+params/initial_size = 0.2
+params/final_size = 0.1
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 randomness/direction = 1.0
 randomness/spread = 5.0
-color/color = Color( 0.788112, 0.546432, 0.808594, 1 )
+randomness/linear_velocity = 0.4
+randomness/gravity_strength = 0.4
+randomness/initial_size = 0.3
+randomness/final_size = 0.2
+color/color = Color( 1, 0.447059, 0.741176, 1 )
+color/color_ramp = SubResource( 2 )
 
-[node name="Particles2D1" type="Particles2D" parent="Tree + shadow"]
+[node name="logo" type="Sprite" parent="."]
 
-transform/pos = Vector2( 153.606, -47.6259 )
-transform/scale = Vector2( 3.49234, 5.29218 )
-config/amount = 15
-config/lifetime = 4.0
-config/time_scale = 0.5
-config/process_mode = 1
-params/direction = 0.0
-params/spread = 80.0
-params/linear_velocity = 8.0
-params/spin_velocity = 2.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 0.0
-params/gravity_strength = 1.0
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 1.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-randomness/direction = 1.0
-randomness/spread = 80.0
-color/color = Color( 0.788112, 0.546432, 0.808594, 1 )
-
-[node name="Particles2D2" type="Particles2D" parent="Tree + shadow"]
-
-transform/pos = Vector2( -71.0934, -37.084 )
-transform/scale = Vector2( 3.49234, 5.29218 )
-config/amount = 15
-config/lifetime = 4.0
-config/time_scale = 0.5
-config/process_mode = 1
-params/direction = 0.0
-params/spread = 80.0
-params/linear_velocity = 8.0
-params/spin_velocity = 2.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 0.0
-params/gravity_strength = 1.0
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 1.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-randomness/direction = 1.0
-randomness/spread = 80.0
-color/color = Color( 0.788112, 0.546432, 0.808594, 1 )
-
-[node name="Particles2D3" type="Particles2D" parent="Tree + shadow"]
-
-transform/pos = Vector2( 47.9865, -28.04 )
-transform/scale = Vector2( 3.49234, 5.29218 )
-config/amount = 15
-config/lifetime = 4.0
-config/time_scale = 0.5
-config/process_mode = 1
-params/direction = 0.0
-params/spread = 80.0
-params/linear_velocity = 8.0
-params/spin_velocity = 2.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 0.0
-params/gravity_strength = 1.0
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 1.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-randomness/direction = 1.0
-randomness/spread = 80.0
-color/color = Color( 0.788112, 0.546432, 0.808594, 1 )
-
-[node name="idle" type="AnimatedSprite" parent="."]
-
-transform/pos = Vector2( 895.768, 702.535 )
-transform/scale = Vector2( 0.360976, 0.360976 )
-frames = SubResource( 1 )
-animation = "idle"
-frame = 28
-playing = true
+transform/pos = Vector2( 370, 230 )
+transform/scale = Vector2( 0.683333, 0.683333 )
+texture = ExtResource( 16 )
+offset = Vector2( -130, -160 )
 
 
