@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Menu/Credits.gd" type="Script" id=1]
+[ext_resource path="res://Menu/start_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=3]
+[ext_resource path="res://Menu/icons/back.png" type="Texture" id=4]
+
+[node name="Credits" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1600.0
+margin/bottom = 900.0
+script/script = ExtResource( 1 )
+next_scene = ExtResource( 2 )
+
+[node name="WhiteBox" type="Sprite" parent="."]
+
+transform/pos = Vector2( 802.363, 425.137 )
+transform/scale = Vector2( 30, 20 )
+texture = ExtResource( 3 )
+modulate = Color( 0.207084, 0.115814, 0.269531, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+
+rect/scale = Vector2( 4, 4 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 175.0
+margin/top = 177.0
+margin/right = 521.0
+margin/bottom = 311.0
+bbcode/enabled = false
+bbcode/bbcode = "Khin Baptista (programming and development)
+Marcelo Vasques (programming and development)
+Rubens Rodrigues (2d art)
+Vinicius Meirelles Pereira (2d art, level design)
+
+Music by Christopher Hollis"
+visible_characters = -1
+percent_visible = 1.0
+
+[node name="back" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 694.0
+margin/top = 624.0
+margin/right = 899.0
+margin/bottom = 829.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 4 )
+params/resize_mode = 0
+params/scale = Vector2( 0.4, 0.4 )
+params/stretch_mode = 0
+
+
