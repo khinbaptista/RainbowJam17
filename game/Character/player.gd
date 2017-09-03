@@ -50,7 +50,17 @@ func input_movement(delta):
 	if Input.is_action_pressed("move_right"):
 		movement.x += 1
 
-	apply_movement(movement.normalized(), delta)
+	movement = check_controller_input(movement.normalized())
+
+	apply_movement(movement, delta)
+
+func check_controller_input(dir):
+	var axis = Vector2(Input.get_joy_axis(0, 0), Input.get_joy_axis(0, 1))
+	
+	if sign(axis.x) == sign(dir.x) and sign(axis.y) == sign(dir.y):
+		return axis
+	
+	return dir
 
 func apply_movement(direction, delta):
 	var sprite = get_node("Sprite")
