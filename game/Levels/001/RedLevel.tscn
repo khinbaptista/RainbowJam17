@@ -260,6 +260,8 @@ speed = -250
 
 [node name="platforms" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="platform14" parent="platforms" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 699.181, -2898.27 )
@@ -358,7 +360,7 @@ modulate = Color( 1, 0.901961, 0, 1 )
 
 editor/display_folded = true
 transform/pos = Vector2( 2699, -4073 )
-color_dimension = 2
+color_dimension = 0
 
 [node name="platform26" parent="platforms" instance=ExtResource( 4 )]
 
@@ -967,7 +969,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal"]
 
-frame = 2
+frame = 4
 
 [node name="press_e" type="Sprite" parent="crystal"]
 
@@ -1004,6 +1006,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal1"]
 
+frame = 5
 modulate = Color( 1, 0.501961, 0, 1 )
 
 [node name="crystal2" parent="." instance=ExtResource( 8 )]
@@ -1016,20 +1019,20 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal2"]
 
-frame = 0
+frame = 2
 modulate = Color( 1, 0.901961, 0, 1 )
 
 [node name="crystal3" parent="." instance=ExtResource( 8 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -2215.5, -3643.5 )
+transform/pos = Vector2( -2215, -3699 )
 transform/scale = Vector2( 0.421875, 0.421875 )
 crystal_color = 8
 player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal3"]
 
-frame = 4
+frame = 7
 modulate = Color( 0.101961, 0.701961, 0.301961, 1 )
 
 [node name="player" parent="." instance=ExtResource( 11 )]

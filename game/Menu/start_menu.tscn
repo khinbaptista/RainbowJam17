@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://Menu/start_menu.gd" type="Script" id=1]
 [ext_resource path="res://Levels/001/RedLevel.tscn" type="PackedScene" id=2]
@@ -8,47 +8,36 @@
 [ext_resource path="res://Menu/icons/play2.png" type="Texture" id=6]
 [ext_resource path="res://Menu/icons/quit.png" type="Texture" id=7]
 [ext_resource path="res://Menu/icons/quit2.png" type="Texture" id=8]
-[ext_resource path="res://Character/sprites/idle/000.png" type="Texture" id=9]
-[ext_resource path="res://Character/sprites/idle/001.png" type="Texture" id=10]
-[ext_resource path="res://Character/sprites/idle/002.png" type="Texture" id=11]
-[ext_resource path="res://Character/sprites/idle/003.png" type="Texture" id=12]
-[ext_resource path="res://Character/sprites/idle/004.png" type="Texture" id=13]
-[ext_resource path="res://Character/sprites/idle/005.png" type="Texture" id=14]
-[ext_resource path="res://Menu/Frames Idle Menu/000.png" type="Texture" id=15]
-[ext_resource path="res://Menu/Frames Idle Menu/001.png" type="Texture" id=16]
-[ext_resource path="res://Menu/Frames Idle Menu/002.png" type="Texture" id=17]
-[ext_resource path="res://Menu/Frames Idle Menu/003.png" type="Texture" id=18]
-[ext_resource path="res://Menu/Frames Idle Menu/004.png" type="Texture" id=19]
-[ext_resource path="res://Menu/Ground+tree.png" type="Texture" id=20]
-[ext_resource path="res://Menu/LOGO-IRIS.png" type="Texture" id=21]
-[ext_resource path="res://Sounds/menu.wav" type="Sample" id=22]
+[ext_resource path="res://Menu/Frames Idle Menu/000.png" type="Texture" id=9]
+[ext_resource path="res://Menu/Frames Idle Menu/001.png" type="Texture" id=10]
+[ext_resource path="res://Menu/Frames Idle Menu/002.png" type="Texture" id=11]
+[ext_resource path="res://Menu/Frames Idle Menu/003.png" type="Texture" id=12]
+[ext_resource path="res://Menu/Frames Idle Menu/004.png" type="Texture" id=13]
+[ext_resource path="res://Menu/Ground+tree.png" type="Texture" id=14]
+[ext_resource path="res://Menu/LOGO-IRIS.png" type="Texture" id=15]
+[ext_resource path="res://Sounds/menu.wav" type="Sample" id=16]
 
 [sub_resource type="ColorRamp" id=1]
 
 offsets = FloatArray( 0, 0.303922, 0.656863, 1 )
 colors = ColorArray( 0.780392, 0.368627, 0.745098, 0, 1, 0.447059, 0.741176, 1, 0.878906, 0.377655, 0.718349, 1, 0.554051, 0.181274, 0.644531, 0 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "idle",
-"speed": 4.5
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "idle2",
+"name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="SampleLibrary" id=3]
+[sub_resource type="SampleLibrary" id=2]
 
 samples/menu = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 22 )
+"sample": ExtResource( 16 )
 }
 
 [node name="start_menu" type="Control"]
@@ -190,9 +179,9 @@ params/stretch_mode = 0
 
 transform/pos = Vector2( 810, 450 )
 transform/scale = Vector2( 0.445633, 0.445633 )
-frames = SubResource( 2 )
-animation = "idle2"
-frame = 16
+frames = SubResource( 3 )
+animation = "default"
+frame = 11
 playing = true
 offset = Vector2( -11.7238, 117.833 )
 
@@ -200,7 +189,7 @@ offset = Vector2( -11.7238, 117.833 )
 
 transform/pos = Vector2( 1733.07, 478.385 )
 transform/scale = Vector2( 0.869792, 0.869792 )
-texture = ExtResource( 20 )
+texture = ExtResource( 14 )
 offset = Vector2( -1090, -10 )
 
 [node name="Particles2D" type="Particles2D" parent="ground+tree"]
@@ -242,7 +231,7 @@ color/color_ramp = SubResource( 1 )
 
 transform/pos = Vector2( 358.247, 295.481 )
 transform/scale = Vector2( 0.856389, 0.856389 )
-texture = ExtResource( 21 )
+texture = ExtResource( 15 )
 offset = Vector2( -130, -160 )
 
 [node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
@@ -253,7 +242,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 3 )
+config/samples = SubResource( 2 )
 config/pitch_random = 0.0
 
 
