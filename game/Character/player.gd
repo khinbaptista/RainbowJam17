@@ -4,12 +4,15 @@ export(bool) var can_move = true
 export(float, 0.0, 1500.0, 0.1) var movement_speed = 100
 export(float, 0.0, 1500.0, 0.1) var dash_speed = 120
 export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
+export(float, 0.0, 10.0, 0.1) var dash_interval = 0.5
 
 var moved = false	# has the player moved in this frame?
 var dashing = false	# is the player dashing?
 var grounded = false	# is the player standing on ground?
+var canDash = true
 
 var lastCheckpoint = Vector2(0, 0)	# location to respawn
+var lastDash = 0.0 # timer to control interval between dashes
 
 var sound
 
@@ -35,6 +38,9 @@ func _process(delta):
 	if not grounded and not dashing: death()
 	if not grounded: get_node("shadow").hide()
 	else: get_node("shadow").show()
+	
+	if lastDash > 0: lastDash -= delta
+	else: canDash = true
 
 func _input(event):
 	if can_move:
@@ -113,7 +119,7 @@ func play_anim_stop():
 	get_node("timer_idle").start()
 
 func input_dash(input_event):
-	if not moved: return	# cannot dash if you're not walking
+	if not moved or not canDash: return # cannot dash if you're not walking
 	if input_event.is_action_pressed("dash") and not input_event.is_echo():
 		dash(self.get_travel().normalized())
 		sound.play("dash1")
@@ -135,6 +141,9 @@ func dash(direction):
 	
 	play_anim_stop()
 	dashing = false
+	
+	lastDash = dash_interval
+	canDash = false
 
 func advertise_colors():
 	if colors_learned & 2:	emit_signal("new_color_learned", 2)	# red
