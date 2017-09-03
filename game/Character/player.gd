@@ -4,7 +4,7 @@ export(bool) var can_move = true
 export(float, 0.0, 1500.0, 0.1) var movement_speed = 100
 export(float, 0.0, 1500.0, 0.1) var dash_speed = 120
 export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
-export(float, 0.0, 10.0, 0.1) var dash_interval = 0.5
+export(float, 0.0, 10.0, 0.1) var dash_interval = 0.2
 
 var moved = false	# has the player moved in this frame?
 var dashing = false	# is the player dashing?
@@ -120,30 +120,31 @@ func play_anim_stop():
 
 func input_dash(input_event):
 	if not moved or not canDash: return # cannot dash if you're not walking
-	if input_event.is_action_pressed("dash") and not input_event.is_echo():
+	if input_event.is_action_pressed("dash") and not input_event.is_echo() and !dashing:
 		dash(self.get_travel().normalized())
 		sound.play("dash1")
 
 func dash(direction):
-	dashing = true
-	
-	var anim = get_node("Sprite").get_animation().replace("run-", "dash-")
-	anim = anim.replace("-loop", "").replace("-begin", "")
-	play_anim_beginloop(anim)#, false)
-	
-	var timer = 0.0
-	while timer < dash_duration:
-		var delta = get_process_delta_time()
-		self.move(direction * dash_speed * get_process_delta_time())
+	if !dashing:
+		dashing = true
 		
-		timer += delta
-		yield(get_tree(), "idle_frame")
-	
-	play_anim_stop()
-	dashing = false
-	
-	lastDash = dash_interval
-	canDash = false
+		var anim = get_node("Sprite").get_animation().replace("run-", "dash-")
+		anim = anim.replace("-loop", "").replace("-begin", "")
+		play_anim_beginloop(anim)#, false)
+		
+		var timer = 0.0
+		while timer < dash_duration:
+			var delta = get_process_delta_time()
+			self.move(direction * dash_speed * get_process_delta_time())
+			
+			timer += delta
+			yield(get_tree(), "idle_frame")
+		
+		play_anim_stop()
+		dashing = false
+		
+		lastDash = dash_interval
+		canDash = false
 
 func advertise_colors():
 	if colors_learned & 2:	emit_signal("new_color_learned", 2)	# red
