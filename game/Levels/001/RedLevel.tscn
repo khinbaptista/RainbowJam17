@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=1]
+[gd_scene load_steps=59 format=1]
 
 [ext_resource path="res://Levels/001/RedLevel.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
@@ -227,22 +227,7 @@ points = Vector2Array( -55, -374.5, 157, -377.5, 599, -172.5, 441, 411.5, 315, 4
 custom_solver_bias = 0.0
 points = Vector2Array( -509, 295.5, 315, 411.5, 136, 553.5, -98, 552.5 )
 
-[sub_resource type="CircleShape2D" id=42]
-
-custom_solver_bias = 0.0
-radius = 10.0
-
-[sub_resource type="ColorRamp" id=43]
-
-offsets = FloatArray( 0, 1 )
-colors = ColorArray( 0.480469, 0.480469, 0.480469, 1, 0.772549, 0.772549, 0.772549, 0 )
-
-[sub_resource type="RectangleShape2D" id=44]
-
-custom_solver_bias = 0.0
-extents = Vector2( 269.5, 161.434 )
-
-[sub_resource type="Curve2D" id=45]
+[sub_resource type="Curve2D" id=42]
 
 bake_interval = 5.0
 _data = {
@@ -301,17 +286,29 @@ color_dimension = 2
 
 [node name="platform20" parent="platforms" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 2271, -2323 )
+editor/display_folded = true
+transform/pos = Vector2( 2271, -2368 )
 color_dimension = 0
 use_timers = true
 
+[node name="sprite" parent="platforms/platform20"]
+
+modulate = Color( 1, 0.501961, 0, 1 )
+
 [node name="platform21" parent="platforms" instance=ExtResource( 4 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 2592, -2446 )
 color_dimension = 0
 use_timers = true
 
+[node name="sprite" parent="platforms/platform21"]
+
+modulate = Color( 1, 0.501961, 0, 1 )
+
 [node name="tempPlatforms" type="Node2D" parent="platforms"]
+
+editor/display_folded = true
 
 [node name="platform10" parent="platforms/tempPlatforms" instance=ExtResource( 4 )]
 
@@ -544,6 +541,7 @@ _update_shape_index = 17
 "ground",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 787, -3474 )
 transform/scale = Vector2( 0.453125, 0.453125 )
 input/pickable = true
@@ -606,7 +604,7 @@ trigger = false
 ]]
 
 editor/display_folded = true
-transform/pos = Vector2( 3110.7, -2629 )
+transform/pos = Vector2( 3075.7, -2629 )
 transform/scale = Vector2( -0.453125, 0.453125 )
 input/pickable = true
 shapes/0/shape = SubResource( 31 )
@@ -653,6 +651,7 @@ visibility/light_mask = 0
 transform/pos = Vector2( 0, -2.20703 )
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
+modulate = Color( 1, 0.501961, 0, 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island3"]
 
@@ -665,6 +664,7 @@ trigger = false
 
 [node name="crystal" parent="." instance=ExtResource( 8 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 780, -3488 )
 transform/scale = Vector2( 0.421875, 0.421875 )
 crystal_color = 2
@@ -672,7 +672,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal"]
 
-frame = 8
+frame = 7
 
 [node name="press_e" type="Sprite" parent="crystal"]
 
@@ -687,9 +687,6 @@ script/script = ExtResource( 10 )
 transform/pos = Vector2( 3.92041, 213.58 )
 transform/scale = Vector2( 8.25699, 8.45816 )
 input/pickable = true
-shapes/0/shape = SubResource( 42 )
-shapes/0/transform = Matrix32( 3.44865, 0, 0, 3.3051, -0.374939, -0.584961 )
-shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
@@ -699,19 +696,25 @@ angular_damp = 1.0
 
 transform/pos = Vector2( -0.374939, -0.584961 )
 transform/scale = Vector2( 3.44865, 3.3051 )
-shape = SubResource( 42 )
 trigger = false
 _update_shape_index = 0
 
 [node name="crystal1" parent="." instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 3120.7, -2642 )
+editor/display_folded = true
+transform/pos = Vector2( 3085.7, -2642 )
 transform/scale = Vector2( 0.421875, 0.421875 )
 crystal_color = 4
 player_path = NodePath("../player")
 
+[node name="sprite" parent="crystal1"]
+
+frame = 8
+modulate = Color( 1, 0.501961, 0, 1 )
+
 [node name="player" parent="." instance=ExtResource( 11 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 816, -997 )
 transform/scale = Vector2( 0.5, 0.5 )
 
@@ -769,7 +772,6 @@ randomness/damping = 0.2
 randomness/initial_size = 0.3
 randomness/final_size = -0.2
 color/color = Color( 0.773438, 0.773438, 0.773438, 1 )
-color/color_ramp = SubResource( 43 )
 
 [node name="island1Flora" type="Node2D" parent="."]
 
@@ -868,9 +870,6 @@ editor/display_folded = true
 transform/pos = Vector2( 220.492, -1447.17 )
 transform/scale = Vector2( 2, 2 )
 input/pickable = false
-shapes/0/shape = SubResource( 44 )
-shapes/0/transform = Matrix32( 1, 0, 0, 0.630072, 275.341, -9.73816 )
-shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
@@ -883,14 +882,13 @@ collision/mask = 1048575
 visibility/visible = false
 transform/pos = Vector2( 275.341, -9.73816 )
 transform/scale = Vector2( 1, 0.630072 )
-shape = SubResource( 44 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Path2D" type="Path2D" parent="island1Flora/Deer"]
 
 transform/pos = Vector2( -176.511, 703 )
-curve = SubResource( 45 )
+curve = SubResource( 42 )
 script/script = ExtResource( 14 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="island1Flora/Deer/Path2D"]
@@ -1189,15 +1187,18 @@ enabled = false
 
 [node name="Checkpoint4" parent="." instance=ExtResource( 16 )]
 
-transform/pos = Vector2( 2877.85, -2616.25 )
+transform/pos = Vector2( 2842.85, -2616.25 )
 transform/scale = Vector2( 1.27663, 8.17969 )
 enabled = false
 
 [connection signal="body_enter" from="island1Flora/Deer" to="island1Flora/Deer/Path2D" method="_on_Deer_body_enter"]
 
-[connection signal="checkpoint_activated" from="Checkpoint" to="Checkpoint1" method="set_enabled" binds= [ true ]]
-
 [connection signal="checkpoint_activated" from="Checkpoint" to="." method="_on_Checkpoint_checkpoint_activated"]
 
+[connection signal="checkpoint_activated" from="Checkpoint" to="Checkpoint1" method="set_enabled" binds= [ true ]]
 
+
+[editable path="platforms/platform20"]
+[editable path="platforms/platform21"]
 [editable path="crystal"]
+[editable path="crystal1"]
