@@ -6,3 +6,8 @@ func _ready():
 	music.set_loop_begin(0)
 	music.set_loop_end(music.get_length())
 	get_node("player/SamplePlayer2D").play("Iris (Continuous Loop)")
+
+
+func _on_Checkpoint_checkpoint_activated():
+	yield(get_node("platforms/tempPlatforms/platform13/sprite"), "finished")
+	get_node("platforms/tempPlatforms").queue_free()

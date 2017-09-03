@@ -13,6 +13,8 @@ export(float) var duration_off = 3.0
 func _ready():
 	sprite.set_light_mask(color_dimension)
 	
+	set_process(true)
+	
 	if destructible:
 		activated = false
 	
@@ -29,6 +31,13 @@ func _ready():
 		add_to_group(color_index2string(color_dimension))
 	else:
 		spawn()
+
+func _process(delta):
+	if sprite.get_frame() == sprite.get_sprite_frames().get_frame_count("destroy")-1 and sprite.get_animation().basename() == "destroy":
+		sprite.hide()
+		set_collision_mask_bit(0, false)
+		set_layer_mask_bit(0, false)
+		get_node("CollisionShape2D").set_scale(Vector2(1, 1))
 
 func color_index2string(index):
 	if index & 2:	return "red"
@@ -55,11 +64,11 @@ func destroy():
 		sprite.play("destroy")
 		get_node("AnimationPlayer").play("destroy")
 		yield(sprite, "finished")
-	
-		sprite.hide()
-		set_collision_mask_bit(0, false)
-		set_layer_mask_bit(0, false)
-		get_node("CollisionShape2D").set_scale(Vector2(1, 1))
+#	
+#		sprite.hide()
+#		set_collision_mask_bit(0, false)
+#		set_layer_mask_bit(0, false)
+#		get_node("CollisionShape2D").set_scale(Vector2(1, 1))
 
 
 func _on_platform_body_enter( body ): # if destructible, activates on body enter

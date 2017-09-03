@@ -257,30 +257,6 @@ speed = -250
 
 editor/display_folded = true
 
-[node name="platform10" parent="platforms" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 1053, -2557 )
-destructible = true
-duration_on = 2.0
-
-[node name="platform11" parent="platforms" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 1074, -2870 )
-destructible = true
-duration_on = 2.0
-
-[node name="platform12" parent="platforms" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 1337, -2941 )
-destructible = true
-duration_on = 2.0
-
-[node name="platform13" parent="platforms" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 1291, -3242 )
-destructible = true
-duration_on = 2.0
-
 [node name="platform14" parent="platforms" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 699.181, -2898.27 )
@@ -293,6 +269,34 @@ transform/pos = Vector2( 622.272, -2610.82 )
 [node name="platform16" parent="platforms" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 657.09, -2321.82 )
+
+[node name="tempPlatforms" type="Node2D" parent="platforms"]
+
+editor/display_folded = true
+
+[node name="platform10" parent="platforms/tempPlatforms" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1053, -2557 )
+destructible = true
+duration_on = 2.0
+
+[node name="platform11" parent="platforms/tempPlatforms" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1074, -2870 )
+destructible = true
+duration_on = 2.0
+
+[node name="platform12" parent="platforms/tempPlatforms" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1337, -2941 )
+destructible = true
+duration_on = 2.0
+
+[node name="platform13" parent="platforms/tempPlatforms" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1291, -3242 )
+destructible = true
+duration_on = 2.0
 
 [node name="island1" type="Area2D" parent="." groups=[
 "ground",
@@ -965,6 +969,8 @@ transform/scale = Vector2( 1.0845, 1.00615 )
 enabled = true
 
 [connection signal="body_enter" from="island1Flora/Deer" to="island1Flora/Deer/Path2D" method="_on_Deer_body_enter"]
+
+[connection signal="checkpoint_activated" from="Checkpoint" to="." method="_on_Checkpoint_checkpoint_activated"]
 
 [connection signal="checkpoint_activated" from="Checkpoint" to="Checkpoint1" method="set_enabled" binds= [ true ]]
 
