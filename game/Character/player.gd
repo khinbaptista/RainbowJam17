@@ -92,11 +92,14 @@ func apply_movement(direction, delta):
 		self.move_and_slide(direction * movement_speed)# * delta)
 	else: play_anim_stop()
 
-func play_anim_beginloop(anim):
+func play_anim_beginloop(anim, only_if_moved = true):
 	var sprite = get_node("Sprite")
 	sprite.play(anim + "-begin")
+	
 	yield(sprite, "finished")
-	if self.moved: sprite.play(anim + "-loop")
+	
+	if not only_if_moved or (only_if_moved and self.moved):
+		sprite.play(anim + "-loop")
 
 func play_anim_stop():
 	var sprite = get_node("Sprite")
@@ -118,6 +121,10 @@ func input_dash(input_event):
 func dash(direction):
 	dashing = true
 	
+	var anim = get_node("Sprite").get_animation().replace("run-", "dash-")
+	anim = anim.replace("-loop", "").replace("-begin", "")
+	play_anim_beginloop(anim)#, false)
+	
 	var timer = 0.0
 	while timer < dash_duration:
 		var delta = get_process_delta_time()
@@ -125,6 +132,8 @@ func dash(direction):
 		
 		timer += delta
 		yield(get_tree(), "idle_frame")
+	
+	play_anim_stop()
 	dashing = false
 
 func advertise_colors():
