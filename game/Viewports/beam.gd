@@ -18,6 +18,11 @@ func changed_color_value(value):
 	#get_node("light").set_color(color_value)
 	if has_node("sprite"):
 		get_node("sprite").set_modulate(color_value)
+	
+	if has_node("sprite_over"):
+		var color_over = color_value
+		color_over.a *= 0.5
+		get_node("sprite_over").set_modulate(color_over)
 
 func changed_color(new_color):
 	beam_color = new_color
@@ -47,10 +52,10 @@ func color_revealed():
 	
 	var duration = 2.0
 	var timer = 0.0
-	var max_alpha = get_node("sprite").get_modulate().a
+	var modulation = get_node("sprite").get_modulate()
+	var max_alpha = modulation.a
 	
 	while timer < duration:
-		var modulation = get_node("sprite").get_modulate()
 		modulation.a = (timer / duration) * max_alpha
 		get_node("sprite").set_modulate(modulation)
 		timer += get_process_delta_time()
