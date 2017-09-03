@@ -17,9 +17,10 @@ func _ready():
 		activated = false
 	
 	if use_timers and !destructible:
-		get_node("Timer").set_wait_time(duration_on)
-		get_node("Timer 2").set_wait_time(duration_off)
-		get_node("Timer").start()
+		get_node("timer_on").set_wait_time(duration_on)
+		get_node("timer_off").set_wait_time(duration_off)
+		get_node("timer_on").connect("timeout", get_node("timer_off"), "start")
+		get_node("timer_on").start()
 	
 	if color_dimension >= 2:	# has a color
 		sprite.hide()
@@ -64,7 +65,7 @@ func destroy():
 func _on_platform_body_enter( body ): # if destructible, activates on body enter
 	if destructible and body.get_name() == "player":
 		body.connect("death", self, "spawn")
-		get_node("Timer").set_wait_time(duration_on)
-		get_node("Timer 2").set_wait_time(duration_off)
-		get_node("Timer").start()
+		get_node("timer_on").set_wait_time(duration_on)
+#		get_node("timer_off").set_wait_time(duration_off)
+		get_node("timer_on").start()
 		activated = true

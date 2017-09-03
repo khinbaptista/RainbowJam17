@@ -13,18 +13,18 @@
 [ext_resource path="res://Character/sprites/run-right/006.png" type="Texture" id=11]
 [ext_resource path="res://Character/sprites/run-right/008.png" type="Texture" id=12]
 [ext_resource path="res://Character/sprites/run-right/007.png" type="Texture" id=13]
-[ext_resource path="res://Character/sprites/run-down/001.png" type="Texture" id=14]
-[ext_resource path="res://Character/sprites/run-down/002.png" type="Texture" id=15]
-[ext_resource path="res://Character/sprites/run-up/002.png" type="Texture" id=16]
-[ext_resource path="res://Character/sprites/run-down/008.png" type="Texture" id=17]
-[ext_resource path="res://Character/sprites/run-down/009.png" type="Texture" id=18]
-[ext_resource path="res://Character/sprites/run-right/000.png" type="Texture" id=19]
-[ext_resource path="res://Character/sprites/run-right/001.png" type="Texture" id=20]
-[ext_resource path="res://Character/sprites/run-right/002.png" type="Texture" id=21]
+[ext_resource path="res://Character/sprites/run-up/002.png" type="Texture" id=14]
+[ext_resource path="res://Character/sprites/run-up/003.png" type="Texture" id=15]
+[ext_resource path="res://Character/sprites/run-up/004.png" type="Texture" id=16]
+[ext_resource path="res://Character/sprites/run-up/005.png" type="Texture" id=17]
+[ext_resource path="res://Character/sprites/run-down/001.png" type="Texture" id=18]
+[ext_resource path="res://Character/sprites/run-down/002.png" type="Texture" id=19]
+[ext_resource path="res://Character/sprites/run-down/008.png" type="Texture" id=20]
+[ext_resource path="res://Character/sprites/run-down/009.png" type="Texture" id=21]
 [ext_resource path="res://Character/sprites/run-right/009.png" type="Texture" id=22]
-[ext_resource path="res://Character/sprites/run-up/003.png" type="Texture" id=23]
-[ext_resource path="res://Character/sprites/run-up/004.png" type="Texture" id=24]
-[ext_resource path="res://Character/sprites/run-up/005.png" type="Texture" id=25]
+[ext_resource path="res://Character/sprites/run-right/000.png" type="Texture" id=23]
+[ext_resource path="res://Character/sprites/run-right/001.png" type="Texture" id=24]
+[ext_resource path="res://Character/sprites/run-right/002.png" type="Texture" id=25]
 [ext_resource path="res://Character/ground-check.gd" type="Script" id=26]
 [ext_resource path="res://Character/interaction.gd" type="Script" id=27]
 [ext_resource path="res://Sounds/Music.tscn" type="PackedScene" id=28]
@@ -58,24 +58,24 @@ animations = [ {
 "name": "run-right-stop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": false,
-"name": "run-down-begin",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "run-up-begin",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "run-down-stop",
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "run-up-loop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "run-right-loop",
+"frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "run-down-begin",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "run-down-stop",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 22 ) ],
@@ -85,7 +85,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
 "loop": true,
-"name": "run-up-loop",
+"name": "run-right-loop",
 "speed": 8.0
 } ]
 
@@ -110,10 +110,10 @@ collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 can_move = true
-movement_speed = 300.0
+movement_speed = 350.0
 dash_speed = 500.0
-dash_duration = 0.2
-colors_learned = 0
+dash_duration = 0.3
+colors_learned = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

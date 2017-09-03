@@ -1,9 +1,5 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 func _ready():
 	var music = get_node("player/SamplePlayer2D").get_sample_library().get_sample("Iris (Continuous Loop)")
 	music.set_loop_format(music.LOOP_FORWARD)

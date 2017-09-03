@@ -15,6 +15,7 @@ var sound
 
 export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Purple") var colors_learned = 1
 signal new_color_learned(color)
+signal death
 
 func _ready():
 	set_process(true)
@@ -23,7 +24,8 @@ func _ready():
 	
 	lastCheckpoint = self.get_global_pos()
 	
-#	get_node("/root/save").load_saved(self)
+	get_node("/root/save").load_saved(self)
+	self.set_global_pos(lastCheckpoint)
 	
 	advertise_colors()
 	
@@ -75,7 +77,7 @@ func apply_movement(direction, delta):
 	
 	self.moved = moved
 	if self.moved:
-		self.move(direction * movement_speed * delta)
+		self.move_and_slide(direction * movement_speed)# * delta)
 	else: play_anim_stop()
 
 func play_anim_beginloop(anim):
@@ -140,4 +142,5 @@ func death():
 		sprite.play("death")
 		yield(sprite, "finished")
 	
+	emit_signal("death")
 	self.set_global_pos(lastCheckpoint)
