@@ -24,7 +24,7 @@ func _ready():
 	
 	lastCheckpoint = self.get_global_pos()
 	
-	get_node("/root/save").load_saved(self)
+#	get_node("/root/save").load_saved(self)
 	self.set_global_pos(lastCheckpoint)
 	
 	advertise_colors()
@@ -33,6 +33,8 @@ func _process(delta):
 	if can_move:
 		input_movement(delta)
 	if not grounded and not dashing: death()
+	if not grounded: get_node("shadow").hide()
+	else: get_node("shadow").show()
 
 func _input(event):
 	if can_move:
@@ -139,12 +141,12 @@ func knows_color(color):
 func learn_color(color):
 	if colors_learned & color: return	# color is aleady known
 	colors_learned += color
-	get_node("/root/save").save_file(self)
+#	get_node("/root/save").save_file(self)
 	emit_signal("new_color_learned", color)
 	
 func update_checkpoint(pos):
 	lastCheckpoint = pos
-	get_node("/root/save").save_file(self)
+#	get_node("/root/save").save_file(self)
 	
 func death():
 	var sprite = get_node("Sprite")

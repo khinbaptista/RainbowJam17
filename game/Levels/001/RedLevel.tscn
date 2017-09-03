@@ -7,8 +7,8 @@
 [ext_resource path="res://Levels/001/RED entrance.png" type="Texture" id=5]
 [ext_resource path="res://Levels/001/RED entrance grey overlay.png" type="Texture" id=6]
 [ext_resource path="res://Levels/001/island.png" type="Texture" id=7]
-[ext_resource path="res://Character/player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Character/player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Plants/Tree + shadow.png" type="Texture" id=10]
 [ext_resource path="res://Plants/Bush + shadow.png" type="Texture" id=11]
 [ext_resource path="res://Levels/001/Deer/Deer.gd" type="Script" id=12]
@@ -561,8 +561,16 @@ polygon = Vector2Array( -329, 804.5, -100, 805.5, -98, 552.5, 136, 553.5, 139, 6
 shape_range = Vector2( 0, 10 )
 trigger = false
 
-[node name="player" parent="." instance=ExtResource( 8 )]
+[node name="crystal" parent="." instance=ExtResource( 8 )]
 
+transform/pos = Vector2( 780, -3488 )
+transform/scale = Vector2( 0.421875, 0.421875 )
+crystal_color = 2
+player_path = NodePath("../player")
+
+[node name="player" parent="." instance=ExtResource( 9 )]
+
+editor/display_folded = true
 transform/pos = Vector2( 816, -997 )
 transform/scale = Vector2( 0.5, 0.5 )
 
@@ -584,13 +592,6 @@ drag_margin/left = 0.2
 drag_margin/top = 0.1
 drag_margin/right = 0.2
 drag_margin/bottom = 0.1
-
-[node name="crystal" parent="." instance=ExtResource( 9 )]
-
-transform/pos = Vector2( 780, -3488 )
-transform/scale = Vector2( 0.421875, 0.421875 )
-crystal_color = 2
-player_path = NodePath("../player")
 
 [node name="island1Flora" type="Node2D" parent="."]
 
