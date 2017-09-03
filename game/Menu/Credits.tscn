@@ -32,17 +32,20 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 175.0
-margin/top = 177.0
-margin/right = 521.0
-margin/bottom = 311.0
+margin/left = 138.0
+margin/top = 53.0
+margin/right = 484.0
+margin/bottom = 187.0
 bbcode/enabled = false
 bbcode/bbcode = "Khin Baptista (programming and development)
 Marcelo Vasques (programming and development)
 Rubens Rodrigues (2d art)
 Vinicius Meirelles Pereira (2d art, level design)
 
-Music by Christopher Hollis"
+Music by Christopher Hollis
+
+Menu music: nightRain by airtone 
+http://dig.ccmixter.org/files/airtone/55887 "
 visible_characters = -1
 percent_visible = 1.0
 
