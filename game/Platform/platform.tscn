@@ -2,13 +2,13 @@
 
 [ext_resource path="res://Platform/platform.gd" type="Script" id=1]
 [ext_resource path="res://Platform/sprites/000.png" type="Texture" id=2]
-[ext_resource path="res://Platform/sprites/007.png" type="Texture" id=3]
-[ext_resource path="res://Platform/sprites/006.png" type="Texture" id=4]
-[ext_resource path="res://Platform/sprites/005.png" type="Texture" id=5]
+[ext_resource path="res://Platform/sprites/001.png" type="Texture" id=3]
+[ext_resource path="res://Platform/sprites/002.png" type="Texture" id=4]
+[ext_resource path="res://Platform/sprites/003.png" type="Texture" id=5]
 [ext_resource path="res://Platform/sprites/004.png" type="Texture" id=6]
-[ext_resource path="res://Platform/sprites/003.png" type="Texture" id=7]
-[ext_resource path="res://Platform/sprites/002.png" type="Texture" id=8]
-[ext_resource path="res://Platform/sprites/001.png" type="Texture" id=9]
+[ext_resource path="res://Platform/sprites/005.png" type="Texture" id=7]
+[ext_resource path="res://Platform/sprites/006.png" type="Texture" id=8]
+[ext_resource path="res://Platform/sprites/007.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -23,14 +23,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "spawn",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), null ],
 "loop": false,
 "name": "destroy",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "spawn",
 "speed": 8.0
 } ]
 
@@ -66,6 +66,7 @@ angular_damp = 1.0
 script/script = ExtResource( 1 )
 color_dimension = 1
 use_timers = false
+destructible = false
 duration_on = 5.0
 duration_off = 3.0
 
@@ -77,6 +78,7 @@ animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 1.84202, -7.47263 )
 shape = SubResource( 1 )
 trigger = false
@@ -93,26 +95,26 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[node name="Timer" type="Timer" parent="."]
+[node name="timer_on" type="Timer" parent="."]
 
 process_mode = 1
 wait_time = 5.0
 one_shot = true
 autostart = false
 
-[node name="Timer 2" type="Timer" parent="."]
+[node name="timer_off" type="Timer" parent="."]
 
 process_mode = 1
 wait_time = 3.0
 one_shot = true
 autostart = false
 
-[connection signal="timeout" from="Timer" to="Timer 2" method="start"]
+[connection signal="body_enter" from="." to="." method="_on_platform_body_enter"]
 
-[connection signal="timeout" from="Timer" to="." method="destroy"]
+[connection signal="timeout" from="timer_on" to="." method="destroy"]
 
-[connection signal="timeout" from="Timer 2" to="Timer" method="start"]
+[connection signal="timeout" from="timer_off" to="." method="spawn"]
 
-[connection signal="timeout" from="Timer 2" to="." method="spawn"]
+[connection signal="timeout" from="timer_off" to="timer_on" method="start"]
 
 
