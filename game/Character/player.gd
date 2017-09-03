@@ -5,15 +5,15 @@ export(float, 0.0, 1500.0, 0.1) var movement_speed = 100
 export(float, 0.0, 1500.0, 0.1) var dash_speed = 120
 export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
 
-var moved = false		# has the player moved in this frame?
-var dashing = false		# is the player dashing?
+var moved = false	# has the player moved in this frame?
+var dashing = false	# is the player dashing?
 var grounded = false	# is the player standing on ground?
 
 var lastCheckpoint = Vector2(0, 0)	# location to respawn
 
 var sound
 
-export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var colors_learned = 0
+export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Purple") var colors_learned = 1
 signal new_color_learned(color)
 
 func _ready():
@@ -120,6 +120,9 @@ func advertise_colors():
 	if colors_learned & 16:	emit_signal("new_color_learned", 16)	# green
 	if colors_learned & 32:	emit_signal("new_color_learned", 32)	# blue
 	if colors_learned & 64:	emit_signal("new_color_learned", 64)	# purple
+
+func knows_color(color):
+	return colors_learned & color
 
 func learn_color(color):
 	if colors_learned & color: return	# color is aleady known
