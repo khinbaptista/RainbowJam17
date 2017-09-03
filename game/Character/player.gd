@@ -168,10 +168,11 @@ func update_checkpoint(pos):
 #	get_node("/root/save").save_file(self)
 	
 func death():
-	var sprite = get_node("Sprite")
-	if sprite.get_sprite_frames().has_animation("death"):
-		sprite.play("death")
-		yield(sprite, "finished")
+	#var sprite = get_node("Sprite")
+	#if sprite.get_sprite_frames().has_animation("death-down"):
+		#sprite.play("death-down")
+		#yield(sprite, "finished")
+		#sprite.stop()
 	
 	emit_signal("death")
 	self.set_global_pos(lastCheckpoint)

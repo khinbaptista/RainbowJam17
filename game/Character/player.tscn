@@ -231,7 +231,7 @@ transform/pos = Vector2( -0.628083, -71.9788 )
 transform/scale = Vector2( 0.32362, 0.32362 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 12
+frame = 26
 playing = true
 
 [node name="groundcheck" type="Area2D" parent="."]
