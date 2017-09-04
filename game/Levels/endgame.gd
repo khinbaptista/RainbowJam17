@@ -12,4 +12,4 @@ func _on_new_color_learned( color ):
 
 func _on_body_enter( body ):
 	if body.get_name() == "player":
-		get_tree().change_scene("res://Menu/Credits.tscn")
+		get_node("/root/loader").change_scene("res://Menu/Credits.tscn")

@@ -1,6 +1,6 @@
 extends Control
 
-export(PackedScene) var next_scene
+export(String, FILE, "*.tscn") var next_scene
 
 onready var button_start	= get_node("start")
 onready var button_quit		= get_node("quit")
@@ -46,7 +46,8 @@ func changed_focus(button):
 func pressed_start():
 	print("Start")
 	music.stop_all()
-	get_tree().change_scene_to(next_scene)
+	get_node("/root/loader").change_scene(next_scene)
+#	get_tree().change_scene_to(next_scene)
 
 func pressed_quit():
 	print("Quit")

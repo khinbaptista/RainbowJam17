@@ -13,5 +13,4 @@ func _input(event):
 
 func pressed_back():
 	print("Back")
-	var start_scene = load("res://Menu/start_menu.tscn")
-	get_tree().change_scene_to(start_scene)
+	get_node("/root/loader").change_scene("res://Menu/start_menu.tscn")
