@@ -7,7 +7,7 @@ func _ready():
 
 func _on_new_color_learned( color ):
 	if color & last_color:
-		self.show()
+		self.set_emitting(true)
 		get_node("Area2D/CollisionShape2D").set_trigger(false)
 
 func _on_body_enter( body ):

@@ -12,3 +12,7 @@ func _on_Checkpoint_checkpoint_activated():
 	get_node("platforms/tempPlatforms").queue_free()
 	get_node("Checkpoint1").enabled = true
 	get_node("Checkpoint3").enabled = true
+
+
+func _on_Checkpoint5_body_enter( body ):
+	get_node("Checkpoint6").enabled = true
