@@ -1,19 +1,19 @@
 [gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://Menu/start_menu.gd" type="Script" id=1]
-[ext_resource path="res://Menu/Credits.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/001/RedLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menu/background.png" type="Texture" id=3]
 [ext_resource path="res://Menu/particle.png" type="Texture" id=4]
 [ext_resource path="res://Menu/icons/play.png" type="Texture" id=5]
 [ext_resource path="res://Menu/icons/play2.png" type="Texture" id=6]
 [ext_resource path="res://Menu/icons/quit.png" type="Texture" id=7]
 [ext_resource path="res://Menu/icons/quit2.png" type="Texture" id=8]
-[ext_resource path="res://Menu/Frames Idle Menu/000.png" type="Texture" id=9]
-[ext_resource path="res://Menu/Frames Idle Menu/001.png" type="Texture" id=10]
-[ext_resource path="res://Menu/Frames Idle Menu/002.png" type="Texture" id=11]
-[ext_resource path="res://Menu/Frames Idle Menu/003.png" type="Texture" id=12]
-[ext_resource path="res://Menu/Frames Idle Menu/004.png" type="Texture" id=13]
-[ext_resource path="res://Menu/Ground+tree.png" type="Texture" id=14]
+[ext_resource path="res://Menu/Ground+tree.png" type="Texture" id=9]
+[ext_resource path="res://Menu/Frames Idle Menu/000.png" type="Texture" id=10]
+[ext_resource path="res://Menu/Frames Idle Menu/001.png" type="Texture" id=11]
+[ext_resource path="res://Menu/Frames Idle Menu/002.png" type="Texture" id=12]
+[ext_resource path="res://Menu/Frames Idle Menu/003.png" type="Texture" id=13]
+[ext_resource path="res://Menu/Frames Idle Menu/004.png" type="Texture" id=14]
 [ext_resource path="res://Menu/LOGO-IRIS.png" type="Texture" id=15]
 [ext_resource path="res://Sounds/menu.wav" type="Sample" id=16]
 
@@ -25,7 +25,7 @@ colors = ColorArray( 0.780392, 0.368627, 0.745098, 0, 1, 0.447059, 0.741176, 1, 
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -175,21 +175,12 @@ params/resize_mode = 0
 params/scale = Vector2( 0.4, 0.4 )
 params/stretch_mode = 0
 
-[node name="idle" type="AnimatedSprite" parent="."]
-
-transform/pos = Vector2( 810, 450 )
-transform/scale = Vector2( 0.445633, 0.445633 )
-frames = SubResource( 2 )
-animation = "default"
-frame = 10
-playing = true
-offset = Vector2( -11.7238, 117.833 )
-
 [node name="ground+tree" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 1733.07, 478.385 )
 transform/scale = Vector2( 0.869792, 0.869792 )
-texture = ExtResource( 14 )
+texture = ExtResource( 9 )
 offset = Vector2( -1090, -10 )
 
 [node name="Particles2D" type="Particles2D" parent="ground+tree"]
@@ -226,6 +217,16 @@ randomness/initial_size = 0.3
 randomness/final_size = -0.1
 color/color = Color( 1, 0.447059, 0.741176, 1 )
 color/color_ramp = SubResource( 1 )
+
+[node name="idle" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 877.668, 493.061 )
+transform/scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 4
+playing = true
+offset = Vector2( -11.7238, 117.833 )
 
 [node name="logo" type="Sprite" parent="."]
 
