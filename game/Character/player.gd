@@ -95,7 +95,12 @@ func apply_movement(direction, delta):
 	
 	self.moved = moved
 	if self.moved:
-		self.move_and_slide(direction * movement_speed)# * delta)
+		var remaining = self.move(direction * movement_speed * delta)
+		if self.is_colliding():
+			var normal = self.get_collision_normal()
+			remaining = remaining.slide(normal)
+			self.move(remaining)
+#		self.move_and_slide(direction * movement_speed)# * delta)
 	else: play_anim_stop()
 
 func play_anim_beginloop(anim, only_if_moved = true):
