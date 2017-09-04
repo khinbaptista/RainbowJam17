@@ -1,7 +1,5 @@
 extends Control
 
-export(PackedScene) var next_scene
-
 onready var button_back	= get_node("back")
 
 func _ready():
@@ -15,4 +13,5 @@ func _input(event):
 
 func pressed_back():
 	print("Back")
-	get_tree().change_scene_to(next_scene)
+	var start_scene = load("res://Menu/start_menu.tscn")
+	get_tree().change_scene(start_scene)

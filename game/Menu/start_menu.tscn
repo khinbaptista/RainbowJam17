@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://Menu/start_menu.gd" type="Script" id=1]
-[ext_resource path="res://Levels/001/RedLevel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menu/Credits.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menu/background.png" type="Texture" id=3]
 [ext_resource path="res://Menu/particle.png" type="Texture" id=4]
 [ext_resource path="res://Menu/icons/play.png" type="Texture" id=5]
@@ -22,7 +22,7 @@
 offsets = FloatArray( 0, 0.303922, 0.656863, 1 )
 colors = ColorArray( 0.780392, 0.368627, 0.745098, 0, 1, 0.447059, 0.741176, 1, 0.878906, 0.377655, 0.718349, 1, 0.554051, 0.181274, 0.644531, 0 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
@@ -31,7 +31,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SampleLibrary" id=2]
+[sub_resource type="SampleLibrary" id=3]
 
 samples/menu = {
 "db": 0.0,
@@ -179,9 +179,9 @@ params/stretch_mode = 0
 
 transform/pos = Vector2( 810, 450 )
 transform/scale = Vector2( 0.445633, 0.445633 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 11
+frame = 10
 playing = true
 offset = Vector2( -11.7238, 117.833 )
 
@@ -242,7 +242,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 2 )
+config/samples = SubResource( 3 )
 config/pitch_random = 0.0
 
 

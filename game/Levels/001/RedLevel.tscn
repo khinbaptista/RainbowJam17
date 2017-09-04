@@ -227,7 +227,7 @@ points = Vector2Array( -55, -374.5, 157, -377.5, 599, -172.5, 441, 411.5, 315, 4
 custom_solver_bias = 0.0
 points = Vector2Array( -509, 295.5, 315, 411.5, 136, 553.5, -98, 552.5 )
 
-[sub_resource type="CircleShape2D" id=45]
+[sub_resource type="CircleShape2D" id=42]
 
 custom_solver_bias = 0.0
 radius = 14.6428
@@ -972,7 +972,6 @@ trigger = false
 
 [node name="crystal" parent="." instance=ExtResource( 8 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 778, -3499 )
 transform/scale = Vector2( 0.421875, 0.421875 )
 crystal_color = 2
@@ -980,7 +979,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal"]
 
-frame = 5
+frame = 1
 
 [node name="press_e" type="Sprite" parent="crystal"]
 
@@ -996,7 +995,7 @@ script/script = ExtResource( 10 )
 transform/pos = Vector2( 3.92041, 213.58 )
 transform/scale = Vector2( 8.25699, 8.45816 )
 input/pickable = true
-shapes/0/shape = SubResource( 45 )
+shapes/0/shape = SubResource( 42 )
 shapes/0/transform = Matrix32( 3.44865, 0, 0, 3.3051, -0.374939, -0.584961 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -1008,7 +1007,7 @@ angular_damp = 1.0
 
 transform/pos = Vector2( -0.374939, -0.584961 )
 transform/scale = Vector2( 3.44865, 3.3051 )
-shape = SubResource( 45 )
+shape = SubResource( 42 )
 trigger = false
 _update_shape_index = 0
 
@@ -1022,7 +1021,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal1"]
 
-frame = 6
+frame = 2
 modulate = Color( 1, 0.501961, 0, 1 )
 
 [node name="press_e1" type="Sprite" parent="crystal1"]
@@ -1039,7 +1038,7 @@ script/script = ExtResource( 10 )
 transform/pos = Vector2( 3.92041, 213.58 )
 transform/scale = Vector2( 8.25699, 8.45816 )
 input/pickable = true
-shapes/0/shape = SubResource( 45 )
+shapes/0/shape = SubResource( 42 )
 shapes/0/transform = Matrix32( 3.44865, 0, 0, 3.3051, -0.374939, -0.584961 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -1051,7 +1050,7 @@ angular_damp = 1.0
 
 transform/pos = Vector2( -0.374939, -0.584961 )
 transform/scale = Vector2( 3.44865, 3.3051 )
-shape = SubResource( 45 )
+shape = SubResource( 42 )
 trigger = false
 _update_shape_index = 0
 
@@ -1065,6 +1064,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal2"]
 
+frame = 9
 modulate = Color( 1, 0.901961, 0, 1 )
 
 [node name="press_e2" type="Sprite" parent="crystal2"]
@@ -1081,7 +1081,7 @@ script/script = ExtResource( 10 )
 transform/pos = Vector2( 3.92041, 213.58 )
 transform/scale = Vector2( 8.25699, 8.45816 )
 input/pickable = true
-shapes/0/shape = SubResource( 45 )
+shapes/0/shape = SubResource( 42 )
 shapes/0/transform = Matrix32( 3.44865, 0, 0, 3.3051, -0.374939, -0.584961 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -1093,13 +1093,12 @@ angular_damp = 1.0
 
 transform/pos = Vector2( -0.374939, -0.584961 )
 transform/scale = Vector2( 3.44865, 3.3051 )
-shape = SubResource( 45 )
+shape = SubResource( 42 )
 trigger = false
 _update_shape_index = 0
 
 [node name="crystal3" parent="." instance=ExtResource( 8 )]
 
-editor/display_folded = true
 transform/pos = Vector2( -2215, -3699 )
 transform/scale = Vector2( 0.421875, 0.421875 )
 crystal_color = 8
@@ -1107,12 +1106,11 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal3"]
 
-frame = 8
+frame = 4
 modulate = Color( 0.101961, 0.701961, 0.301961, 1 )
 
 [node name="press_e3" type="Sprite" parent="crystal3"]
 
-editor/display_folded = true
 transform/pos = Vector2( 2.5, -113 )
 transform/scale = Vector2( 0.510537, 0.510537 )
 texture = ExtResource( 9 )
@@ -1123,7 +1121,7 @@ script/script = ExtResource( 10 )
 transform/pos = Vector2( 3.92041, 213.58 )
 transform/scale = Vector2( 8.25699, 8.45816 )
 input/pickable = true
-shapes/0/shape = SubResource( 45 )
+shapes/0/shape = SubResource( 42 )
 shapes/0/transform = Matrix32( 3.44865, 0, 0, 3.3051, -0.374939, -0.584961 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -1135,7 +1133,52 @@ angular_damp = 1.0
 
 transform/pos = Vector2( -0.374939, -0.584961 )
 transform/scale = Vector2( 3.44865, 3.3051 )
-shape = SubResource( 45 )
+shape = SubResource( 42 )
+trigger = false
+_update_shape_index = 0
+
+[node name="end" type="Particles2D" parent="."]
+
+transform/pos = Vector2( -2332.18, -3553.48 )
+transform/scale = Vector2( 1.64547, 1.65895 )
+config/amount = 40
+config/lifetime = 2.0
+config/process_mode = 1
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 2.0
+params/orbit_velocity = 2.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+
+[node name="Area2D" type="Area2D" parent="end"]
+
+transform/pos = Vector2( 5.79858, 26.71 )
+transform/scale = Vector2( 2.30159, 2.35766 )
+input/pickable = true
+shapes/0/shape = SubResource( 42 )
+shapes/0/transform = Matrix32( 1.65576, 0, 0, 1.58684, -3.86383, -10.8269 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end/Area2D"]
+
+transform/pos = Vector2( -3.86383, -10.8269 )
+transform/scale = Vector2( 1.65576, 1.58684 )
+shape = SubResource( 42 )
 trigger = false
 _update_shape_index = 0
 
@@ -1654,9 +1697,9 @@ enabled = true
 
 [connection signal="body_enter" from="island1Flora/Deer" to="island1Flora/Deer/Path2D" method="_on_Deer_body_enter"]
 
-[connection signal="checkpoint_activated" from="Checkpoint" to="." method="_on_Checkpoint_checkpoint_activated"]
-
 [connection signal="checkpoint_activated" from="Checkpoint" to="Checkpoint1" method="set_enabled" binds= [ true ]]
+
+[connection signal="checkpoint_activated" from="Checkpoint" to="." method="_on_Checkpoint_checkpoint_activated"]
 
 
 [editable path="platforms/platform20"]
