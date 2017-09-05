@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=1]
+[gd_scene load_steps=80 format=1]
 
 [ext_resource path="res://Character/player.gd" type="Script" id=1]
 [ext_resource path="res://Character/sprites/shadow.png" type="Texture" id=2]
@@ -64,14 +64,17 @@
 [ext_resource path="res://Character/sprites/dash-up/008.png" type="Texture" id=62]
 [ext_resource path="res://Character/sprites/run-up/002.png" type="Texture" id=63]
 [ext_resource path="res://Character/sprites/run-down/008.png" type="Texture" id=64]
-[ext_resource path="res://Character/sprites/death-right/003.png" type="Texture" id=65]
-[ext_resource path="res://Character/sprites/death-right/004.png" type="Texture" id=66]
-[ext_resource path="res://Character/sprites/death-right/005.png" type="Texture" id=67]
-[ext_resource path="res://Character/sprites/dash-up/000.png" type="Texture" id=68]
-[ext_resource path="res://Character/sprites/dash-up/001.png" type="Texture" id=69]
-[ext_resource path="res://Character/ground-check.gd" type="Script" id=70]
-[ext_resource path="res://Character/interaction.gd" type="Script" id=71]
-[ext_resource path="res://Sounds/Music.tscn" type="PackedScene" id=72]
+[ext_resource path="res://Character/sprites/death-up/003.png" type="Texture" id=65]
+[ext_resource path="res://Character/sprites/death-up/004.png" type="Texture" id=66]
+[ext_resource path="res://Character/sprites/death-up/005.png" type="Texture" id=67]
+[ext_resource path="res://Character/sprites/death-right/002.png" type="Texture" id=68]
+[ext_resource path="res://Character/sprites/death-right/003.png" type="Texture" id=69]
+[ext_resource path="res://Character/sprites/death-right/004.png" type="Texture" id=70]
+[ext_resource path="res://Character/sprites/dash-up/000.png" type="Texture" id=71]
+[ext_resource path="res://Character/sprites/dash-up/001.png" type="Texture" id=72]
+[ext_resource path="res://Character/ground-check.gd" type="Script" id=73]
+[ext_resource path="res://Character/interaction.gd" type="Script" id=74]
+[ext_resource path="res://Sounds/Music.tscn" type="PackedScene" id=75]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -127,7 +130,7 @@ animations = [ {
 "name": "run-right-begin",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
 "loop": false,
 "name": "dash-down-stop",
 "speed": 8.0
@@ -182,12 +185,12 @@ animations = [ {
 "name": "death-up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ) ],
+"frames": [ ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ) ],
 "loop": true,
 "name": "death-right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 42 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 47 ) ],
+"frames": [ ExtResource( 42 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 47 ) ],
 "loop": false,
 "name": "dash-up-begin",
 "speed": 8.0
@@ -243,7 +246,7 @@ transform/pos = Vector2( -0.628083, -71.9788 )
 transform/scale = Vector2( 0.32362, 0.32362 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 33
+frame = 19
 playing = true
 
 [node name="groundcheck" type="Area2D" parent="."]
@@ -258,7 +261,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 70 )
+script/script = ExtResource( 73 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="groundcheck"]
 
@@ -278,7 +281,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 71 )
+script/script = ExtResource( 74 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_reach"]
 
@@ -294,7 +297,7 @@ wait_time = 3.0
 one_shot = true
 autostart = false
 
-[node name="SamplePlayer2D" parent="." instance=ExtResource( 72 )]
+[node name="SamplePlayer2D" parent="." instance=ExtResource( 75 )]
 
 [connection signal="timeout" from="timer_idle" to="Sprite" method="play" binds= [ "idle" ]]
 
