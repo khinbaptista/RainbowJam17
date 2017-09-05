@@ -20,13 +20,6 @@ func _ready():
 	changed_focus(button_start)
 	
 	set_process_input(true)
-	
-	music = get_node("SamplePlayer2D")
-	var sample = music.get_sample_library().get_sample("menu")
-	sample.set_loop_format(sample.LOOP_FORWARD)
-	sample.set_loop_begin(0)
-	sample.set_loop_end(sample.get_length())
-	music.play("menu")
 
 func _input(event):
 	if event.is_action_pressed("ui_up") and not event.is_echo():
