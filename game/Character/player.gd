@@ -69,6 +69,8 @@ func input_movement(delta):
 		movement.x -= 1
 	if Input.is_action_pressed("move_right"):
 		movement.x += 1
+	if Input.is_action_pressed("exit"):
+		get_node("/root/loader").change_scene("res://Menu/start_menu.tscn")
 
 	movement = check_controller_input(movement.normalized())
 
@@ -143,7 +145,7 @@ func input_dash(input_event):
 		sound.play("dash1")
 
 func dash(direction):
-	if !dashing:
+	if !dashing and !dead:
 		dashing = true
 		
 		var sprite = get_node("Sprite")
@@ -200,6 +202,8 @@ func death():
 		elif anim_name.begins_with("dash"):	anim_name = anim_name.replace("dash", "death")
 		if anim_name == "idle":				anim_name = "death-down"
 		sprite.play(anim_name)
+		print(anim_name)
+		
 		dead = true
 		bufferY = get_pos().y
 	else:

@@ -37,7 +37,7 @@ animations = [ {
 [sub_resource type="Animation" id=3]
 
 resource/name = "destroy"
-length = 1.0
+length = 1.1
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -50,6 +50,16 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0.9, 1.1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.84202, -7.47263 ), Vector2( 1000, 1000 ) ]
+}
 
 [node name="platform" type="Area2D" groups=[
 "platform",
@@ -57,7 +67,7 @@ tracks/0/keys = {
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.84202, -7.47263 )
+shapes/0/transform = Matrix32( 1e-05, 0, 0, 1e-05, 1000, 1000 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -78,8 +88,8 @@ animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-visibility/visible = false
-transform/pos = Vector2( 1.84202, -7.47263 )
+transform/pos = Vector2( 1000, 1000 )
+transform/scale = Vector2( 1e-05, 1e-05 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -113,8 +123,8 @@ autostart = false
 
 [connection signal="timeout" from="timer_on" to="." method="destroy"]
 
-[connection signal="timeout" from="timer_off" to="timer_on" method="start"]
-
 [connection signal="timeout" from="timer_off" to="." method="spawn"]
+
+[connection signal="timeout" from="timer_off" to="timer_on" method="start"]
 
 

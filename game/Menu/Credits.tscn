@@ -3,7 +3,7 @@
 [ext_resource path="res://Menu/Credits.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
 [ext_resource path="res://Menu/icons/back.png" type="Texture" id=3]
-[ext_resource path="res://Menu/credits.png" type="Texture" id=4]
+[ext_resource path="res://Menu/credits2.png" type="Texture" id=4]
 
 [node name="Credits" type="Control"]
 
@@ -44,8 +44,8 @@ params/stretch_mode = 0
 
 [node name="credits" type="Sprite" parent="."]
 
-transform/pos = Vector2( 839.481, 349.838 )
-transform/scale = Vector2( 1.37317, 1.37317 )
+transform/pos = Vector2( 799.5, 449.719 )
+transform/scale = Vector2( 1.00063, 1.00063 )
 texture = ExtResource( 4 )
 
 

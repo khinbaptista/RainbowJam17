@@ -37,7 +37,6 @@ func _process(delta):
 		sprite.hide()
 		set_collision_mask_bit(0, false)
 		set_layer_mask_bit(0, false)
-		get_node("CollisionShape2D").set_scale(Vector2(1, 1))
 
 func color_index2string(index):
 	if index & 2:	return "red"
