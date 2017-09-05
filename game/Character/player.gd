@@ -10,6 +10,12 @@ var moved = false	# has the player moved in this frame?
 var dashing = false	# is the player dashing?
 var grounded = false	# is the player standing on ground?
 var canDash = true
+var dead = false # is the player dead?
+
+# Variables for death
+var bufferY = 0 # this variable is a buffer for the player Y
+export var fall_height = 50
+export var fall_speed = 350
 
 var lastCheckpoint = Vector2(0, 0)	# location to respawn
 var lastDash = 0.0 # timer to control interval between dashes
@@ -33,14 +39,20 @@ func _ready():
 	advertise_colors()
 	
 func _process(delta):
-	if can_move:
-		input_movement(delta)
-	if not grounded and not dashing: death()
-	if not grounded: get_node("shadow").hide()
-	else: get_node("shadow").show()
-	
-	if lastDash > 0: lastDash -= delta
-	else: canDash = true
+	if dead:
+		if get_pos().y < bufferY + fall_height and not grounded:
+			set_pos(Vector2(get_pos().x, get_pos().y+fall_speed*delta))
+		else:
+			death()
+	else:
+		if not grounded and not dashing: death()
+		if can_move:
+			input_movement(delta)
+		if not grounded: get_node("shadow").hide()
+		else: get_node("shadow").show()
+		
+		if lastDash > 0: lastDash -= delta
+		else: canDash = true
 
 func _input(event):
 	if can_move:
@@ -60,7 +72,8 @@ func input_movement(delta):
 
 	movement = check_controller_input(movement.normalized())
 
-	apply_movement(movement, delta)
+	if not dashing and not dead:
+		apply_movement(movement, delta)
 
 func check_controller_input(dir):
 	var axis = Vector2(Input.get_joy_axis(0, 0), Input.get_joy_axis(0, 1))
@@ -133,9 +146,12 @@ func dash(direction):
 	if !dashing:
 		dashing = true
 		
-		var anim = get_node("Sprite").get_animation().replace("run-", "dash-")
+		var sprite = get_node("Sprite")
+		
+		var anim = sprite.get_animation().replace("run-", "dash-")
 		anim = anim.replace("-loop", "").replace("-begin", "")
-		play_anim_beginloop(anim)#, false)
+		anim = anim+"-loop"
+		sprite.play(anim)
 		
 		var timer = 0.0
 		while timer < dash_duration:
@@ -173,11 +189,21 @@ func update_checkpoint(pos):
 #	get_node("/root/save").save_file(self)
 	
 func death():
-	#var sprite = get_node("Sprite")
-	#if sprite.get_sprite_frames().has_animation("death-down"):
-		#sprite.play("death-down")
-		#yield(sprite, "finished")
-		#sprite.stop()
-	
-	emit_signal("death")
-	self.set_global_pos(lastCheckpoint)
+	var sprite = get_node("Sprite")
+	if not dead:
+		var anim_name = sprite.get_animation()
+		
+		if anim_name.ends_with("-loop"):	anim_name = anim_name.replace("-loop", "")
+		elif anim_name.ends_with("-begin"):	anim_name = anim_name.replace("-begin", "")
+		elif anim_name.ends_with("-stop"):	anim_name = anim_name.replace("-stop", "")
+		if anim_name.begins_with("run"):	anim_name = anim_name.replace("run", "death")
+		elif anim_name.begins_with("dash"):	anim_name = anim_name.replace("dash", "death")
+		print(anim_name)
+		sprite.play(anim_name)
+		dead = true
+		bufferY = get_pos().y
+	else:
+		sprite.play("idle")
+		emit_signal("death")
+		self.set_global_pos(lastCheckpoint)
+		dead = false
