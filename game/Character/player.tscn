@@ -218,8 +218,8 @@ movement_speed = 350.0
 dash_speed = 500.0
 dash_duration = 0.3
 dash_interval = 0.2
-fall_height = 30
-fall_speed = 300
+fall_height = 50
+fall_speed = 350
 colors_learned = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -243,7 +243,7 @@ transform/pos = Vector2( -0.628083, -71.9788 )
 transform/scale = Vector2( 0.32362, 0.32362 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
+frame = 33
 playing = true
 
 [node name="groundcheck" type="Area2D" parent="."]

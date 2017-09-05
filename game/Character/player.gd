@@ -198,12 +198,12 @@ func death():
 		elif anim_name.ends_with("-stop"):	anim_name = anim_name.replace("-stop", "")
 		if anim_name.begins_with("run"):	anim_name = anim_name.replace("run", "death")
 		elif anim_name.begins_with("dash"):	anim_name = anim_name.replace("dash", "death")
-		print(anim_name)
+		if anim_name == "idle":				anim_name = "death-down"
 		sprite.play(anim_name)
 		dead = true
 		bufferY = get_pos().y
 	else:
-		sprite.play("idle")
-		emit_signal("death")
+		sprite.play("run-down-stop")
 		self.set_global_pos(lastCheckpoint)
+		emit_signal("death")
 		dead = false

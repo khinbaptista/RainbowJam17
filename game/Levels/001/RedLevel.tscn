@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=1]
+[gd_scene load_steps=66 format=1]
 
 [ext_resource path="res://Levels/001/RedLevel.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
@@ -13,11 +13,12 @@
 [ext_resource path="res://Menu/particle.png" type="Texture" id=11]
 [ext_resource path="res://Levels/endgame.gd" type="Script" id=12]
 [ext_resource path="res://Character/player.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Plants/Tree + shadow.png" type="Texture" id=14]
-[ext_resource path="res://Plants/Bush + shadow.png" type="Texture" id=15]
-[ext_resource path="res://Levels/001/Deer/Deer.gd" type="Script" id=16]
-[ext_resource path="res://Levels/001/Deer/AnimatedFrames.tres" type="SpriteFrames" id=17]
-[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Particles/round.png" type="Texture" id=14]
+[ext_resource path="res://Plants/Tree + shadow.png" type="Texture" id=15]
+[ext_resource path="res://Plants/Bush + shadow.png" type="Texture" id=16]
+[ext_resource path="res://Levels/001/Deer/Deer.gd" type="Script" id=17]
+[ext_resource path="res://Levels/001/Deer/AnimatedFrames.tres" type="SpriteFrames" id=18]
+[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=19]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -425,7 +426,6 @@ modulate = Color( 1, 0.501961, 0, 1 )
 editor/display_folded = true
 transform/pos = Vector2( -397, -3596 )
 color_dimension = 0
-use_timers = true
 
 [node name="platform31" parent="platforms" instance=ExtResource( 4 )]
 
@@ -996,7 +996,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal"]
 
-frame = 2
+frame = 4
 
 [node name="press_e" type="Sprite" parent="crystal"]
 
@@ -1038,6 +1038,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal1"]
 
+frame = 5
 modulate = Color( 1, 0.501961, 0, 1 )
 
 [node name="press_e1" type="Sprite" parent="crystal1"]
@@ -1080,7 +1081,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal2"]
 
-frame = 0
+frame = 2
 modulate = Color( 1, 0.901961, 0, 1 )
 
 [node name="press_e2" type="Sprite" parent="crystal2"]
@@ -1123,7 +1124,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal3"]
 
-frame = 5
+frame = 7
 modulate = Color( 0.101961, 0.701961, 0.301961, 1 )
 
 [node name="press_e3" type="Sprite" parent="crystal3"]
@@ -1213,8 +1214,6 @@ transform/pos = Vector2( 816, -1021 )
 transform/scale = Vector2( 0.5, 0.5 )
 dash_speed = 800.0
 dash_interval = 0.1
-fall_height = 50
-fall_speed = 350
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
@@ -1247,6 +1246,7 @@ config/preprocess = 8.0
 config/process_mode = 1
 config/half_extents = Vector2( 800, 350 )
 config/local_space = false
+config/texture = ExtResource( 14 )
 params/direction = 45.0
 params/spread = 30.0
 params/linear_velocity = 50.0
@@ -1258,8 +1258,8 @@ params/radial_accel = 0.0
 params/tangential_accel = 0.0
 params/damping = 0.0
 params/initial_angle = 0.0
-params/initial_size = 6.0
-params/final_size = 3.0
+params/initial_size = 1.0
+params/final_size = 0.5
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
@@ -1279,87 +1279,87 @@ editor/display_folded = true
 
 transform/pos = Vector2( 264.812, -2255.74 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Bush3" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 219.811, -1964.14 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Árvore2" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 419.078, -1881.04 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore19" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( -283, -1899 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore20" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( -468, -1772 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore3" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( -89.688, -1808.59 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Árvore21" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( -253, -1711 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Árvore22" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( -575, -1575 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Árvore23" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( -334, -1514 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Bush2" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 158.431, -1789.57 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Bush1" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 143.467, -1738.07 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Árvore4" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 124.295, -1703.13 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Bush" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 305.553, -1624.86 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Deer" type="Area2D" parent="island1Flora"]
@@ -1391,7 +1391,7 @@ _update_shape_index = 0
 
 transform/pos = Vector2( -176.511, 703 )
 curve = SubResource( 46 )
-script/script = ExtResource( 16 )
+script/script = ExtResource( 17 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="island1Flora/Deer/Path2D"]
 
@@ -1410,7 +1410,7 @@ lookahead = 4.0
 transform/pos = Vector2( 15.9098, 40.092 )
 transform/rot = -155.365
 transform/scale = Vector2( 0.108585, 0.108585 )
-frames = ExtResource( 17 )
+frames = ExtResource( 18 )
 animation = "sleep"
 playing = true
 
@@ -1418,40 +1418,40 @@ playing = true
 
 transform/pos = Vector2( 223.52, -1477.19 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Árvore6" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( -89, -1465 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore18" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( -244, -1345 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore24" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( -435, -1288 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Bush8" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 270.272, -1306.35 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Árvore5" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 2.76228, -1263.76 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 modulate = Color( 0.890625, 0.890625, 0.890625, 1 )
 
 [node name="Bush5" type="Sprite" parent="island1Flora"]
@@ -1459,7 +1459,7 @@ modulate = Color( 0.890625, 0.890625, 0.890625, 1 )
 visibility/opacity = 0.78
 transform/pos = Vector2( 347.058, -754.908 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 modulate = Color( 0.757813, 0.757813, 0.757813, 0.61749 )
 
@@ -1467,7 +1467,7 @@ modulate = Color( 0.757813, 0.757813, 0.757813, 0.61749 )
 
 transform/pos = Vector2( 44.0829, -841.963 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 modulate = Color( 0.878906, 0.878906, 0.878906, 0.61749 )
 
@@ -1475,7 +1475,7 @@ modulate = Color( 0.878906, 0.878906, 0.878906, 0.61749 )
 
 transform/pos = Vector2( 406, -917 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 modulate = Color( 0.878906, 0.878906, 0.878906, 0.61749 )
 
@@ -1483,242 +1483,242 @@ modulate = Color( 0.878906, 0.878906, 0.878906, 0.61749 )
 
 transform/pos = Vector2( 687.345, -1370.91 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Bush7" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 613.355, -1299.54 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Árvore7" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1397, -2205 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Árvore8" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1355.71, -2128.16 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Árvore9" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1467.04, -2032.74 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Bush10" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1454.02, -2008.42 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Árvore10" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1262.55, -1637.4 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore14" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1647, -1603 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Árvore25" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1817, -1542 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Árvore26" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 2042, -1451 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Árvore30" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 2324, -1509 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore29" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 2616, -1457 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Árvore12" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1462.13, -1556.6 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore11" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1185.3, -1523.79 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Bush11" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1433.88, -1431.91 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Bush12" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1227.44, -1384.07 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Árvore13" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1583.11, -1374.1 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore29 2" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 2180, -1353 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore27" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1840, -1341 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore29 5" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 2428, -1298 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore28" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1949, -1189 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore29 3" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 2525.47, -1127.42 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore15" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1470.06, -1227.89 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Bush13" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1479.2, -1099.59 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Árvore16" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1658.79, -1099.29 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Árvore29 4" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 2235.26, -1037.71 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Bush14" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1819.82, -938.277 )
 transform/scale = Vector2( 0.418569, 0.418569 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( -336.711, 134.848 )
 
 [node name="Árvore17" type="Sprite" parent="island1Flora"]
 
 transform/pos = Vector2( 1378.55, -775.519 )
 transform/scale = Vector2( 0.72192, 0.72192 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 modulate = Color( 0.890625, 0.890625, 0.890625, 0.650275 )
 
-[node name="Checkpoint" parent="." instance=ExtResource( 18 )]
+[node name="Checkpoint" parent="." instance=ExtResource( 19 )]
 
 visibility/visible = false
 transform/pos = Vector2( 878.5, -3457 )
 transform/scale = Vector2( 5.64063, 7.9375 )
 enabled = true
 
-[node name="Checkpoint1" parent="." instance=ExtResource( 18 )]
+[node name="Checkpoint1" parent="." instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 558.41, -2026.84 )
 transform/scale = Vector2( 4.3097, 2.36987 )
 enabled = false
 
-[node name="Checkpoint2" parent="." instance=ExtResource( 18 )]
+[node name="Checkpoint2" parent="." instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 688.138, -3144.29 )
 transform/scale = Vector2( 1.0845, 1.00615 )
 enabled = true
 
-[node name="Checkpoint3" parent="." instance=ExtResource( 18 )]
+[node name="Checkpoint3" parent="." instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 1492, -1750 )
 transform/scale = Vector2( 1.40162, 5.625 )
 enabled = false
 
-[node name="Checkpoint4" parent="." instance=ExtResource( 18 )]
+[node name="Checkpoint4" parent="." instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 2724.85, -2592.25 )
 transform/scale = Vector2( 1.27663, 8.17969 )
 enabled = true
 
-[node name="Checkpoint5" parent="." instance=ExtResource( 18 )]
+[node name="Checkpoint5" parent="." instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 1632, -4103 )
 transform/scale = Vector2( 1.27663, 8.17969 )
 enabled = true
 
-[node name="Checkpoint6" parent="." instance=ExtResource( 18 )]
+[node name="Checkpoint6" parent="." instance=ExtResource( 19 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 752.759, -3519.69 )
+transform/pos = Vector2( 749, -3520 )
 transform/scale = Vector2( 9.25753, 12.1348 )
 enabled = false
 
-[node name="Checkpoint7" parent="." instance=ExtResource( 18 )]
+[node name="Checkpoint7" parent="." instance=ExtResource( 19 )]
 
 transform/pos = Vector2( -1962, -3655 )
 transform/scale = Vector2( 1.46817, 6.32813 )
 enabled = true
 
-[node name="Checkpoint8" parent="." instance=ExtResource( 18 )]
+[node name="Checkpoint8" parent="." instance=ExtResource( 19 )]
 
 transform/pos = Vector2( -1068.5, -3361.5 )
 transform/scale = Vector2( 2.57812, 2.35938 )
 enabled = true
 
-[node name="Checkpoint9" parent="." instance=ExtResource( 18 )]
+[node name="Checkpoint9" parent="." instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 2700, -4079 )
 transform/scale = Vector2( 2.57812, 2.35938 )
