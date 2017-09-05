@@ -40,7 +40,6 @@ func changed_focus(button):
 
 func pressed_start():
 	print("Start")
-	music.stop_all()
 	get_node("/root/loader").change_scene(next_scene)
 #	get_tree().change_scene_to(next_scene)
 

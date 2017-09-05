@@ -214,7 +214,7 @@ transform/pos = Vector2( 877.668, 493.061 )
 transform/scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 10
+frame = 5
 playing = true
 offset = Vector2( -11.7238, 117.833 )
 
