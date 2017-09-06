@@ -18,6 +18,7 @@ export var fall_height = 50
 export var fall_speed = 350
 
 var lastCheckpoint = Vector2(0, 0)	# location to respawn
+var coins = 0
 var lastDash = 0.0 # timer to control interval between dashes
 
 var sound
@@ -51,8 +52,8 @@ func _process(delta):
 		if not grounded: get_node("shadow").hide()
 		else: get_node("shadow").show()
 		
-		if lastDash > 0: lastDash -= delta
-		else: canDash = true
+		#if lastDash > 0: lastDash -= delta
+		#else: canDash = true
 
 func _input(event):
 	if can_move:
@@ -166,8 +167,13 @@ func dash(direction):
 		play_anim_stop()
 		dashing = false
 		
+		anim = anim.replace("-loop", "-end")
+		sprite.play("anim")
+		yield(sprite, "finished")
+		
 		lastDash = dash_interval
-		canDash = false
+		#canDash = false
+		canDash = true
 
 func advertise_colors():
 	if colors_learned & 2:	emit_signal("new_color_learned", 2)	# red
@@ -211,3 +217,9 @@ func death():
 		self.set_global_pos(lastCheckpoint)
 		emit_signal("death")
 		dead = false
+
+func add_coin(amount):
+	coins = coins + amount
+	
+func spend_coins(amount):
+	coins = coins - amount
