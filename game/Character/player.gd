@@ -67,27 +67,27 @@ func input_movement(delta):
 	if Input.is_action_pressed("exit"):
 		get_node("/root/loader").change_scene("res://Menu/start_menu.tscn")
 	if not dashing and not dead and can_move:
-		if Input.is_action_pressed("move_up"):
-			moveDir = "up"
-			get_node("Sprite").set_flip_h(false)
-			movement.y -= 1
-			hasMoved = true
-		if Input.is_action_pressed("move_down"):
-			moveDir = "down"
-			get_node("Sprite").set_flip_h(false)
-			movement.y += 1
-			hasMoved = true
-		if Input.is_action_pressed("move_left"):
-			moveDir = "right"
-			get_node("Sprite").set_flip_h(true)
-			movement.x -= 1
-			hasMoved = true
+		# INPUT
 		if Input.is_action_pressed("move_right"):
-			moveDir = "right"
-			get_node("Sprite").set_flip_h(false)
 			movement.x += 1
-			hasMoved = true
+		if Input.is_action_pressed("move_left"):
+			movement.x -= 1
+		if Input.is_action_pressed("move_up"):
+			movement.y -= 1
+		if Input.is_action_pressed("move_down"):
+			movement.y += 1
 		
+		# DIRECTION
+		if movement == Vector2(0,0):	hasMoved = false
+		else:
+			get_node("Sprite").set_flip_h(false)
+			if movement.x < 0 and movement.y == 0:	get_node("Sprite").set_flip_h(true)
+			hasMoved = true
+			if movement.x != 0:		moveDir = "right"
+			if movement.y > 0:		moveDir = "down"
+			elif movement.y < 0:	moveDir = "up"
+		
+		# MOVEMENT STATE MACHINE
 		if !grounded:	animState = "death"
 		elif Input.is_action_pressed("dash") and canDash:
 			dash(self.get_travel().normalized())
@@ -121,6 +121,7 @@ func apply_movement(direction, delta):
 	var anim = sprite.get_animation().basename()
 	var moved = ( direction.length() != 0 )
 	
+	# ANIMATION. Continues state machine
 	if animState == "runStart":
 		if anim != ("run-"+moveDir+"-begin"):
 			sprite.play("run-"+moveDir+"-begin")
@@ -132,6 +133,7 @@ func apply_movement(direction, delta):
 			get_node("timer_idle").start()
 			sprite.play("run-"+moveDir+"-stop")
 	
+	# MOVEMENT
 	if moved:
 		var remaining = self.move(direction * movement_speed * delta)
 		if self.is_colliding():

@@ -167,11 +167,20 @@ params/stretch_mode = 0
 
 [node name="ground+tree" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 1733.07, 478.385 )
 transform/scale = Vector2( 0.869792, 0.869792 )
 texture = ExtResource( 8 )
 offset = Vector2( -1090, -10 )
+
+[node name="idle" type="AnimatedSprite" parent="ground+tree"]
+
+transform/pos = Vector2( -983.456, 16.873 )
+transform/scale = Vector2( 0.34491, 0.34491 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 5
+playing = true
+offset = Vector2( -11.7238, 117.833 )
 
 [node name="Particles2D" type="Particles2D" parent="ground+tree"]
 
@@ -207,16 +216,6 @@ randomness/initial_size = 0.3
 randomness/final_size = -0.1
 color/color = Color( 1, 0.447059, 0.741176, 1 )
 color/color_ramp = SubResource( 1 )
-
-[node name="idle" type="AnimatedSprite" parent="."]
-
-transform/pos = Vector2( 877.668, 493.061 )
-transform/scale = Vector2( 0.3, 0.3 )
-frames = SubResource( 2 )
-animation = "default"
-frame = 17
-playing = true
-offset = Vector2( -11.7238, 117.833 )
 
 [node name="logo" type="Sprite" parent="."]
 

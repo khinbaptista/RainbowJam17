@@ -10,6 +10,7 @@ var music
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.warp_mouse_pos(Vector2(10000, 10000))
 	
 	button_start.connect("pressed", self, "pressed_start")
 	button_quit.connect("pressed", self, "pressed_quit")
