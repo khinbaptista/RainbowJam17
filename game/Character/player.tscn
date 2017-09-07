@@ -144,7 +144,7 @@ animations = [ {
 "name": "dash-down-stop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 50 ) ],
+"frames": [ ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 50 ) ],
 "loop": false,
 "name": "run-up-stop",
 "speed": 8.0
@@ -189,7 +189,7 @@ animations = [ {
 "name": "death-down",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 11 ), ExtResource( 71 ), ExtResource( 9 ), ExtResource( 71 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 71 ), ExtResource( 9 ), ExtResource( 71 ) ],
 "loop": false,
 "name": "run-down-stop",
 "speed": 8.0
@@ -245,7 +245,7 @@ transform/pos = Vector2( -0.628083, -71.9788 )
 transform/scale = Vector2( 0.32362, 0.32362 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 6
+frame = 30
 playing = true
 
 [node name="groundcheck" type="Area2D" parent="."]
