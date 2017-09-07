@@ -277,8 +277,6 @@ speed = -250
 
 [node name="platforms" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="platform14" parent="platforms" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 699.181, -2898.27 )
@@ -344,7 +342,8 @@ modulate = Color( 1, 0.501961, 0, 1 )
 editor/display_folded = true
 transform/pos = Vector2( 3018, -3456 )
 color_dimension = 0
-use_timers = true
+destructible = true
+duration_on = 4.0
 
 [node name="sprite" parent="platforms/platform23"]
 
@@ -443,7 +442,7 @@ editor/display_folded = true
 transform/pos = Vector2( -474, -3352 )
 color_dimension = 0
 destructible = true
-duration_on = 0.2
+duration_on = 0.3
 
 [node name="sprite" parent="platforms/platform33"]
 
@@ -455,7 +454,7 @@ editor/display_folded = true
 transform/pos = Vector2( -773, -3352 )
 color_dimension = 0
 destructible = true
-duration_on = 0.2
+duration_on = 0.3
 
 [node name="sprite" parent="platforms/platform34"]
 
@@ -996,7 +995,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal"]
 
-frame = 1
+frame = 9
 
 [node name="press_e" type="Sprite" parent="crystal"]
 
@@ -1039,7 +1038,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal1"]
 
-frame = 2
+frame = 0
 modulate = Color( 1, 0.501961, 0, 1 )
 
 [node name="press_e1" type="Sprite" parent="crystal1"]
@@ -1083,7 +1082,7 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal2"]
 
-frame = 9
+frame = 7
 modulate = Color( 1, 0.901961, 0, 1 )
 
 [node name="press_e2" type="Sprite" parent="crystal2"]
@@ -1127,12 +1126,11 @@ player_path = NodePath("../player")
 
 [node name="sprite" parent="crystal3"]
 
-frame = 4
+frame = 2
 modulate = Color( 0.101961, 0.701961, 0.301961, 1 )
 
 [node name="press_e3" type="Sprite" parent="crystal3"]
 
-editor/display_folded = true
 transform/pos = Vector2( 2.5, -113 )
 transform/scale = Vector2( 0.510537, 0.510537 )
 z/z = 5
@@ -1732,9 +1730,9 @@ enabled = true
 
 [connection signal="body_enter" from="island1Flora/Deer" to="island1Flora/Deer/Path2D" method="_on_Deer_body_enter"]
 
-[connection signal="checkpoint_activated" from="Checkpoint" to="." method="_on_Checkpoint_checkpoint_activated"]
-
 [connection signal="checkpoint_activated" from="Checkpoint" to="Checkpoint1" method="set_enabled" binds= [ true ]]
+
+[connection signal="checkpoint_activated" from="Checkpoint" to="." method="_on_Checkpoint_checkpoint_activated"]
 
 [connection signal="body_enter" from="Checkpoint5" to="." method="_on_Checkpoint5_body_enter"]
 
