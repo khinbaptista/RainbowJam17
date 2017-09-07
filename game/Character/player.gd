@@ -208,7 +208,7 @@ func death():
 		sprite.play("run-down-stop")
 		self.set_global_pos(lastCheckpoint)
 		emit_signal("death")
-		canDash = true
+		canDash = false
 		can_move = true
 		dead = false
 

@@ -14,5 +14,5 @@ func _on_Checkpoint_checkpoint_activated():
 	get_node("Checkpoint3").enabled = true
 
 
-func _on_Checkpoint5_body_enter( body ):
+func _on_Checkpoint9_body_enter( body ):
 	get_node("Checkpoint6").enabled = true
