@@ -1,4 +1,4 @@
-extends Node2D
+extends Particles2D
 
 export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Purple") var last_color = 16
 
@@ -11,5 +11,5 @@ func _on_new_color_learned( color ):
 		get_node("Area2D/CollisionShape2D").set_trigger(false)
 
 func _on_body_enter( body ):
-	if body.get_name() == "player":
+	if body.get_name() == "player" and self.is_emitting():
 		get_node("/root/loader").change_scene("res://Menu/Credits.tscn")

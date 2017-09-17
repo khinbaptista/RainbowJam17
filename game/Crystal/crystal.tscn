@@ -37,14 +37,14 @@ friction = 1.0
 bounce = 0.0
 script/script = ExtResource( 1 )
 crystal_color = 1
-player_path = NodePath("")
+player_path = NodePath("../../player")
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 
 transform/scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 3
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

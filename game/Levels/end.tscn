@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Menu/particle.png" type="Texture" id=1]
+[ext_resource path="res://Levels/endgame.gd" type="Script" id=2]
+
+[sub_resource type="ColorRamp" id=1]
+
+offsets = FloatArray( 0, 0.303922, 0.656863, 1 )
+colors = ColorArray( 0.780392, 0.368627, 0.745098, 0, 1, 0.447059, 0.741176, 1, 0.878906, 0.377655, 0.718349, 1, 0.554051, 0.181274, 0.644531, 0 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 3.90418
+
+[node name="end" type="Particles2D"]
+
+transform/pos = Vector2( -2220.29, -3553.48 )
+transform/scale = Vector2( 1.64547, 1.65895 )
+config/amount = 40
+config/lifetime = 3.0
+config/emitting = false
+config/process_mode = 1
+config/texture = ExtResource( 1 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 2.0
+params/orbit_velocity = 2.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.015
+params/final_size = 0.015
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color_ramp = SubResource( 1 )
+script/script = ExtResource( 2 )
+last_color = 16
+
+[node name="Area2D" type="Area2D" parent="."]
+
+transform/pos = Vector2( 5.79858, 26.71 )
+transform/scale = Vector2( 2.30159, 2.35766 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1.65576, 0, 0, 1.58684, -3.86383, -10.8269 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+transform/pos = Vector2( -3.86383, -10.8269 )
+transform/scale = Vector2( 1.65576, 1.58684 )
+shape = SubResource( 2 )
+trigger = true
+_update_shape_index = 0
+
+
