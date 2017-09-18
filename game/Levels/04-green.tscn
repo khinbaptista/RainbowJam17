@@ -75,11 +75,12 @@ script/script = ExtResource( 1 )
 [node name="platforms" type="Node2D" parent="."]
 
 editor/display_folded = true
+transform/pos = Vector2( 536.125, -3.21814 )
 
 [node name="platform30" parent="platforms" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -33, -3596 )
+transform/pos = Vector2( 1534.6, 93.9139 )
 color_dimension = 4
 
 [node name="sprite" parent="platforms/platform30"]
@@ -89,13 +90,13 @@ modulate = Color( 1, 0.501961, 0, 1 )
 [node name="platform32" parent="platforms" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -339.721, -3596 )
+transform/pos = Vector2( 1227.88, 93.9139 )
 color_dimension = 0
 
 [node name="platform31" parent="platforms" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 263, -3596 )
+transform/pos = Vector2( 1830.6, 93.9139 )
 color_dimension = 8
 
 [node name="sprite" parent="platforms/platform31"]
@@ -105,7 +106,7 @@ modulate = Color( 1, 0.901961, 0, 1 )
 [node name="platform33" parent="platforms" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -344.422, -3309.19 )
+transform/pos = Vector2( 1223.17, 380.724 )
 color_dimension = 0
 destructible = true
 duration_on = 0.3
@@ -117,7 +118,7 @@ modulate = Color( 0.101961, 0.701961, 0.301961, 1 )
 [node name="platform34" parent="platforms" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -643.422, -3309.19 )
+transform/pos = Vector2( 924.174, 380.724 )
 color_dimension = 0
 destructible = true
 duration_on = 0.3
@@ -129,7 +130,7 @@ modulate = Color( 0.101961, 0.701961, 0.301961, 1 )
 [node name="platform35" parent="platforms" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -936.422, -3311.19 )
+transform/pos = Vector2( 631.174, 378.724 )
 color_dimension = 0
 duration_on = 0.2
 
@@ -140,7 +141,7 @@ modulate = Color( 0.101961, 0.701961, 0.301961, 1 )
 [node name="platform36" parent="platforms" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -952.112, -3606 )
+transform/pos = Vector2( 615.484, 83.9139 )
 color_dimension = 8
 duration_on = 0.2
 
@@ -151,7 +152,7 @@ modulate = Color( 1, 0.901961, 0, 1 )
 [node name="platform37" parent="platforms" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -1272.11, -3606 )
+transform/pos = Vector2( 295.486, 83.9139 )
 color_dimension = 4
 duration_on = 0.2
 
@@ -162,7 +163,7 @@ modulate = Color( 1, 0.501961, 0, 1 )
 [node name="platform38" parent="platforms" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -1590.11, -3606 )
+transform/pos = Vector2( -22.5135, 83.9139 )
 color_dimension = 0
 use_timers = true
 
@@ -175,7 +176,7 @@ modulate = Color( 0.101961, 0.701961, 0.301961, 1 )
 ]]
 
 editor/display_folded = true
-transform/pos = Vector2( -2107.61, -3613.5 )
+transform/pos = Vector2( 0.35376, 76.588 )
 transform/scale = Vector2( -0.453125, 0.453125 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -235,7 +236,7 @@ trigger = false
 [node name="crystal" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -2103.11, -3699 )
+transform/pos = Vector2( 4.85376, -8.91202 )
 transform/scale = Vector2( 0.421875, 0.421875 )
 crystal_color = 16
 
@@ -270,13 +271,13 @@ _update_shape_index = 0
 
 [node name="Checkpoint7" parent="." instance=ExtResource( 7 )]
 
-transform/pos = Vector2( -1850.11, -3655 )
+transform/pos = Vector2( 257.854, 35.088 )
 transform/scale = Vector2( 1.46817, 6.32813 )
 enabled = true
 
 [node name="Checkpoint8" parent="." instance=ExtResource( 7 )]
 
-transform/pos = Vector2( -938.922, -3318.69 )
+transform/pos = Vector2( 1169.04, 371.398 )
 transform/scale = Vector2( 2.57812, 2.35938 )
 enabled = true
 
