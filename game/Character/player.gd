@@ -5,17 +5,20 @@ export(float, 0.0, 1500.0, 0.1) var movement_speed = 100
 export(float, 0.0, 1500.0, 0.1) var dash_speed = 120
 export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
 export(float, 0.0, 10.0, 0.1) var dash_interval = 0.2
+export(float, 0.0, 10.0, 0.1) var ledge_forgiveness = 0.1
 
-var moved = false	# has the player moved in this frame?
-var dashing = false	# is the player dashing?
+var moved = false		# has the player moved in this frame?
+var dashing = false		# is the player dashing?
 var grounded = false	# is the player standing on ground?
-var canDash = true
-var dead = false # is the player dead?
+var canDash = true		# can the player dash?
+var dead = false		# is the player dead?
 
 # Variables for death
 var bufferY = 0 # this variable is a buffer for the player Y
 export var fall_height = 50
 export var fall_speed = 350
+var ledgeTimer = 0
+var ledgeTimerCounting = false
 
 var lastCheckpoint = Vector2(0, 0)	# location to respawn
 var lastDash = 0.0 # timer to control interval between dashes
@@ -44,8 +47,24 @@ func _ready():
 	advertise_colors()
 	
 func _process(delta):
-	print(get_node("Sprite").get_animation().basename())
-	if dead:
+	print("\n", ledgeTimer)
+	print("ledgeTimerCounting: ", ledgeTimerCounting)
+	print("dead: ", dead)
+	print("can_move: ", can_move)
+	print("canDash: ", canDash)
+	print("dashing: ", dashing)
+	
+	if not grounded and not ledgeTimerCounting and not dead:
+		ledgeTimer = ledge_forgiveness
+		ledgeTimerCounting = true
+	elif grounded:
+		ledgeTimerCounting = false
+		ledgeTimer = 0
+	
+	if ledgeTimer>0:
+		ledgeTimer-=delta
+		input_movement(delta)
+	elif dead:
 		if get_pos().y < bufferY + fall_height and not grounded:
 			set_pos(Vector2(get_pos().x, get_pos().y+fall_speed*delta))
 		else:
@@ -54,11 +73,11 @@ func _process(delta):
 		if not grounded and not dashing: death()
 		if can_move:
 			input_movement(delta)
-		if not grounded: get_node("shadow").hide()
-		else: get_node("shadow").show()
 		
 		if lastDash > 0: lastDash -= delta
 		else:	can_move = true
+	
+	process_shadow()
 
 func input_movement(delta):
 	var movement = Vector2()
@@ -88,7 +107,7 @@ func input_movement(delta):
 			elif movement.y < 0:	moveDir = "up"
 		
 		# MOVEMENT STATE MACHINE
-		if !grounded:	animState = "death"
+		if !grounded and !ledgeTimerCounting:	animState = "death"
 		elif Input.is_action_pressed("dash") and canDash:
 			dash(self.get_travel().normalized())
 			animState = "dash"
@@ -104,9 +123,15 @@ func input_movement(delta):
 			canDash = false
 			if animState == "runLoop":	animState = "runStop"
 		
+		if ledgeTimerCounting:	canDash = true
+		
 		if animState != "death":
 			movement = check_controller_input(movement.normalized())
 			apply_movement(movement, delta)
+
+func process_shadow():
+	if not grounded: get_node("shadow").hide()
+	else: get_node("shadow").show()
 
 func check_controller_input(dir):
 	var axis = Vector2(Input.get_joy_axis(0, 0), Input.get_joy_axis(0, 1))
@@ -195,6 +220,7 @@ func update_checkpoint(pos):
 	
 func death():
 	var sprite = get_node("Sprite")
+	
 	if not dead:
 		dead = true
 		canDash = false
@@ -203,7 +229,6 @@ func death():
 		if anim_name == "idle":	anim_name = "death-down"
 		else:					anim_name = "death-"+moveDir
 		sprite.play(anim_name)
-		print(anim_name)
 		
 		bufferY = get_pos().y
 	else:
