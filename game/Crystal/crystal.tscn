@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Crystal/color-crystal.gd" type="Script" id=1]
 [ext_resource path="res://Crystal/sprites/000.png" type="Texture" id=2]
@@ -7,12 +7,13 @@
 [ext_resource path="res://Crystal/sprites/003.png" type="Texture" id=5]
 [ext_resource path="res://Crystal/sprites/004.png" type="Texture" id=6]
 [ext_resource path="res://Crystal/sprites/005.png" type="Texture" id=7]
+[ext_resource path="res://Menu/icons/e_or_x.png" type="Texture" id=8]
+[ext_resource path="res://Menu/show_help.gd" type="Script" id=9]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 30.3937
-height = 41.5416
+radius = 31.7871
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -23,11 +24,16 @@ animations = [ {
 "speed": 8.0
 } ]
 
+[sub_resource type="CircleShape2D" id=44]
+
+custom_solver_bias = 0.0
+radius = 14.6428
+
 [node name="crystal" type="StaticBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 6.70822e-06, -3.7825 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -41,16 +47,48 @@ player_path = NodePath("../../player")
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 
+transform/pos = Vector2( 0, -34.0427 )
 transform/scale = Vector2( 0.3, 0.3 )
+z/z = 1
 frames = SubResource( 2 )
 animation = "default"
-frame = 6
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+transform/pos = Vector2( 6.70822e-06, -3.7825 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="press_e" type="Sprite" parent="."]
+
 visibility/visible = false
-shape = SubResource( 1 )
+transform/pos = Vector2( 2.43234, -112.946 )
+transform/scale = Vector2( 0.510537, 0.510537 )
+z/z = 1
+texture = ExtResource( 8 )
+script/script = ExtResource( 9 )
+
+[node name="Area2D" type="Area2D" parent="press_e"]
+
+transform/pos = Vector2( 3.92041, 213.58 )
+transform/scale = Vector2( 8.25699, 8.45816 )
+input/pickable = true
+shapes/0/shape = SubResource( 44 )
+shapes/0/transform = Matrix32( 3.44865, 0, 0, 3.3051, -0.374939, -0.584961 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="press_e/Area2D"]
+
+transform/pos = Vector2( -0.374939, -0.584961 )
+transform/scale = Vector2( 3.44865, 3.3051 )
+shape = SubResource( 44 )
 trigger = false
 _update_shape_index = 0
 

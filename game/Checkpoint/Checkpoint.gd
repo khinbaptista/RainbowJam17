@@ -10,7 +10,7 @@ func _ready():
 
 func _on_body_enter(body):
 	if enabled and not active and body.has_method("update_checkpoint"):
-		body.update_checkpoint(self.get_global_pos())
+		body.update_checkpoint(get_node("spawn_location").get_global_pos())
 		active = true
 		emit_signal("checkpoint_activated")
 

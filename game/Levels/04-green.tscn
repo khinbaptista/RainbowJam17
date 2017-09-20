@@ -1,12 +1,10 @@
-[gd_scene load_steps=20 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://Levels/yellow.gd" type="Script" id=1]
 [ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/001/green island.png" type="Texture" id=3]
 [ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Menu/icons/e_or_x.png" type="Texture" id=5]
-[ext_resource path="res://Menu/show_help.gd" type="Script" id=6]
-[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -62,11 +60,6 @@ points = Vector2Array( -55, -374.5, 157, -377.5, 599, -172.5, 441, 411.5, 315, 4
 
 custom_solver_bias = 0.0
 points = Vector2Array( -509, 295.5, 315, 411.5, 136, 553.5, -98, 552.5 )
-
-[sub_resource type="CircleShape2D" id=12]
-
-custom_solver_bias = 0.0
-radius = 14.6428
 
 [node name="green" type="Node2D"]
 
@@ -235,51 +228,19 @@ trigger = false
 
 [node name="crystal" parent="." instance=ExtResource( 4 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 4.85376, -8.91202 )
 transform/scale = Vector2( 0.421875, 0.421875 )
 crystal_color = 16
 
-[node name="press_e3" type="Sprite" parent="crystal"]
-
-transform/pos = Vector2( 2.5, -113 )
-transform/scale = Vector2( 0.510537, 0.510537 )
-z/z = 5
-texture = ExtResource( 5 )
-script/script = ExtResource( 6 )
-
-[node name="Area2D" type="Area2D" parent="crystal/press_e3"]
-
-transform/pos = Vector2( 3.92041, 213.58 )
-transform/scale = Vector2( 8.25699, 8.45816 )
-input/pickable = true
-shapes/0/shape = SubResource( 12 )
-shapes/0/transform = Matrix32( 3.44865, 0, 0, 3.3051, -0.374939, -0.584961 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="crystal/press_e3/Area2D"]
-
-transform/pos = Vector2( -0.374939, -0.584961 )
-transform/scale = Vector2( 3.44865, 3.3051 )
-shape = SubResource( 12 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Checkpoint7" parent="." instance=ExtResource( 7 )]
+[node name="Checkpoint7" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 257.854, 35.088 )
 transform/scale = Vector2( 1.46817, 6.32813 )
-enabled = true
 
-[node name="Checkpoint8" parent="." instance=ExtResource( 7 )]
+[node name="Checkpoint8" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1169.04, 371.398 )
 transform/scale = Vector2( 2.57812, 2.35938 )
-enabled = true
 
 
 [editable path="platforms/platform30"]

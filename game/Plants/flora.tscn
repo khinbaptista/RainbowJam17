@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://Plants/flora.gd" type="Script" id=1]
+[ext_resource path="res://Plants/Tree shadow.png" type="Texture" id=2]
+[ext_resource path="res://Plants/Tree.png" type="Texture" id=3]
+[ext_resource path="res://Plants/Bush + shadow.png" type="Texture" id=4]
+[ext_resource path="res://Menu/particle.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 37.3195
+height = 92.5115
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 9.20645
+height = 59.892
+
+[sub_resource type="ColorRamp" id=3]
+
+offsets = FloatArray( 0, 0.19883, 0.818713, 1 )
+colors = ColorArray( 0.780392, 0.368627, 0.745098, 0, 1, 0.447059, 0.741176, 1, 0.878906, 0.377655, 0.718349, 1, 0.554051, 0.181274, 0.644531, 0 )
+
+[node name="flora" type="StaticBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 3.57492, 6.75266 )
+shapes/0/trigger = true
+shapes/1/shape = SubResource( 2 )
+shapes/1/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, -7.86336, -0.951302 )
+shapes/1/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+type = "Tree"
+flip = false
+modulate = Color( 1, 1, 1, 1 )
+reachable = true
+
+[node name="Bush_collisionShape" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 3.57492, 6.75266 )
+transform/rot = 90.0
+shape = SubResource( 1 )
+trigger = true
+_update_shape_index = 0
+
+[node name="Tree_collisionShape" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( -7.86336, -0.951302 )
+transform/rot = 90.0
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 1
+
+[node name="Shadows" type="Node2D" parent="."]
+
+editor/display_folded = true
+z/z = 1
+
+[node name="Tree_shadow" type="Sprite" parent="Shadows"]
+
+transform/pos = Vector2( 0, -114.845 )
+transform/scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 2 )
+
+[node name="Bush_shadow" type="Sprite" parent="Shadows"]
+
+visibility/visible = false
+transform/pos = Vector2( 0, -17.9192 )
+
+[node name="Plants" type="Node2D" parent="."]
+
+[node name="Tree" type="Sprite" parent="Plants"]
+
+transform/pos = Vector2( 0, -114.845 )
+transform/scale = Vector2( 0.7, 0.7 )
+z/z = 1
+texture = ExtResource( 3 )
+
+[node name="Bush" type="Sprite" parent="Plants"]
+
+visibility/visible = false
+transform/pos = Vector2( 0, -17.9192 )
+transform/scale = Vector2( 0.4, 0.4 )
+z/z = 1
+texture = ExtResource( 4 )
+
+[node name="Tree_particles" type="Particles2D" parent="."]
+
+transform/pos = Vector2( 0, -181.635 )
+z/z = 1
+config/amount = 10
+config/lifetime = 2.0
+config/time_scale = 0.15
+config/preprocess = 4.0
+config/process_mode = 1
+config/half_extents = Vector2( 100, 100 )
+config/texture = ExtResource( 5 )
+params/direction = 330.0
+params/spread = 40.0
+params/linear_velocity = 110.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 1.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.05
+params/final_size = 0.02
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 1.0
+randomness/spread = 5.0
+randomness/linear_velocity = -0.4
+randomness/gravity_strength = 0.4
+randomness/initial_size = 0.3
+randomness/final_size = -0.1
+color/color = Color( 1, 0.447059, 0.741176, 1 )
+color/color_ramp = SubResource( 3 )
+
+

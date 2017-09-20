@@ -47,12 +47,12 @@ func _ready():
 	advertise_colors()
 	
 func _process(delta):
-	print("\n", ledgeTimer)
-	print("ledgeTimerCounting: ", ledgeTimerCounting)
-	print("dead: ", dead)
-	print("can_move: ", can_move)
-	print("canDash: ", canDash)
-	print("dashing: ", dashing)
+#	print("\n", ledgeTimer)
+#	print("ledgeTimerCounting: ", ledgeTimerCounting)
+#	print("dead: ", dead)
+#	print("can_move: ", can_move)
+#	print("canDash: ", canDash)
+#	print("dashing: ", dashing)
 	
 	if not grounded and not ledgeTimerCounting and not dead:
 		ledgeTimer = ledge_forgiveness
