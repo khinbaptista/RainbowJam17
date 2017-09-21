@@ -7,12 +7,12 @@ func _ready():
 
 func _fixed_process(delta):
 	var areas = get_overlapping_areas()
-	var beam = null
+	var beams = []
 	var ground = []
 	
 	for area in areas:
-		if area.get_name() == "beam_area" and not beam:
-			beam = area.get_parent()
+		if area.get_name() == "beam_area":
+			beams.append(area.get_parent())
 		elif area.is_in_group("platform") or area.is_in_group("ground"):
 			ground.append(area)
 	
@@ -25,11 +25,13 @@ func _fixed_process(delta):
 		if not tile.has_node("sprite"): continue
 		var ground_mask = tile.get_node("sprite").get_light_mask()
 		
-		if ground_mask >= 2:	# has a color
-			if beam != null and ground_mask & beam.beam_color:
-				print(beam.get_name())
-				grounded = true
-				break
+		if ground_mask >= 2: 	# has a color
+			if not beams.empty():
+				for beam in beams:
+					if ground_mask & beam.beam_color:
+						print(beam.get_name())
+						grounded = true
+						break
 		else:
 			grounded = true		# ground has no color
 			break
