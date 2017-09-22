@@ -177,6 +177,8 @@ func dash(direction):
 	sprite.play(anim)
 	
 	var timer = 0.0
+	if !dashing and timer<0.1:	start_joy_vibration(0, 0, 1, 0.1)
+	elif timer < dash_duration-0.1:	start_joy_vibration(0, 1, 0, 0.1)
 	while timer < dash_duration:
 		var delta = get_process_delta_time()
 		self.move(direction * dash_speed * get_process_delta_time())
