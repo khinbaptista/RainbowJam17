@@ -10,7 +10,7 @@ var music
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	Input.warp_mouse_pos(Vector2(10000, 10000))
+	#Input.warp_mouse_pos(Vector2(10000, 10000))
 	
 	button_start.connect("pressed", self, "pressed_start")
 	button_quit.connect("pressed", self, "pressed_quit")
@@ -33,6 +33,7 @@ func _input(event):
 		focused_button.emit_signal("pressed")
 
 func changed_focus(button):
+	Input.start_joy_vibration(0, 0.4, 0.4, 0.1)
 	if focused_button != null:
 		focused_button.get_node("focus").hide()
 	
@@ -40,6 +41,7 @@ func changed_focus(button):
 	focused_button.get_node("focus").show()
 
 func pressed_start():
+	Input.start_joy_vibration(0, 0.4, 0.4, 0.1)
 	print("Start")
 	get_node("/root/loader").change_scene(next_scene)
 #	get_tree().change_scene_to(next_scene)

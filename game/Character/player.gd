@@ -177,8 +177,8 @@ func dash(direction):
 	sprite.play(anim)
 	
 	var timer = 0.0
-	if !dashing and timer<0.1:	Input.start_joy_vibration(0, 0, 1, 0.1)
-	elif timer < dash_duration-0.1:	Input.start_joy_vibration(0, 1, 0, 0.1)
+	if !dashing and timer<0.1:	Input.start_joy_vibration(0, 0.6, 0.4, 0.1)
+	else:	Input.start_joy_vibration(0, 0.6-0.6*timer, 0.2, 0.25)
 	while timer < dash_duration:
 		var delta = get_process_delta_time()
 		self.move(direction * dash_speed * get_process_delta_time())
@@ -211,6 +211,7 @@ func knows_color(color):
 	return colors_learned & color
 
 func learn_color(color):
+	Input.start_joy_vibration(0, 0.2, 0.4, 0.3)
 	if colors_learned & color: return	# color is aleady known
 	colors_learned += color
 #	get_node("/root/save").save_file(self)
@@ -224,6 +225,7 @@ func death():
 	var sprite = get_node("Sprite")
 	
 	if not dead:
+		Input.start_joy_vibration(0, 0.2, 0.4, 0.3)
 		dead = true
 		canDash = false
 		var anim_name = sprite.get_animation()

@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Purple") var crystal_color = 1
+export(float, 0, 1000, 1) var vibration_distance = 300
 
 export(NodePath) var player_path = @""
 onready var player = get_node(player_path)
@@ -16,6 +17,7 @@ func _ready():
 
 func _process(delta):
 	process_layer()
+	proximity_vibration()
 
 func interaction():
 	player.learn_color(crystal_color)
@@ -30,3 +32,14 @@ func process_layer():
 		sprite.set_z(3)
 		press_e.set_z(3)
 		layer = "front"
+
+# This function makes the controller vibrate more the closer you are to the crystal
+func proximity_vibration():
+	var dist = get_global_pos().distance_to(player.get_global_pos())
+	var attenuation = 1-dist/vibration_distance
+	
+	if attenuation < 0:
+		attenuation = 0
+	else:
+		Input.stop_joy_vibration(0)
+		Input.start_joy_vibration(0, 0.4*attenuation, 0.6*attenuation, 0.1)
