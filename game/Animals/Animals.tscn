@@ -1,0 +1,136 @@
+[gd_scene load_steps=29 format=1]
+
+[ext_resource path="res://Animals/Animals.gd" type="Script" id=1]
+[ext_resource path="res://Animals/Deer/001.png" type="Texture" id=2]
+[ext_resource path="res://Animals/Deer/002.png" type="Texture" id=3]
+[ext_resource path="res://Animals/Deer/004.png" type="Texture" id=4]
+[ext_resource path="res://Animals/Deer/003.png" type="Texture" id=5]
+[ext_resource path="res://Animals/Deer/005.png" type="Texture" id=6]
+[ext_resource path="res://Animals/Deer/006.png" type="Texture" id=7]
+[ext_resource path="res://Animals/Deer/007.png" type="Texture" id=8]
+[ext_resource path="res://Animals/Deer/008.png" type="Texture" id=9]
+[ext_resource path="res://Animals/Deer/000.png" type="Texture" id=10]
+[ext_resource path="res://Animals/Birds/000.png" type="Texture" id=11]
+[ext_resource path="res://Animals/Birds/001.png" type="Texture" id=12]
+[ext_resource path="res://Animals/Birds/002.png" type="Texture" id=13]
+[ext_resource path="res://Animals/Birds/003.png" type="Texture" id=14]
+[ext_resource path="res://Animals/Birds/004.png" type="Texture" id=15]
+[ext_resource path="res://Animals/Birds/005.png" type="Texture" id=16]
+[ext_resource path="res://Animals/Birds/006.png" type="Texture" id=17]
+[ext_resource path="res://Animals/Birds/007.png" type="Texture" id=18]
+[ext_resource path="res://Animals/Birds/008.png" type="Texture" id=19]
+[ext_resource path="res://Animals/Birds/009.png" type="Texture" id=20]
+[ext_resource path="res://Animals/Birds/010.png" type="Texture" id=21]
+[ext_resource path="res://Animals/Birds/011.png" type="Texture" id=22]
+[ext_resource path="res://Animals/Birds/012.png" type="Texture" id=23]
+[ext_resource path="res://Animals/Birds/013.png" type="Texture" id=24]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 190.204, 131.35 )
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = {
+"points": Vector2Array( 0, 0, 0, 0, 171.615, -703.82, 0, 0, 0, 0, 100.317, -717.809, 0, 0, 0, 0, 7.35986, -700.211, 0, 0, 0, 0, -75.67, -621.693 )
+}
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "wake up",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "run",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": false,
+"name": "sleep",
+"speed": 1.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "wake up",
+"speed": 15.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sleep",
+"speed": 1.0
+} ]
+
+[node name="Animals" type="Area2D"]
+
+transform/pos = Vector2( -618.579, -700.568 )
+transform/scale = Vector2( 2, 2 )
+z/z = 1
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 0.630072, 275.341, -9.73816 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 1048575
+collision/mask = 1048575
+script/script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 275.341, -9.73816 )
+transform/scale = Vector2( 1, 0.630072 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Path2D" type="Path2D" parent="."]
+
+transform/pos = Vector2( -176.511, 703 )
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+transform/pos = Vector2( 171.615, -703.82 )
+transform/rot = 155.365
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Deer" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
+
+transform/pos = Vector2( 15.9098, 40.092 )
+transform/rot = -155.365
+transform/scale = Vector2( 0.108585, 0.108585 )
+frames = SubResource( 3 )
+animation = "sleep"
+
+[node name="Birds" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
+
+transform/pos = Vector2( 15.9098, 40.092 )
+transform/rot = -155.365
+transform/scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 4 )
+animation = "wake up"
+frame = 8
+playing = true
+
+[connection signal="body_enter" from="." to="." method="_on_body_enter"]
+
+
