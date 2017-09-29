@@ -7,81 +7,77 @@ export(float, 0.0, 10.0, 0.1) var dash_duration = 0.3
 export(float, 0.0, 10.0, 0.1) var dash_interval = 0.2
 export(float, 0.0, 10.0, 0.1) var ledge_forgiveness = 0.1
 
-var moved = false		# has the player moved in this frame?
-var dashing = false		# is the player dashing?
-var grounded = false	# is the player standing on ground?
-var canDash = true		# can the player dash?
-var dead = false		# is the player dead?
+var dashing = false			# is the player dashing?
+var grounded = false		# is the player standing on ground?
+var can_dash = true			# can the player dash?
+var dead = false			# is the player dead?
 
 # Variables for death
-var bufferY = 0 # this variable is a buffer for the player Y
+var bufferY = 0				# this variable is a buffer for the player Y
 export var fall_height = 50
 export var fall_speed = 350
-var ledgeTimer = 0
-var ledgeTimerCounting = false
 
 var lastCheckpoint = Vector2(0, 0)	# location to respawn
-var lastDash = 0.0 # timer to control interval between dashes
+var lastDash = 0.0					# timer to control interval between dashes
 
 var coins = 0
-
-var sound
 
 export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Purple") var colors_learned = 1
 signal new_color_learned(color)
 signal death
 
-var animState = "idle" # the state of the animation state machine
-var moveDir = "" # the direction in which the player is moving (animation)
+var animState = "idle"	# the state of the animation state machine
+var moveDir = ""		# the direction in which the player is moving (animation)
+
+onready var sound = get_node("SamplePlayer2D")
+onready var timer_fall = get_node("timer_fall")
+onready var dash_cooldown = get_node("dash_cooldown")
 
 func _ready():
 	set_process(true)
 	set_process_input(true)
-	sound = get_node("SamplePlayer2D")
 	
 	lastCheckpoint = self.get_global_pos()
 	
 #	get_node("/root/save").load_saved(self)
 	self.set_global_pos(lastCheckpoint)
 	
+	timer_fall.connect("timeout", self, "timeout_fall")
+	dash_cooldown.connect("timeout", self, "dash_clear")
+	
 	advertise_colors()
-	
+
+func timeout_fall():
+	death()
+
+func fall_timer_counting():
+	return timer_fall.get_time_left() > 0
+
 func _process(delta):
-#	print("\n", ledgeTimer)
-#	print("ledgeTimerCounting: ", ledgeTimerCounting)
-#	print("dead: ", dead)
-#	print("can_move: ", can_move)
-#	print("canDash: ", canDash)
-#	print("dashing: ", dashing)
-	
-	if not grounded and not ledgeTimerCounting and not dead:
-		ledgeTimer = ledge_forgiveness
-		ledgeTimerCounting = true
+	if not grounded and not fall_timer_counting() and not dashing and not dead:
+		timer_fall.start()
 	elif grounded:
-		ledgeTimerCounting = false
-		ledgeTimer = 0
+		timer_fall.stop()
 	
-	if ledgeTimer>0:
-		ledgeTimer-=delta
-		input_movement(delta)
-	elif dead:
+	var debug = get_node("/root/Debug").get_node("Label")
+	debug.set_text("Able to dash: " + str(can_dash).to_lower())
+	debug.set_text(debug.get_text() + "\nDash cooldown: " + str(dash_cooldown.get_time_left()) + "s")
+	debug.set_text(debug.get_text() + "\nFalling in " + str(timer_fall.get_time_left()) + "s")
+
+	if dead:
 		if get_pos().y < bufferY + fall_height and not grounded:
-			set_pos(Vector2(get_pos().x, get_pos().y+fall_speed*delta))
-		else:
-			death()
+				set_pos(Vector2(get_pos().x, get_pos().y+fall_speed*delta))
+		else:	death()
 	else:
-		if not grounded and not dashing: death()
-		if can_move:
-			input_movement(delta)
-		
-		if lastDash > 0: lastDash -= delta
-		else:	can_move = true
+		if can_move:		input_movement(delta)
+		if lastDash > 0:	lastDash -= delta
+		else:				can_move = true
 	
 	process_shadow()
 
 func input_movement(delta):
 	var movement = Vector2()
-	var hasMoved = false
+	var moved = false
 	
 	if Input.is_action_pressed("exit"):
 		get_node("/root/loader").change_scene("res://Menu/start_menu.tscn")
@@ -97,37 +93,44 @@ func input_movement(delta):
 			movement.y += 1
 		
 		# DIRECTION
-		if movement == Vector2(0,0):	hasMoved = false
+		if movement == Vector2(0,0):
+			moved = false
 		else:
 			get_node("Sprite").set_flip_h(false)
-			if movement.x < 0 and movement.y == 0:	get_node("Sprite").set_flip_h(true)
-			hasMoved = true
+			if movement.x < 0 and movement.y == 0: get_node("Sprite").set_flip_h(true)
+			
 			if movement.x != 0:		moveDir = "right"
 			if movement.y > 0:		moveDir = "down"
 			elif movement.y < 0:	moveDir = "up"
+			moved = true
 		
 		# MOVEMENT STATE MACHINE
-		if !grounded and !ledgeTimerCounting:	animState = "death"
-		elif Input.is_action_pressed("dash") and canDash:
+		if dead: animState = "death"
+		elif Input.is_action_pressed("dash") and can_dash:
 			dash(self.get_travel().normalized())
 			animState = "dash"
-		elif animState == "runStart" and get_node("Sprite").get_frame()==2:	animState = "runLoop"
-		elif hasMoved:
+		elif animState == "runStart" and get_node("Sprite").get_frame()==2:
+			animState = "runLoop"
+		elif moved:
 			get_node("timer_idle").stop()
-			canDash = true
-			if animState == "dash":	animState = "runStart"
-			if animState == "idle":	animState = "runStart"
-			elif animState == "dash":	animState = "runStart"
+			can_dash = true
+			if animState == "dash":			animState = "runStart"
+			if animState == "idle":			animState = "runStart"
+			elif animState == "dash":		animState = "runStart"
 			elif animState == "runStop":	animState = "runStart"
-		else:
-			canDash = false
-			if animState == "runLoop":	animState = "runStop"
+		elif animState == "runLoop":
+				animState = "runStop"
+				can_dash = false
 		
-		if ledgeTimerCounting:	canDash = true
+		if fall_timer_counting(): can_dash = true
 		
-		if animState != "death":
+		# APPLY MOVEMENT
+		if not dead:
 			movement = check_controller_input(movement.normalized())
 			apply_movement(movement, delta)
+
+func dash_clear():
+	can_move = true
 
 func process_shadow():
 	if not grounded: get_node("shadow").hide()
@@ -148,15 +151,15 @@ func apply_movement(direction, delta):
 	
 	# ANIMATION. Continues state machine
 	if animState == "runStart":
-		if anim != ("run-"+moveDir+"-begin"):
-			sprite.play("run-"+moveDir+"-begin")
+		if anim != ("run-" + moveDir + "-begin"):
+			sprite.play("run-" + moveDir + "-begin")
 	elif animState == "runLoop":
-		if anim != ("run-"+moveDir+"-loop"):
-			sprite.play("run-"+moveDir+"-loop")
+		if anim != ("run-" + moveDir + "-loop"):
+			sprite.play("run-" + moveDir + "-loop")
 	elif animState == "runStop":
-		if anim != ("run-"+moveDir+"-stop") and anim != "idle":
+		if anim != ("run-" + moveDir + "-stop") and anim != "idle":
 			get_node("timer_idle").start()
-			sprite.play("run-"+moveDir+"-stop")
+			sprite.play("run-" + moveDir + "-stop")
 	
 	# MOVEMENT
 	if moved:
@@ -168,17 +171,18 @@ func apply_movement(direction, delta):
 
 func dash(direction):
 	dashing = true
-	canDash = false
+	can_dash = false
 	sound.play("dash1")
 	
 	var sprite = get_node("Sprite")
 	
-	var anim = "dash-"+moveDir+"-loop"
+	var anim = "dash-" + moveDir + "-loop"
 	sprite.play(anim)
 	
 	var timer = 0.0
 	if !dashing and timer<0.1:	Input.start_joy_vibration(0, 0.6, 0.4, 0.1)
-	else:	Input.start_joy_vibration(0, 0.6-0.6*timer, 0.2, 0.25)
+	else:						Input.start_joy_vibration(0, 0.6 - 0.6 * timer, 0.2, 0.25)
+	
 	while timer < dash_duration:
 		var delta = get_process_delta_time()
 		self.move(direction * dash_speed * get_process_delta_time())
@@ -189,20 +193,19 @@ func dash(direction):
 	if grounded:
 		anim = anim.replace("-loop", "-stop")
 		sprite.play(anim)
-		anim += "-end"
-#		sprite.play(anim)
 		get_node("timer_idle").start()
 	
 	lastDash = dash_interval
-	canDash = false
+	dash_cooldown.start()
+	timer_fall.stop()
+	can_dash = false
 	can_move = false
-	
 	dashing = false
 
 func advertise_colors():
-	if colors_learned & 2:	emit_signal("new_color_learned", 2)	# red
-	if colors_learned & 4:	emit_signal("new_color_learned", 4)	# orange
-	if colors_learned & 8:	emit_signal("new_color_learned", 8)	# yellow
+	if colors_learned & 2:	emit_signal("new_color_learned", 2)		# red
+	if colors_learned & 4:	emit_signal("new_color_learned", 4)		# orange
+	if colors_learned & 8:	emit_signal("new_color_learned", 8)		# yellow
 	if colors_learned & 16:	emit_signal("new_color_learned", 16)	# green
 	if colors_learned & 32:	emit_signal("new_color_learned", 32)	# blue
 	if colors_learned & 64:	emit_signal("new_color_learned", 64)	# purple
@@ -227,21 +230,22 @@ func death():
 	if not dead:
 		Input.start_joy_vibration(0, 0.2, 0.4, 0.3)
 		dead = true
-		canDash = false
+		can_dash = false
 		var anim_name = sprite.get_animation()
 		
 		if anim_name == "idle":	anim_name = "death-down"
-		else:					anim_name = "death-"+moveDir
-		sprite.play(anim_name)
+		else:			anim_name = "death-" + moveDir
 		
+		sprite.play(anim_name)
 		bufferY = get_pos().y
+	
 	else:
 		sprite.play("run-down-stop")
 		self.set_global_pos(lastCheckpoint)
-		emit_signal("death")
-		canDash = false
+		can_dash = false
 		can_move = true
 		dead = false
+		emit_signal("death")
 
 func add_coin(amount):
 	coins = coins + amount

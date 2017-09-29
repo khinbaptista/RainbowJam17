@@ -1,0 +1,25 @@
+[gd_scene format=1]
+
+[node name="Debug" type="CanvasLayer"]
+
+layer = 5
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 69.0
+margin/top = 54.0
+margin/right = 949.0
+margin/bottom = 752.0
+custom_colors/font_color = Color( 0, 0.389099, 0.398438, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
