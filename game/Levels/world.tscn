@@ -78,7 +78,6 @@ transform/pos = Vector2( -3019.19, -2779.81 )
 
 editor/display_folded = true
 transform/pos = Vector2( 12.6143, -281.717 )
-transform/scale = Vector2( 0.5, 0.5 )
 z/z = 2
 dash_speed = 800.0
 dash_interval = 0.1
