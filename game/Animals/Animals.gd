@@ -44,7 +44,6 @@ func _process(delta):
 			sprite.play("wake up")
 			get_node("Path2D/PathFollow2D/Deer").hide()
 	#---------------------------------------------------------
-	print("BEEEEEEEEEEEEEEH")
 	
 	if awake and !running:
 		if type == "Birds":
