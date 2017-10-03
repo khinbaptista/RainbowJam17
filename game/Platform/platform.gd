@@ -11,7 +11,7 @@ export(float) var duration_on = 5.0
 export(float) var duration_off = 3.0
 
 func _ready():
-	sprite.set_light_mask(color_dimension)
+	sprite.set_light_mask(color_dimension+1024)
 	
 	set_process(true)
 	

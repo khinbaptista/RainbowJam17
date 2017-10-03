@@ -84,7 +84,6 @@ modulate = Color( 1, 0.501961, 0, 1 )
 
 editor/display_folded = true
 transform/pos = Vector2( 1227.88, 93.9139 )
-color_dimension = 0
 
 [node name="platform31" parent="platforms" instance=ExtResource( 2 )]
 
@@ -100,7 +99,6 @@ modulate = Color( 1, 0.901961, 0, 1 )
 
 editor/display_folded = true
 transform/pos = Vector2( 1223.17, 380.724 )
-color_dimension = 0
 destructible = true
 duration_on = 0.3
 
@@ -112,7 +110,6 @@ modulate = Color( 0.101961, 0.701961, 0.301961, 1 )
 
 editor/display_folded = true
 transform/pos = Vector2( 924.174, 380.724 )
-color_dimension = 0
 destructible = true
 duration_on = 0.3
 
@@ -124,7 +121,6 @@ modulate = Color( 0.101961, 0.701961, 0.301961, 1 )
 
 editor/display_folded = true
 transform/pos = Vector2( 631.174, 378.724 )
-color_dimension = 0
 duration_on = 0.2
 
 [node name="sprite" parent="platforms/platform35"]
@@ -157,7 +153,6 @@ modulate = Color( 1, 0.501961, 0, 1 )
 
 editor/display_folded = true
 transform/pos = Vector2( -22.5135, 83.9139 )
-color_dimension = 0
 use_timers = true
 
 [node name="sprite" parent="platforms/platform38"]
@@ -168,7 +163,6 @@ modulate = Color( 0.101961, 0.701961, 0.301961, 1 )
 "ground",
 ]]
 
-editor/display_folded = true
 transform/pos = Vector2( 0.35376, 76.588 )
 transform/scale = Vector2( -0.453125, 0.453125 )
 input/pickable = true
@@ -212,7 +206,7 @@ angular_damp = 1.0
 
 [node name="sprite" type="Sprite" parent="island"]
 
-visibility/light_mask = 0
+visibility/light_mask = 1024
 transform/pos = Vector2( 0, -2.20703 )
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
@@ -231,6 +225,7 @@ trigger = false
 transform/pos = Vector2( 4.85376, -8.91202 )
 transform/scale = Vector2( 0.421875, 0.421875 )
 crystal_color = 16
+vibration_distance = 300
 
 [node name="Checkpoint7" parent="." instance=ExtResource( 5 )]
 

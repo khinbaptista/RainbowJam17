@@ -160,6 +160,7 @@ func apply_movement(direction, delta):
 	get_node("Actions/move").execute(direction)
 
 func dash(direction):
+	timer_fall.stop()
 	dashing = true
 	sound.play("dash1")
 	
@@ -180,7 +181,6 @@ func dash(direction):
 		sprite.play(anim)
 		get_node("timer_idle").start()
 	
-	timer_fall.stop()
 #	dash_action.enabled = false
 #	can_move = false
 	dashing = false
