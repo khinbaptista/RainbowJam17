@@ -25,7 +25,7 @@ func _fixed_process(delta):
 		if not tile.has_node("sprite"): continue
 		var ground_mask = tile.get_node("sprite").get_light_mask()
 		
-		if ground_mask >= 2: 	# has a color
+		if ground_mask >= 2 and ground_mask <= 64: 	# has a color
 			if not beams.empty():
 				for beam in beams:
 					if ground_mask & beam.beam_color:
