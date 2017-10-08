@@ -11,11 +11,9 @@ func can_execute():
 	return cooldown.get_time_left() == 0 and .can_execute()
 
 func _execute(direction):
-	if can_execute():
-		cooldown.start()
-		_dash(direction.normalized())
-		return true
-	return false
+	cooldown.start()
+	_dash(direction.normalized())
+	return true
 
 func _dash(direction):
 	var timer = 0.0
