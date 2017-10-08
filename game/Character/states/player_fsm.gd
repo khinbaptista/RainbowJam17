@@ -7,11 +7,12 @@ func _ready():
 	add_transition("move-begin", "move-loop", "finished")
 	add_transition("move-loop", "move-stop", "idle")
 	add_transition("move-stop", "idle", "finished")
-	
+	add_transition("move-stop", "move-loop", "move")
+
 	# idle <-> dash
 	add_transition("idle", "dash", "dash")
 	add_transition("dash", "idle", "finished")
-	
+
 	# move -> dash
 	add_transition("move-begin", "dash", "dash")
 	add_transition("move-loop", "dash", "dash")
@@ -22,5 +23,6 @@ func _ready():
 	add_transition("move-begin", "dead", "dead")
 	add_transition("move-loop", "dead", "dead")
 	add_transition("move-stop", "dead", "dead")
-	
-	add_transition("dead", "idle", "finished")
+
+	add_transition("dead", "respawn", "respawn")
+	add_transition("respawn", "idle", "finished")

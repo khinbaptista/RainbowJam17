@@ -12,18 +12,18 @@ export(float) var duration_off = 3.0
 
 func _ready():
 	sprite.set_light_mask(color_dimension+1024)
-	
+
 	set_process(true)
-	
+
 	if destructible:
 		activated = false
-	
+
 	if use_timers and !destructible:
 		get_node("timer_on").set_wait_time(duration_on)
 		get_node("timer_off").set_wait_time(duration_off)
 		get_node("timer_on").connect("timeout", get_node("timer_off"), "start")
 		get_node("timer_on").start()
-	
+
 	if color_dimension >= 2:	# has a color
 		sprite.hide()
 		set_collision_mask_bit(0, false)
@@ -63,7 +63,7 @@ func destroy():
 		sprite.play("destroy")
 		get_node("AnimationPlayer").play("destroy")
 		yield(sprite, "finished")
-#	
+#
 #		sprite.hide()
 #		set_collision_mask_bit(0, false)
 #		set_layer_mask_bit(0, false)

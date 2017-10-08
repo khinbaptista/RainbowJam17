@@ -4,13 +4,13 @@ extends Node
 
 class State extends Node:
 	onready var fsm = get_parent()
-	
+
 	func can_enter(): return true
 	func can_exit(): return true
-	
+
 	func enter(): pass
 	func exit(): pass
-	
+
 ##################################################
 
 var states = {}
@@ -24,14 +24,19 @@ func _ready():
 		if child extends State:
 			states[child.get_name()] = child
 			if current == "": current = child.get_name()
-	
+
 	states[current].enter()
 
 func add_transition(from, to, key):
-	transitions[from] = { key : to }
+	if not transitions.has(from):
+		transitions[from] = {}
+
+	transitions[from][key] = to
 
 func make_transition(key):
-	var next			= transitions[current][key]
+	if not transitions[current].has(key): return
+
+	var next		= transitions[current][key]
 	var next_state		= states[next]
 	var current_state	= states[current]
 
@@ -39,6 +44,7 @@ func make_transition(key):
 		current_state.exit()
 		current = next
 		next_state.enter()
+
 		return true
-	
+
 	return false
