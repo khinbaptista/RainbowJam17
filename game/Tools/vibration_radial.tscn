@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Tools/vibration_radial.gd" type="Script" id=1]
+
+[node name="vibration_radial" type="Node2D"]
+
+script/script = ExtResource( 1 )
+vibration_distance = 300
+player_path = NodePath("../../../player")
+
+

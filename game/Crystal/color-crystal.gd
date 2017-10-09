@@ -11,13 +11,12 @@ onready var press_e = get_node("press_e")
 var layer = "behind"
 
 func _ready():
-	set_process(true)
+	set_process(false)
 	if player.knows_color(crystal_color):
 		queue_free()	# the crystal is useless
 
 func _process(delta):
 	process_layer()
-	proximity_vibration()
 
 func interaction():
 	player.learn_color(crystal_color)
@@ -32,14 +31,3 @@ func process_layer():
 		sprite.set_z(3)
 		press_e.set_z(3)
 		layer = "front"
-
-# This function makes the controller vibrate more the closer you are to the crystal
-func proximity_vibration():
-	var dist = get_global_pos().distance_to(player.get_global_pos())
-	var attenuation = 1-dist/vibration_distance
-	
-	if attenuation < 0:
-		attenuation = 0
-	else:
-		Input.stop_joy_vibration(0)
-		Input.start_joy_vibration(0, 0.4*attenuation, 0.6*attenuation, 0.1)

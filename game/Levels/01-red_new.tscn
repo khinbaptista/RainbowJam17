@@ -750,7 +750,7 @@ modulate = Color( 0.890196, 0.890196, 0.890196, 0.647059 )
 ]]
 
 editor/display_folded = true
-transform/pos = Vector2( -41.3318, -3805.54 )
+transform/pos = Vector2( -41.3318, -3232.49 )
 transform/scale = Vector2( 0.453125, 0.453125 )
 input/pickable = true
 shapes/0/shape = SubResource( 31 )
@@ -810,14 +810,13 @@ trigger = false
 [node name="crystal" parent="." instance=ExtResource( 7 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -50.3317, -3830.54 )
+transform/pos = Vector2( -50.3317, -3257.49 )
 transform/scale = Vector2( 0.421875, 0.421875 )
 crystal_color = 2
-vibration_distance = 300
 
 [node name="sprite" parent="crystal"]
 
-frame = 8
+frame = 0
 
 [node name="Checkpoint" parent="." instance=ExtResource( 8 )]
 
@@ -825,8 +824,15 @@ editor/display_folded = true
 transform/pos = Vector2( 666.8, -1036.18 )
 transform/scale = Vector2( 2.23609, 7.9375 )
 
+[node name="Checkpoint2" parent="." instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1361.91, -1391.6 )
+transform/scale = Vector2( 2.85995, 2.35458 )
+
 [node name="Checkpoint1" parent="." instance=ExtResource( 8 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 393.287, -1501.38 )
 transform/rot = 90.0
 transform/scale = Vector2( 2.23609, 7.9375 )
