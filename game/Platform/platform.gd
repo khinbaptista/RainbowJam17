@@ -33,6 +33,8 @@ func _ready():
 		spawn()
 
 func _process(delta):
+	if destructible and Input.is_action_pressed("dash"):
+		destroy()
 	if sprite.get_frame() == sprite.get_sprite_frames().get_frame_count("destroy")-1 and sprite.get_animation().basename() == "destroy":
 		sprite.hide()
 		set_collision_mask_bit(0, false)
@@ -50,30 +52,28 @@ func color_revealed():	# called from the group by the beam manager when the play
 	spawn()
 
 func spawn():
+	var anim = get_node("AnimationPlayer")
+
 	sprite.show()
 	sprite.play("spawn")
 	set_collision_mask_bit(0, true)
 	set_layer_mask_bit(0, true)
-	get_node("AnimationPlayer").play_backwards("destroy")
+	anim.play_backwards("destroy")
 	if destructible:
 		activated = false
+		yield(anim, "finished")
+		if not anim.is_playing():
+			get_node("AnimationPlayer").play("hint")
 
 func destroy():
 	if activated: # if the platform is destructible, only destroy when activated
 		sprite.play("destroy")
 		get_node("AnimationPlayer").play("destroy")
-		yield(sprite, "finished")
-#
-#		sprite.hide()
-#		set_collision_mask_bit(0, false)
-#		set_layer_mask_bit(0, false)
-#		get_node("CollisionShape2D").set_scale(Vector2(1, 1))
 
 
 func _on_platform_body_enter( body ): # if destructible, activates on body enter
 	if destructible and body.get_name() == "player":
 		body.connect("death", self, "spawn")
 		get_node("timer_on").set_wait_time(duration_on)
-#		get_node("timer_off").set_wait_time(duration_off)
 		get_node("timer_on").start()
 		activated = true
