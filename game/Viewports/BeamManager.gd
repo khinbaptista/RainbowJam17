@@ -4,12 +4,13 @@ export(NodePath) var player_path = @"../player"
 onready var player = get_node(player_path)
 
 var beams
-export var speed = -100
+export var speed = 0.2
 export var offset = 217
 var camera
 var viewportSize
 var red_pos
 var red_beam
+var first_time = true
 
 func _ready():
 	beams = get_children()
@@ -29,24 +30,38 @@ func _ready():
 	MoveBeansInit()
 
 func _process(delta):
-	for beam in beams:
-		var beam_pos = beam.get_global_pos()
-		var beam_new_pos
+	for i in range(6):
+		var beam_scale = beams[i].get_scale()
+		var beam_new_scale = beam_scale
 		var camera_center = camera.get_camera_screen_center()
 		
-		if(beam_pos.x < camera_center.x - viewportSize.x / 2 - offset):
-			if beam.check_color() == 2:
-				beam_new_pos = Vector2(camera_center.x + viewportSize.x / 2 + offset, camera_center.y)
-				red_pos = beam_new_pos
-			else:
-				beam_new_pos = Vector2(red_beam.get_global_pos().x + beam.distance_to_red, camera_center.y)
-		else:
-			beam_new_pos = Vector2(beam_pos.x + (speed * delta), camera_center.y)
-		beam.set_global_pos(beam_new_pos)
+		#if(beam_pos.x < camera_center.x - viewportSize.x / 2 - offset):
+		#if beam.check_color() == 2:
+			#beam_new_scale = Vector2(camera_center.x + viewportSize.x / 2 + offset, camera_center.y)
+			#red_pos = beam_new_scale
+		#else:
+			#beam_new_scale = Vector2(red_beam.get_global_pos().x + beam.distance_to_red, camera_center.y)
+		#else:
+			
+		var new_x_scale = beam_scale.x + (speed * delta * beam_scale.x)
+		var new_y_scale = beam_scale.y + (speed * delta * beam_scale.y)
+		
+		if(beams[i].is_hidden()):
+			if((beams[(i % 6) - 1].get_scale().x > 1.4) or first_time):
+				beams[i].show()
+				beams[i].set_global_pos(camera.get_camera_screen_center())
+				first_time = false
+				beam_new_scale = Vector2(new_x_scale, new_y_scale)
+		elif(not beams[i].is_hidden()):
+			beam_new_scale = Vector2(new_x_scale, new_y_scale)
+		#var beam_shape  = beams[i].get_node("beam_area/CollisionShape2D").get_shape()
+		#var not_beam = beams[i].get_node("negative_beam")
+
+		beams[i].set_scale(beam_new_scale)
 		
 func MoveBeansInit():
 	for beam in beams:
-		beam.move_local_x(viewportSize.x / 2, false)
+		beam.hide()
 
 func color_index2string(index):
 	if index & 2:	return "red"
