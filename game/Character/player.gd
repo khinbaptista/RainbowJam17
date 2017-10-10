@@ -28,7 +28,6 @@ export var fall_speed = 350
 
 var coins = 0
 
-var animState = "idle"		# the state of the animation state machine
 var moveDir = "down"		# the direction in which the player is moving (animation)
 
 ########## Nodes
@@ -39,11 +38,26 @@ onready var timer_fall = get_node("timer_fall")
 ########## Helper funcs
 
 func fall_timer_counting(): return timer_fall.get_time_left() > 0
-func timeout_fall(): death()
 
 func set_can_move(enable):
 	can_move = enable
 	get_node("Actions/move").enabled = enable
+
+func forget_last_movement():
+	last_movement = Vector2(0, 1)
+	moveDir = "down"
+
+func align_last_movement():
+	if moveDir == "up":
+		last_movement = Vector2(0, -1)
+	elif moveDir == "down":
+		last_movement = Vector2(0, 1)
+	elif moveDir == "left":
+		last_movement = Vector2(-1, 0)
+	elif moveDir == "right":
+		last_movement = Vector2(1, 0)
+	else:
+		forget_last_movement()	# shouldn't happen ever
 
 ########## Funcs
 
@@ -55,8 +69,10 @@ func _ready():
 
 #	get_node("/root/save").load_saved(self)
 	self.set_global_pos(lastCheckpoint)
-	timer_fall.connect("timeout", self, "timeout_fall")
+	timer_fall.connect("timeout", self, "death")
 	dash_action.get_node("cooldown").connect("timeout", self, "set_can_move", [true])
+
+	get_node("FSM/idle").connect("idle_anim_start", self, "forget_last_movement")
 
 	advertise_colors()
 
@@ -72,7 +88,7 @@ func _process(delta):
 	elif grounded and fall_timer_counting():
 		timer_fall.stop()
 
-	if Input.is_key_pressed(KEY_C): get_node("/root/Debug/Label").set_text("")
+#	if Input.is_key_pressed(KEY_C): get_node("/root/Debug/Label").set_text("")
 
 	if dead:
 		if get_pos().y < bufferY + fall_height and not grounded:
@@ -82,7 +98,7 @@ func _process(delta):
 
 	input_movement(delta)
 
-	get_node("/root/Debug/Label").set_text(get_node("FSM").current)
+	get_node("/root/Debug/Label").set_text(moveDir + " - " + str(last_movement))
 
 func input_movement(delta):
 	if not get_node("Actions/move").can_execute() and not dashing and not dead:
@@ -114,8 +130,11 @@ func input_movement(delta):
 		elif movement.y < 0: moveDir = "up"
 
 	# MOVEMENT STATE MACHINE
-	if moved: get_node("FSM").make_transition("move")
-	else:     get_node("FSM").make_transition("idle")
+	if moved:
+		get_node("FSM").make_transition("move")
+	else:
+		align_last_movement()
+		get_node("FSM").make_transition("idle")
 
 	# CONTROLLER INPUT
 	movement = check_controller_input(movement.normalized())
