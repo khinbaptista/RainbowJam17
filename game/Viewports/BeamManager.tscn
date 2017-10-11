@@ -14,10 +14,23 @@ offset = 217
 
 [node name="Red" parent="." instance=ExtResource( 2 )]
 
-visibility/light_mask = 1024
 range/item_mask = 2
 beam_color = 2
 color_value = Color( 1, 0, 0.2, 0.117647 )
+
+[node name="light" parent="Red"]
+
+range/item_mask = 3
+
+[node name="sprite" parent="Red"]
+
+visibility/light_mask = 16384
+modulate = Color( 1, 0, 0.2, 0.117647 )
+
+[node name="sprite_over" parent="Red"]
+
+visibility/light_mask = 16384
+modulate = Color( 1, 0, 0.2, 0.0588235 )
 
 [node name="negative_beam" parent="Red" instance=ExtResource( 3 )]
 
@@ -29,6 +42,20 @@ transform/pos = Vector2( 217, 0 )
 range/item_mask = 4
 beam_color = 4
 color_value = Color( 1, 0.501961, 0, 0.117647 )
+
+[node name="light" parent="Orange"]
+
+range/item_mask = 5
+
+[node name="sprite" parent="Orange"]
+
+visibility/light_mask = 32768
+modulate = Color( 1, 0.501961, 0, 0.117647 )
+
+[node name="sprite_over" parent="Orange"]
+
+visibility/light_mask = 32768
+modulate = Color( 1, 0.501961, 0, 0.0588235 )
 
 [node name="negative_beam" parent="Orange" instance=ExtResource( 3 )]
 
@@ -79,3 +106,5 @@ color_value = Color( 0.501961, 0.101961, 0.701961, 0.117647 )
 range/item_mask = 524288
 
 
+[editable path="Red"]
+[editable path="Orange"]
