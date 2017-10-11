@@ -98,7 +98,7 @@ func _process(delta):
 
 	input_movement(delta)
 
-	get_node("/root/Debug/Label").set_text(moveDir + " - " + str(last_movement))
+	get_node("/root/Debug/Label").set_text("FSM: " + get_node("FSM").current)
 
 func input_movement(delta):
 	if not get_node("Actions/move").can_execute() and not dashing and not dead:
@@ -207,6 +207,7 @@ func death():
 func respawn():
 	self.set_global_pos(lastCheckpoint)
 
+	forget_last_movement()
 	get_node("FSM").make_transition("respawn")
 
 	set_can_move(true)

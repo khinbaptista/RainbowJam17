@@ -14,16 +14,17 @@ func enter():
 		sprite.connect("finished", fsm, "make_transition", ["finished"])
 
 func exit():
+	sprite.stop()
 	set_process(false)
 	if stage == "begin" or stage == "stop":
 		sprite.disconnect("finished", fsm, "make_transition")
 
 func overwrite_animation():	# required for death anim to play when running
-	var animation = sprite.get_animation()
-	return not animation.begins_with("death")
+	var anim = sprite.get_animation()
+	return not anim.begins_with("death")# and not anim == "respawn"
 
 func _process(delta):
 	var animation = "run-" + player.moveDir + "-" + stage
 	if sprite.get_animation() != animation and overwrite_animation():
-		printt(stage, sprite.get_animation())
+		#printt(stage, sprite.get_animation())
 		sprite.play(animation)

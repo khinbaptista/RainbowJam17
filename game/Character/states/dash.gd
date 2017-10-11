@@ -21,16 +21,13 @@ func enter():
 	is_dashing = true
 
 	var animation = "dash-" + direction + "-loop"
+	sprite.stop()
 	sprite.play(animation)
 
 	var timer = 0.0
 	while timer < loop_time:
 		timer += get_process_delta_time()
 		yield(get_tree(), "idle_frame")
-
-	animation = animation.replace("-loop", "-stop")
-	sprite.play(animation)
-	yield(sprite, "finished")
 
 	is_dashing = false
 	fsm.make_transition("finished")

@@ -12,6 +12,7 @@ func enter():
 	set_process(true)
 
 func exit():
+	sprite.stop()
 	set_process(false)
 
 func _process(delta):
