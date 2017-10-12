@@ -101,9 +101,8 @@ drag_margin/bottom = 0.1
 
 [node name="BeamManager" parent="." instance=ExtResource( 11 )]
 
-transform/rot = 24.0
-transform/scale = Vector2( 2.1, 1.5 )
-speed = -250
+transform/rot = 1.0
+speed = 0.4
 
 [connection signal="new_color_learned" from="player" to="end" method="_on_new_color_learned"]
 

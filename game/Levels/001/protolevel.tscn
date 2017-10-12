@@ -84,8 +84,7 @@ drag_margin/bottom = 0.1
 
 [node name="BeamManager" parent="." instance=ExtResource( 7 )]
 
-transform/rot = 24.0
-transform/scale = Vector2( 2.1, 1.5 )
-speed = -250
+speed = 0.4
+scale_to_appear = 0.18
 
 
