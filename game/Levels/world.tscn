@@ -103,6 +103,7 @@ drag_margin/bottom = 0.1
 
 transform/rot = 1.0
 speed = 0.4
+scale_to_appear = 0.18
 
 [connection signal="new_color_learned" from="player" to="end" method="_on_new_color_learned"]
 
