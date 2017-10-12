@@ -33,6 +33,8 @@ color_value = Color( 1, 0.501961, 0, 0.117647 )
 
 [node name="negative_beam" parent="Orange" instance=ExtResource( 3 )]
 
+color_dimension = 4
+
 [node name="Yellow" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 434, 0 )
@@ -43,9 +45,10 @@ color_value = Color( 1, 0.901961, 0, 0.117647 )
 
 [node name="negative_beam" parent="Yellow" instance=ExtResource( 3 )]
 
+color_dimension = 8
+
 [node name="Green" parent="." instance=ExtResource( 2 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 651, 0 )
 transform/scale = Vector2( 0.1, 0.1 )
 range/item_mask = 16
@@ -54,9 +57,10 @@ color_value = Color( 0.101961, 0.701961, 0.301961, 0.117647 )
 
 [node name="negative_beam" parent="Green" instance=ExtResource( 3 )]
 
+color_dimension = 16
+
 [node name="Blue" parent="." instance=ExtResource( 2 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 868, 0 )
 transform/scale = Vector2( 0.1, 0.1 )
 range/item_mask = 32
@@ -65,9 +69,10 @@ color_value = Color( 0.101961, 0.4, 1, 0.117647 )
 
 [node name="negative_beam" parent="Blue" instance=ExtResource( 3 )]
 
+color_dimension = 32
+
 [node name="Purple" parent="." instance=ExtResource( 2 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 1085, 0.487686 )
 transform/scale = Vector2( 0.1, 0.1 )
 range/item_mask = 64
@@ -75,5 +80,7 @@ beam_color = 64
 color_value = Color( 0.501961, 0.101961, 0.701961, 0.117647 )
 
 [node name="negative_beam" parent="Purple" instance=ExtResource( 3 )]
+
+color_dimension = 64
 
 
