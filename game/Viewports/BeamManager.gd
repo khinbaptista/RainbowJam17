@@ -6,7 +6,9 @@ onready var player = get_node(player_path)
 var beams
 export var speed = 0.2
 export var offset = 217
+export var scale_to_appear = 0.18
 var camera
+var last_position
 var viewportSize
 var red_pos
 var red_beam
@@ -20,12 +22,6 @@ func _ready():
 	
 	player.connect("new_color_learned", self, "player_learned")
 	
-	for beam in beams:
-		if beam.check_color() == 2:
-			red_pos = beam.get_global_pos()
-			red_beam = beam
-		beam.distance_to_red = beam.get_global_pos().x - red_pos.x
-	
 	set_process(true)
 	MoveBeansInit()
 
@@ -34,28 +30,19 @@ func _process(delta):
 		var beam_scale = beams[i].get_scale()
 		var beam_new_scale = beam_scale
 		var camera_center = camera.get_camera_screen_center()
-		
-		#if(beam_pos.x < camera_center.x - viewportSize.x / 2 - offset):
-		#if beam.check_color() == 2:
-			#beam_new_scale = Vector2(camera_center.x + viewportSize.x / 2 + offset, camera_center.y)
-			#red_pos = beam_new_scale
-		#else:
-			#beam_new_scale = Vector2(red_beam.get_global_pos().x + beam.distance_to_red, camera_center.y)
-		#else:
 			
 		var new_x_scale = beam_scale.x + (speed * delta * beam_scale.x)
 		var new_y_scale = beam_scale.y + (speed * delta * beam_scale.y)
-		
+
 		if(beams[i].is_hidden()):
-			if((beams[(i % 6) - 1].get_scale().x > 1.4) or first_time):
+			if((beams[(i % 6) - 1].get_scale().x > scale_to_appear) or first_time):
+				print(beams[(i % 6) - 1].get_scale().x)
 				beams[i].show()
-				beams[i].set_global_pos(camera.get_camera_screen_center())
+				beams[i].set_global_pos(last_position)
 				first_time = false
 				beam_new_scale = Vector2(new_x_scale, new_y_scale)
 		elif(not beams[i].is_hidden()):
 			beam_new_scale = Vector2(new_x_scale, new_y_scale)
-		#var beam_shape  = beams[i].get_node("beam_area/CollisionShape2D").get_shape()
-		#var not_beam = beams[i].get_node("negative_beam")
 
 		beams[i].set_scale(beam_new_scale)
 		
