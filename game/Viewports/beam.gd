@@ -11,6 +11,8 @@ func _ready():
 	
 	var color_string = color_index2string(beam_color)
 	if color_string: add_to_group(color_string)
+	
+	#print(get_node("sprite").get_light_mask())
 
 func changed_color_value(value):
 	color_value = value
@@ -26,6 +28,12 @@ func changed_color_value(value):
 
 func changed_color(new_color):
 	beam_color = new_color
+	
+	if has_node("sprite"):
+		get_node("sprite").set_light_mask(beam_color * pow(2, 13))
+		
+	if has_node("sprite_over"):
+		get_node("sprite_over").set_light_mask(beam_color * pow(2, 13))
 	
 	if not has_node("light"): return
 	
