@@ -12,6 +12,7 @@ player_path = NodePath("../player")
 speed = 0.2
 offset = 217
 scale_to_appear = 0.38
+max_scale = 2
 
 [node name="Red" parent="." instance=ExtResource( 2 )]
 

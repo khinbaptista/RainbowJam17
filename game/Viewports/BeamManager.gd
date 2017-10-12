@@ -4,18 +4,20 @@ export(NodePath) var player_path = @"../player"
 onready var player = get_node(player_path)
 
 var beams
-export var speed = 0.2
+export var speed = 0.4
 export var offset = 217
 export var scale_to_appear = 0.18
+export var max_scale = 2
 var camera
 var last_position
 var viewportSize
-var red_pos
-var red_beam
 var first_time = true
+var active = false
+var initial_scale
 
 func _ready():
 	beams = get_children()
+	initial_scale = beams[0].get_scale()
 	camera = player.get_node("Camera2D")
 	viewportSize = get_viewport().get_rect().size
 	offset *= get_scale().x
@@ -23,32 +25,51 @@ func _ready():
 	player.connect("new_color_learned", self, "player_learned")
 	
 	set_process(true)
+	set_process_input(true)
 	MoveBeansInit()
 
-func _process(delta):
-	for i in range(6):
-		var beam_scale = beams[i].get_scale()
-		var beam_new_scale = beam_scale
-		var camera_center = camera.get_camera_screen_center()
-			
-		var new_x_scale = beam_scale.x + (speed * delta * beam_scale.x)
-		var new_y_scale = beam_scale.y + (speed * delta * beam_scale.y)
-
-		if(beams[i].is_hidden()):
-			if((beams[(i % 6) - 1].get_scale().x > scale_to_appear) or first_time):
-				print(beams[(i % 6) - 1].get_scale().x)
-				beams[i].show()
-				beams[i].set_global_pos(last_position)
-				first_time = false
-				beam_new_scale = Vector2(new_x_scale, new_y_scale)
-		elif(not beams[i].is_hidden()):
-			beam_new_scale = Vector2(new_x_scale, new_y_scale)
-
-		beams[i].set_scale(beam_new_scale)
+func _process(delta):	
+	if(active):
+		var beam_scale
+		var beam_new_scale
+		var new_x_scale
+		var new_y_scale 
 		
+		for i in range(6):
+			beam_scale = beams[i].get_scale()
+			beam_new_scale = beam_scale
+				
+			new_x_scale = beam_scale.x + (speed * delta * beam_scale.x)
+			new_y_scale = beam_scale.y + (speed * delta * beam_scale.y)
+	
+			if(beams[i].is_hidden()):
+				if((beams[(i % 6) - 1].get_scale().x > scale_to_appear) or first_time):
+					beams[i].show()
+					beams[i].set_global_pos(last_position)
+					first_time = false
+					beam_new_scale = Vector2(new_x_scale, new_y_scale)
+			elif(not beams[i].is_hidden()):
+				beam_new_scale = Vector2(new_x_scale, new_y_scale)
+	
+			beams[i].set_scale(beam_new_scale)
+		
+		if (beams[5].get_scale().x > max_scale):
+			MoveBeansInit()
+			active = false
+		
+func _input(event):
+	if event.is_action_pressed("beams") and not event.is_echo():
+		last_position = player.get_global_pos()
+		first_time = true
+		if(active):
+			MoveBeansInit()
+		else:
+			active = true
+				
 func MoveBeansInit():
 	for beam in beams:
 		beam.hide()
+		beam.set_scale(initial_scale)
 
 func color_index2string(index):
 	if index & 2:	return "red"
