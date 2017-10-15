@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://Viewports/radial_mask.png" type="Texture" id=1]
+[ext_resource path="res://Viewports/big_mask.png" type="Texture" id=1]
 [ext_resource path="res://Viewports/beam.gd" type="Script" id=2]
+[ext_resource path="res://Viewports/radial_mask.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -38,7 +39,7 @@ color_value = Color( 1, 1, 1, 1 )
 visibility/light_mask = 0
 enabled = true
 editor_only = false
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -59,13 +60,13 @@ shadow/item_mask = 1
 [node name="sprite" type="Sprite" parent="."]
 
 visibility/light_mask = 8192
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="sprite_over" type="Sprite" parent="."]
 
 visibility/light_mask = 8192
 z/z = 2
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 modulate = Color( 1, 1, 1, 0.5 )
 
 [node name="beam_area" type="Area2D" parent="."]

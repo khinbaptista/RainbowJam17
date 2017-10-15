@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://Sounds/dash1.wav" type="Sample" id=4]
 [ext_resource path="res://Levels/02-orangel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Character/player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Viewports/empty_mask.png" type="Texture" id=7]
+[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -59,7 +61,6 @@ transform/scale = Vector2( 1.5, 1.5 )
 
 [node name="player" parent="." instance=ExtResource( 6 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 12.6143, -281.717 )
 z/z = 2
 
@@ -82,9 +83,166 @@ drag_margin/top = 0.1
 drag_margin/right = 0.2
 drag_margin/bottom = 0.1
 
-[node name="BeamManager" parent="." instance=ExtResource( 7 )]
+[node name="all_masks" type="Node2D" parent="player/Camera2D"]
 
+transform/pos = Vector2( 457.657, -71.9794 )
+transform/scale = Vector2( 0.3, 0.3 )
+
+[node name="masks" type="Light2D" parent="player/Camera2D/all_masks"]
+
+transform/pos = Vector2( -4490.38, 373.606 )
+transform/scale = Vector2( 6.30865, 5.19442 )
+enabled = true
+editor_only = false
+texture = ExtResource( 7 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 3
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 2
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="masks1" type="Light2D" parent="player/Camera2D/all_masks"]
+
+transform/pos = Vector2( -4490.38, 373.606 )
+transform/scale = Vector2( 6.30865, 5.19442 )
+enabled = true
+editor_only = false
+texture = ExtResource( 7 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 3
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 4
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="masks2" type="Light2D" parent="player/Camera2D/all_masks"]
+
+transform/pos = Vector2( -4490.38, 373.606 )
+transform/scale = Vector2( 6.30865, 5.19442 )
+enabled = true
+editor_only = false
+texture = ExtResource( 7 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 3
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 8
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="masks3" type="Light2D" parent="player/Camera2D/all_masks"]
+
+transform/pos = Vector2( -4490.38, 373.606 )
+transform/scale = Vector2( 6.30865, 5.19442 )
+enabled = true
+editor_only = false
+texture = ExtResource( 7 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 3
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 16
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="masks4" type="Light2D" parent="player/Camera2D/all_masks"]
+
+transform/pos = Vector2( -4490.38, 373.606 )
+transform/scale = Vector2( 6.30865, 5.19442 )
+enabled = true
+editor_only = false
+texture = ExtResource( 7 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 3
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 32
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="masks5" type="Light2D" parent="player/Camera2D/all_masks"]
+
+transform/pos = Vector2( -4490.38, 373.606 )
+transform/scale = Vector2( 6.30865, 5.19442 )
+enabled = true
+editor_only = false
+texture = ExtResource( 7 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 3
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 64
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="BeamManager" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 292.398, -223.925 )
 speed = 0.4
 scale_to_appear = 0.18
 
+[node name="platform" parent="." instance=ExtResource( 9 )]
 
+editor/display_folded = true
+transform/pos = Vector2( 464.942, -350.245 )
+color_dimension = 4
+
+
+[editable path="platform"]

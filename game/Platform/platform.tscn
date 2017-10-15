@@ -3,12 +3,12 @@
 [ext_resource path="res://Platform/platform.gd" type="Script" id=1]
 [ext_resource path="res://Platform/sprites/000.png" type="Texture" id=2]
 [ext_resource path="res://Platform/sprites/002.png" type="Texture" id=3]
-[ext_resource path="res://Platform/sprites/001.png" type="Texture" id=4]
-[ext_resource path="res://Platform/sprites/003.png" type="Texture" id=5]
-[ext_resource path="res://Platform/sprites/004.png" type="Texture" id=6]
-[ext_resource path="res://Platform/sprites/005.png" type="Texture" id=7]
-[ext_resource path="res://Platform/sprites/006.png" type="Texture" id=8]
-[ext_resource path="res://Platform/sprites/007.png" type="Texture" id=9]
+[ext_resource path="res://Platform/sprites/007.png" type="Texture" id=4]
+[ext_resource path="res://Platform/sprites/006.png" type="Texture" id=5]
+[ext_resource path="res://Platform/sprites/005.png" type="Texture" id=6]
+[ext_resource path="res://Platform/sprites/004.png" type="Texture" id=7]
+[ext_resource path="res://Platform/sprites/003.png" type="Texture" id=8]
+[ext_resource path="res://Platform/sprites/001.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -28,14 +28,14 @@ animations = [ {
 "name": "hint",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": false,
-"name": "destroy",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 2 ) ],
 "loop": false,
 "name": "spawn",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "destroy",
 "speed": 8.0
 } ]
 
@@ -174,12 +174,16 @@ wait_time = 3.0
 one_shot = true
 autostart = false
 
+[connection signal="area_enter" from="." to="." method="_on_platform_area_enter"]
+
+[connection signal="area_exit" from="." to="." method="_on_platform_area_exit"]
+
 [connection signal="body_enter" from="." to="." method="_on_platform_body_enter"]
 
 [connection signal="timeout" from="timer_on" to="." method="destroy"]
 
-[connection signal="timeout" from="timer_off" to="timer_on" method="start"]
-
 [connection signal="timeout" from="timer_off" to="." method="spawn"]
+
+[connection signal="timeout" from="timer_off" to="timer_on" method="start"]
 
 
