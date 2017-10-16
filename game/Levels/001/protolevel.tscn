@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://Levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Viewports/empty_mask.png" type="Texture" id=7]
 [ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -56,6 +57,7 @@ default/chorus_send = 0.0
 
 [node name="orange" parent="." instance=ExtResource( 5 )]
 
+editor/display_folded = true
 transform/pos = Vector2( -83.6163, -485.454 )
 transform/scale = Vector2( 1.5, 1.5 )
 
@@ -66,6 +68,7 @@ z/z = 2
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
+editor/display_folded = true
 anchor_mode = 1
 rotating = false
 current = true
@@ -85,6 +88,7 @@ drag_margin/bottom = 0.1
 
 [node name="all_masks" type="Node2D" parent="player/Camera2D"]
 
+editor/display_folded = true
 transform/pos = Vector2( 457.657, -71.9794 )
 transform/scale = Vector2( 0.3, 0.3 )
 
@@ -242,7 +246,27 @@ scale_to_appear = 0.18
 
 editor/display_folded = true
 transform/pos = Vector2( 464.942, -350.245 )
-color_dimension = 4
+color_dimension = 2
+
+[node name="crystal" parent="." instance=ExtResource( 10 )]
+
+transform/pos = Vector2( -314.646, -204.415 )
+crystal_color = 2
+player_path = NodePath("../player")
+
+[node name="sprite" parent="crystal"]
+
+frame = 1
+
+[node name="vibration_radial" parent="crystal"]
+
+player_path = NodePath("../../player")
+
+[node name="z_depth" parent="crystal"]
+
+player_path = NodePath("../../player")
 
 
+[editable path="orange"]
 [editable path="platform"]
+[editable path="crystal"]

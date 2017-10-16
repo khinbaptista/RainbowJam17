@@ -7,7 +7,7 @@ var beams
 export var speed = 0.4
 export var offset = 217
 export var scale_to_appear = 0.18
-export var max_scale = 2
+export var max_scale = 4
 var camera
 var last_position
 var viewportSize
@@ -42,18 +42,18 @@ func _process(delta):
 			new_x_scale = beam_scale.x + (speed * delta * beam_scale.x)
 			new_y_scale = beam_scale.y + (speed * delta * beam_scale.y)
 	
-			if(beams[i].is_hidden()):
+			if(beams[i].is_hidden() and beams[i].learned):
 				if((beams[(i % 6) - 1].get_scale().x > scale_to_appear) or first_time):
 					beams[i].show()
 					beams[i].set_global_pos(last_position)
 					first_time = false
 					beam_new_scale = Vector2(new_x_scale, new_y_scale)
-			elif(not beams[i].is_hidden()):
+			elif(beams[i].learned):
 				beam_new_scale = Vector2(new_x_scale, new_y_scale)
 	
 			beams[i].set_scale(beam_new_scale)
 		
-		if (beams[5].get_scale().x > max_scale):
+		if (beams[0].get_scale().x > max_scale):
 			MoveBeansInit()
 			active = false
 		
