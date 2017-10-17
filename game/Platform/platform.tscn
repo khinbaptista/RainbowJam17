@@ -178,12 +178,10 @@ autostart = false
 
 [connection signal="area_exit" from="." to="." method="_on_platform_area_exit"]
 
-[connection signal="body_enter" from="." to="." method="_on_platform_body_enter"]
-
 [connection signal="timeout" from="timer_on" to="." method="destroy"]
 
-[connection signal="timeout" from="timer_off" to="." method="spawn"]
-
 [connection signal="timeout" from="timer_off" to="timer_on" method="start"]
+
+[connection signal="timeout" from="timer_off" to="." method="spawn"]
 
 

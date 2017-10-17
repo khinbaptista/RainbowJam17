@@ -101,7 +101,6 @@ drag_margin/bottom = 0.1
 
 [node name="all_masks" parent="player/Camera2D" instance=ExtResource( 11 )]
 
-editor/display_folded = false
 transform/scale = Vector2( 0.15, 0.3 )
 
 [node name="BeamManager" parent="." instance=ExtResource( 12 )]

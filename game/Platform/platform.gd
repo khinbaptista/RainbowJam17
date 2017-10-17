@@ -54,7 +54,7 @@ func color_revealed():	# called from the group by the beam manager when the play
 func spawn():
 	var anim = get_node("AnimationPlayer")
 
-	#sprite.show()
+	sprite.show()
 	sprite.play("spawn")
 	set_collision_mask_bit(0, true)
 	set_layer_mask_bit(0, true)
@@ -70,17 +70,17 @@ func destroy():
 		sprite.play("destroy")
 		get_node("AnimationPlayer").play("destroy")
 
-func _on_platform_body_enter( body ): # if destructible, activates on body enter
-	if destructible and body.get_name() == "player":
-		body.connect("death", self, "spawn")
-		get_node("timer_on").set_wait_time(duration_on)
-		get_node("timer_on").start()
-		activated = true
-
 func _on_platform_area_enter( area ):
 	if color_dimension >= 2:	# has a color
 		if area.get_name() == "beams_coming":
 			sprite.show()
+			
+	if destructible and area.get_name() == "groundcheck":
+		var player = area.get_parent()
+		player.connect("death", self, "spawn")
+		get_node("timer_on").set_wait_time(duration_on)
+		get_node("timer_on").start()
+		activated = true
 
 
 func _on_platform_area_exit( area ):

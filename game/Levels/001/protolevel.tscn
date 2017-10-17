@@ -97,7 +97,7 @@ scale_to_appear = 0.18
 
 editor/display_folded = true
 transform/pos = Vector2( 464.942, -350.245 )
-color_dimension = 2
+destructible = true
 
 [node name="crystal" parent="." instance=ExtResource( 10 )]
 
