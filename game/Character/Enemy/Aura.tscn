@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://Character/Enemy/Aura.gd" type="Script" id=1]
+[ext_resource path="res://Character/Enemy/aura.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 229.554
+
+[sub_resource type="CanvasItemShader" id=2]
+
+_code = {
+"fragment": "float alpha = tex(TEXTURE, UV).a;
+vec3 screen_color = texscreen(SCREEN_UV);
+
+vec3 grayscale = vec3(
+	0.2126 * screen_color.r +
+	0.7152 * screen_color.g +
+	0.0722 * screen_color.b
+);
+
+COLOR = vec4(grayscale, alpha);
+",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="CanvasItemMaterial" id=3]
+
+shader/shader = SubResource( 2 )
+shader/shading_mode = 0
+
+[node name="Aura" type="Area2D"]
+
+z/z = 5
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+threshold = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+material/material = SubResource( 3 )
+transform/scale = Vector2( 10, 10 )
+texture = ExtResource( 2 )
+
+
