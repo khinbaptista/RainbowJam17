@@ -21,27 +21,27 @@ func _ready():
 	camera = player.get_node("Camera2D")
 	viewportSize = get_viewport().get_rect().size
 	offset *= get_scale().x
-	
+
 	player.connect("new_color_learned", self, "player_learned")
-	
+
 	set_process(true)
 	set_process_input(true)
 	MoveBeansInit()
 
-func _process(delta):	
+func _process(delta):
 	if(active):
 		var beam_scale
 		var beam_new_scale
 		var new_x_scale
-		var new_y_scale 
-		
+		var new_y_scale
+
 		for i in range(6):
 			beam_scale = beams[i].get_scale()
 			beam_new_scale = beam_scale
-				
+
 			new_x_scale = beam_scale.x + (speed * delta * beam_scale.x)
 			new_y_scale = beam_scale.y + (speed * delta * beam_scale.y)
-	
+
 			if(beams[i].is_hidden() and beams[i].learned):
 				if((beams[(i % 6) - 1].get_scale().x > scale_to_appear) or first_time):
 					beams[i].show()
@@ -50,13 +50,13 @@ func _process(delta):
 					beam_new_scale = Vector2(new_x_scale, new_y_scale)
 			elif(beams[i].learned):
 				beam_new_scale = Vector2(new_x_scale, new_y_scale)
-	
+
 			beams[i].set_scale(beam_new_scale)
-		
+
 		if (beams[0].get_scale().x > max_scale):
 			MoveBeansInit()
 			active = false
-		
+
 func _input(event):
 	if event.is_action_pressed("beams") and not event.is_echo():
 		last_position = player.get_global_pos()
@@ -65,7 +65,7 @@ func _input(event):
 			MoveBeansInit()
 		else:
 			active = true
-				
+
 func MoveBeansInit():
 	for beam in beams:
 		beam.hide()
@@ -82,5 +82,5 @@ func color_index2string(index):
 func player_learned(new_color):
 	var color_string = color_index2string(new_color)
 	if color_string == null: return
-	
+
 	get_tree().call_group(0, color_string, "color_revealed")
