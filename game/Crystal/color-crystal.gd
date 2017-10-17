@@ -6,7 +6,7 @@ export(float, 0, 1000, 1) var vibration_distance = 300
 export(NodePath) var player_path = @""
 onready var player = get_node(player_path)
 onready var sprite = get_node("sprite")
-onready var press_e = get_node("press_e")
+onready var press_e = get_node("sprite/press_e")
 
 var layer = "behind"
 

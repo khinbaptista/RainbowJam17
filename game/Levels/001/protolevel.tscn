@@ -105,6 +105,19 @@ transform/pos = Vector2( -314.646, -204.415 )
 crystal_color = 2
 player_path = NodePath("../player")
 
+[node name="sprite" parent="crystal"]
+
+frame = 4
+
+[node name="vibration_radial" parent="crystal"]
+
+player_path = NodePath("../../player")
+
+[node name="z_depth" parent="crystal"]
+
+player_path = NodePath("../../player")
+
 
 [editable path="orange"]
 [editable path="platform"]
+[editable path="crystal"]
