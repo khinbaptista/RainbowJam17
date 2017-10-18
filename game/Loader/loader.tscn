@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Loader/loader.gd" type="Script" id=1]
-[ext_resource path="res://Loader/iris_logo.png" type="Texture" id=2]
+[ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
+[ext_resource path="res://Menu/LOGO-IRIS.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -14,13 +15,13 @@ tracks/0/path = NodePath("CanvasModulate:color")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.5, 1 ),
+"times": FloatArray( 0, 0.5, 0.9 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("ReferenceFrame/TextureFrame:visibility/visible")
+tracks/1/path = NodePath("ReferenceFrame:visibility/visible")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
@@ -47,7 +48,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("ReferenceFrame/TextureFrame:visibility/visible")
+tracks/1/path = NodePath("ReferenceFrame:visibility/visible")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
@@ -83,6 +84,7 @@ autoplay = ""
 
 [node name="ReferenceFrame" type="ReferenceFrame" parent="."]
 
+visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -94,9 +96,8 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 
-[node name="TextureFrame" type="TextureFrame" parent="ReferenceFrame"]
+[node name="bg" type="TextureFrame" parent="ReferenceFrame"]
 
-visibility/visible = false
 anchor/left = 3
 anchor/top = 3
 anchor/right = 3
@@ -110,6 +111,24 @@ margin/top = 450.0
 margin/right = -800.0
 margin/bottom = -450.0
 texture = ExtResource( 2 )
-stretch_mode = 6
+expand = true
+
+[node name="logo" type="TextureFrame" parent="ReferenceFrame"]
+
+anchor/left = 1
+anchor/top = 1
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 314.0
+margin/top = 208.0
+margin/right = -696.0
+margin/bottom = -365.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
 
 
