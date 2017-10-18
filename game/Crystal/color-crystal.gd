@@ -4,13 +4,18 @@ export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Purple")
 export(float, 0, 1000, 1) var vibration_distance = 300
 
 export(NodePath) var player_path = @""
-onready var player = get_node(player_path)
+var player# = get_node(player_path)
 onready var sprite = get_node("sprite")
 onready var press_e = get_node("sprite/press_e")
 
 var layer = "behind"
 
 func _ready():
+	if Globals.has("player_path"):
+		player = get_node(Globals.get("player_path"))
+	else:
+		print("Player not loaded")
+
 	set_process(false)
 	if player.knows_color(crystal_color):
 		queue_free()	# the crystal is useless

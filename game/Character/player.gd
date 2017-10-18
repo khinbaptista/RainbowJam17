@@ -62,6 +62,8 @@ func align_last_movement():
 ########## Funcs
 
 func _ready():
+	Globals.set("player_path", get_path())
+
 	set_process(true)
 	set_process_input(true)
 
@@ -88,8 +90,6 @@ func _process(delta):
 	elif grounded and fall_timer_counting():
 		timer_fall.stop()
 
-#	if Input.is_key_pressed(KEY_C): get_node("/root/Debug/Label").set_text("")
-
 	if dead:
 		if get_pos().y < bufferY + fall_height and not grounded:
 			set_pos(Vector2(get_pos().x, get_pos().y + fall_speed * delta))
@@ -97,8 +97,6 @@ func _process(delta):
 			respawn()
 
 	input_movement(delta)
-
-	get_node("/root/Debug/Label").set_text("FSM: " + get_node("FSM").current)
 
 func input_movement(delta):
 	if not get_node("Actions/move").can_execute() and not dashing and not dead:
