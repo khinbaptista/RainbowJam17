@@ -1,17 +1,21 @@
-extends Area2D
-
-export(int, FLAGS, "None", "Red", "Orange", "Yellow", "Green", "Blue", "Violet") var color_dimension = 1
-onready var sprite = get_node("sprite")
-
-var activated = true
+extends "res://Beams/color_alignment.gd"
 
 export(bool) var use_timers = false
 export(bool) var destructible = false
 export(float) var duration_on = 5.0
 export(float) var duration_off = 3.0
 
+onready var sprite = get_node("sprite")
+onready var anim = get_node("AnimationPlayer")
+
+var activated = true
+
+func set_color(color):
+	.set_color(color)
+	if sprite: sprite.set_light_mask(color_mask)
+
 func _ready():
-	sprite.set_light_mask(color_dimension)
+	sprite.set_light_mask(color_mask)
 
 	set_process(true)
 
@@ -24,66 +28,57 @@ func _ready():
 		get_node("timer_on").connect("timeout", get_node("timer_off"), "start")
 		get_node("timer_on").start()
 
-	if color_dimension >= 2:	# has a color
+	if color_alignment != 0:	# has a color
 		sprite.hide()
 		set_collision_mask_bit(0, false)
 		set_layer_mask_bit(0, false)
-		add_to_group(color_index2string(color_dimension))
 	else:
 		spawn()
 
 func _process(delta):
-	if destructible and Input.is_action_pressed("dash"):
-		destroy()
 	if sprite.get_frame() == sprite.get_sprite_frames().get_frame_count("destroy")-1 and sprite.get_animation().basename() == "destroy":
 		sprite.hide()
 		set_collision_mask_bit(0, false)
 		set_layer_mask_bit(0, false)
 
-func color_index2string(index):
-	if index & 2:	return "red"
-	if index & 4:	return "orange"
-	if index & 8:	return "yellow"
-	if index & 16:	return "green"
-	if index & 32:	return "blue"
-	if index & 64:	return "purple"
-
 func color_revealed():	# called from the group by the beam manager when the player learns the color
 	spawn()
 
 func spawn():
-	var anim = get_node("AnimationPlayer")
-
 	sprite.show()
 	sprite.play("spawn")
+	anim.play_backwards("destroy_collider")
+
 	set_collision_mask_bit(0, true)
 	set_layer_mask_bit(0, true)
-	anim.play_backwards("destroy")
+
 	if destructible:
 		activated = false
 		yield(anim, "finished")
 		if not anim.is_playing():
-			get_node("AnimationPlayer").play("hint")
+			anim.play("hint")
 
 func destroy():
 	if activated: # if the platform is destructible, only destroy when activated
 		sprite.play("destroy")
-		get_node("AnimationPlayer").play("destroy")
+		anim.play("destroy_collider")
 
 func _on_platform_area_enter( area ):
-	if color_dimension >= 2:	# has a color
+	if color_alignment != 0:	# has a color
 		if area.get_name() == "beams_coming":
 			sprite.show()
-			
+
 	if destructible and area.get_name() == "groundcheck":
 		var player = area.get_parent()
-		player.connect("death", self, "spawn")
+		if not player.is_connected("death", self, "spawn"):
+			player.connect("death", self, "spawn")
+
 		get_node("timer_on").set_wait_time(duration_on)
 		get_node("timer_on").start()
 		activated = true
 
 
 func _on_platform_area_exit( area ):
-	if color_dimension >= 2:	# has a color
+	if color_alignment != 0:	# has a color
 		if area.get_name() == "beams_coming":
 			sprite.hide()

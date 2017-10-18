@@ -1,9 +1,9 @@
 extends Node2D
 
-export(NodePath) var player_path = @""
+#export(NodePath) var player_path = @""
 export(NodePath) var sprite_path = @""
 
-onready var player = get_node(player_path)
+onready var player = get_node(Globals.get("player_path"))
 onready var sprite = get_node(sprite_path)
 
 var layer = "behind"

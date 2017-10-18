@@ -1,8 +1,8 @@
 extends Node
 
 func _on_Checkpoint_checkpoint_activated():
-	var sprite = get_node("platforms/tempPlatforms/platform13/sprite")
-	
+	#var sprite = get_node("platforms/tempPlatforms/platform13/sprite")
+
 	#if sprite.get_frame()!=sprite.get_sprite_frames().get_frame_count("destroy")-1:
 		#yield(get_node("platforms/tempPlatforms/platform13/sprite"), "finished")
 	get_node("platforms/tempPlatforms").queue_free()

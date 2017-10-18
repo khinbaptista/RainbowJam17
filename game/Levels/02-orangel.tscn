@@ -166,8 +166,7 @@ modulate = Color( 1, 0.501961, 0, 1 )
 
 transform/pos = Vector2( 32.7762, -24.142 )
 transform/scale = Vector2( 0.421875, 0.421875 )
-crystal_color = 4
-vibration_distance = 300
+crystal_color = 2
 
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
 

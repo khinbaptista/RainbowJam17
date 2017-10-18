@@ -44,9 +44,8 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script/script = ExtResource( 1 )
-crystal_color = 1
+crystal_color = 0
 vibration_distance = 300
-player_path = NodePath("../../player")
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 
@@ -55,7 +54,6 @@ transform/scale = Vector2( 0.3, 0.3 )
 z/z = 1
 frames = SubResource( 2 )
 animation = "default"
-frame = 8
 playing = true
 
 [node name="press_e" type="Sprite" parent="sprite"]
