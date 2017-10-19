@@ -4,8 +4,8 @@
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Iris (Continuous Loop).wav" type="Sample" id=3]
 [ext_resource path="res://Sounds/dash1.wav" type="Sample" id=4]
-[ext_resource path="res://Levels/01-red_new.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Character/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/01-red_new.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SampleLibrary" id=1]
@@ -52,13 +52,10 @@ default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
 
-[node name="red" parent="." instance=ExtResource( 5 )]
-
-[node name="player" parent="." instance=ExtResource( 6 )]
+[node name="player" parent="." instance=ExtResource( 5 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 12.6143, -281.717 )
-z/z = 2
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
@@ -79,10 +76,12 @@ drag_margin/top = 0.1
 drag_margin/right = 0.2
 drag_margin/bottom = 0.1
 
+[node name="red" parent="." instance=ExtResource( 6 )]
+
 [node name="BeamManager" parent="." instance=ExtResource( 7 )]
 
 transform/rot = 24.0
 transform/scale = Vector2( 2.1, 1.5 )
-speed = -250
+speed = 0.4
 
 
