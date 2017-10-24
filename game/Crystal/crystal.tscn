@@ -47,10 +47,15 @@ script/script = ExtResource( 1 )
 crystal_color = 0
 vibration_distance = 300
 
-[node name="sprite" type="AnimatedSprite" parent="."]
+[node name="sprite" type="Node2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 0, -34.0427 )
 transform/scale = Vector2( 0.3, 0.3 )
+z/z = 1
+
+[node name="sprite1" type="AnimatedSprite" parent="sprite"]
+
 z/z = 1
 frames = SubResource( 2 )
 animation = "default"
@@ -58,7 +63,6 @@ playing = true
 
 [node name="press_e" type="Sprite" parent="sprite"]
 
-editor/display_folded = true
 transform/pos = Vector2( 8.1078, -417.767 )
 transform/scale = Vector2( 1.70179, 1.70179 )
 z/z = 1
