@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/01-red_new.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Tools/move_camera.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -54,7 +55,6 @@ default/chorus_send = 0.0
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 12.6143, -281.717 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -69,8 +69,8 @@ limit/right = 10000000
 limit/bottom = 10000000
 drag_margin/h_enabled = true
 drag_margin/v_enabled = true
-smoothing/enable = false
-smoothing/speed = 5.0
+smoothing/enable = true
+smoothing/speed = 7.0
 drag_margin/left = 0.2
 drag_margin/top = 0.1
 drag_margin/right = 0.2
@@ -84,4 +84,13 @@ transform/rot = 24.0
 transform/scale = Vector2( 2.1, 1.5 )
 speed = 0.4
 
+[node name="move_camera" parent="." instance=ExtResource( 8 )]
 
+transform/pos = Vector2( 794.939, -5073.06 )
+
+[node name="target" parent="move_camera"]
+
+transform/pos = Vector2( -388.296, -165.829 )
+
+
+[editable path="move_camera"]
