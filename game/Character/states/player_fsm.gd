@@ -1,7 +1,11 @@
 extends "res://Tools/FSM.gd"
 
+var walking # as opposed to running (used by 'move' states
+
 func _ready():
 	._ready()
+	walking = false
+
 	# idle <-> move
 	add_transition("idle", "move-begin", "move")
 	add_transition("move-begin", "move-loop", "finished")

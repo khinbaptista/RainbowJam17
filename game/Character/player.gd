@@ -170,6 +170,14 @@ func dash(direction):
 
 	dashing = false
 
+func set_walk_slow(walk_slow):
+	get_node("FSM").walking = walk_slow
+
+func get_walking_slow():
+	return get_node("FSM").walking
+
+########## Color stuff
+
 func advertise_colors():
 	if colors_learned & 2:	emit_signal("new_color_learned", 2)	# red
 	if colors_learned & 4:	emit_signal("new_color_learned", 4)	# orange
@@ -187,6 +195,8 @@ func learn_color(color):
 	colors_learned += color
 #	get_node("/root/save").save_file(self)
 	emit_signal("new_color_learned", color)
+
+########## Death
 
 func update_checkpoint(pos):
 	lastCheckpoint = pos
@@ -213,6 +223,8 @@ func respawn():
 
 	dead = false
 	emit_signal("death")
+
+########## Money
 
 func add_coin(amount):
 	coins = coins + amount
