@@ -1,5 +1,6 @@
 extends Area2D
 
+export var active = true
 export(float, 0, 10, 0.001) var speed = 2
 export var wait_time = 2
 
@@ -42,3 +43,6 @@ func _on_body_enter( body ):
 		camera.set_enable_follow_smoothing(true)
 		camera.set_follow_smoothing(speed)
 		wait = true
+
+func _set_active(active_):
+	active = active_

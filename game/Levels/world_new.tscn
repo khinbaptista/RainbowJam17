@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Iris (Continuous Loop).wav" type="Sample" id=3]
 [ext_resource path="res://Sounds/dash1.wav" type="Sample" id=4]
 [ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Levels/01-red_new.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Tools/move_camera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Lights/radial shadow.png" type="Texture" id=6]
+[ext_resource path="res://Levels/01-red_new.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Tools/move_camera.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -55,7 +56,7 @@ default/chorus_send = 0.0
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 12.6143, -281.717 )
+transform/pos = Vector2( 47.0553, -253.217 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
@@ -76,17 +77,43 @@ drag_margin/top = 0.1
 drag_margin/right = 0.2
 drag_margin/bottom = 0.1
 
-[node name="red" parent="." instance=ExtResource( 6 )]
+[node name="Light2D" type="Light2D" parent="player"]
 
-[node name="BeamManager" parent="." instance=ExtResource( 7 )]
+visibility/visible = false
+transform/pos = Vector2( 0, -45.1125 )
+enabled = true
+editor_only = false
+texture = ExtResource( 6 )
+offset = Vector2( 0, 0 )
+scale = 2.5
+color = Color( 1, 1, 1, 1 )
+energy = 0.0
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1025
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="red" parent="." instance=ExtResource( 7 )]
+
+[node name="BeamManager" parent="." instance=ExtResource( 8 )]
 
 transform/rot = 24.0
 transform/scale = Vector2( 2.1, 1.5 )
 speed = 0.4
 
-[node name="move_camera" parent="." instance=ExtResource( 8 )]
+[node name="move_camera" parent="." instance=ExtResource( 9 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 794.939, -5073.06 )
+active = true
 
 [node name="target" parent="move_camera"]
 

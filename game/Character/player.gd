@@ -176,6 +176,9 @@ func set_walk_slow(walk_slow):
 func get_walking_slow():
 	return get_node("FSM").walking
 
+func set_speed(speed):
+	get_node("Actions/move").speed = speed
+
 ########## Color stuff
 
 func advertise_colors():
