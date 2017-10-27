@@ -38,7 +38,7 @@ func _timeout():
 	queue_free()
 
 func _on_body_enter( body ):
-	if body.get_name() == "player":
+	if body.get_name() == "player" and active:
 		set_process(true)
 		camera.set_enable_follow_smoothing(true)
 		camera.set_follow_smoothing(speed)

@@ -19,6 +19,8 @@ func on_body_enter(body):
 	player = body
 	player_movement = body.get_node("Actions/move")
 	player_dash = body.get_node("Actions/dash")
+	
+	player.set_walk_slow(true)
 
 	set_fixed_process(true)
 
@@ -26,10 +28,12 @@ func on_body_exit(body):
 	if player != null and player == body:
 		player_movement.multiplier = 1
 		player_dash.speed_multiplier = 1
+		player.set_walk_slow(false)
 
 		player = null
 		player_movement = null
 		player_dash = null
+		
 
 		set_fixed_process(false)
 

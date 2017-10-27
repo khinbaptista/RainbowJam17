@@ -1,5 +1,6 @@
 extends "res://Beams/color_alignment.gd"
 
+export(bool) var active = true
 export(bool) var use_timers = false
 export(bool) var destructible = false
 export(float) var duration_on = 5.0
@@ -32,8 +33,10 @@ func _ready():
 		sprite.hide()
 		set_collision_mask_bit(0, false)
 		set_layer_mask_bit(0, false)
-	else:
+	elif active:
 		spawn()
+	else:
+		destroy()
 
 func _process(delta):
 	if sprite.get_frame() == sprite.get_sprite_frames().get_frame_count("destroy")-1 and sprite.get_animation().basename() == "destroy":
@@ -77,8 +80,12 @@ func _on_platform_area_enter( area ):
 		get_node("timer_on").start()
 		activated = true
 
-
 func _on_platform_area_exit( area ):
 	if color_alignment != 0:	# has a color
 		if area.get_name() == "beams_coming":
 			sprite.hide()
+
+func activate():
+	set_process(true)
+	active = true
+	spawn()

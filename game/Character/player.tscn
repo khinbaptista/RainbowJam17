@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=1]
+[gd_scene load_steps=100 format=1]
 
 [ext_resource path="res://Character/player.gd" type="Script" id=1]
 [ext_resource path="res://Character/sprites/shadow.png" type="Texture" id=2]
@@ -11,67 +11,91 @@
 [ext_resource path="res://Character/sprites/run-down/009.png" type="Texture" id=9]
 [ext_resource path="res://Character/sprites/run-down/000.png" type="Texture" id=10]
 [ext_resource path="res://Character/sprites/run-down/001.png" type="Texture" id=11]
-[ext_resource path="res://Character/sprites/dash-down/005.png" type="Texture" id=12]
-[ext_resource path="res://Character/sprites/dash-down/008.png" type="Texture" id=13]
-[ext_resource path="res://Character/sprites/dash-down/007.png" type="Texture" id=14]
-[ext_resource path="res://Character/sprites/death-up/003.png" type="Texture" id=15]
-[ext_resource path="res://Character/sprites/death-up/004.png" type="Texture" id=16]
-[ext_resource path="res://Character/sprites/death-up/005.png" type="Texture" id=17]
-[ext_resource path="res://Character/sprites/run-right/006.png" type="Texture" id=18]
-[ext_resource path="res://Character/sprites/run-right/008.png" type="Texture" id=19]
-[ext_resource path="res://Character/sprites/run-right/007.png" type="Texture" id=20]
-[ext_resource path="res://Character/sprites/run-down/003.png" type="Texture" id=21]
-[ext_resource path="res://Character/sprites/run-down/004.png" type="Texture" id=22]
-[ext_resource path="res://Character/sprites/run-down/005.png" type="Texture" id=23]
-[ext_resource path="res://Character/sprites/dash-down/001.png" type="Texture" id=24]
-[ext_resource path="res://Character/sprites/dash-down/002.png" type="Texture" id=25]
-[ext_resource path="res://Character/sprites/dash-up/001.png" type="Texture" id=26]
-[ext_resource path="res://Character/sprites/dash-up/002.png" type="Texture" id=27]
-[ext_resource path="res://Character/sprites/run-right/000.png" type="Texture" id=28]
-[ext_resource path="res://Character/sprites/run-right/001.png" type="Texture" id=29]
-[ext_resource path="res://Character/sprites/run-right/002.png" type="Texture" id=30]
-[ext_resource path="res://Character/sprites/run-up/000.png" type="Texture" id=31]
-[ext_resource path="res://Character/sprites/run-up/002.png" type="Texture" id=32]
-[ext_resource path="res://Character/sprites/run-down/002.png" type="Texture" id=33]
-[ext_resource path="res://Character/sprites/dash-up/005.png" type="Texture" id=34]
-[ext_resource path="res://Character/sprites/dash-up/008.png" type="Texture" id=35]
-[ext_resource path="res://Character/sprites/dash-up/007.png" type="Texture" id=36]
-[ext_resource path="res://Character/sprites/death-front/003.png" type="Texture" id=37]
-[ext_resource path="res://Character/sprites/death-front/004.png" type="Texture" id=38]
-[ext_resource path="res://Character/sprites/death-front/005.png" type="Texture" id=39]
-[ext_resource path="res://Character/sprites/dash-up/003.png" type="Texture" id=40]
-[ext_resource path="res://Character/sprites/dash-up/004.png" type="Texture" id=41]
-[ext_resource path="res://Character/sprites/death-right/002.png" type="Texture" id=42]
-[ext_resource path="res://Character/sprites/death-right/003.png" type="Texture" id=43]
-[ext_resource path="res://Character/sprites/death-right/004.png" type="Texture" id=44]
-[ext_resource path="res://Character/sprites/run-up/003.png" type="Texture" id=45]
-[ext_resource path="res://Character/sprites/run-up/004.png" type="Texture" id=46]
-[ext_resource path="res://Character/sprites/run-up/005.png" type="Texture" id=47]
-[ext_resource path="res://Character/sprites/dash-down/003.png" type="Texture" id=48]
-[ext_resource path="res://Character/sprites/dash-down/004.png" type="Texture" id=49]
-[ext_resource path="res://Character/sprites/run-up/009.png" type="Texture" id=50]
-[ext_resource path="res://Character/sprites/run-up/001.png" type="Texture" id=51]
-[ext_resource path="res://Character/sprites/dash-right/005.png" type="Texture" id=52]
-[ext_resource path="res://Character/sprites/dash-right/008.png" type="Texture" id=53]
-[ext_resource path="res://Character/sprites/dash-right/007.png" type="Texture" id=54]
-[ext_resource path="res://Character/sprites/dash-right/001.png" type="Texture" id=55]
-[ext_resource path="res://Character/sprites/dash-right/002.png" type="Texture" id=56]
-[ext_resource path="res://Character/sprites/run-right/009.png" type="Texture" id=57]
-[ext_resource path="res://Character/sprites/dash-right/003.png" type="Texture" id=58]
-[ext_resource path="res://Character/sprites/dash-right/004.png" type="Texture" id=59]
-[ext_resource path="res://Character/ground-check.gd" type="Script" id=60]
-[ext_resource path="res://Character/interaction.gd" type="Script" id=61]
-[ext_resource path="res://Sounds/Music.tscn" type="PackedScene" id=62]
-[ext_resource path="res://Particles/round.png" type="Texture" id=63]
-[ext_resource path="res://Character/actions/action_move.gd" type="Script" id=64]
-[ext_resource path="res://Character/actions/action_dash.gd" type="Script" id=65]
-[ext_resource path="res://Character/states/player_fsm.gd" type="Script" id=66]
-[ext_resource path="res://Character/states/idle.gd" type="Script" id=67]
-[ext_resource path="res://Character/states/move.gd" type="Script" id=68]
-[ext_resource path="res://Character/states/dash.gd" type="Script" id=69]
-[ext_resource path="res://Character/states/dash-stop.gd" type="Script" id=70]
-[ext_resource path="res://Character/states/dead.gd" type="Script" id=71]
-[ext_resource path="res://Character/states/respawn.gd" type="Script" id=72]
+[ext_resource path="res://Character/sprites/walk-up/000.png" type="Texture" id=12]
+[ext_resource path="res://Character/sprites/walk-up/001.png" type="Texture" id=13]
+[ext_resource path="res://Character/sprites/walk-up/002.png" type="Texture" id=14]
+[ext_resource path="res://Character/sprites/walk-up/003.png" type="Texture" id=15]
+[ext_resource path="res://Character/sprites/walk-up/004.png" type="Texture" id=16]
+[ext_resource path="res://Character/sprites/walk-up/005.png" type="Texture" id=17]
+[ext_resource path="res://Character/sprites/dash-down/005.png" type="Texture" id=18]
+[ext_resource path="res://Character/sprites/dash-down/008.png" type="Texture" id=19]
+[ext_resource path="res://Character/sprites/dash-down/007.png" type="Texture" id=20]
+[ext_resource path="res://Character/sprites/run-right/006.png" type="Texture" id=21]
+[ext_resource path="res://Character/sprites/run-right/008.png" type="Texture" id=22]
+[ext_resource path="res://Character/sprites/run-right/007.png" type="Texture" id=23]
+[ext_resource path="res://Character/sprites/run-down/003.png" type="Texture" id=24]
+[ext_resource path="res://Character/sprites/run-down/004.png" type="Texture" id=25]
+[ext_resource path="res://Character/sprites/run-down/005.png" type="Texture" id=26]
+[ext_resource path="res://Character/sprites/dash-down/001.png" type="Texture" id=27]
+[ext_resource path="res://Character/sprites/dash-down/002.png" type="Texture" id=28]
+[ext_resource path="res://Character/sprites/dash-up/001.png" type="Texture" id=29]
+[ext_resource path="res://Character/sprites/dash-up/002.png" type="Texture" id=30]
+[ext_resource path="res://Character/sprites/run-right/000.png" type="Texture" id=31]
+[ext_resource path="res://Character/sprites/run-right/001.png" type="Texture" id=32]
+[ext_resource path="res://Character/sprites/run-right/002.png" type="Texture" id=33]
+[ext_resource path="res://Character/sprites/run-up/000.png" type="Texture" id=34]
+[ext_resource path="res://Character/sprites/run-up/002.png" type="Texture" id=35]
+[ext_resource path="res://Character/sprites/dash-up/005.png" type="Texture" id=36]
+[ext_resource path="res://Character/sprites/dash-up/008.png" type="Texture" id=37]
+[ext_resource path="res://Character/sprites/dash-up/007.png" type="Texture" id=38]
+[ext_resource path="res://Character/sprites/run-down/002.png" type="Texture" id=39]
+[ext_resource path="res://Character/sprites/death-up/003.png" type="Texture" id=40]
+[ext_resource path="res://Character/sprites/death-up/004.png" type="Texture" id=41]
+[ext_resource path="res://Character/sprites/death-up/005.png" type="Texture" id=42]
+[ext_resource path="res://Character/sprites/death-front/003.png" type="Texture" id=43]
+[ext_resource path="res://Character/sprites/death-front/004.png" type="Texture" id=44]
+[ext_resource path="res://Character/sprites/death-front/005.png" type="Texture" id=45]
+[ext_resource path="res://Character/sprites/dash-right/001.png" type="Texture" id=46]
+[ext_resource path="res://Character/sprites/dash-right/002.png" type="Texture" id=47]
+[ext_resource path="res://Character/sprites/run-right/009.png" type="Texture" id=48]
+[ext_resource path="res://Character/sprites/dash-up/003.png" type="Texture" id=49]
+[ext_resource path="res://Character/sprites/dash-up/004.png" type="Texture" id=50]
+[ext_resource path="res://Character/sprites/run-up/003.png" type="Texture" id=51]
+[ext_resource path="res://Character/sprites/run-up/004.png" type="Texture" id=52]
+[ext_resource path="res://Character/sprites/run-up/005.png" type="Texture" id=53]
+[ext_resource path="res://Character/sprites/dash-right/003.png" type="Texture" id=54]
+[ext_resource path="res://Character/sprites/dash-right/004.png" type="Texture" id=55]
+[ext_resource path="res://Character/sprites/run-up/009.png" type="Texture" id=56]
+[ext_resource path="res://Character/sprites/run-up/001.png" type="Texture" id=57]
+[ext_resource path="res://Character/sprites/dash-right/005.png" type="Texture" id=58]
+[ext_resource path="res://Character/sprites/dash-right/008.png" type="Texture" id=59]
+[ext_resource path="res://Character/sprites/dash-right/007.png" type="Texture" id=60]
+[ext_resource path="res://Character/sprites/death-right/002.png" type="Texture" id=61]
+[ext_resource path="res://Character/sprites/death-right/003.png" type="Texture" id=62]
+[ext_resource path="res://Character/sprites/death-right/004.png" type="Texture" id=63]
+[ext_resource path="res://Character/sprites/dash-down/003.png" type="Texture" id=64]
+[ext_resource path="res://Character/sprites/dash-down/004.png" type="Texture" id=65]
+[ext_resource path="res://Character/sprites/walk-right/000.png" type="Texture" id=66]
+[ext_resource path="res://Character/sprites/walk-right/001.png" type="Texture" id=67]
+[ext_resource path="res://Character/sprites/walk-right/002.png" type="Texture" id=68]
+[ext_resource path="res://Character/sprites/walk-right/003.png" type="Texture" id=69]
+[ext_resource path="res://Character/sprites/walk-right/004.png" type="Texture" id=70]
+[ext_resource path="res://Character/sprites/walk-right/005.png" type="Texture" id=71]
+[ext_resource path="res://Character/sprites/walk-down/000.png" type="Texture" id=72]
+[ext_resource path="res://Character/sprites/walk-down/001.png" type="Texture" id=73]
+[ext_resource path="res://Character/sprites/walk-down/002.png" type="Texture" id=74]
+[ext_resource path="res://Character/sprites/walk-down/003.png" type="Texture" id=75]
+[ext_resource path="res://Character/sprites/walk-down/004.png" type="Texture" id=76]
+[ext_resource path="res://Character/sprites/walk-down/005.png" type="Texture" id=77]
+[ext_resource path="res://Character/sprites/death-kneel/000.png" type="Texture" id=78]
+[ext_resource path="res://Character/sprites/death-kneel/001.png" type="Texture" id=79]
+[ext_resource path="res://Character/sprites/death-kneel/002.png" type="Texture" id=80]
+[ext_resource path="res://Character/sprites/death-kneel/003.png" type="Texture" id=81]
+[ext_resource path="res://Character/sprites/death-kneel/004.png" type="Texture" id=82]
+[ext_resource path="res://Character/sprites/death-kneel/005.png" type="Texture" id=83]
+[ext_resource path="res://Tools/groundcheck.tscn" type="PackedScene" id=84]
+[ext_resource path="res://Character/interaction.gd" type="Script" id=85]
+[ext_resource path="res://Sounds/Music.tscn" type="PackedScene" id=86]
+[ext_resource path="res://Particles/round.png" type="Texture" id=87]
+[ext_resource path="res://Character/actions/action_move.gd" type="Script" id=88]
+[ext_resource path="res://Character/actions/action_dash.gd" type="Script" id=89]
+[ext_resource path="res://Character/states/player_fsm.gd" type="Script" id=90]
+[ext_resource path="res://Character/states/idle.gd" type="Script" id=91]
+[ext_resource path="res://Character/states/move.gd" type="Script" id=92]
+[ext_resource path="res://Character/states/dash.gd" type="Script" id=93]
+[ext_resource path="res://Character/states/dash-stop.gd" type="Script" id=94]
+[ext_resource path="res://Character/states/dead.gd" type="Script" id=95]
+[ext_resource path="res://Character/states/respawn.gd" type="Script" id=96]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -92,17 +116,17 @@ animations = [ {
 "name": "respawn",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "walk-up-loop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 19 ) ],
 "loop": false,
 "name": "dash-down-stop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "death-up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 22 ) ],
 "loop": false,
 "name": "run-right-stop",
 "speed": 8.0
@@ -112,96 +136,141 @@ animations = [ {
 "name": "run-down-stop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": true,
 "name": "run-down-loop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 28 ) ],
 "loop": false,
 "name": "dash-down-begin",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 29 ), ExtResource( 30 ) ],
 "loop": false,
 "name": "dash-up-begin",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
 "loop": true,
 "name": "run-right-loop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 32 ) ],
+"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 35 ) ],
 "loop": false,
 "name": "run-up-begin",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 33 ), ExtResource( 33 ) ],
-"loop": false,
-"name": "run-down-begin",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 35 ) ],
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 37 ) ],
 "loop": false,
 "name": "dash-up-stop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 39 ), ExtResource( 39 ) ],
+"loop": false,
+"name": "run-down-begin",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ) ],
+"loop": true,
+"name": "death-up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
 "loop": false,
 "name": "death-down",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "dash-up-loop",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ],
-"loop": true,
-"name": "death-right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "run-up-loop",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 25 ) ],
-"loop": true,
-"name": "dash-down-loop",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 50 ), ExtResource( 31 ), ExtResource( 51 ), ExtResource( 31 ) ],
-"loop": false,
-"name": "run-up-stop",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 53 ) ],
-"loop": false,
-"name": "dash-right-stop",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 55 ), ExtResource( 56 ) ],
+"frames": [ ExtResource( 46 ), ExtResource( 47 ) ],
 "loop": false,
 "name": "dash-right-begin",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 57 ), ExtResource( 57 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 48 ), ExtResource( 48 ) ],
 "loop": false,
 "name": "run-right-begin",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 58 ), ExtResource( 59 ), ExtResource( 56 ) ],
+"frames": [ ExtResource( 49 ), ExtResource( 50 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "dash-up-loop",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
+"loop": true,
+"name": "run-up-loop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 47 ) ],
 "loop": true,
 "name": "dash-right-loop",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 56 ), ExtResource( 34 ), ExtResource( 57 ), ExtResource( 34 ) ],
+"loop": false,
+"name": "run-up-stop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 59 ) ],
+"loop": false,
+"name": "dash-right-stop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ) ],
+"loop": true,
+"name": "death-right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 64 ), ExtResource( 65 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "dash-down-loop",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ) ],
+"loop": true,
+"name": "walk-right-loop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ) ],
+"loop": true,
+"name": "walk-down-loop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 34 ) ],
+"loop": false,
+"name": "walk-up-begin",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": false,
+"name": "walk-right-begin",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "walk-down-begin",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": false,
+"name": "walk-right-stop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": false,
+"name": "walk-down-stop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 34 ) ],
+"loop": false,
+"name": "walk-up-stop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 78 ), ExtResource( 78 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 82 ), ExtResource( 82 ), ExtResource( 82 ), ExtResource( 82 ), ExtResource( 82 ), ExtResource( 82 ), ExtResource( 82 ), ExtResource( 82 ), ExtResource( 82 ), ExtResource( 82 ), ExtResource( 82 ), ExtResource( 82 ) ],
+"loop": false,
+"name": "death-kneel",
+"speed": 8.0
 } ]
-
-[sub_resource type="CircleShape2D" id=3]
-
-custom_solver_bias = 0.0
-radius = 34.1707
 
 [sub_resource type="CircleShape2D" id=4]
 
@@ -266,26 +335,7 @@ z/z = 2
 frames = SubResource( 2 )
 animation = "idle"
 
-[node name="groundcheck" type="Area2D" parent="."]
-
-editor/display_folded = true
-visibility/visible = false
-transform/scale = Vector2( 0.55, 0.35 )
-input/pickable = true
-shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-script/script = ExtResource( 60 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="groundcheck"]
-
-shape = SubResource( 3 )
-trigger = false
-_update_shape_index = 0
+[node name="groundcheck" parent="." instance=ExtResource( 84 )]
 
 [node name="interaction_reach" type="Area2D" parent="."]
 
@@ -299,7 +349,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 61 )
+script/script = ExtResource( 85 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_reach"]
 
@@ -322,7 +372,7 @@ wait_time = 0.1
 one_shot = true
 autostart = false
 
-[node name="SamplePlayer2D" parent="." instance=ExtResource( 62 )]
+[node name="SamplePlayer2D" parent="." instance=ExtResource( 86 )]
 
 [node name="background_particles" type="Particles2D" parent="."]
 
@@ -336,7 +386,7 @@ config/preprocess = 8.0
 config/process_mode = 1
 config/half_extents = Vector2( 800, 350 )
 config/local_space = false
-config/texture = ExtResource( 63 )
+config/texture = ExtResource( 87 )
 params/direction = 45.0
 params/spread = 30.0
 params/linear_velocity = 50.0
@@ -365,7 +415,7 @@ color/color = Color( 0.773438, 0.773438, 0.773438, 1 )
 
 [node name="move" type="Node" parent="Actions"]
 
-script/script = ExtResource( 64 )
+script/script = ExtResource( 88 )
 enabled = true
 player_path = NodePath("../..")
 speed = 350
@@ -375,7 +425,7 @@ multiplier = 1
 [node name="dash" type="Node" parent="Actions"]
 
 editor/display_folded = true
-script/script = ExtResource( 65 )
+script/script = ExtResource( 89 )
 enabled = true
 player_path = NodePath("../..")
 dash_speed = 800
@@ -392,57 +442,57 @@ autostart = false
 
 [node name="FSM" type="Node" parent="."]
 
-script/script = ExtResource( 66 )
+script/script = ExtResource( 90 )
 
 [node name="idle" type="Node" parent="FSM"]
 
-script/script = ExtResource( 67 )
+script/script = ExtResource( 91 )
 player_sprite = NodePath("../../Sprite")
 wait_time = 2.0
 
 [node name="move-begin" type="Node" parent="FSM"]
 
-script/script = ExtResource( 68 )
+script/script = ExtResource( 92 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 stage = "begin"
 
 [node name="move-loop" type="Node" parent="FSM"]
 
-script/script = ExtResource( 68 )
+script/script = ExtResource( 92 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 stage = "loop"
 
 [node name="move-stop" type="Node" parent="FSM"]
 
-script/script = ExtResource( 68 )
+script/script = ExtResource( 92 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 stage = "stop"
 
 [node name="dash" type="Node" parent="FSM"]
 
-script/script = ExtResource( 69 )
+script/script = ExtResource( 93 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 dash_action = NodePath("../../Actions/dash")
 
 [node name="dash-stop" type="Node" parent="FSM"]
 
-script/script = ExtResource( 70 )
+script/script = ExtResource( 94 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 
 [node name="dead" type="Node" parent="FSM"]
 
-script/script = ExtResource( 71 )
+script/script = ExtResource( 95 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 
 [node name="respawn" type="Node" parent="FSM"]
 
-script/script = ExtResource( 72 )
+script/script = ExtResource( 96 )
 player_sprite = NodePath("../../Sprite")
 
 [connection signal="timeout" from="timer_idle" to="Sprite" method="play" binds= [ "idle" ]]

@@ -5,10 +5,10 @@
 [ext_resource path="res://Sounds/Iris (Continuous Loop).wav" type="Sample" id=3]
 [ext_resource path="res://Sounds/dash1.wav" type="Sample" id=4]
 [ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Lights/radial shadow.png" type="Texture" id=6]
-[ext_resource path="res://Levels/01-red_new.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Tools/move_camera.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Viewports/all_masks.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Lights/radial shadow.png" type="Texture" id=7]
+[ext_resource path="res://Levels/01-red_new.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -31,8 +31,8 @@ script/script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
 
-transform/pos = Vector2( 99, -3321 )
-transform/scale = Vector2( 140.37, 109.519 )
+transform/pos = Vector2( 421.179, -5162.03 )
+transform/scale = Vector2( 152.303, 180.328 )
 z/z = -3
 texture = ExtResource( 2 )
 modulate = Color( 0.980469, 0.980469, 0.980469, 1 )
@@ -56,10 +56,11 @@ default/chorus_send = 0.0
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 47.0553, -253.217 )
+transform/pos = Vector2( -0.698975, -233.309 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
+editor/display_folded = true
 anchor_mode = 1
 rotating = false
 current = true
@@ -77,13 +78,17 @@ drag_margin/top = 0.1
 drag_margin/right = 0.2
 drag_margin/bottom = 0.1
 
+[node name="all_masks" parent="player/Camera2D" instance=ExtResource( 6 )]
+
+transform/scale = Vector2( 0.15, 0.3 )
+
 [node name="Light2D" type="Light2D" parent="player"]
 
 visibility/visible = false
 transform/pos = Vector2( 0, -45.1125 )
 enabled = true
 editor_only = false
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 offset = Vector2( 0, 0 )
 scale = 2.5
 color = Color( 1, 1, 1, 1 )
@@ -101,23 +106,12 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[node name="red" parent="." instance=ExtResource( 7 )]
+[node name="red" parent="." instance=ExtResource( 8 )]
 
-[node name="BeamManager" parent="." instance=ExtResource( 8 )]
+[node name="BeamManager" parent="." instance=ExtResource( 9 )]
 
-transform/rot = 24.0
-transform/scale = Vector2( 2.1, 1.5 )
+transform/rot = 1.0
 speed = 0.4
-
-[node name="move_camera" parent="." instance=ExtResource( 9 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 794.939, -5073.06 )
-active = true
-
-[node name="target" parent="move_camera"]
-
-transform/pos = Vector2( -388.296, -165.829 )
+scale_to_appear = 0.18
 
 
-[editable path="move_camera"]
