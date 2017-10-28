@@ -229,7 +229,7 @@ func respawn():
 
 ########## Money
 
-func add_coin(amount):
+func add_coins(amount):
 	coins = coins + amount
 
 func spend_coins(amount):

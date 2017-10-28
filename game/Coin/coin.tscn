@@ -1,0 +1,280 @@
+[gd_scene load_steps=21 format=1]
+
+[ext_resource path="res://Coin/Coin.gd" type="Script" id=1]
+[ext_resource path="res://Coin/coin1_shadow.png" type="Texture" id=2]
+[ext_resource path="res://Coin/coin2_shadow.png" type="Texture" id=3]
+[ext_resource path="res://Coin/coin3_shadow.png" type="Texture" id=4]
+[ext_resource path="res://Coin/coin4_shadow.png" type="Texture" id=5]
+[ext_resource path="res://Coin/coin1_crack.png" type="Texture" id=6]
+[ext_resource path="res://Coin/coin2_crack.png" type="Texture" id=7]
+[ext_resource path="res://Coin/coin3_crack.png" type="Texture" id=8]
+[ext_resource path="res://Coin/coin4_crack.png" type="Texture" id=9]
+[ext_resource path="res://Coin/coin1.png" type="Texture" id=10]
+[ext_resource path="res://Coin/coin2.png" type="Texture" id=11]
+[ext_resource path="res://Coin/coin3.png" type="Texture" id=12]
+[ext_resource path="res://Coin/coin4.png" type="Texture" id=13]
+[ext_resource path="res://Particles/round.png" type="Texture" id=14]
+[ext_resource path="res://Lights/radial light 2.png" type="Texture" id=15]
+[ext_resource path="res://Tools/press_e.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Tools/z_depth.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Tools/vibration_radial.tscn" type="PackedScene" id=18]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 31.9577
+
+[sub_resource type="ColorRamp" id=2]
+
+offsets = FloatArray( 0, 0.182266, 0.502463, 0.773399, 1 )
+colors = ColorArray( 1, 0.4, 0.521569, 0, 1, 0.356044, 0.486231, 0.863843, 1, 0, 0.2, 1, 0.537535, 0, 0.108964, 0.689373, 0.501961, 0, 0.101961, 0 )
+
+[node name="coin" type="StaticBody2D"]
+
+transform/scale = Vector2( 0.4, 0.4 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 25.9675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 0, 25.9675 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="shadows" type="Node2D" parent="."]
+
+z/z = 1
+
+[node name="coin1" type="Light2D" parent="shadows"]
+
+visibility/visible = false
+transform/rot = 10.0
+enabled = true
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.3
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1025
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="coin2" type="Light2D" parent="shadows"]
+
+transform/pos = Vector2( 4.7565, -19.0261 )
+transform/rot = -7.0
+enabled = true
+editor_only = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.3
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1025
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="coin3" type="Light2D" parent="shadows"]
+
+visibility/visible = false
+transform/pos = Vector2( -2.37833, -7.72935 )
+transform/rot = -7.0
+enabled = true
+editor_only = false
+texture = ExtResource( 4 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.3
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1025
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="coin4" type="Light2D" parent="shadows"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.594504, 9.5131 )
+transform/rot = -7.0
+enabled = true
+editor_only = false
+texture = ExtResource( 5 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.3
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1025
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="cracks" type="Node2D" parent="."]
+
+[node name="coin1" type="Sprite" parent="cracks"]
+
+visibility/visible = false
+transform/rot = 10.0
+texture = ExtResource( 6 )
+
+[node name="coin2" type="Sprite" parent="cracks"]
+
+transform/pos = Vector2( 4.7565, -19.0261 )
+transform/rot = -7.0
+texture = ExtResource( 7 )
+
+[node name="coin3" type="Sprite" parent="cracks"]
+
+visibility/visible = false
+transform/pos = Vector2( -2.37833, -7.72935 )
+transform/rot = -7.0
+texture = ExtResource( 8 )
+
+[node name="coin4" type="Sprite" parent="cracks"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.594504, 9.5131 )
+transform/rot = -7.0
+texture = ExtResource( 9 )
+
+[node name="sprite" type="Node2D" parent="."]
+
+z/z = 1
+
+[node name="coin1" type="Sprite" parent="sprite"]
+
+visibility/visible = false
+transform/rot = 10.0
+texture = ExtResource( 10 )
+
+[node name="coin2" type="Sprite" parent="sprite"]
+
+transform/pos = Vector2( 4.7565, -19.0261 )
+transform/rot = -7.0
+texture = ExtResource( 11 )
+
+[node name="coin3" type="Sprite" parent="sprite"]
+
+visibility/visible = false
+transform/pos = Vector2( -2.37833, -7.72935 )
+transform/rot = -7.0
+texture = ExtResource( 12 )
+
+[node name="coin4" type="Sprite" parent="sprite"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.594504, 9.5131 )
+transform/rot = -7.0
+texture = ExtResource( 13 )
+
+[node name="Particles2D" type="Particles2D" parent="sprite"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( 1.58946e-06, 45.2331 )
+config/amount = 8
+config/lifetime = 30.0
+config/preprocess = 30.0
+config/process_mode = 1
+config/half_extents = Vector2( 40, 0 )
+config/texture = ExtResource( 14 )
+params/direction = 180.0
+params/spread = 5.0
+params/linear_velocity = 5.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 3.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.4
+randomness/linear_velocity = 0.6
+color/color_ramp = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="sprite"]
+
+transform/pos = Vector2( 3.97364e-07, 37.6907 )
+transform/scale = Vector2( 1, 0.778763 )
+enabled = true
+editor_only = false
+texture = ExtResource( 15 )
+offset = Vector2( 0, 0 )
+scale = 3.0
+color = Color( 1, 0, 0.2, 1 )
+energy = 0.4
+mode = 0
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1025
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="press_e" parent="sprite" instance=ExtResource( 16 )]
+
+transform/pos = Vector2( 8.1078, -164.874 )
+transform/scale = Vector2( 0.51, 0.51 )
+
+[node name="z_depth" parent="." instance=ExtResource( 17 )]
+
+transform/pos = Vector2( 0, 27.7465 )
+
+[node name="vibration_radial" parent="." instance=ExtResource( 18 )]
+
+

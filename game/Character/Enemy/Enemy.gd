@@ -20,6 +20,7 @@ func _process(delta):
 	process_direction()
 	move_to_player()
 	process_anim()
+	process_shadow()
 
 func activate(body):
 	if player == body and can_move:
@@ -63,3 +64,7 @@ func process_anim():
 		else:
 			if sprite.get_animation().basename() != "walking-up":
 				sprite.play("walking-up")
+
+func process_shadow():
+	if grounded:	get_node("shadow").hide()
+	else:	get_node("shadow").show()
