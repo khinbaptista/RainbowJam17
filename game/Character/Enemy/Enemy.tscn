@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=1]
+[gd_scene load_steps=32 format=1]
 
 [ext_resource path="res://Character/Enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Character/Enemy/Aura.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Tools/groundcheck.tscn" type="PackedScene" id=25]
 [ext_resource path="res://icon.png" type="Texture" id=26]
 [ext_resource path="res://Character/sprites/shadow.png" type="Texture" id=27]
+[ext_resource path="res://Tools/vibration_radial.tscn" type="PackedScene" id=28]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -167,6 +168,8 @@ shadow/color = Color( 0, 0, 0, 0 )
 shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 0
+
+[node name="vibration_radial" parent="." instance=ExtResource( 28 )]
 
 [connection signal="body_enter" from="Area2D" to="." method="activate"]
 

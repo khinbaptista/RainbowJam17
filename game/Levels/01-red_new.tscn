@@ -2462,7 +2462,6 @@ transform/pos = Vector2( 1122.19, 3999.31 )
 "ground",
 ]]
 
-editor/display_folded = true
 transform/pos = Vector2( 113.987, -4507.02 )
 transform/scale = Vector2( 0.23, 0.23 )
 input/pickable = true
@@ -2679,7 +2678,7 @@ texture = ExtResource( 25 )
 [node name="darken_screen" type="Area2D" parent="island3"]
 
 editor/display_folded = true
-transform/pos = Vector2( 3679.45, -3054.8 )
+transform/pos = Vector2( 3593.12, -3054.8 )
 input/pickable = true
 shapes/0/shape = SubResource( 117 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -2718,13 +2717,43 @@ _update_shape_index = 0
 [node name="move_camera" parent="island3" instance=ExtResource( 13 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 3518.17, -1087.38 )
-transform/scale = Vector2( 2.83392, 2.83392 )
+transform/pos = Vector2( 2934.89, -1942.31 )
+transform/scale = Vector2( 2.83392, 9.49082 )
 active = false
 
 [node name="target" parent="island3/move_camera"]
 
-transform/pos = Vector2( -701.498, -1629.56 )
+transform/pos = Vector2( -701.498, -450.721 )
+
+[node name="move_camera1" parent="island3" instance=ExtResource( 13 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 6325.94, -3058.93 )
+transform/scale = Vector2( 1.728, 1.728 )
+
+[node name="target" parent="island3/move_camera1"]
+
+transform/pos = Vector2( 0, 608.669 )
+
+[node name="move_camera2" parent="island3" instance=ExtResource( 13 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 9369.39, -3058.93 )
+transform/scale = Vector2( 1.728, 1.728 )
+
+[node name="target" parent="island3/move_camera2"]
+
+transform/pos = Vector2( 0, 627.114 )
+
+[node name="move_camera3" parent="island3" instance=ExtResource( 13 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 12421.6, -3058.93 )
+transform/scale = Vector2( 1.728, 1.728 )
+
+[node name="target" parent="island3/move_camera3"]
+
+transform/pos = Vector2( 0, 618.964 )
 
 [node name="island4" type="Area2D" parent="." groups=[
 "ground",
@@ -3035,7 +3064,7 @@ playing = true
 [node name="Birds" parent="island5/Animals/Path2D/PathFollow2D"]
 
 visibility/visible = false
-frame = 7
+frame = 1
 
 [node name="flora45" parent="island5" instance=ExtResource( 6 )]
 
@@ -3378,8 +3407,6 @@ transform/scale = Vector2( 0.23, 0.23 )
 
 [node name="Checkpoints" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -3532,11 +3559,16 @@ type = 0
 
 [connection signal="body_enter" from="island3/darken_screen" to="." method="_on_darken_screen_body_enter"]
 
+[connection signal="body_enter" from="island3/move_camera" to="." method="_on_move_camera_body_enter"]
+
 [connection signal="body_enter" from="Checkpoints/Checkpoint13" to="." method="_on_Checkpoint13_body_enter"]
 
 
 [editable path="island2/move_camera1"]
 [editable path="island3/move_camera"]
+[editable path="island3/move_camera1"]
+[editable path="island3/move_camera2"]
+[editable path="island3/move_camera3"]
 [editable path="island5/Animals"]
 [editable path="crystal"]
 [editable path="Checkpoints/Checkpoint6"]
