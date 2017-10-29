@@ -20,6 +20,7 @@ func _ready():
 
 	# dash-stop -> move
 	add_transition("dash-stop", "move-begin", "move")
+	add_transition("dash-stop", "dash", "dash")
 
 	# move -> dash
 	add_transition("move-begin", "dash", "dash")

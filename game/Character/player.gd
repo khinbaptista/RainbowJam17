@@ -14,20 +14,21 @@ signal new_color_learned(color)
 
 onready var dash_action = get_node("Actions/dash")
 var last_movement = Vector2(0, 1)
-var dashing = false		# is the player dashing?
-var grounded = false		# is the player standing on ground?
-var dead = false		# is the player dead?
+var dashing = false  # is the player dashing?
+var grounded = false # is the player standing on ground?
+var dead = false     # is the player dead?
 
 ########## Variables for death
+
 onready var lastCheckpoint = get_global_pos()
 var bufferY = 0			# this variable is a buffer for the player Y
+
 export var fall_height = 50
 export var fall_speed = 350
 
 ########## Misc
 
 var coins = 0
-
 var moveDir = "down"		# the direction in which the player is moving (animation)
 
 ########## Nodes
@@ -52,10 +53,11 @@ func align_last_movement():
 		last_movement = Vector2(0, -1)
 	elif moveDir == "down":
 		last_movement = Vector2(0, 1)
-	elif moveDir == "left":
-		last_movement = Vector2(-1, 0)
 	elif moveDir == "right":
-		last_movement = Vector2(1, 0)
+		if last_movement.x > 0:
+			last_movement = Vector2(1, 0)
+		else:
+			last_movement = Vector2(-1, 0)
 	else:
 		forget_last_movement()	# shouldn't happen ever
 
@@ -116,7 +118,7 @@ func input_movement(delta):
 		movement.y += 1
 
 	# DIRECTION
-	if movement == Vector2(0,0): moved = false
+	if movement == Vector2(0, 0): moved = false
 	else:
 		moved = true
 
