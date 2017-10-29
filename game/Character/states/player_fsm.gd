@@ -1,6 +1,6 @@
 extends "res://Tools/FSM.gd"
 
-var walking # as opposed to running (used by 'move' states
+var walking # as opposed to running (used by 'move' states)
 
 func _ready():
 	._ready()
