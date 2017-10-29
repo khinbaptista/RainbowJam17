@@ -21,7 +21,7 @@ func enter():
 	is_dashing = true
 
 	var animation = "dash-" + direction + "-loop"
-	sprite.stop()
+#	sprite.stop()
 	sprite.play(animation)
 
 	var timer = 0.0
