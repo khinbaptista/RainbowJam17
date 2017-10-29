@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Loader/init.gd" type="Script" id=1]
+[ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
+
+[node name="init" type="Node"]
+
+script/script = ExtResource( 1 )
+first_scene = "res://Menu/start_menu.tscn"
+
+[node name="background" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1600.0
+margin/bottom = 900.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+
+
