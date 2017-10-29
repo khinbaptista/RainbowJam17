@@ -21,15 +21,15 @@ func exit():
 
 func overwrite_animation():	# required for death anim to play when running
 	var anim = sprite.get_animation()
-	return not anim.begins_with("death")# and not anim == "respawn"
+	return not anim.begins_with("death") # and not anim == "respawn"
 
 func _process(delta):
 	var animation
 
 	if fsm.walking:
 		animation = "walk-" + player.moveDir + "-" + stage
+		print("Playing anim: " + animation)
 	else:
 		animation = "run-" + player.moveDir + "-" + stage
 	if sprite.get_animation() != animation and overwrite_animation():
-		#printt(stage, sprite.get_animation())
 		sprite.play(animation)

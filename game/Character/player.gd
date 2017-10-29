@@ -99,6 +99,11 @@ func _process(delta):
 			respawn()
 
 	input_movement(delta)
+	
+#	get_node("/root/Debug/Label").set_text( # sometimes the player seemed slow after leaving the enemies
+#		"Movement multiplier: " + str(get_node("Actions/move").multiplier) + "\n" +
+#		"Dash speed multiplier:" + str(get_node("Actions/dash").speed_multiplier)
+#	)
 
 func input_movement(delta):
 	if not get_node("Actions/move").can_execute() and not dashing and not dead:

@@ -33,7 +33,6 @@ func on_body_exit(body):
 		player = null
 		player_movement = null
 		player_dash = null
-		
 
 		set_fixed_process(false)
 
