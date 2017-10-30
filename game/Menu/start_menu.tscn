@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://Menu/start_menu.gd" type="Script" id=1]
 [ext_resource path="res://Menu/background.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Menu/Frames Idle Menu/004.png" type="Texture" id=13]
 [ext_resource path="res://Menu/LOGO-IRIS.png" type="Texture" id=14]
 [ext_resource path="res://Sounds/menu.opus" type="AudioStream" id=15]
+[ext_resource path="res://Colors/selective_grayscale.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ColorRamp" id=1]
 
@@ -178,7 +179,7 @@ transform/pos = Vector2( -983.456, 16.873 )
 transform/scale = Vector2( 0.34491, 0.34491 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 17
+frame = 12
 playing = true
 offset = Vector2( -11.7238, 117.833 )
 
@@ -234,5 +235,9 @@ stream/autoplay = true
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
+
+[node name="selective_grayscale" parent="." instance=ExtResource( 16 )]
+
+visibility/visible = false
 
 

@@ -1,0 +1,75 @@
+[gd_resource type="CanvasItemShader" format=1]
+
+[resource]
+
+_code = {
+"fragment": "uniform float threshold;
+
+uniform float color_count;
+uniform color color1;
+uniform color color2;
+uniform color color3;
+uniform color color4;
+uniform color color5;
+uniform color color6;
+uniform color color7;
+
+color to_grayscale(color c) {
+	float v = 0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b;
+	return color(v, v, v, c.a);
+}
+
+bool compare_colors(color base, color c, float t) {
+	bool r = (base.r <= c.r + t) && (base.r >= c.r - t);
+	bool g = (base.g <= c.g + t) && (base.g >= c.g - t);
+	bool b = (base.b <= c.b + t) && (base.b >= c.b - t);
+	return r && g && b;
+}
+
+color screen = color(
+	texscreen(SCREEN_UV),
+	tex(TEXTURE, UV).a
+);
+
+bool done = false;
+if (color_count >= 1 && compare_colors(color1, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+	done = true;
+}
+
+if (color_count >= 2 && !done && compare_colors(color2, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+	done = true;
+}
+
+if (color_count >= 3 && !done && compare_colors(color3, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+	done = true;
+}
+
+if (color_count >= 4 && !done && compare_colors(color4, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+	done = true;
+}
+
+if (color_count >= 5 && !done && compare_colors(color5, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+	done = true;
+}
+
+if (color_count >= 6 && !done && compare_colors(color6, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+	done = true;
+}
+
+if (color_count >= 7 && !done && compare_colors(color7, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+}
+",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
