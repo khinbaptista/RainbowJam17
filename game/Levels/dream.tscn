@@ -56,7 +56,6 @@ default/chorus_send = 0.0
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
-editor/display_folded = true
 transform/pos = Vector2( -290.243, -228.325 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]

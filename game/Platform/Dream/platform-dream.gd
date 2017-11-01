@@ -34,6 +34,8 @@ func _ready():
 		set_process(true)
 		if not can_move:
 			get_node("player_trigger").hide()
+		else:
+			get_node("player_trigger").show()
 	#---------------------------------------------------------
 	else:
 		player = get_node(Globals.get("player_path"))
