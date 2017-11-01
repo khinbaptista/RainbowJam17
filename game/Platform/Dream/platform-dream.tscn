@@ -137,6 +137,8 @@ _update_shape_index = 0
 [node name="camera_shake" parent="." instance=ExtResource( 8 )]
 
 strength = 8
+vibrate = true
+vibration_strength = 1
 is_one_shot = true
 
 [connection signal="body_enter" from="player_trigger" to="." method="_on_player_trigger_body_enter"]

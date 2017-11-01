@@ -7,6 +7,8 @@
 script/script = ExtResource( 1 )
 time = 1
 strength = 8
+vibrate = true
+vibration_strength = 1
 is_one_shot = true
 
 

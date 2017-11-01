@@ -2,6 +2,8 @@ extends Node2D
 
 export var time = 1
 export var strength = 8
+export var vibrate = true
+export var vibration_strength = 1
 export var is_one_shot = true
 
 onready var player = get_node(Globals.get("player_path"))
@@ -27,5 +29,7 @@ func _process(delta):
 
 func activate(body):
 	if body == player:
+		if vibrate:
+			Input.start_joy_vibration(0, 0.4*vibration_strength*time, 0.6*vibration_strength*time, time)
 		set_process(true)
 		camera.set_offset(Vector2(strength, strength))
