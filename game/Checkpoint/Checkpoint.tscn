@@ -1,11 +1,26 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Checkpoint/Checkpoint.gd" type="Script" id=1]
+[ext_resource path="res://Particles/round.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 29.5453, 26.6325 )
+
+[sub_resource type="ColorRamp" id=2]
+
+offsets = FloatArray( 0, 1 )
+colors = ColorArray( 1, 1, 1, 1, 0.399902, 0.745354, 0.914062, 1 )
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends Particles2D
+
+func _ready():
+	var pos = get_node(\"../..\").get_global_pos()
+	set_pos(pos)
+"
 
 [node name="Checkpoint" type="Area2D"]
 
@@ -27,5 +42,36 @@ trigger = false
 _update_shape_index = 0
 
 [node name="spawn_location" type="Node2D" parent="."]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Particles2D" type="Particles2D" parent="Node"]
+
+config/amount = 16
+config/lifetime = 2.0
+config/process_mode = 1
+config/half_extents = Vector2( 20, 20 )
+config/texture = ExtResource( 2 )
+params/direction = 180.0
+params/spread = 20.0
+params/linear_velocity = 20.0
+params/spin_velocity = 1.0
+params/orbit_velocity = 1.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.2
+params/final_size = 0.8
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spin_velocity = -1.0
+randomness/orbit_velocity = -2.0
+color/color = Color( 0.563843, 0.79793, 0.96875, 1 )
+color/color_ramp = SubResource( 2 )
+script/script = SubResource( 3 )
 
 
