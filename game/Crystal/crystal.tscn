@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Crystal/color-crystal.gd" type="Script" id=1]
 [ext_resource path="res://Crystal/sprites/000.png" type="Texture" id=2]
@@ -7,17 +7,16 @@
 [ext_resource path="res://Crystal/sprites/003.png" type="Texture" id=5]
 [ext_resource path="res://Crystal/sprites/004.png" type="Texture" id=6]
 [ext_resource path="res://Crystal/sprites/005.png" type="Texture" id=7]
-[ext_resource path="res://Menu/icons/e_or_x.png" type="Texture" id=8]
-[ext_resource path="res://Menu/show_help.gd" type="Script" id=9]
-[ext_resource path="res://Tools/vibration_radial.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Tools/z_depth.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Character/press_e.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Tools/vibration_radial.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Tools/z_depth.tscn" type="PackedScene" id=10]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 31.7871
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
@@ -26,15 +25,10 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 14.6428
-
 [node name="crystal" type="StaticBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 6.70822e-06, -3.7825 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -56,50 +50,22 @@ z/z = 1
 [node name="sprite1" type="AnimatedSprite" parent="sprite"]
 
 z/z = 1
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
-[node name="press_e" type="Sprite" parent="sprite"]
-
-editor/display_folded = true
-transform/pos = Vector2( 8.1078, -417.767 )
-transform/scale = Vector2( 1.70179, 1.70179 )
-z/z = 1
-texture = ExtResource( 8 )
-script/script = ExtResource( 9 )
-
-[node name="Area2D" type="Area2D" parent="sprite/press_e"]
-
-transform/pos = Vector2( 3.92041, 213.58 )
-transform/scale = Vector2( 8.25699, 8.45816 )
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.44865, 0, 0, 3.3051, -0.374939, -0.584961 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite/press_e/Area2D"]
-
-transform/pos = Vector2( -0.374939, -0.584961 )
-transform/scale = Vector2( 3.44865, 3.3051 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
+[node name="press_e" parent="sprite" instance=ExtResource( 8 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( 6.70822e-06, -3.7825 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="vibration_radial" parent="." instance=ExtResource( 10 )]
+[node name="vibration_radial" parent="." instance=ExtResource( 9 )]
 
-[node name="z_depth" parent="." instance=ExtResource( 11 )]
+[node name="z_depth" parent="." instance=ExtResource( 10 )]
 
 

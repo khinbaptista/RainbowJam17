@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Menu/show_help.gd" type="Script" id=1]
+[ext_resource path="res://Menu/icons/space_or_a.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 14.6428
+
+[node name="press_space" type="Node2D"]
+
+transform/pos = Vector2( 8.1078, -417.767 )
+transform/scale = Vector2( 1.70179, 1.70179 )
+z/z = 1
+script/script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+transform/pos = Vector2( 3.92041, 213.58 )
+transform/scale = Vector2( 8.25699, 8.45816 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 3.44865, 0, 0, 3.3051, -0.374939, -0.584961 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+transform/pos = Vector2( -0.374939, -0.584961 )
+transform/scale = Vector2( 3.44865, 3.3051 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 2 )
+
+

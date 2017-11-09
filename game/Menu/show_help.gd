@@ -1,8 +1,10 @@
-extends Sprite
+extends Node2D
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+
+onready var sprite = get_node("Sprite")
 
 func _ready():
 	get_node("Area2D").connect("body_enter", self, "show_help")
@@ -10,8 +12,8 @@ func _ready():
 	
 func show_help(body):
 	if (body.get_type() == "KinematicBody2D"):
-		self.show()
+		sprite.show()
 	
 func hide_help(body):
 	if (body.get_type() == "KinematicBody2D"):
-		self.hide()
+		sprite.hide()

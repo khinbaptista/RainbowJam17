@@ -130,19 +130,15 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_trigger"]
 
+visibility/visible = false
 shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
 [node name="camera_shake" parent="." instance=ExtResource( 8 )]
 
-strength = 8
-vibrate = true
-vibration_strength = 1
-is_one_shot = true
+[connection signal="body_enter" from="player_trigger" to="camera_shake" method="activate"]
 
 [connection signal="body_enter" from="player_trigger" to="." method="_on_player_trigger_body_enter"]
-
-[connection signal="body_enter" from="player_trigger" to="camera_shake" method="activate"]
 
 
