@@ -11,7 +11,7 @@
 [ext_resource path="res://Character/press_space.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Crystal/multi_crystal.tscn" type="PackedScene" id=10]
 
-[sub_resource type="SampleLibrary" id=1]
+[sub_resource type="SampleLibrary" id=3]
 
 "samples/Iris (Continuous Loop)" = {
 "db": 0.0,
@@ -29,7 +29,13 @@ samples/dash1 = {
 [sub_resource type="CanvasItemShader" id=2]
 
 _code = {
-"fragment": "vec3 c = 3.0 * texscreen(SCREEN_UV);
+"fragment": "uniform float threshold = 0.3 ;
+uniform float bloom_intensity = 0.6 ; 
+uniform float bloom_saturation = 0.6 ; 
+uniform float original_intensity= 1.0 ;
+uniform float original_saturation = 1.0 ; 
+
+vec3 c = 3.0 * texscreen(SCREEN_UV);
 
 c += 2.0 * texscreen(SCREEN_UV + vec2(0.001));
 c += 1.0 * texscreen(SCREEN_UV + vec2(0.005) * cos(TIME * 0.5));
@@ -41,8 +47,26 @@ c += 1.0 * texscreen(SCREEN_UV - vec2(0.005) * sin(TIME * 0.5));
 //c += texscreen(SCREEN_UV - vec2(0.005));
 //c += texscreen(SCREEN_UV - vec2(0.007));
 
+vec3 adjust_saturation(vec3 ad_color, vec3 saturation) {
+	// We define gray as the same color we used in the grayscale shader
+	float grey = dot(ad_color, vec3(0.3, 0.59, 0.11));
+	return mix(ad_color, saturation, grey);
+}
+vec3 saturate(vec3 fcolor){
+	return clamp(fcolor, vec3(0.0), vec3(1.0)); 
+}
+
+vec3 bloom_color =  saturate((texscreen(SCREEN_UV) - vec3(threshold))/(1.0-threshold));
+bloom_color = adjust_saturation(bloom_color, vec3(bloom_saturation) )*bloom_intensity ;
+
+vec3 original_color = texscreen(SCREEN_UV);
+original_color = adjust_saturation(original_color, vec3(original_saturation))*original_intensity;
+
+original_color *= (vec3(1.0)-saturate(bloom_color));
+
 c = c / 8.0;
-COLOR = vec4(c, 1.0);
+COLOR = vec4(c, 1.0) + vec4(bloom_color, 1.0);
+//COLOR.rgb= original_color + bloom_color;
 ",
 "fragment_ofs": 0,
 "light": "",
@@ -51,10 +75,15 @@ COLOR = vec4(c, 1.0);
 "vertex_ofs": 0
 }
 
-[sub_resource type="CanvasItemMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=4]
 
 shader/shader = SubResource( 2 )
 shader/shading_mode = 0
+shader_param/threshold = 0.3
+shader_param/bloom_intensity = 0.6
+shader_param/bloom_saturation = 0.6
+shader_param/original_intensity = 1.0
+shader_param/original_saturation = 1.0
 
 [node name="world" type="Node2D"]
 
@@ -82,7 +111,7 @@ color = Color( 1, 1, 1, 1 )
 [node name="SamplePlayer" type="SamplePlayer" parent="."]
 
 config/polyphony = 5
-config/samples = SubResource( 1 )
+config/samples = SubResource( 3 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0
 default/pan = 0.0
@@ -2599,7 +2628,7 @@ scale = Vector2( 1, 1 )
 
 [node name="ColorFrame" type="ColorFrame" parent="effect_layer"]
 
-material/material = SubResource( 3 )
+material/material = SubResource( 4 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
