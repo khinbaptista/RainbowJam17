@@ -1,6 +1,6 @@
 tool
 
-extends Area2D
+extends "res://Beams/color_alignment.gd"
 
 export var can_move = false
 export(int, "red", "orange", "yellow", "green", "blue", "purple") var type = 0
