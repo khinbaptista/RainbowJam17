@@ -62,6 +62,7 @@ angular_damp = 1.0
 script/script = ExtResource( 1 )
 color_alignment = 0
 can_move = false
+affected_by_beam = false
 type = 0
 
 [node name="sprite" type="Node2D" parent="."]
@@ -138,8 +139,12 @@ _update_shape_index = 0
 
 [node name="camera_shake" parent="." instance=ExtResource( 8 )]
 
-[connection signal="body_enter" from="player_trigger" to="." method="_on_player_trigger_body_enter"]
+[connection signal="area_enter" from="." to="." method="_on_platform_area_enter"]
+
+[connection signal="area_exit" from="." to="." method="_on_platform_area_exit"]
 
 [connection signal="body_enter" from="player_trigger" to="camera_shake" method="activate"]
+
+[connection signal="body_enter" from="player_trigger" to="." method="_on_player_trigger_body_enter"]
 
 

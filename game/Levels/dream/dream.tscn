@@ -149,6 +149,7 @@ default/chorus_send = 0.0
 
 [node name="BeamManager" parent="." instance=ExtResource( 4 )]
 
+editor/display_folded = true
 transform/rot = 1.0
 speed = 0.4
 scale_to_appear = 0.18
@@ -233,2562 +234,2150 @@ shadow/item_mask = 1
 
 [node name="Platforms" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="platform-dream" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 0, 17.1884 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream9 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -191.528, 17.1884 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 92.0805, 35.6045 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 0, 92.0806 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream9 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -191.528, 92.0806 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -94.5359, 39.2877 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream16" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1305.46, 39.2877 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream17" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1403.46, 9.2877 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream18" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1499.46, 9.2877 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream19" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1595.46, -9.7123 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream20" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1692.46, -9.7123 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream21" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1788.46, -36.7123 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2268.46, -62.7123 )
-color_alignment = 0
 
 [node name="platform-dream253" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2678.46, -62.7123 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream255" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3138.46, -87.7123 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream257" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7678.46, -117.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream261 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7678.46, -117.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream260 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8847.46, -329.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2605 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10018.2, -547.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2603" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8847.46, -329.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2605 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10018.2, -547.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream258" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8068.46, -187.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream262 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9239.2, -405.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream261 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8068.46, -187.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2614" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9239.2, -405.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2605" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10408.2, -647.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2605 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10408.2, -647.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream259" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8458.46, -257.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream262 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9629.2, -475.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream261" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8458.46, -257.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream262" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9629.2, -475.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream262 5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10798.2, -682.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2626" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -706.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2629" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -708.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2628" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -706.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2629 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -708.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2627" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -706.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2629 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -708.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2628 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -706.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream26283" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -708.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2615" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10798.2, -682.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2616" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -706.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2619" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -708.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2618" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -706.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2619 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -708.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2617" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -706.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2619 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -708.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2618 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -706.398 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream26183" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -708.915 )
-color_alignment = 0
 
 [node name="platform-dream256" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3333.46, -120.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream257 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7873.46, -120.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2576 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7873.46, -120.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2575 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9042.46, -362.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25755 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10213.2, -580.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25754" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9042.46, -362.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25755 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10213.2, -580.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2573" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8263.46, -220.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2577 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9434.2, -438.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2576 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8263.46, -220.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25763" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9434.2, -438.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25755" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10603.2, -680.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25756" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25759" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25758" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25759 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25757" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25759 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25758 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream257583" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25755 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10603.2, -680.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream257555" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream257558" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream257557" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream257558 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream257556" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream257558 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream257557 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -704.398 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream2575573" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -706.915 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream2574" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8653.46, -290.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2577 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9824.2, -508.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2576" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8653.46, -290.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2577" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9824.2, -508.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2577 5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10993.2, -696.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25765" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10993.2, -696.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream22" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1885.46, -36.7123 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2365.46, -87.7123 )
-color_alignment = 0
 
 [node name="platform-dream254" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2775.46, -87.7123 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream255 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3235.46, -87.7123 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2554 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7775.46, -117.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25546 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7775.46, -117.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25545 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8944.46, -329.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream255455 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10115.2, -547.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream255453" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8944.46, -329.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream255455" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10115.2, -547.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25543" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8165.46, -187.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25547 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9336.2, -405.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25546 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8165.46, -187.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream255464" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9336.2, -405.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream255455 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10505.2, -647.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream255455 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10505.2, -647.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25544" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8555.46, -257.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25547 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9726.2, -475.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25546" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8555.46, -257.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25547" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9726.2, -475.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25547 5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10895.2, -717.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream255465" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10895.2, -717.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2553" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3430.46, -120.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2554" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7970.46, -120.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2558 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7970.46, -120.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2557 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9139.46, -362.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25575 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10310.2, -580.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25574" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9139.46, -362.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25575 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10310.2, -580.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2555" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8360.46, -220.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2559 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9531.2, -438.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2558" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8360.46, -220.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2559" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9531.2, -438.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2559 5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10700.2, -680.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25596" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25599" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25598" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25599 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25597" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25599 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25598 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream255983" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25585" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10700.2, -680.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25586" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25589" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25588" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25589 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25587" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25589 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -706.915 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25588 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -704.398 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream255883" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -706.915 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream2556" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8750.46, -290.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2559 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9921.2, -508.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream2558 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8750.46, -290.712 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25583" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9921.2, -508.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25575 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11090.2, -696.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25575" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11090.2, -696.306 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream23" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1983.46, -36.7123 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream25" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2463.46, -62.7123 )
-color_alignment = 0
 
 [node name="platform-dream26" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2873.46, -112.712 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream24" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2081.46, -63.7123 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream9 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -286.063, 39.2877 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream93" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -381.063, 19.2877 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream94" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -476.063, 40.2877 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream95" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -572.063, 18.2877 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream99 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -666.063, 40.2877 )
-color_alignment = 0
 
 [node name="platform-dream993" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -761.063, 60.2877 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream994" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -857.063, 60.2877 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream995" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -952.063, 60.2877 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream996" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1047.06, 88.2877 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream997" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1142.06, 88.2877 )
-color_alignment = 0
 
 [node name="platform-dream998" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1237.06, 88.2877 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream999" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1332.06, 68.2877 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream1000" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1562.06, 68.2877 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream1001" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1658.06, 88.2877 )
-color_alignment = 0
 
 [node name="platform-dream1003" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1978.06, 88.2877 )
-color_alignment = 0
 
 [node name="platform-dream1002" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1753.06, 68.2877 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -94.5359, 117.863 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream16 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1305.46, 117.863 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream163" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1403.46, 87.863 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream164" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1499.46, 87.863 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream165" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1595.46, 68.863 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream166" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1692.46, 68.863 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream167" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1788.46, 41.863 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream171 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2268.46, 15.863 )
-color_alignment = 0
 
 [node name="platform-dream1713" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2678.46, 15.863 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream1715 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3138.46, -9.137 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream17154 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7678.46, -39.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171546 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7678.46, -39.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171545 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8847.46, -251.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715455 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10018.2, -468.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715453" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8847.46, -251.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715455 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10018.2, -468.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171543" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8068.46, -109.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171547" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9239.2, -326.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171546" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8068.46, -109.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171547 5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9239.2, -326.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171547 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10408.2, -568.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715464" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10408.2, -568.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171544" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8458.46, -179.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171547 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9629.2, -396.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171546 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8458.46, -179.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715465" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9629.2, -396.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715455" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10798.2, -603.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715456" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -627.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715459" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -630.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715458" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -547.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715459 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -550.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715457" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -627.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715459 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -630.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715458 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -547.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17154583" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -550.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715455 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10798.2, -603.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17154553" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -627.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17154556" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -630.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17154555" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -547.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17154556 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -550.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17154554" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -627.823 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream17154556 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -630.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17154555 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13621.6, -547.823 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream171545553" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13913.6, -550.34 )
-color_alignment = 0
 
 [node name="platform-dream17153" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3333.46, -42.137 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream17154" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7873.46, -42.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17158 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7873.46, -42.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17157 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9042.46, -284.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171575 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10213.2, -501.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171574" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9042.46, -284.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171575 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10213.2, -501.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17155" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8263.46, -142.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17159 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9434.2, -359.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17158 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8263.46, -142.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171583" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9434.2, -359.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171575" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10603.2, -601.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171576" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -625.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171579" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -628.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171578" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -545.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171579 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -548.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171577" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -625.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171579 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -628.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171578 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -545.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715783" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -548.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171575 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10603.2, -601.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715755" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -625.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715758" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -628.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715757" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -545.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715758 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -548.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1715756" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -625.823 )
-color_alignment = 0
 
 [node name="platform-dream1715758 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -628.34 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream1715757 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13426.6, -545.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17157573" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13718.6, -548.34 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream17156" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8653.46, -212.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17159 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9824.2, -429.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17158" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8653.46, -212.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17159" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9824.2, -429.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17159 5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10993.2, -617.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171585" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10993.2, -617.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream168" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1885.46, 41.863 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream171 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2365.46, -9.137 )
-color_alignment = 0
 
 [node name="platform-dream1714" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2775.46, -9.137 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream1715" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3235.46, -9.137 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream1717" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7775.46, -39.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1721 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7775.46, -39.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1720 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8944.46, -251.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17205 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10115.2, -468.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17204" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8944.46, -251.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17205 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10115.2, -468.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1718" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8165.46, -109.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1722 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9336.2, -326.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1721" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8165.46, -109.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1722" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9336.2, -326.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1722 5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10505.2, -568.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17215" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10505.2, -568.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1719" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8555.46, -179.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1722 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9726.2, -396.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1721 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8555.46, -179.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17213" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9726.2, -396.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17205 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10895.2, -638.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17205" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10895.2, -638.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1716" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3430.46, -42.137 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream1717 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7970.46, -42.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17176 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7970.46, -42.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17175 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9139.46, -284.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171755 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10310.2, -501.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171754" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9139.46, -284.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171755 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10310.2, -501.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17173" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8360.46, -142.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17177 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9531.2, -359.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17176 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8360.46, -142.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171763" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9531.2, -359.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171755 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10700.2, -601.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1717554" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -625.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1717557" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -628.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1717556" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -545.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1717557 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -548.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1717555" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -625.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1717557 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -628.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream1717556 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -545.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17175563" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -548.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171755" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 10700.2, -601.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171756" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -625.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171759" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -628.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171758" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -545.823 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171759 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -548.34 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171757" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -625.823 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream171759 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -628.34 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream171758 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13523.6, -545.823 )
-color_alignment = 0
 type = 4
 
 [node name="platform-dream1717583" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13815.6, -548.34 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream17174" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8750.46, -212.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17177 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9921.2, -429.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17176" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8750.46, -212.137 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17177" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 9921.2, -429.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream17177 5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11090.2, -617.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171765" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11090.2, -617.73 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream169" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1983.46, 41.863 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream171" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2463.46, 15.863 )
-color_alignment = 0
 
 [node name="platform-dream172" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2873.46, -34.137 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream170" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2081.46, 14.863 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream9 5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -286.063, 117.863 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream96" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -381.063, 97.863 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream97" parent="Platforms" instance=ExtResource( 8 )]
 
+visibility/light_mask = 16
 transform/pos = Vector2( -476.063, 118.863 )
-color_alignment = 0
+collision/layers = 0
+collision/mask = 0
+color_alignment = 4
+affected_by_beam = true
 type = 3
 
 [node name="platform-dream98" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -572.063, 96.863 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream99" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -666.063, 118.863 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream100" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -760.063, 138.863 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream101" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -855.063, 138.863 )
-color_alignment = 0
 
 [node name="platform-dream102" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -951.063, 138.863 )
-color_alignment = 0
 type = 5
 
 [node name="platform-dream103" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1047.06, 166.863 )
-color_alignment = 0
 type = 3
 
 [node name="platform-dream104" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1142.06, 166.863 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream105" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1237.06, 166.863 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream106" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1332.06, 146.863 )
-color_alignment = 0
 type = 2
 
 [node name="platform-dream107" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1562.06, 146.863 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream108" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1658.06, 166.863 )
 transform/rot = -0.036968
-color_alignment = 0
 
 [node name="platform-dream110" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1978.06, 166.863 )
 transform/rot = -0.036968
-color_alignment = 0
 
 [node name="platform-dream109" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -1753.06, 146.863 )
-color_alignment = 0
 type = 1
 
 [node name="platform-dream1" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 187.094, 17.1884 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream9 7" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 373.094, 19.1884 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream912 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11189.9, -712.301 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream9124" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11938.5, -665.678 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream9127 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12686.2, -679.915 )
-color_alignment = 0
 can_move = true
 type = 3
 
 [node name="platform-dream910" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 559.094, 40.1884 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream912 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11375.9, -691.301 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream9123" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12124.5, -666.678 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream9127 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12872.2, -658.915 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream911" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 739.094, 40.1884 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream912" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11555.9, -691.301 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream913" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12304.5, -666.678 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream914" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13052.2, -658.915 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream6" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 276.719, 39.2877 )
-color_alignment = 0
 can_move = true
 type = 2
 
 [node name="platform-dream9 6" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 462.719, 41.2877 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream912 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11279.6, -690.202 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9125" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12028.1, -665.579 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9127" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12775.8, -657.816 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream910 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 648.719, 62.2877 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream91010" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11465.6, -669.202 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream91011" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12214.1, -644.579 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream91012" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12961.8, -636.816 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9104" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 828.719, 62.2877 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9110" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11645.6, -739.2 )
-color_alignment = 0
 can_move = true
 type = 2
 
 [node name="platform-dream9111" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12394.1, -724.579 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9112" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13141.8, -706.816 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9109 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3708.72, -97.7123 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9105" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 924.719, 62.2877 )
-color_alignment = 0
 can_move = true
 type = 3
 
 [node name="platform-dream9110 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11741.6, -739.2 )
-color_alignment = 0
 can_move = true
 type = 2
 
 [node name="platform-dream91103" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12490.1, -724.579 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream91106 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13237.8, -706.816 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9109 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3804.72, -127.712 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9106" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1020.72, 62.2877 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9110 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11837.6, -739.2 )
-color_alignment = 0
 can_move = true
 type = 2
 
 [node name="platform-dream91104" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12586.1, -724.579 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream91106 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13333.8, -706.816 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9109" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3900.72, -97.7123 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9107" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1115.72, 43.2877 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream9109 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3995.72, -116.712 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream9108" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1208.72, 63.2877 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream7" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 184.639, 98.2192 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream9 8" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 370.639, 100.219 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream912 5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11187.5, -631.271 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream9126" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11936, -584.647 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream9128" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11936, -504.647 )
-color_alignment = 0
 can_move = true
 type = 3
 
 [node name="platform-dream9127 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12683.7, -598.884 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream910 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 556.639, 121.219 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream91010 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11373.5, -610.271 )
-color_alignment = 0
 can_move = true
 type = 3
 
 [node name="platform-dream910103" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12122, -585.647 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream910104" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12869.7, -577.884 )
-color_alignment = 0
 can_move = true
 type = 2
 
 [node name="platform-dream910105" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12869.7, -497.884 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream9103" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 736.639, 121.219 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream9110 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11553.5, -610.271 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream91105" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12302, -585.647 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream91106" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13049.7, -577.884 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream91107" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13049.7, -496.884 )
-color_alignment = 0
 can_move = true
 type = 3
 
 [node name="platform-dream8" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 277.947, 119.091 )
-color_alignment = 0
 can_move = true
 type = 3
 
 [node name="platform-dream9" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 463.947, 121.091 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream28 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11280.8, -610.399 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream285" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12029.3, -585.776 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream287" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12777, -578.013 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream10" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 649.947, 142.091 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream28 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11466.8, -589.399 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream283" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12215.3, -564.776 )
-color_alignment = 0
 can_move = true
 type = 2
 
 [node name="platform-dream289" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12215.3, -484.776 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream287 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12963, -557.013 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream2874" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12963, -477.013 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream11" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 829.947, 142.091 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream28" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11646.8, -659.399 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream31" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11646.8, -579.399 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream29" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12395.3, -644.776 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream33" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12395.3, -564.776 )
-color_alignment = 0
 can_move = true
 type = 2
 
 [node name="platform-dream30" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13143, -627.013 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream32" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13143, -547.013 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream27 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3709.95, -17.909 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream12" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 925.947, 142.091 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream28 5" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11742.8, -659.399 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream288 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11742.8, -579.399 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream286" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12491.3, -644.776 )
-color_alignment = 0
 can_move = true
 
 [node name="platform-dream290" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12491.3, -564.776 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream287 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13239, -627.013 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream2873" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13239, -547.013 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream27 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3805.95, -47.909 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream13" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1021.95, 142.091 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream28 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11838.8, -659.399 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream288" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 11838.8, -579.399 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream284" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12587.3, -644.776 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream290 2" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 12587.3, -564.776 )
-color_alignment = 0
 can_move = true
 type = 2
 
 [node name="platform-dream287 4" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13335, -627.013 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream2875" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 13335, -547.013 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream27" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3901.95, -17.909 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream14" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1116.95, 123.091 )
-color_alignment = 0
 can_move = true
 type = 3
 
 [node name="platform-dream27 3" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3996.95, -36.909 )
-color_alignment = 0
 can_move = true
 type = 1
 
 [node name="platform-dream2765" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 6736.95, -53.9888 )
-color_alignment = 0
 can_move = true
 type = 3
 
 [node name="platform-dream278" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 6426.95, -53.9888 )
-color_alignment = 0
 can_move = true
 type = 2
 
 [node name="platform-dream279" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7036.95, -53.9888 )
-color_alignment = 0
 can_move = true
 type = 4
 
 [node name="platform-dream280" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 7336.95, -53.9888 )
-color_alignment = 0
 can_move = true
 type = 5
 
 [node name="platform-dream15" parent="Platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1209.95, 143.091 )
-color_alignment = 0
 can_move = true
 type = 5
 
