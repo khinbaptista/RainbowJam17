@@ -44,7 +44,7 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 script/script = ExtResource( 1 )
-next_scene = "res://Levels/world_new.tscn"
+next_scene = "res://Levels/dream/dream.tscn"
 
 [node name="background" type="Sprite" parent="."]
 
@@ -179,7 +179,7 @@ transform/pos = Vector2( -983.456, 16.873 )
 transform/scale = Vector2( 0.34491, 0.34491 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 12
+frame = 1
 playing = true
 offset = Vector2( -11.7238, 117.833 )
 

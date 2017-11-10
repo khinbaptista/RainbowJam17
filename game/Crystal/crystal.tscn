@@ -52,7 +52,7 @@ z/z = 1
 z/z = 1
 frames = SubResource( 2 )
 animation = "default"
-frame = 6
+frame = 3
 playing = true
 
 [node name="press_e" parent="sprite" instance=ExtResource( 8 )]

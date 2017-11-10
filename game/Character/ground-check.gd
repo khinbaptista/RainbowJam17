@@ -37,7 +37,7 @@ func _fixed_process(delta):
 							if not_beam.color_dimension & ground_mask:
 								grounded = false
 								break
-						print(beam.get_name())
+#						print(beam.get_name())
 						break
 		else:
 			grounded = true		# ground has no color

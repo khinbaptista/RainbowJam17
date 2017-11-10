@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=19 format=1]
 
-[ext_resource path="res://Levels/world.gd" type="Script" id=1]
+[ext_resource path="res://Levels/dream/dream.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Iris (Continuous Loop).wav" type="Sample" id=2]
 [ext_resource path="res://Sounds/dash1.wav" type="Sample" id=3]
 [ext_resource path="res://Character/player.tscn" type="PackedScene" id=4]
@@ -10,8 +10,12 @@
 [ext_resource path="res://Platform/Dream/platform-dream.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Character/press_space.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Crystal/multi_crystal.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Tools/stop_player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Tools/press_e.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=14]
 
-[sub_resource type="SampleLibrary" id=3]
+[sub_resource type="SampleLibrary" id=1]
 
 "samples/Iris (Continuous Loop)" = {
 "db": 0.0,
@@ -75,7 +79,7 @@ COLOR = vec4(c, 1.0) + vec4(bloom_color, 1.0);
 "vertex_ofs": 0
 }
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=3]
 
 shader/shader = SubResource( 2 )
 shader/shading_mode = 0
@@ -84,6 +88,24 @@ shader_param/bloom_intensity = 0.6
 shader_param/bloom_saturation = 0.6
 shader_param/original_intensity = 1.0
 shader_param/original_saturation = 1.0
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends Node2D
+
+onready var sprite = get_node(\"Sprite\")
+
+func _ready():
+	get_node(\"Area2D\").connect(\"body_enter\", self, \"show_help\")
+	get_node(\"Area2D\").connect(\"body_exit\", self, \"hide_help\")
+
+func show_help(body):
+	if (body.get_type() == \"KinematicBody2D\"):
+		sprite.show()
+
+func hide_help(body):
+	if (body.get_type() == \"KinematicBody2D\"):
+		sprite.hide()"
 
 [node name="world" type="Node2D"]
 
@@ -111,7 +133,7 @@ color = Color( 1, 1, 1, 1 )
 [node name="SamplePlayer" type="SamplePlayer" parent="."]
 
 config/polyphony = 5
-config/samples = SubResource( 3 )
+config/samples = SubResource( 1 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0
 default/pan = 0.0
@@ -127,7 +149,9 @@ default/chorus_send = 0.0
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( -570.243, -228.325 )
+editor/display_folded = true
+transform/pos = Vector2( -583.165, -227.442 )
+colors_learned = 127
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
@@ -2539,68 +2563,27 @@ transform/pos = Vector2( 3996.95, -36.909 )
 can_move = true
 type = 1
 
-[node name="platform-dream274" parent="Platforms" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 4256.95, -116.909 )
-can_move = true
-type = 5
-
-[node name="platform-dream276 2" parent="Platforms" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 4886.95, -116.909 )
-can_move = true
-type = 3
-
-[node name="platform-dream2763" parent="Platforms" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 5506.95, -116.909 )
-can_move = true
-type = 1
-
-[node name="platform-dream2764" parent="Platforms" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 6116.95, -116.909 )
-can_move = true
-type = 1
-
 [node name="platform-dream2765" parent="Platforms" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 6736.95, -116.909 )
+transform/pos = Vector2( 6736.95, -53.9888 )
 can_move = true
 type = 3
-
-[node name="platform-dream275" parent="Platforms" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 4566.95, -116.909 )
-can_move = true
-type = 4
-
-[node name="platform-dream276" parent="Platforms" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 5196.95, -116.909 )
-can_move = true
-type = 2
-
-[node name="platform-dream277" parent="Platforms" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 5806.95, -116.909 )
-can_move = true
 
 [node name="platform-dream278" parent="Platforms" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 6426.95, -116.909 )
+transform/pos = Vector2( 6426.95, -53.9888 )
 can_move = true
 type = 2
 
 [node name="platform-dream279" parent="Platforms" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 7036.95, -116.909 )
+transform/pos = Vector2( 7036.95, -53.9888 )
 can_move = true
 type = 4
 
 [node name="platform-dream280" parent="Platforms" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 7336.95, -116.909 )
+transform/pos = Vector2( 7336.95, -53.9888 )
 can_move = true
 type = 5
 
@@ -2612,15 +2595,18 @@ type = 5
 
 [node name="press_space" parent="." instance=ExtResource( 9 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 2182.81, -406.283 )
 transform/scale = Vector2( 0.5, 0.5 )
 
 [node name="crystal" parent="." instance=ExtResource( 10 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 14982.6, -1178.04 )
 
 [node name="effect_layer" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 5
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -2628,7 +2614,7 @@ scale = Vector2( 1, 1 )
 
 [node name="ColorFrame" type="ColorFrame" parent="effect_layer"]
 
-material/material = SubResource( 4 )
+material/material = SubResource( 3 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -2639,4 +2625,134 @@ margin/right = 1600.0
 margin/bottom = 900.0
 color = Color( 1, 1, 1, 1 )
 
+[node name="stop_player" parent="." instance=ExtResource( 11 )]
 
+transform/pos = Vector2( 2062.5, -256.43 )
+
+[node name="platform" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 4370.13, -276.092 )
+
+[node name="platform1" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 4696.01, -276.092 )
+
+[node name="platform2" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 5034.12, -276.092 )
+
+[node name="platform3" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 5367.43, -276.092 )
+
+[node name="platform4" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 5705.36, -276.092 )
+
+[node name="platform5" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 6050.13, -276.092 )
+
+[node name="press_e" parent="." instance=ExtResource( 13 )]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 4110.96, -742.016 )
+script/script = SubResource( 4 )
+
+[node name="Area2D" parent="press_e"]
+
+editor/display_folded = false
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" parent="press_e"]
+
+transform/pos = Vector2( 0, 172.382 )
+transform/scale = Vector2( 0.4, 0.4 )
+
+[node name="BeamManager 2" parent="." instance=ExtResource( 7 )]
+
+[node name="Checkpoint" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 82.5969, -211.655 )
+
+[node name="Checkpoint1" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 1994.45, -276.166 )
+
+[node name="Checkpoint2" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 2469.51, -287.55 )
+
+[node name="Checkpoint3" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 2886.93, -329.292 )
+
+[node name="Checkpoint4" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 3440.97, -340.677 )
+
+[node name="Checkpoint5" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 4017.77, -306.524 )
+
+[node name="Checkpoint6" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 4370.69, -291.345 )
+
+[node name="Checkpoint7" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 4700.83, -291.345 )
+
+[node name="Checkpoint8" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 5046.16, -291.345 )
+
+[node name="Checkpoint9" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 5368.71, -291.345 )
+
+[node name="Checkpoint10" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 5702.65, -291.345 )
+
+[node name="Checkpoint11" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 6047.98, -291.345 )
+
+[node name="Checkpoint12" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 6423.66, -291.345 )
+
+[node name="Checkpoint13" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 6734.83, -291.345 )
+
+[node name="Checkpoint14" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 7038.41, -291.345 )
+
+[node name="Checkpoint15" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 7323.02, -291.345 )
+
+[node name="Checkpoint16" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 8897.85, -549.389 )
+
+[node name="Checkpoint17" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 10874.9, -974.403 )
+
+[node name="Checkpoint18" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 12237.2, -1183.12 )
+
+[node name="Checkpoint19" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 13648.9, -1183.12 )
+
+
+[editable path="press_space"]
+[editable path="crystal"]
+[editable path="press_e"]

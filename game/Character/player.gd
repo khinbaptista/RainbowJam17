@@ -17,6 +17,7 @@ var last_movement = Vector2(0, 1)
 var dashing = false  # is the player dashing?
 var grounded = false # is the player standing on ground?
 var dead = false     # is the player dead?
+var falling = false  # is the player falling?
 
 ########## Variables for death
 
@@ -87,7 +88,7 @@ func _input(event):
 		dash(last_movement)
 
 func _process(delta):
-	if not grounded and not fall_timer_counting() and not dashing and not dead:
+	if not grounded and not fall_timer_counting() and not dashing and not dead and not falling:
 		timer_fall.start()
 	elif grounded and fall_timer_counting():
 		timer_fall.stop()
