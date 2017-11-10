@@ -1,9 +1,10 @@
 [gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Crystal/sprites/multi_crystal.png" type="Texture" id=1]
-[ext_resource path="res://Character/press_e.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tools/press_e.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tools/vibration_radial.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tools/z_depth.tscn" type="PackedScene" id=4]
+
 
 [sub_resource type="CircleShape2D" id=1]
 
