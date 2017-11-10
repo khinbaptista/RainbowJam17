@@ -15,7 +15,8 @@ colors = ColorArray( 1, 1, 1, 1, 0.399902, 0.745354, 0.914062, 1 )
 
 [sub_resource type="GDScript" id=3]
 
-script/source = "extends Particles2D
+script/source = "tool
+extends Particles2D
 
 func _ready():
 	var pos = get_node(\"../..\").get_global_pos()
@@ -37,6 +38,7 @@ enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

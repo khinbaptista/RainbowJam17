@@ -7,7 +7,7 @@
 [ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Viewports/all_masks.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Lights/radial shadow.png" type="Texture" id=7]
-[ext_resource path="res://Levels/01-red_new.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/red/01-red_new.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SampleLibrary" id=1]

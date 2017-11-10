@@ -6,10 +6,10 @@
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=4]
 [ext_resource path="res://Sounds/Iris (Continuous Loop).wav" type="Sample" id=5]
 [ext_resource path="res://Sounds/dash1.wav" type="Sample" id=6]
-[ext_resource path="res://Levels/01-red.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Levels/02-orangel.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Levels/03-yellow.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Levels/04-green.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/red/01-red.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/orange/02-orange.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/yellow/03-yellow.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/green/04-green.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Levels/end.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=12]
 
@@ -34,6 +34,7 @@ script/script = ExtResource( 1 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 
+editor/display_folded = true
 transform/pos = Vector2( -161.096, -293.141 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]

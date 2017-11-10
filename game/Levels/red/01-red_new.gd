@@ -24,7 +24,7 @@ func _darken_screen(delta):
 #	print("  energy: ", light.get_energy(), "  vector: ", player.get_global_pos().x - player_start_pos.x, "  last_vector: ", last_vector)
 	var vector = player.get_global_pos().x - player_start_pos.x
 	if vector != last_vector:	player_moved = true
-	
+
 	if light.get_energy() >= 0 and light.get_energy() <= 1 and player_moved:
 		light.set_energy(vector / 2400)
 	elif light.get_energy() > 1:
@@ -34,18 +34,18 @@ func _darken_screen(delta):
 		yield(player.get_node("Sprite"), "finished")
 		get_node("/root/loader").change_scene("res://Menu/start_menu.tscn")
 	elif light.get_energy() < 0:	light.set_energy(0)
-	
+
 	last_vector = vector
 	player_moved = false
 
 func _on_darken_screen_body_enter( body ):
 	if body == player:
 		darken_screen = true
-		
+
 		player_start_pos = player.get_global_pos()
 		player_movement = body.get_node("Actions/move")
 		player_dash = body.get_node("Actions/dash")
-		
+
 		light.show()
 #		player.set_walk_slow(true)
 		player.set_speed(200)

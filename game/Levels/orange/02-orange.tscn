@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=16 format=1]
 
-[ext_resource path="res://Levels/yellow.gd" type="Script" id=1]
-[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Levels/001/yellow island.png" type="Texture" id=3]
+[ext_resource path="res://Levels/orange/orange island.png" type="Texture" id=1]
+[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -61,104 +60,15 @@ points = Vector2Array( -55, -374.5, 157, -377.5, 599, -172.5, 441, 411.5, 315, 4
 custom_solver_bias = 0.0
 points = Vector2Array( -509, 295.5, 315, 411.5, 136, 553.5, -98, 552.5 )
 
-[node name="yellow" type="Node2D"]
-
-script/script = ExtResource( 1 )
-
-[node name="platforms" type="Node2D" parent="."]
-
-transform/pos = Vector2( -1893.27, 4117.4 )
-
-[node name="platform22" parent="platforms" instance=ExtResource( 2 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 3056, -3151 )
-
-[node name="sprite" parent="platforms/platform22"]
-
-modulate = Color( 1, 0.501961, 0, 1 )
-
-[node name="platform23" parent="platforms" instance=ExtResource( 2 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 3025.55, -3453.48 )
-destructible = true
-duration_on = 4.0
-
-[node name="sprite" parent="platforms/platform23"]
-
-modulate = Color( 1, 0.901961, 0, 1 )
-
-[node name="platform24" parent="platforms" instance=ExtResource( 2 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 2699, -3455 )
-color_alignment = 2
-
-[node name="sprite" parent="platforms/platform24"]
-
-modulate = Color( 1, 0.901961, 0, 1 )
-
-[node name="platform25" parent="platforms" instance=ExtResource( 2 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 2648.65, -3740.27 )
-destructible = true
-duration_on = 0.2
-
-[node name="sprite" parent="platforms/platform25"]
-
-modulate = Color( 1, 0.901961, 0, 1 )
-
-[node name="platform27" parent="platforms" instance=ExtResource( 2 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 2661.24, -4035.24 )
-
-[node name="platform26" parent="platforms" instance=ExtResource( 2 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 2383.34, -4072.45 )
-color_alignment = 2
-
-[node name="sprite" parent="platforms/platform26"]
-
-transform/pos = Vector2( -12, 0 )
-modulate = Color( 1, 0.501961, 0, 1 )
-
-[node name="CollisionShape2D" parent="platforms/platform26"]
-
-transform/pos = Vector2( -11.158, -7.47263 )
-
-[node name="platform28" parent="platforms" instance=ExtResource( 2 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 986, -3966 )
-color_alignment = 2
-
-[node name="sprite" parent="platforms/platform28"]
-
-modulate = Color( 1, 0.501961, 0, 1 )
-
-[node name="platform29" parent="platforms" instance=ExtResource( 2 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 1349, -3966 )
-color_alignment = 3
-
-[node name="sprite" parent="platforms/platform29"]
-
-transform/pos = Vector2( -7, 0 )
-modulate = Color( 1, 0.901961, 0, 1 )
-
-[node name="tempPlatforms" type="Node2D" parent="platforms"]
+[node name="orange" type="Node2D"]
 
 [node name="island" type="Area2D" parent="." groups=[
 "ground",
 ]]
 
-transform/pos = Vector2( -21.7659, 5.90308 )
-transform/scale = Vector2( -0.453125, 0.453125 )
+editor/display_folded = true
+transform/pos = Vector2( -0.524246, 0.857967 )
+transform/scale = Vector2( 0.453125, 0.453125 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
@@ -203,7 +113,8 @@ angular_damp = 1.0
 visibility/light_mask = 1024
 transform/pos = Vector2( 0, -2.20703 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
+modulate = Color( 1, 0.501961, 0, 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island"]
 
@@ -214,34 +125,52 @@ polygon = Vector2Array( -329, 804.5, -100, 805.5, -98, 552.5, 136, 553.5, 139, 6
 shape_range = Vector2( 0, 10 )
 trigger = false
 
+[node name="Checkpoint" parent="island" instance=ExtResource( 2 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 25.8846, -106.257 )
+transform/scale = Vector2( 18.0671, 24.9553 )
+
+[node name="spawn_location" parent="island/Checkpoint"]
+
+transform/pos = Vector2( 19.7893, -25.4046 )
+
+[node name="platforms" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -2958.22, 2605.86 )
+
+[node name="platform20" parent="platforms" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 2149, -2422 )
+
+[node name="sprite" parent="platforms/platform20"]
+
+modulate = Color( 1, 0.501961, 0, 1 )
+
+[node name="platform21" parent="platforms" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 2470, -2415 )
+use_timers = true
+
+[node name="sprite" parent="platforms/platform21"]
+
+modulate = Color( 1, 0.501961, 0, 1 )
+
 [node name="crystal" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( -0.265961, -24.5965 )
+transform/pos = Vector2( 32.7762, -24.142 )
 transform/scale = Vector2( 0.421875, 0.421875 )
-crystal_color = 3
+crystal_color = 2
 
-[node name="Checkpoint5" parent="." instance=ExtResource( 5 )]
+[node name="Checkpoint" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 220.147, -45.9355 )
-transform/scale = Vector2( 2.21821, 6.83732 )
-
-[node name="spawn_location" parent="Checkpoint5"]
-
-transform/pos = Vector2( -213.835, 27.6031 )
-
-[node name="Checkpoint9" parent="." instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 768.971, 76.1665 )
-transform/scale = Vector2( 2.57812, 2.35938 )
-
-[connection signal="body_enter" from="Checkpoint9" to="." method="_on_Checkpoint9_body_enter"]
+transform/pos = Vector2( -808.011, 176.012 )
+transform/scale = Vector2( 2.85938, 2.39063 )
 
 
-[editable path="platforms/platform22"]
-[editable path="platforms/platform23"]
-[editable path="platforms/platform24"]
-[editable path="platforms/platform25"]
-[editable path="platforms/platform26"]
-[editable path="platforms/platform28"]
-[editable path="platforms/platform29"]
-[editable path="Checkpoint5"]
+[editable path="island/Checkpoint"]
+[editable path="platforms/platform20"]
+[editable path="platforms/platform21"]

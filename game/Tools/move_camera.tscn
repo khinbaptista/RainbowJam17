@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://Tools/move_camera.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -36,10 +35,7 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="target" type="Sprite" parent="."]
-
-transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
+[node name="target" type="Position2D" parent="."]
 
 [connection signal="body_enter" from="." to="." method="_on_body_enter"]
 

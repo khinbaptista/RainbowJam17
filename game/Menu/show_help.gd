@@ -4,16 +4,16 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 
-onready var sprite = get_node("Sprite")
+onready var sprite = get_node(".")
 
 func _ready():
 	get_node("Area2D").connect("body_enter", self, "show_help")
 	get_node("Area2D").connect("body_exit", self, "hide_help")
-	
+
 func show_help(body):
 	if (body.get_type() == "KinematicBody2D"):
 		sprite.show()
-	
+
 func hide_help(body):
 	if (body.get_type() == "KinematicBody2D"):
 		sprite.hide()
