@@ -59,7 +59,7 @@ func color_index2string(index):
 func color_revealed():
 	#show()
 	learned = true
-	
+
 	var duration = 2.0
 	var timer = 0.0
 	var modulation = get_node("sprite").get_modulate()

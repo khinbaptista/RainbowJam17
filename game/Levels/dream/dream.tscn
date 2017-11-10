@@ -3,10 +3,10 @@
 [ext_resource path="res://Levels/dream/dream.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Iris (Continuous Loop).wav" type="Sample" id=2]
 [ext_resource path="res://Sounds/dash1.wav" type="Sample" id=3]
-[ext_resource path="res://Character/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Viewports/all_masks.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Lights/radial shadow.png" type="Texture" id=6]
-[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Viewports/all_masks.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Lights/radial shadow.png" type="Texture" id=7]
 [ext_resource path="res://Platform/Dream/platform-dream.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Character/press_space.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Crystal/multi_crystal.tscn" type="PackedScene" id=10]
@@ -147,11 +147,17 @@ default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
 
-[node name="player" parent="." instance=ExtResource( 4 )]
+[node name="BeamManager" parent="." instance=ExtResource( 4 )]
+
+transform/rot = 1.0
+speed = 0.4
+scale_to_appear = 0.18
+
+[node name="player" parent="." instance=ExtResource( 5 )]
 
 editor/display_folded = true
 transform/pos = Vector2( -583.165, -227.442 )
-colors_learned = 127
+colors_learned = 126
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
@@ -173,7 +179,7 @@ drag_margin/top = 0.1
 drag_margin/right = 0.2
 drag_margin/bottom = 0.1
 
-[node name="all_masks" parent="player/Camera2D" instance=ExtResource( 5 )]
+[node name="all_masks" parent="player/Camera2D" instance=ExtResource( 6 )]
 
 transform/scale = Vector2( 0.15, 0.3 )
 
@@ -183,7 +189,7 @@ visibility/visible = false
 transform/pos = Vector2( 0, -45.1125 )
 enabled = true
 editor_only = false
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 offset = Vector2( 0, 0 )
 scale = 2.5
 color = Color( 1, 1, 1, 1 )
@@ -200,12 +206,6 @@ shadow/color = Color( 0, 0, 0, 0 )
 shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
-
-[node name="BeamManager" parent="." instance=ExtResource( 7 )]
-
-transform/rot = 1.0
-speed = 0.4
-scale_to_appear = 0.18
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -2606,7 +2606,6 @@ transform/pos = Vector2( 14982.6, -1178.04 )
 
 [node name="effect_layer" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 5
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -2670,7 +2669,7 @@ transform/scale = Vector2( 0.5, 0.5 )
 transform/pos = Vector2( 0, 172.382 )
 transform/scale = Vector2( 0.4, 0.4 )
 
-[node name="BeamManager 2" parent="." instance=ExtResource( 7 )]
+[node name="BeamManager 2" parent="." instance=ExtResource( 4 )]
 
 [node name="Checkpoint" parent="." instance=ExtResource( 14 )]
 
