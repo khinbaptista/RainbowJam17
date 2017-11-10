@@ -34,7 +34,8 @@ func add_transition(from, to, key):
 	transitions[from][key] = to
 
 func make_transition(key):
-	if not transitions[current].has(key): return
+	if current == "" or not transitions[current].has(key):
+		return false
 
 	var next		= transitions[current][key]
 	var next_state		= states[next]
@@ -48,3 +49,26 @@ func make_transition(key):
 		return true
 
 	return false
+
+func go_to_state(state):
+	if not states.has(state): return false
+
+	if current != "" and states.has(current):
+		if not states[current].can_exit():
+			return false
+
+		states[current].exit()
+
+	current = state
+	states[current].enter()
+
+func stop():
+	if current == "" or not states.has(current):
+		return true #fsm is stopped
+
+	if not states[current].can_exit():
+		return false
+
+	states[current].exit()
+	current = ""
+	return true

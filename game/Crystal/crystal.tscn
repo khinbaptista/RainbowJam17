@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Crystal/color-crystal.gd" type="Script" id=1]
 [ext_resource path="res://Crystal/sprites/000.png" type="Texture" id=2]
@@ -7,11 +7,9 @@
 [ext_resource path="res://Crystal/sprites/003.png" type="Texture" id=5]
 [ext_resource path="res://Crystal/sprites/004.png" type="Texture" id=6]
 [ext_resource path="res://Crystal/sprites/005.png" type="Texture" id=7]
-[ext_resource path="res://Character/press_e.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Menu/icons/e_or_x.png" type="Texture" id=9]
-[ext_resource path="res://Menu/show_help.gd" type="Script" id=10]
-[ext_resource path="res://Tools/vibration_radial.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Tools/z_depth.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Tools/press_e.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Tools/vibration_radial.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Tools/z_depth.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -54,17 +52,10 @@ z/z = 1
 z/z = 1
 frames = SubResource( 2 )
 animation = "default"
-frame = 4
+frame = 6
 playing = true
 
-[node name="press_e" type="Sprite" parent="sprite" instance=ExtResource( 8 )]
-
-visibility/visible = false
-transform/pos = Vector2( 8.1078, -417.767 )
-transform/scale = Vector2( 1.70179, 1.70179 )
-z/z = 1
-texture = ExtResource( 9 )
-script/script = ExtResource( 10 )
+[node name="press_e" parent="sprite" instance=ExtResource( 8 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -73,8 +64,8 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="vibration_radial" parent="." instance=ExtResource( 11 )]
+[node name="vibration_radial" parent="." instance=ExtResource( 9 )]
 
-[node name="z_depth" parent="." instance=ExtResource( 12 )]
+[node name="z_depth" parent="." instance=ExtResource( 10 )]
 
 

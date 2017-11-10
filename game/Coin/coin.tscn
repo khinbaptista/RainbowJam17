@@ -43,7 +43,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script/script = ExtResource( 1 )
-type = 1
+type = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -58,7 +58,6 @@ z/z = 1
 
 [node name="coin1" type="Light2D" parent="shadows"]
 
-visibility/visible = false
 transform/rot = 10.0
 enabled = true
 editor_only = false
@@ -82,6 +81,7 @@ shadow/item_mask = 1
 
 [node name="coin2" type="Light2D" parent="shadows"]
 
+visibility/visible = false
 transform/pos = Vector2( 4.7565, -19.0261 )
 transform/rot = -7.0
 enabled = true
@@ -158,12 +158,12 @@ shadow/item_mask = 1
 
 [node name="coin1" type="Sprite" parent="cracks"]
 
-visibility/visible = false
 transform/rot = 10.0
 texture = ExtResource( 6 )
 
 [node name="coin2" type="Sprite" parent="cracks"]
 
+visibility/visible = false
 transform/pos = Vector2( 4.7565, -19.0261 )
 transform/rot = -7.0
 texture = ExtResource( 7 )
@@ -188,12 +188,12 @@ z/z = 1
 
 [node name="coin1" type="Sprite" parent="sprite"]
 
-visibility/visible = false
 transform/rot = 10.0
 texture = ExtResource( 10 )
 
 [node name="coin2" type="Sprite" parent="sprite"]
 
+visibility/visible = false
 transform/pos = Vector2( 4.7565, -19.0261 )
 transform/rot = -7.0
 texture = ExtResource( 11 )
@@ -268,8 +268,7 @@ shadow/item_mask = 1
 
 [node name="press_e" parent="sprite" instance=ExtResource( 16 )]
 
-transform/pos = Vector2( 8.1078, -164.874 )
-transform/scale = Vector2( 0.51, 0.51 )
+transform/pos = Vector2( 8.1078, -279.263 )
 
 [node name="z_depth" parent="." instance=ExtResource( 17 )]
 

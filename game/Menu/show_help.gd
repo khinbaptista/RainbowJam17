@@ -1,10 +1,6 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
-onready var sprite = get_node(".")
+onready var sprite = get_node("Sprite")
 
 func _ready():
 	get_node("Area2D").connect("body_enter", self, "show_help")

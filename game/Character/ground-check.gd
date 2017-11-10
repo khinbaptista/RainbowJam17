@@ -10,7 +10,7 @@ func _fixed_process(delta):
 	var beams = []
 	var ground = []
 	var not_beams = []
-	
+
 	for area in areas:
 		if area.get_name() == "beam_area":
 			beams.append(area.get_parent())
@@ -18,11 +18,11 @@ func _fixed_process(delta):
 			ground.append(area)
 		elif area.get_name() == "not_beam":
 			not_beams.append(area.get_parent())
-	
+
 	if ground.empty():
 		player.grounded = false
 		return
-	
+
 	var grounded = false
 	for tile in ground:
 		if not tile.has_node("sprite"): continue
@@ -42,5 +42,5 @@ func _fixed_process(delta):
 		else:
 			grounded = true		# ground has no color
 			break
-	
+
 	player.grounded = grounded
