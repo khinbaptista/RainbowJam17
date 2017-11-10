@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
@@ -6,9 +6,8 @@
 [ext_resource path="res://Sounds/dash1.wav" type="Sample" id=4]
 [ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Viewports/all_masks.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Lights/radial shadow.png" type="Texture" id=7]
-[ext_resource path="res://Levels/red/01-red_new.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/red/01-red_new.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -82,33 +81,9 @@ drag_margin/bottom = 0.1
 
 transform/scale = Vector2( 0.15, 0.3 )
 
-[node name="Light2D" type="Light2D" parent="player"]
+[node name="red" parent="." instance=ExtResource( 7 )]
 
-visibility/visible = false
-transform/pos = Vector2( 0, -45.1125 )
-enabled = true
-editor_only = false
-texture = ExtResource( 7 )
-offset = Vector2( 0, 0 )
-scale = 2.5
-color = Color( 1, 1, 1, 1 )
-energy = 0.0
-mode = 1
-range/height = 0.0
-range/z_min = -1024
-range/z_max = 1024
-range/layer_min = 0
-range/layer_max = 0
-range/item_mask = 1025
-shadow/enabled = false
-shadow/color = Color( 0, 0, 0, 0 )
-shadow/buffer_size = 2048
-shadow/esm_multiplier = 80.0
-shadow/item_mask = 1
-
-[node name="red" parent="." instance=ExtResource( 8 )]
-
-[node name="BeamManager" parent="." instance=ExtResource( 9 )]
+[node name="BeamManager" parent="." instance=ExtResource( 8 )]
 
 transform/rot = 1.0
 speed = 0.4

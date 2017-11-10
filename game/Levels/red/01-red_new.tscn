@@ -1,41 +1,42 @@
-[gd_scene load_steps=235 format=1]
+[gd_scene load_steps=238 format=1]
 
 [ext_resource path="res://Levels/red/01-red_new.gd" type="Script" id=1]
 [ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Levels/red/RED entrance.png" type="Texture" id=4]
-[ext_resource path="res://Levels/red/RED entrance gray overlay.png" type="Texture" id=5]
-[ext_resource path="res://Plants/flora.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Animals/Animals.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Modular islands/Red/With bottom/008.png" type="Texture" id=8]
-[ext_resource path="res://Plants/Tree_Big.png" type="Texture" id=9]
-[ext_resource path="res://Menu/particle.png" type="Texture" id=10]
-[ext_resource path="res://Plants/Tree_Big_shadow.png" type="Texture" id=11]
-[ext_resource path="res://Tools/z_depth.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Tools/move_camera.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Modular islands/Red/With bottom/010.png" type="Texture" id=14]
-[ext_resource path="res://Modular islands/Red/With bottom/003.png" type="Texture" id=15]
-[ext_resource path="res://Modular islands/Red/010.png" type="Texture" id=16]
-[ext_resource path="res://Modular islands/Red/With bottom/002.png" type="Texture" id=17]
-[ext_resource path="res://Modular islands/Red/With bottom/004.png" type="Texture" id=18]
-[ext_resource path="res://Modular islands/Red/002.png" type="Texture" id=19]
-[ext_resource path="res://Modular islands/Red/With bottom/007.png" type="Texture" id=20]
-[ext_resource path="res://Modular islands/Red/With bottom/001.png" type="Texture" id=21]
-[ext_resource path="res://Modular islands/Red/001.png" type="Texture" id=22]
-[ext_resource path="res://Modular islands/Red/With bottom/013.png" type="Texture" id=23]
-[ext_resource path="res://Modular islands/Red/With bottom/012.png" type="Texture" id=24]
-[ext_resource path="res://Modular islands/Red/013.png" type="Texture" id=25]
-[ext_resource path="res://Levels/red/red island.png" type="Texture" id=26]
-[ext_resource path="res://Modular islands/Red/012.png" type="Texture" id=27]
-[ext_resource path="res://Modular islands/Red/With bottom/011.png" type="Texture" id=28]
-[ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Character/Enemy/Enemy.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Coin/coin.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Lights/radial shadow.png" type="Texture" id=4]
+[ext_resource path="res://Levels/red/RED entrance.png" type="Texture" id=5]
+[ext_resource path="res://Levels/red/RED entrance gray overlay.png" type="Texture" id=6]
+[ext_resource path="res://Plants/flora.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Animals/Animals.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Modular islands/Red/With bottom/008.png" type="Texture" id=9]
+[ext_resource path="res://Plants/Tree_Big.png" type="Texture" id=10]
+[ext_resource path="res://Menu/particle.png" type="Texture" id=11]
+[ext_resource path="res://Plants/Tree_Big_shadow.png" type="Texture" id=12]
+[ext_resource path="res://Tools/z_depth.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Tools/move_camera.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Modular islands/Red/With bottom/010.png" type="Texture" id=15]
+[ext_resource path="res://Modular islands/Red/With bottom/003.png" type="Texture" id=16]
+[ext_resource path="res://Modular islands/Red/010.png" type="Texture" id=17]
+[ext_resource path="res://Modular islands/Red/With bottom/002.png" type="Texture" id=18]
+[ext_resource path="res://Modular islands/Red/With bottom/004.png" type="Texture" id=19]
+[ext_resource path="res://Modular islands/Red/002.png" type="Texture" id=20]
+[ext_resource path="res://Modular islands/Red/With bottom/007.png" type="Texture" id=21]
+[ext_resource path="res://Modular islands/Red/With bottom/001.png" type="Texture" id=22]
+[ext_resource path="res://Modular islands/Red/001.png" type="Texture" id=23]
+[ext_resource path="res://Modular islands/Red/With bottom/013.png" type="Texture" id=24]
+[ext_resource path="res://Modular islands/Red/With bottom/012.png" type="Texture" id=25]
+[ext_resource path="res://Modular islands/Red/013.png" type="Texture" id=26]
+[ext_resource path="res://Levels/red/red island.png" type="Texture" id=27]
+[ext_resource path="res://Modular islands/Red/012.png" type="Texture" id=28]
+[ext_resource path="res://Modular islands/Red/With bottom/011.png" type="Texture" id=29]
+[ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Character/Enemy/Enemy.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Coin/coin.tscn" type="PackedScene" id=32]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 433.881
+radius = 408.081
 height = 2179.93
 
 [sub_resource type="GDScript" id=203]
@@ -44,16 +45,71 @@ script/source = "extends Area2D
 
 export(Texture) var light_mask
 
+var player
+var light
+var max_distance
+
 func _ready():
-	pass#connect(\"body_enter\", self, \"on_body_enter\")
+	connect(\"body_enter\", self, \"on_body_enter\")
+	connect(\"body_exit\", self, \"on_body_exit\")
 
 func on_body_enter(body):
 	if not body.is_in_group(\"player\"): return
 
-	var light = Light2D.new()
-	light.set_energy(0.001)
+	if light: light.queue_free()
+
+	player = body
+	light = Light2D.new()
+	light.set_energy(0.01)
+	light.set_texture_scale(2.5)
 	light.set_texture(light_mask)
-	#light.set_mode(Light2D.
+	light.set_mode(Light2D.MODE_SUB)
+	light.set_name(\"Light2D\")
+	light.set_enabled(true)
+	player.add_child(light)
+	light.set_pos(Vector2(0, -45))
+
+	max_distance = (player.get_global_pos() - get_global_pos()).length()
+
+	set_process(true)
+
+func _process(delta):
+	if !light or !player:
+		set_process(false)
+		return
+
+	var player_pos = player.get_global_pos()
+	var distance = (player_pos - get_global_pos()).length()
+	var scale = distance / max_distance
+	light.set_energy(1.0 - scale)
+
+func on_body_exit(body):
+	if body == player:
+		set_process(false)
+		light.queue_free()
+		light = null
+		player = null
+"
+
+[sub_resource type="CircleShape2D" id=204]
+
+custom_solver_bias = 0.0
+radius = 69.2334
+
+[sub_resource type="GDScript" id=205]
+
+script/source = "extends Area2D
+
+func _ready():
+	connect(\"body_enter\", self, \"on_body_enter\")
+
+func on_body_enter(body):
+	if not body.is_in_group(\"player\"): return
+
+	body.get_node(\"Sprite\").play(\"death_kneel\")
+	yield(body.get_node(\"Sprite\"), \"finished\")
+	get_node(\"/root/loader\").change_scene(\"res://Menu/start_menu.tscn\")
+
 "
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -149,7 +205,7 @@ points = Vector2Array( 68.6356, -1066.63, 118.497, -1033.38, 30.9625, -1039.48, 
 [sub_resource type="SpriteFrames" id=20]
 
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -1075,6 +1131,8 @@ script/script = ExtResource( 1 )
 
 [node name="platforms" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="platform1" parent="platforms" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 1009.83, -1078.59 )
@@ -1420,6 +1478,8 @@ duration_off = 2.0
 
 [node name="tempPlatforms" type="Node2D" parent="platforms"]
 
+editor/display_folded = true
+
 [node name="platform20" parent="platforms/tempPlatforms" instance=ExtResource( 2 )]
 
 editor/display_folded = true
@@ -1500,6 +1560,7 @@ transform/scale = Vector2( 2.84828, 2.42317 )
 
 [node name="platform224" parent="platforms/tempPlatforms" instance=ExtResource( 2 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 3655.64, -5203.62 )
 duration_on = 2.0
 duration_off = 2.0
@@ -1510,25 +1571,45 @@ editor/display_folded = true
 transform/pos = Vector2( 2.43803, -7.56735 )
 transform/scale = Vector2( 2.84828, 2.42317 )
 
-[node name="Area2D" type="Area2D" parent="platforms/tempPlatforms/platform224"]
+[node name="area_darken" type="Area2D" parent="platforms/tempPlatforms/platform224"]
 
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, -1018.68, 184.758 )
+shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, -895.384, 201.882 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 script/script = SubResource( 203 )
-light_mask = null
+light_mask = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/tempPlatforms/platform224/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/tempPlatforms/platform224/area_darken"]
 
-visibility/visible = false
-transform/pos = Vector2( -1018.68, 184.758 )
+transform/pos = Vector2( -895.384, 201.882 )
 transform/rot = 90.0
 shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="area_kneel" type="Area2D" parent="platforms/tempPlatforms/platform224"]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 204 )
+shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = SubResource( 205 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/tempPlatforms/platform224/area_kneel"]
+
+transform/rot = 90.0
+shape = SubResource( 204 )
 trigger = false
 _update_shape_index = 0
 
@@ -1834,7 +1915,7 @@ playing = true
 [node name="GrayOverlay" type="Sprite" parent="island1/sprite"]
 
 transform/pos = Vector2( 4.74341, -1.30664 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="sprite1" type="AnimatedSprite" parent="island1"]
 
@@ -1851,14 +1932,14 @@ flip_h = true
 
 transform/pos = Vector2( -256.801, -473.333 )
 transform/scale = Vector2( 0.999999, 1 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="sprite2" type="Sprite" parent="island1"]
 
 editor/display_folded = true
 transform/pos = Vector2( 729.891, -73.6944 )
 transform/scale = Vector2( 0.178197, 0.172331 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 offset = Vector2( -260.038, -473.352 )
 flip_h = true
 region = true
@@ -1868,7 +1949,7 @@ region_rect = Rect2( 0, 3000, 3000, 3000 )
 
 transform/pos = Vector2( 763.632, -1587.5 )
 transform/scale = Vector2( 1.68353, 1.74084 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island1"]
 
@@ -1971,12 +2052,12 @@ editor/display_folded = true
 transform/scale = Vector2( 0.5, 0.5 )
 z/z = 1
 
-[node name="flora" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -567.406, -1392.18 )
 flip = true
 
-[node name="flora1" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora1" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -416.714, -1018.77 )
 
@@ -1984,257 +2065,257 @@ transform/pos = Vector2( -416.714, -1018.77 )
 
 editor/display_folded = true
 
-[node name="flora33" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora33" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -760.534, -1142.66 )
 type = "Bush"
 reachable = false
 
-[node name="flora34" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora34" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1122.18, -1034.33 )
 reachable = false
 
-[node name="flora35" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora35" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1307.07, -907.267 )
 reachable = false
 
-[node name="flora36" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora36" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -928.322, -943.92 )
 flip = true
 reachable = false
 
-[node name="flora37" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora37" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1091.22, -846.179 )
 flip = true
 reachable = false
 
-[node name="flora38" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora38" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1414.58, -710.157 )
 flip = true
 reachable = false
 
-[node name="flora39" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora39" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1173.49, -648.254 )
 flip = true
 reachable = false
 
-[node name="flora40" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora40" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -819.993, -968.355 )
 type = "Bush"
 reachable = false
 
-[node name="flora41" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora41" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -836.578, -916.608 )
 type = "Bush"
 reachable = false
 
-[node name="flora42" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora42" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -716.499, -837.661 )
 reachable = false
 
-[node name="flora43" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora43" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -675.367, -803.163 )
 type = "Bush"
 reachable = false
 
-[node name="Deer" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
+[node name="Deer" parent="island1/flora/deer_side" instance=ExtResource( 8 )]
 
 type = "Deer"
 
-[node name="Birds" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
+[node name="Birds" parent="island1/flora/deer_side" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -0.0302734, -1451.36 )
 type = "Birds"
 
-[node name="flora44" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora44" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -756.592, -656.958 )
 type = "Bush"
 reachable = false
 
-[node name="flora45" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora45" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -927.592, -598.958 )
 reachable = false
 
-[node name="flora46" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora46" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1083.59, -479.958 )
 reachable = false
 
-[node name="flora47" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora47" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1274.59, -422.958 )
 flip = true
 reachable = false
 
-[node name="flora48" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora48" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -709.641, -484.958 )
 type = "Bush"
 reachable = false
 
-[node name="flora49" parent="island1/flora/deer_side" instance=ExtResource( 6 )]
+[node name="flora49" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -836.437, -398.152 )
 reachable = false
 
-[node name="flora2" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora2" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -630.869, 63.3169 )
 type = "Bush"
 modulate = Color( 0.756863, 0.756863, 0.756863, 0.615686 )
 reachable = false
 
-[node name="flora3" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora3" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -933.051, -23.8352 )
 type = "Bush"
 modulate = Color( 0.878431, 0.878431, 0.878431, 0.615686 )
 reachable = false
 
-[node name="flora4" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora4" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -570.596, -99.5843 )
 type = "Bush"
 modulate = Color( 0.878431, 0.878431, 0.878431, 0.615686 )
 reachable = false
 
-[node name="flora5" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora5" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -289.836, -554.404 )
 type = "Bush"
 
-[node name="flora6" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora6" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -366.474, -480.161 )
 type = "Bush"
 
-[node name="flora7" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora7" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 560.493, -1340.26 )
 flip = true
 
-[node name="flora8" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora8" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 514.88, -1263.7 )
 flip = true
 
-[node name="flora9" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora9" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 631.355, -1170.03 )
 
-[node name="flora10" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora10" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 475.784, -1189.58 )
 type = "Bush"
 
-[node name="flora11" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora11" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 426.811, -777.385 )
 
-[node name="flora12" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora12" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 811.797, -740.655 )
 flip = true
 
-[node name="flora13" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora13" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 981.843, -678.078 )
 flip = true
 
-[node name="flora14" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora14" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1204.94, -589.654 )
 flip = true
 
-[node name="flora15" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora15" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1488.06, -646.789 )
 
-[node name="flora16" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora16" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1778.36, -595.82 )
 flip = true
 
-[node name="flora17" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora17" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 626.006, -693.327 )
 
-[node name="flora18" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora18" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 347.89, -661.194 )
 
-[node name="flora19" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora19" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 455.369, -613.548 )
 type = "Bush"
 
-[node name="flora20" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora20" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 249.299, -565.492 )
 type = "Bush"
 
-[node name="flora21" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora21" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 748.299, -510.492 )
 
-[node name="flora22" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora22" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1344.98, -490.849 )
 
-[node name="flora23" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora23" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1004.9, -477.344 )
 
-[node name="flora24" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora24" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1591.75, -435.6 )
 
-[node name="flora25" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora25" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1114.16, -327.56 )
 
-[node name="flora26" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora26" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1688.75, -264.945 )
 
-[node name="flora27" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora27" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 634.119, -364.392 )
 flip = true
 
-[node name="flora28" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora28" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 501.524, -279.678 )
 type = "Bush"
 
-[node name="flora29" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora29" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 821.963, -237.935 )
 
-[node name="flora30" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora30" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1399, -174.092 )
 
-[node name="flora31" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora31" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 840.844, -119.775 )
 type = "Bush"
 modulate = Color( 0.87451, 0.87451, 0.87451, 0.627451 )
 reachable = false
 
-[node name="flora32" parent="island1/flora" instance=ExtResource( 6 )]
+[node name="flora32" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 541.276, 84.0297 )
 modulate = Color( 0.890196, 0.890196, 0.890196, 0.647059 )
@@ -2392,7 +2473,7 @@ angular_damp = 1.0
 visibility/light_mask = 1024
 transform/pos = Vector2( 59.3974, 120.027 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island2"]
 
@@ -2427,7 +2508,7 @@ z/z = 1
 [node name="sprite1" type="Sprite" parent="island2/Tree_big/sprite"]
 
 z/z = 1
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Particles2D" type="Particles2D" parent="island2/Tree_big/sprite"]
 
@@ -2439,7 +2520,7 @@ config/time_scale = 0.15
 config/preprocess = 4.0
 config/process_mode = 1
 config/half_extents = Vector2( 150, 100 )
-config/texture = ExtResource( 10 )
+config/texture = ExtResource( 11 )
 params/direction = 330.0
 params/spread = 40.0
 params/linear_velocity = 110.0
@@ -2467,7 +2548,7 @@ color/color_ramp = SubResource( 79 )
 
 [node name="shadow" type="Sprite" parent="island2/Tree_big"]
 
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="island2/Tree_big"]
 
@@ -2477,7 +2558,7 @@ shape = SubResource( 78 )
 trigger = false
 _update_shape_index = 0
 
-[node name="z_depth" parent="island2/Tree_big" instance=ExtResource( 12 )]
+[node name="z_depth" parent="island2/Tree_big" instance=ExtResource( 13 )]
 
 transform/pos = Vector2( -38.9759, 162.057 )
 
@@ -2491,7 +2572,7 @@ polygon = Vector2Array( 337.71, 4251.22, 340.87, 4495.3, 2153.05, 4495.3, 2153.0
 shape_range = Vector2( 7, 44 )
 trigger = false
 
-[node name="move_camera1" parent="island2" instance=ExtResource( 13 )]
+[node name="move_camera1" parent="island2" instance=ExtResource( 14 )]
 
 editor/display_folded = true
 transform/pos = Vector2( -721.107, -229.993 )
@@ -2636,91 +2717,91 @@ angular_damp = 1.0
 visibility/light_mask = 1024
 transform/pos = Vector2( 2181.19, -2637.46 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="3" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 3137.77, -993.254 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 
 [node name="10 2" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 2181.19, -2637.46 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 
 [node name="2" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 1714.98, -926.744 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 
 [node name="4" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 604.665, -1299 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="2 2" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 1714.98, -926.746 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 
 [node name="7" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 671.938, 307.494 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 20 )
+texture = ExtResource( 21 )
 
 [node name="1" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 2178.35, 2220.57 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 
 [node name="8" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 739.073, 2263.34 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="1 2" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 2178.35, 2220.57 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 
 [node name="13" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 3872.97, 3819.82 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 23 )
+texture = ExtResource( 24 )
 
 [node name="12" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 1709.77, 3829.24 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 
 [node name="13 2" type="Sprite" parent="island3"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 3872.97, 3819.82 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 25 )
+texture = ExtResource( 26 )
 
 [node name="darken_screen" type="Area2D" parent="island3"]
 
@@ -2760,8 +2841,9 @@ shape = SubResource( 119 )
 trigger = false
 _update_shape_index = 0
 
-[node name="move_camera" parent="island3" instance=ExtResource( 13 )]
+[node name="move_camera" parent="island3" instance=ExtResource( 14 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 2934.89, -1942.31 )
 active = false
 
@@ -2773,7 +2855,7 @@ shape = SubResource( 120 )
 
 transform/pos = Vector2( -1870.62, -2389.66 )
 
-[node name="move_camera1" parent="island3" instance=ExtResource( 13 )]
+[node name="move_camera1" parent="island3" instance=ExtResource( 14 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 6325.94, -3058.93 )
@@ -2783,7 +2865,7 @@ transform/scale = Vector2( 1.728, 1.728 )
 
 transform/pos = Vector2( 0, 608.669 )
 
-[node name="move_camera2" parent="island3" instance=ExtResource( 13 )]
+[node name="move_camera2" parent="island3" instance=ExtResource( 14 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 9369.39, -3058.93 )
@@ -2793,7 +2875,7 @@ transform/scale = Vector2( 1.728, 1.728 )
 
 transform/pos = Vector2( 0, 627.114 )
 
-[node name="move_camera3" parent="island3" instance=ExtResource( 13 )]
+[node name="move_camera3" parent="island3" instance=ExtResource( 14 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 12421.6, -3058.93 )
@@ -2908,7 +2990,7 @@ angular_damp = 1.0
 visibility/light_mask = 1024
 transform/pos = Vector2( -27.895, -125.365 )
 transform/scale = Vector2( 1, 0.8 )
-texture = ExtResource( 26 )
+texture = ExtResource( 27 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island4"]
 
@@ -2918,13 +3000,13 @@ polygon = Vector2Array( -1377.92, -919.996, -799.35, -916.426, -795.779, -1387.8
 shape_range = Vector2( 0, 11 )
 trigger = false
 
-[node name="flora33" parent="island4" instance=ExtResource( 6 )]
+[node name="flora33" parent="island4" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 476.669, -319.135 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 
-[node name="flora34" parent="island4" instance=ExtResource( 6 )]
+[node name="flora34" parent="island4" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 705.016, -100.498 )
 transform/scale = Vector2( 3.57143, 3.57143 )
@@ -3008,83 +3090,83 @@ angular_damp = 1.0
 visibility/light_mask = 1024
 transform/pos = Vector2( -1639.99, -1480.4 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 
 [node name="12" type="Sprite" parent="island5"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( -2106.21, 130.74 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 
 [node name="13" type="Sprite" parent="island5"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 59.3975, 120.025 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 23 )
+texture = ExtResource( 24 )
 
 [node name="8" type="Sprite" parent="island5"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( -3080.95, -1438.46 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="1 2" type="Sprite" parent="island5"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( -1639.99, -1480.4 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 
 [node name="12 2" type="Sprite" parent="island5"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( -2106.21, 130.738 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
-[node name="flora33" parent="island5" instance=ExtResource( 6 )]
+[node name="flora33" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -3686.13, -1828.87 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 
-[node name="flora35" parent="island5" instance=ExtResource( 6 )]
+[node name="flora35" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -2509.67, -1736.35 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 flip = true
 
-[node name="flora34" parent="island5" instance=ExtResource( 6 )]
+[node name="flora34" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -3197.04, -1544.67 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 
-[node name="flora36" parent="island5" instance=ExtResource( 6 )]
+[node name="flora36" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1822.3, -1293.52 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 flip = true
 
-[node name="flora42" parent="island5" instance=ExtResource( 6 )]
+[node name="flora42" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1670.28, -659.025 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 
-[node name="flora43" parent="island5" instance=ExtResource( 6 )]
+[node name="flora43" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1333.21, -460.746 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 type = "Bush"
 
-[node name="Animals" parent="island5" instance=ExtResource( 7 )]
+[node name="Animals" parent="island5" instance=ExtResource( 8 )]
 
 editor/display_folded = true
 transform/pos = Vector2( -1679.84, -362.141 )
@@ -3112,48 +3194,49 @@ playing = true
 [node name="Birds" parent="island5/Animals/Path2D/PathFollow2D"]
 
 visibility/visible = false
+frame = 0
 
-[node name="flora45" parent="island5" instance=ExtResource( 6 )]
+[node name="flora45" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1544.71, -176.545 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 type = "Bush"
 
-[node name="flora37" parent="island5" instance=ExtResource( 6 )]
+[node name="flora37" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -2840.14, -718.508 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 
-[node name="flora38" parent="island5" instance=ExtResource( 6 )]
+[node name="flora38" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -3316.01, -401.26 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 
-[node name="flora41" parent="island5" instance=ExtResource( 6 )]
+[node name="flora41" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -2793.87, -24.5273 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 flip = true
 
-[node name="flora39" parent="island5" instance=ExtResource( 6 )]
+[node name="flora39" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -2199.03, 286.113 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 flip = true
 
-[node name="flora40" parent="island5" instance=ExtResource( 6 )]
+[node name="flora40" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -2945.89, 537.27 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
 flip = true
 
-[node name="flora44" parent="island5" instance=ExtResource( 6 )]
+[node name="flora44" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -2099.89, 530.652 )
 transform/scale = Vector2( 3.57143, 3.57143 )
@@ -3266,7 +3349,7 @@ angular_damp = 1.0
 visibility/light_mask = 1024
 transform/pos = Vector2( -49.3501, 77.6533 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island6"]
 
@@ -3275,13 +3358,13 @@ polygon = Vector2Array( 55.2708, -369.694, 147.424, -369.297, 148.616, -179.429,
 shape_range = Vector2( 0, 6 )
 trigger = false
 
-[node name="flora" parent="island6" instance=ExtResource( 6 )]
+[node name="flora" parent="island6" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -277.25, 138.625 )
 z/z = 1
 flip = true
 
-[node name="flora1" parent="island6" instance=ExtResource( 6 )]
+[node name="flora1" parent="island6" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 123.594, 247.187 )
 z/z = 1
@@ -3349,30 +3432,30 @@ angular_damp = 1.0
 visibility/light_mask = 1024
 transform/pos = Vector2( -49.3501, 77.6533 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 
 [node name="4" type="Sprite" parent="island7"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 157.524, 741.987 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
-[node name="flora2" parent="island7" instance=ExtResource( 6 )]
+[node name="flora2" parent="island7" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -241.326, -192.178 )
 z/z = 1
 type = "Bush"
 flip = true
 
-[node name="flora3" parent="island7" instance=ExtResource( 6 )]
+[node name="flora3" parent="island7" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 201.435, 522.023 )
 z/z = 1
 type = "Bush"
 flip = true
 
-[node name="crystal" parent="." instance=ExtResource( 29 )]
+[node name="crystal" parent="." instance=ExtResource( 30 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 453.349, -8257.87 )
@@ -3384,66 +3467,66 @@ crystal_color = 1
 editor/display_folded = true
 sort/enabled = true
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 189.797, -4275.08 )
 transform/scale = Vector2( 0.23, 0.23 )
 can_move = false
 
-[node name="Enemy1" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy1" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 320.659, -4316.59 )
 transform/scale = Vector2( 0.23, 0.23 )
 can_move = false
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 347.734, -4415.87 )
 transform/scale = Vector2( 0.23, 0.23 )
 can_move = false
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 258.958, -4142.64 )
 transform/scale = Vector2( 0.23, 0.23 )
 can_move = false
 
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 626.985, -3675.01 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy5" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 1025.11, -3463.46 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy6" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 753.071, -3842.84 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy7" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy7" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 170.111, -4582.88 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy8" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy8" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 391.689, -4870.78 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy9" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy9" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 420.329, -4673.32 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy10" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy10" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 730.84, -4637.14 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy11" parent="Enemies" instance=ExtResource( 30 )]
+[node name="Enemy11" parent="Enemies" instance=ExtResource( 31 )]
 
 transform/pos = Vector2( 685.62, -5056.18 )
 transform/scale = Vector2( 0.23, 0.23 )
@@ -3601,21 +3684,21 @@ transform/scale = Vector2( 2.89209, 2.37379 )
 
 editor/display_folded = true
 
-[node name="coin" parent="Coins" instance=ExtResource( 31 )]
+[node name="coin" parent="Coins" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 1365.86, -1404.52 )
 
-[node name="coin1" parent="Coins" instance=ExtResource( 31 )]
+[node name="coin1" parent="Coins" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 67.6188, -1389.02 )
 type = 3
 
-[node name="coin2" parent="Coins" instance=ExtResource( 31 )]
+[node name="coin2" parent="Coins" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( -1243.37, -2916.59 )
 type = 2
 
-[node name="coin3" parent="Coins" instance=ExtResource( 31 )]
+[node name="coin3" parent="Coins" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( -1663.33, -6785.48 )
 type = 0
