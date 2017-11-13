@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
@@ -23,6 +23,15 @@ samples/dash1 = {
 "priority": 0,
 "sample": ExtResource( 4 )
 }
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Navigation2D
+
+func _enter_tree():
+	print(\"navigation: \" + get_path())
+	Globals.set(\"navigation_path\", get_path())
+"
 
 [node name="world" type="Node2D"]
 
@@ -55,7 +64,7 @@ default/chorus_send = 0.0
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( -0.496582, -228.325 )
+transform/pos = Vector2( 157.037, -3729.61 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
@@ -81,7 +90,11 @@ drag_margin/bottom = 0.1
 
 transform/scale = Vector2( 0.15, 0.3 )
 
-[node name="red" parent="." instance=ExtResource( 7 )]
+[node name="navigation" type="Navigation2D" parent="."]
+
+script/script = SubResource( 2 )
+
+[node name="red" parent="navigation" instance=ExtResource( 7 )]
 
 [node name="BeamManager" parent="." instance=ExtResource( 8 )]
 

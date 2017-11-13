@@ -20,10 +20,8 @@ func change_scene( path ):
 
 	while not loader.is_ready(path):
 		var progress = "Progress: " + loader.get_progress_string(path)
-		get_node("/root/Debug").get_node("Label").set_text(progress)
 		yield(timer, "timeout")
 
-	get_node("/root/Debug").get_node("Label").set_text("")
 	get_tree().change_scene_to(loader.get_resource(path))
 
 	anim.play("load_finished")
