@@ -47,7 +47,7 @@ custom_solver_bias = 0.0
 radius = 539.232
 
 [node name="platform-dream" type="Area2D" groups=[
-"ground",
+"platform",
 ]]
 
 transform/pos = Vector2( 0, -5.44153 )
@@ -67,7 +67,6 @@ type = 0
 
 [node name="sprite" type="Node2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 0, 11.0019 )
 
 [node name="red" type="Sprite" parent="sprite"]

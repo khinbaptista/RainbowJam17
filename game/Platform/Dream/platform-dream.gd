@@ -10,17 +10,20 @@ onready var player
 
 var active = false
 var sprite
+var mask
 
 func _ready():
+	mask = (1 << (type + 1))
+	
 	if can_move:
 		get_node("AnimationPlayer").play_backwards("wake up")
 		get_node("AnimationPlayer").seek(0)
 	elif not get_tree().is_editor_hint():
 		get_node("player_trigger").queue_free()
 		
-	if affected_by_beam:
-		set_collision_mask_bit(0, false)
-		set_layer_mask_bit(0, false)
+	#if affected_by_beam:
+		#set_collision_mask_bit(0, false)
+		#set_layer_mask_bit(0, false)
 	
 	_hide()
 	if type == 0:
@@ -35,9 +38,10 @@ func _ready():
 		sprite = get_node("sprite/blue")
 	elif type == 5:
 		sprite = get_node("sprite/purple")
-	if not affected_by_beam:
-		sprite.show()
-	sprite.set_light_mask(color_mask)
+	sprite.show()
+	if affected_by_beam:
+		sprite.set_light_mask(mask)
+		get_node("sprite").set_light_mask(mask)
 	#---------------------- EDITOR ONLY ----------------------
 	if get_tree().is_editor_hint():
 		set_process(true)
@@ -68,11 +72,19 @@ func _process(delta):
 	#---------------------------------------------------------
 	
 func spawn():
+	print("oi")
 	if sprite:
 		sprite.show()
 
-	set_collision_mask_bit(0, true)
-	set_layer_mask_bit(0, true)
+	#set_collision_mask_bit(0, true)
+	#set_layer_mask_bit(0, true)
+	
+func despawn():
+	if sprite:
+		sprite.hide()
+
+	#set_collision_mask_bit(0, false)
+	#set_layer_mask_bit(0, false)
 
 func _hide():
 	get_node("sprite/red").hide()
@@ -83,14 +95,14 @@ func _hide():
 	get_node("sprite/purple").hide()
 	
 func _on_platform_area_enter( area ):
-	if color_alignment != 0:	# has a color
+	if affected_by_beam:	# has a color
 		if area.get_name() == "beams_coming":
-			sprite.show()
+			spawn()
 
 func _on_platform_area_exit( area ):
-	if color_alignment != 0:	# has a color
+	if affected_by_beam:	# has a color
 		if area.get_name() == "beams_coming":
-			sprite.hide()
+			despawn()
 
 
 func _on_player_trigger_body_enter( body ):
