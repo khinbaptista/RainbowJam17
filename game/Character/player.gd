@@ -36,6 +36,7 @@ var moveDir = "down"		# the direction in which the player is moving (animation)
 
 onready var sound = get_node("SamplePlayer2D")
 onready var timer_fall = get_node("timer_fall")
+onready var move_action = get_node("Actions/move")
 
 ########## Helper funcs
 
@@ -43,7 +44,7 @@ func fall_timer_counting(): return timer_fall.get_time_left() > 0
 
 func set_can_move(enable):
 	can_move = enable
-	get_node("Actions/move").enabled = enable
+	move_action.enabled = enable
 
 func forget_last_movement():
 	last_movement = Vector2(0, 1)
@@ -101,13 +102,8 @@ func _process(delta):
 
 	input_movement(delta)
 
-#	get_node("/root/Debug/Label").set_text( # sometimes the player seemed slow after leaving the enemies
-#		"Movement multiplier: " + str(get_node("Actions/move").multiplier) + "\n" +
-#		"Dash speed multiplier:" + str(get_node("Actions/dash").speed_multiplier)
-#	)
-
 func input_movement(delta):
-	if not get_node("Actions/move").can_execute() and not dashing and not dead:
+	if not move_action.can_execute() or not can_move or dashing or dead:
 		return
 
 	var movement = Vector2()
@@ -141,13 +137,14 @@ func input_movement(delta):
 	else:
 		align_last_movement()
 		get_node("FSM").make_transition("idle")
+		return
 
 	# CONTROLLER INPUT
 	movement = check_controller_input(movement.normalized())
 	if movement.length() != 0: last_movement = movement
 
 	# APPLY MOVEMENT
-	get_node("Actions/move").execute(movement)
+	move_action.execute(movement)
 
 func check_controller_input(dir):
 	var axis = Vector2(Input.get_joy_axis(0, 0), Input.get_joy_axis(0, 1))

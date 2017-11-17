@@ -6,8 +6,6 @@ func _ready():
 	._ready()
 	walking = false
 
-#	set_process(true)
-
 	# idle <-> move
 	add_transition("idle", "move-begin", "move")
 	add_transition("move-begin", "move-loop", "finished")
@@ -42,17 +40,13 @@ func _ready():
 	# move <-> stopped
 	add_transition("move-loop", "stopped", "stop")
 	add_transition("stopped", "move-begin", "move")
-	
+
 	# stopped -> dash
 	add_transition("stopped", "dash", "dash")
-	
+
 	# stopped -> idle
 	add_transition("stopped", "idle", "interact")
-	
+
 	# idle <-> falling
 	add_transition("idle", "falling", "fall")
 	add_transition("falling", "idle", "idle")
-
-func _process(delta):
-	get_node("/root/Debug/Label").set_text("FSM: " + current)
-	print(current)

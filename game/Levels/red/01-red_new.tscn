@@ -1,4 +1,4 @@
-[gd_scene load_steps=238 format=1]
+[gd_scene load_steps=239 format=1]
 
 [ext_resource path="res://Levels/red/01-red_new.gd" type="Script" id=1]
 [ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=2]
@@ -26,12 +26,13 @@
 [ext_resource path="res://Modular islands/Red/With bottom/013.png" type="Texture" id=24]
 [ext_resource path="res://Modular islands/Red/With bottom/012.png" type="Texture" id=25]
 [ext_resource path="res://Modular islands/Red/013.png" type="Texture" id=26]
-[ext_resource path="res://Levels/red/red island.png" type="Texture" id=27]
-[ext_resource path="res://Modular islands/Red/012.png" type="Texture" id=28]
-[ext_resource path="res://Modular islands/Red/With bottom/011.png" type="Texture" id=29]
-[ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Character/Enemy/Enemy.tscn" type="PackedScene" id=31]
-[ext_resource path="res://Coin/coin.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Tools/move_camera.gd" type="Script" id=27]
+[ext_resource path="res://Levels/red/red island.png" type="Texture" id=28]
+[ext_resource path="res://Modular islands/Red/012.png" type="Texture" id=29]
+[ext_resource path="res://Modular islands/Red/With bottom/011.png" type="Texture" id=30]
+[ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Character/Enemy/Enemy.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Coin/coin.tscn" type="PackedScene" id=33]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -106,10 +107,12 @@ func _ready():
 func on_body_enter(body):
 	if not body.is_in_group(\"player\"): return
 
+	body.set_can_move(false)
+	yield(get_tree(), \"idle_frame\")
+
 	while not body.get_node(\"FSM\").stop():
 		yield(get_tree(), \"idle_frame\")
 
-	body.set_can_move(false)
 	body.get_node(\"Sprite\").play(\"death-kneel\")
 	yield(body.get_node(\"Sprite\"), \"finished\")
 	get_node(\"/root/loader\").change_scene(\"res://Menu/start_menu.tscn\")
@@ -708,11 +711,11 @@ custom_solver_bias = 0.0
 a = Vector2( -4.05936, 1114.02 )
 b = Vector2( 1430.72, 348.809 )
 
-[sub_resource type="CapsuleShape2D" id=122]
+[sub_resource type="CapsuleShape2D" id=206]
 
 custom_solver_bias = 0.0
-radius = 413.099
-height = 2713.0
+radius = 240.435
+height = 2554.4
 
 [sub_resource type="NavigationPolygon" id=123]
 
@@ -2810,17 +2813,37 @@ shape = SubResource( 121 )
 trigger = false
 _update_shape_index = 0
 
-[node name="move_camera" parent="island3" instance=ExtResource( 14 )]
+[node name="move_camera" type="Area2D" parent="island3"]
 
-editor/display_folded = true
-transform/pos = Vector2( 2934.89, -1942.31 )
+transform/pos = Vector2( 3116.43, -1230.66 )
+input/pickable = true
+shapes/0/shape = SubResource( 206 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 276.601, -740.898 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 27 )
 active = false
+speed = 2
+wait_time = 2
 
-[node name="CollisionShape2D" parent="island3/move_camera"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="island3/move_camera"]
 
-shape = SubResource( 122 )
+transform/pos = Vector2( 276.601, -740.898 )
+shape = SubResource( 206 )
+trigger = false
+_update_shape_index = 0
 
-[node name="target" parent="island3/move_camera"]
+[node name="Timer" type="Timer" parent="island3/move_camera"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="target" type="Position2D" parent="island3/move_camera"]
 
 transform/pos = Vector2( -1870.62, -2389.66 )
 
@@ -2964,7 +2987,7 @@ angular_damp = 1.0
 visibility/light_mask = 1024
 transform/pos = Vector2( -27.895, -125.365 )
 transform/scale = Vector2( 1, 0.8 )
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island4"]
 
@@ -3099,7 +3122,7 @@ texture = ExtResource( 23 )
 visibility/light_mask = 1024
 transform/pos = Vector2( -2106.21, 130.738 )
 transform/scale = Vector2( 2.22, 2.22 )
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 
 [node name="flora33" parent="island5" instance=ExtResource( 7 )]
 
@@ -3168,7 +3191,7 @@ playing = true
 [node name="Birds" parent="island5/Animals/Path2D/PathFollow2D"]
 
 visibility/visible = false
-frame = 10
+frame = 3
 
 [node name="flora45" parent="island5" instance=ExtResource( 7 )]
 
@@ -3406,7 +3429,7 @@ angular_damp = 1.0
 visibility/light_mask = 1024
 transform/pos = Vector2( -49.3501, 77.6533 )
 transform/scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 29 )
+texture = ExtResource( 30 )
 
 [node name="4" type="Sprite" parent="island7"]
 
@@ -3429,7 +3452,7 @@ z/z = 1
 type = "Bush"
 flip = true
 
-[node name="crystal" parent="." instance=ExtResource( 30 )]
+[node name="crystal" parent="." instance=ExtResource( 31 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 453.349, -8257.87 )
@@ -3442,56 +3465,57 @@ editor/display_folded = true
 
 [node name="sprite1" parent="crystal/sprite"]
 
-frame = 8
+frame = 6
 
 [node name="Enemies" type="YSort" parent="."]
 
+editor/display_folded = true
 sort/enabled = true
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 31 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 189.797, -4275.08 )
 transform/scale = Vector2( 0.23, 0.23 )
 can_move = false
 
-[node name="Enemy1" parent="Enemies" instance=ExtResource( 31 )]
+[node name="Enemy1" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 320.659, -4316.59 )
 transform/scale = Vector2( 0.23, 0.23 )
 can_move = false
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 31 )]
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 258.958, -4142.64 )
 transform/scale = Vector2( 0.23, 0.23 )
 can_move = false
 
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 31 )]
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 626.985, -3675.01 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy5" parent="Enemies" instance=ExtResource( 31 )]
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 1025.11, -3463.46 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy6" parent="Enemies" instance=ExtResource( 31 )]
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 753.071, -3842.84 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy7" parent="Enemies" instance=ExtResource( 31 )]
+[node name="Enemy7" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 170.111, -4582.88 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy9" parent="Enemies" instance=ExtResource( 31 )]
+[node name="Enemy9" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 420.329, -4673.32 )
 transform/scale = Vector2( 0.23, 0.23 )
 
-[node name="Enemy11" parent="Enemies" instance=ExtResource( 31 )]
+[node name="Enemy11" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 685.62, -5056.18 )
 transform/scale = Vector2( 0.23, 0.23 )
@@ -3647,22 +3671,22 @@ transform/scale = Vector2( 2.89209, 2.37379 )
 
 editor/display_folded = true
 
-[node name="coin" parent="Coins" instance=ExtResource( 32 )]
+[node name="coin" parent="Coins" instance=ExtResource( 33 )]
 
 transform/pos = Vector2( 1365.86, -1404.52 )
 
-[node name="coin1" parent="Coins" instance=ExtResource( 32 )]
+[node name="coin1" parent="Coins" instance=ExtResource( 33 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 67.6188, -1389.02 )
 type = 3
 
-[node name="coin2" parent="Coins" instance=ExtResource( 32 )]
+[node name="coin2" parent="Coins" instance=ExtResource( 33 )]
 
 transform/pos = Vector2( -1243.37, -2916.59 )
 type = 2
 
-[node name="coin3" parent="Coins" instance=ExtResource( 32 )]
+[node name="coin3" parent="Coins" instance=ExtResource( 33 )]
 
 transform/pos = Vector2( -1663.33, -6785.48 )
 
@@ -3676,11 +3700,16 @@ transform/pos = Vector2( -1663.33, -6785.48 )
 
 [connection signal="body_enter" from="platforms/hiddenPlatforms/hidden_4" to="." method="_on_hidden_4_body_enter"]
 
+[connection signal="body_enter" from="island3/move_camera" to="island3/move_camera" method="_on_body_enter"]
+
+[connection signal="timeout" from="island3/move_camera/Timer" to="island3/move_camera" method="_timeout"]
+
+[connection signal="finished" from="island3/move_camera1" to="island3/move_camera" method="_set_active" binds= [ true ]]
+
 [connection signal="body_enter" from="Checkpoints/Checkpoint13" to="." method="_on_Checkpoint13_body_enter"]
 
 
 [editable path="island2/move_camera1"]
-[editable path="island3/move_camera"]
 [editable path="island3/move_camera1"]
 [editable path="island3/move_camera2"]
 [editable path="island3/move_camera3"]

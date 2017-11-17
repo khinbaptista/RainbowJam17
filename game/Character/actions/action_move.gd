@@ -8,6 +8,8 @@ func get_final_speed():
 	return speed * multiplier + bonus
 
 func _execute(direction):
+	if not can_execute():
+		pass
 	var _speed = get_final_speed()
 	var remaining = player.move(direction * _speed * get_process_delta_time())
 	if player.is_colliding():

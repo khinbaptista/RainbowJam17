@@ -13,6 +13,8 @@ onready var target = get_node("target")
 onready var player = get_node(Globals.get("player_path"))
 onready var camera = player.get_node("Camera2D")
 
+signal finished
+
 func _ready():
 	target.hide()
 	return_speed = camera.get_follow_smoothing()
@@ -35,6 +37,7 @@ func _timeout():
 	camera.set_follow_smoothing(return_speed)
 	camera.set_global_pos(player.get_global_pos())
 	camera.align()
+	emit_signal("finished")
 	queue_free()
 
 func _on_body_enter( body ):

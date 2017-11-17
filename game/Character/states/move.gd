@@ -33,5 +33,4 @@ func _process(delta):
 		animation = "run-" + player.moveDir + "-" + stage
 	if sprite.get_animation() != animation and overwrite_animation():
 		sprite.stop()
-		print("Playing anim: " + animation)
 		sprite.play(animation)
