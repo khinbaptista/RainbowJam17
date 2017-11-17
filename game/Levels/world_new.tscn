@@ -64,7 +64,7 @@ default/chorus_send = 0.0
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 157.037, -3729.61 )
+transform/pos = Vector2( 1.87994, -280.365 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 

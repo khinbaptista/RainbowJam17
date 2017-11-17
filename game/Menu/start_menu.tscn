@@ -44,7 +44,7 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 script/script = ExtResource( 1 )
-next_scene = "res://Levels/world_new.tscn"
+next_scene = "res://Levels/dream/dream.tscn"
 
 [node name="background" type="Sprite" parent="."]
 
