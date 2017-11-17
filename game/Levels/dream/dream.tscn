@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://Levels/dream/dream.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Iris (Continuous Loop).wav" type="Sample" id=2]
@@ -12,7 +12,8 @@
 [ext_resource path="res://Crystal/multi_crystal.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Tools/stop_player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Tools/press_e.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Tools/press_q.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -2475,81 +2476,86 @@ transform/scale = Vector2( 0.5, 0.5 )
 transform/pos = Vector2( 0, 172.382 )
 transform/scale = Vector2( 0.4, 0.4 )
 
+[node name="press_q" parent="." instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 5700.5, -458.386 )
+transform/scale = Vector2( 0.4, 0.4 )
+
 [node name="BeamManager 2" parent="." instance=ExtResource( 4 )]
 
-[node name="Checkpoint" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 82.5969, -211.655 )
 
-[node name="Checkpoint1" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint1" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 1994.45, -276.166 )
 
-[node name="Checkpoint2" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint2" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 2469.51, -287.55 )
 
-[node name="Checkpoint3" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint3" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 2886.93, -329.292 )
 
-[node name="Checkpoint4" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint4" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 3440.97, -340.677 )
 
-[node name="Checkpoint5" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint5" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 4017.77, -306.524 )
 
-[node name="Checkpoint6" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint6" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 4325.69, -291.345 )
 
-[node name="Checkpoint7" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint7" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 4645.83, -291.345 )
 
-[node name="Checkpoint8" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint8" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 4936.16, -291.345 )
 
-[node name="Checkpoint9" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint9" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 5242.71, -291.345 )
 
-[node name="Checkpoint10" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint10" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 5552.65, -291.345 )
 
-[node name="Checkpoint15" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint15" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 7677.27, -355.856 )
 
-[node name="Checkpoint20" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint20" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 6160.94, -293.592 )
 
-[node name="Checkpoint21" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint21" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 6770.94, -293.592 )
 
-[node name="Checkpoint22" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint22" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 7380.94, -293.592 )
 
-[node name="Checkpoint16" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint16" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 8897.85, -549.389 )
 
-[node name="Checkpoint17" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint17" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 9704.9, -704.403 )
 
-[node name="Checkpoint18" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint18" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 11067.2, -913.12 )
 
-[node name="Checkpoint19" parent="." instance=ExtResource( 13 )]
+[node name="Checkpoint19" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 12478.9, -913.12 )
 
@@ -2558,3 +2564,4 @@ transform/pos = Vector2( 12478.9, -913.12 )
 [editable path="press_space"]
 [editable path="crystal"]
 [editable path="press_e"]
+[editable path="press_q"]
