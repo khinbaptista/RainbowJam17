@@ -187,12 +187,12 @@ func set_speed(speed):
 ########## Color stuff
 
 func advertise_colors():
-	if colors_learned & 2:	emit_signal("new_color_learned", 2)	# red
-	if colors_learned & 4:	emit_signal("new_color_learned", 4)	# orange
-	if colors_learned & 8:	emit_signal("new_color_learned", 8)	# yellow
-	if colors_learned & 16:	emit_signal("new_color_learned", 16)	# green
-	if colors_learned & 32:	emit_signal("new_color_learned", 32)	# blue
-	if colors_learned & 64:	emit_signal("new_color_learned", 64)	# purple
+	if colors_learned & 2:  emit_signal("new_color_learned", 2)   # red
+	if colors_learned & 4:  emit_signal("new_color_learned", 4)   # orange
+	if colors_learned & 8:  emit_signal("new_color_learned", 8)   # yellow
+	if colors_learned & 16: emit_signal("new_color_learned", 16)  # green
+	if colors_learned & 32: emit_signal("new_color_learned", 32)  # blue
+	if colors_learned & 64: emit_signal("new_color_learned", 64)  # purple
 
 func knows_color(color):
 	return colors_learned & color

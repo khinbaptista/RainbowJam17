@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Character/Player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Colors/ring.tscn" type="PackedScene" id=3]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node
+
+func _ready():
+	pass#set_process_input(true)
+
+func _input(event):
+	if event.is_action_pressed(\"beams\"):
+		print(\"spawn\")
+		get_node(\"player/ring\").spawn()
+"
+
+[node name="Node2D" type="Node"]
+
+script/script = SubResource( 1 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+
+colors_learned = 2
+
+[node name="platform" parent="." instance=ExtResource( 2 )]
+
+[node name="platform1" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 421.216, 19.5266 )
+color_alignment = 1
+
+[node name="ring" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 443.532, -91.4741 )
+
+
+[editable path="platform1"]

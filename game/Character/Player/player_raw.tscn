@@ -84,21 +84,19 @@
 [ext_resource path="res://Character/sprites/dash-down/008.png" type="Texture" id=82]
 [ext_resource path="res://Character/sprites/dash-down/007.png" type="Texture" id=83]
 [ext_resource path="res://Character/sprites/dash-right/000.png" type="Texture" id=84]
-[ext_resource path="res://Tools/groundcheck.tscn" type="PackedScene" id=85]
-[ext_resource path="res://Character/interaction.gd" type="Script" id=86]
-[ext_resource path="res://Sounds/Music.tscn" type="PackedScene" id=87]
-[ext_resource path="res://Particles/round.png" type="Texture" id=88]
-[ext_resource path="res://Character/actions/action_move.gd" type="Script" id=89]
-[ext_resource path="res://Character/actions/action_dash.gd" type="Script" id=90]
-[ext_resource path="res://Character/states/player_fsm.gd" type="Script" id=91]
-[ext_resource path="res://Character/states/idle.gd" type="Script" id=92]
-[ext_resource path="res://Character/states/move.gd" type="Script" id=93]
-[ext_resource path="res://Character/states/dash.gd" type="Script" id=94]
-[ext_resource path="res://Character/states/dash-stop.gd" type="Script" id=95]
-[ext_resource path="res://Character/states/dead.gd" type="Script" id=96]
-[ext_resource path="res://Character/states/respawn.gd" type="Script" id=97]
-[ext_resource path="res://Character/states/falling.gd" type="Script" id=98]
-[ext_resource path="res://Character/states/stopped.gd" type="Script" id=99]
+[ext_resource path="res://Character/interaction.gd" type="Script" id=85]
+[ext_resource path="res://Sounds/Music.tscn" type="PackedScene" id=86]
+[ext_resource path="res://Character/actions/action_move.gd" type="Script" id=87]
+[ext_resource path="res://Character/actions/action_dash.gd" type="Script" id=88]
+[ext_resource path="res://Character/states/player_fsm.gd" type="Script" id=89]
+[ext_resource path="res://Character/states/idle.gd" type="Script" id=90]
+[ext_resource path="res://Character/states/move.gd" type="Script" id=91]
+[ext_resource path="res://Character/states/dash.gd" type="Script" id=92]
+[ext_resource path="res://Character/states/dash-stop.gd" type="Script" id=93]
+[ext_resource path="res://Character/states/dead.gd" type="Script" id=94]
+[ext_resource path="res://Character/states/respawn.gd" type="Script" id=95]
+[ext_resource path="res://Character/states/falling.gd" type="Script" id=96]
+[ext_resource path="res://Character/states/stopped.gd" type="Script" id=97]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -280,6 +278,50 @@ animations = [ {
 "speed": 1.0
 } ]
 
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 34.1707
+
+[sub_resource type="GDScript" id=5]
+
+script/source = "extends Area2D
+
+onready var player = get_parent()
+
+func _ready():
+	set_fixed_process(true)
+
+func _fixed_process(delta):
+	var overlap = get_overlapping_areas()
+
+	var ground = []
+	var standing_colors = []
+
+	for area in overlap:
+		if area.is_in_group(\"positive_beam\"):
+			if area.get_parent().is_inside(self): # check if inside hole
+				standing_colors.append(area.get_parent().color_string)
+		elif area.is_in_group(\"ground\"):
+			ground.append(area)
+
+	if ground.empty():
+		player.grounded = false
+		return
+
+	for tile in ground:
+		if not tile.has_method(\"get_color\"):
+			player.grounded = true
+			return
+
+		var color = tile.get_color()
+		if color in standing_colors:
+			player.grounded = true
+			return
+		player.grounded = false
+		return
+"
+
 [sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
@@ -342,7 +384,25 @@ z/z = 2
 frames = SubResource( 2 )
 animation = "idle"
 
-[node name="groundcheck" parent="." instance=ExtResource( 85 )]
+[node name="groundcheck" type="Area2D" parent="."]
+
+visibility/visible = false
+transform/scale = Vector2( 0.55, 0.35 )
+input/pickable = true
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="groundcheck"]
+
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
 
 [node name="interaction_reach" type="Area2D" parent="."]
 
@@ -356,7 +416,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 86 )
+script/script = ExtResource( 85 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_reach"]
 
@@ -379,50 +439,15 @@ wait_time = 0.1
 one_shot = true
 autostart = false
 
-[node name="SamplePlayer2D" parent="." instance=ExtResource( 87 )]
-
-[node name="background_particles" type="Particles2D" parent="."]
-
-visibility/opacity = 0.6
-transform/pos = Vector2( -320, -738 )
-transform/scale = Vector2( 2, 2 )
-z/z = -3
-config/amount = 200
-config/lifetime = 8.0
-config/preprocess = 8.0
-config/process_mode = 1
-config/half_extents = Vector2( 800, 350 )
-config/local_space = false
-config/texture = ExtResource( 88 )
-params/direction = 45.0
-params/spread = 30.0
-params/linear_velocity = 50.0
-params/spin_velocity = 0.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 0.0
-params/gravity_strength = 0.0
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 0.5
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-randomness/direction = 0.3
-randomness/spread = 0.3
-randomness/linear_velocity = -0.4
-randomness/damping = 0.2
-randomness/initial_size = 0.3
-randomness/final_size = -0.2
-color/color = Color( 0.773438, 0.773438, 0.773438, 1 )
+[node name="SamplePlayer2D" parent="." instance=ExtResource( 86 )]
 
 [node name="Actions" type="Node" parent="."]
 
+editor/display_folded = true
+
 [node name="move" type="Node" parent="Actions"]
 
-script/script = ExtResource( 89 )
+script/script = ExtResource( 87 )
 enabled = true
 player_path = NodePath("../..")
 speed = 350
@@ -432,7 +457,7 @@ multiplier = 1
 [node name="dash" type="Node" parent="Actions"]
 
 editor/display_folded = true
-script/script = ExtResource( 90 )
+script/script = ExtResource( 88 )
 enabled = true
 player_path = NodePath("../..")
 dash_speed = 800
@@ -450,68 +475,69 @@ autostart = false
 
 [node name="FSM" type="Node" parent="."]
 
-script/script = ExtResource( 91 )
+editor/display_folded = true
+script/script = ExtResource( 89 )
 
 [node name="idle" type="Node" parent="FSM"]
 
-script/script = ExtResource( 92 )
+script/script = ExtResource( 90 )
 player_sprite = NodePath("../../Sprite")
 wait_time = 2.0
 
 [node name="move-begin" type="Node" parent="FSM"]
 
-script/script = ExtResource( 93 )
+script/script = ExtResource( 91 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 stage = "begin"
 
 [node name="move-loop" type="Node" parent="FSM"]
 
-script/script = ExtResource( 93 )
+script/script = ExtResource( 91 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 stage = "loop"
 
 [node name="move-stop" type="Node" parent="FSM"]
 
-script/script = ExtResource( 93 )
+script/script = ExtResource( 91 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 stage = "stop"
 
 [node name="dash" type="Node" parent="FSM"]
 
-script/script = ExtResource( 94 )
+script/script = ExtResource( 92 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 dash_action = NodePath("../../Actions/dash")
 
 [node name="dash-stop" type="Node" parent="FSM"]
 
-script/script = ExtResource( 95 )
+script/script = ExtResource( 93 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 
 [node name="dead" type="Node" parent="FSM"]
 
-script/script = ExtResource( 96 )
+script/script = ExtResource( 94 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 
 [node name="respawn" type="Node" parent="FSM"]
 
-script/script = ExtResource( 97 )
+script/script = ExtResource( 95 )
 player_sprite = NodePath("../../Sprite")
 
 [node name="falling" type="Node" parent="FSM"]
 
-script/script = ExtResource( 98 )
+script/script = ExtResource( 96 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 
 [node name="stopped" type="Node" parent="FSM"]
 
-script/script = ExtResource( 99 )
+script/script = ExtResource( 97 )
 player_sprite = NodePath("../../Sprite")
 
 [connection signal="timeout" from="timer_idle" to="Sprite" method="play" binds= [ "idle" ]]

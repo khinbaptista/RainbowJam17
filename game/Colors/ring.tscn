@@ -1,0 +1,243 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://Colors/radial_mask_16x9.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D
+
+##################################################
+##################################################
+
+onready var positive = get_node(\"positive\")
+onready var negative = get_node(\"negative\")
+onready var sprite   = get_node(\"sprite\")
+onready var mask     = get_node(\"mask\")
+onready var anim     = get_node(\"anim\")
+
+##################################################
+
+export(String, \"Red\", \"Orange\", \"Yellow\", \"Green\", \"Blue\", \"Purple\") var color_string = \"Red\" setget set_color
+var color_index
+var color_mask
+
+##################################################
+
+export(float) var scale_speed = 5.0
+export(float) var duration = 5.0
+var timer
+var fading
+
+##################################################
+
+export(Color) var red_color
+export(Color) var orange_color
+export(Color) var yellow_color
+export(Color) var green_color
+export(Color) var blue_color
+export(Color) var purple_color
+var colors = {}
+
+##################################################
+########## Functions (tool + gameplay)
+
+func _ready():
+	update_colors()
+
+func update_colors():
+	colors.red    = red_color
+	colors.orange = orange_color
+	colors.yellow = yellow_color
+	colors.green  = green_color
+	colors.blue   = blue_color
+	colors.purple = purple_color
+
+	sprite.set_modulate(colors[color_string.to_lower()])
+	mask.set_item_mask(color_mask)
+	positive.set_layer_mask(color_mask)
+	negative.set_layer_mask(color_mask)
+
+func set_color(string):
+	color_string = string
+	color_index = Globals.get(\"Beams/\" + color_string)
+	color_mask = Globals.get(\"Beams/\" + color_string + \"Mask\")
+
+##################################################
+########## Gameplay functions
+
+func spawn():
+	timer = 0.0
+	fading = false
+	anim.play(\"spawn\")
+	set_process(true)
+
+func _process(delta):
+	var ratio = scale_speed * delta
+	set_scale(get_scale() + Vector2(ratio, ratio))
+	#scale(Vector2(ratio, ratio))
+
+	if not fading:
+		timer += delta
+		if timer >= duration:
+			despawn()
+
+func despawn():
+	fading = true
+
+	anim.play(\"despawn\")
+	yield(anim, \"finished\")
+
+	set_process(false)
+	if is_inside_tree() and not is_queued_for_deletion():
+		queue_free()
+
+func is_inside(body):
+	return body in positive.get_overlapping_bodies() and \\
+		not body in negative.get_overlapping_bodies()
+
+##################################################
+##################################################
+"
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 7.55229
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 4.00921
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "despawn"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="ring" type="Node2D"]
+
+transform/pos = Vector2( 0, -58 )
+script/script = SubResource( 1 )
+color_string = "Red"
+scale_speed = 5.0
+duration = 5.0
+red_color = Color( 0.945312, 0.387726, 0.387726, 0.543137 )
+orange_color = Color( 0.9375, 0.597038, 0.296631, 0.553294 )
+yellow_color = Color( 0.902344, 0.893367, 0.327805, 0.507608 )
+green_color = Color( 0.446866, 0.945312, 0.343414, 0.578667 )
+blue_color = Color( 0.372925, 0.585833, 0.917969, 0.614196 )
+purple_color = Color( 0.742476, 0.364685, 0.933594, 0.629412 )
+
+[node name="sprite" type="Sprite" parent="."]
+
+visibility/light_mask = 0
+transform/scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+modulate = Color( 0.742476, 0.364685, 0.933594, 0.629412 )
+
+[node name="mask" type="Light2D" parent="."]
+
+transform/scale = Vector2( 0.7, 0.7 )
+enabled = true
+editor_only = false
+texture = ExtResource( 1 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 3
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 64
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="positive" type="Area2D" parent="." groups=[
+"positive_beam",
+]]
+
+editor/display_folded = true
+visibility/visible = false
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="positive"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="negative" type="Area2D" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="negative"]
+
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/despawn = SubResource( 4 )
+anims/spawn = SubResource( 5 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+

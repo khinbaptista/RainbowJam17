@@ -1,0 +1,169 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://Character/Player/player_raw.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Particles/round.png" type="Texture" id=2]
+[ext_resource path="res://Viewports/empty_mask.png" type="Texture" id=3]
+[ext_resource path="res://Colors/ring.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node
+
+export(PackedScene) var ring_scene
+export(float, 0.0, 60.0, 0.1) var wait_time = 0.5
+
+onready var player = get_parent()
+
+var position
+var colors
+
+var timer
+var counter
+
+func _ready():
+	set_process_input(true)
+
+func _input(event):
+	if event.is_action_pressed(\"beams\") and not event.is_echo():
+		spawn()
+
+func spawn():
+	if timer: return
+	position = player.get_global_pos()
+	colors = player.colors_learned
+	counter = 1
+
+	timer = Timer.new()
+	timer.set_one_shot(false)
+	timer.set_autostart(true)
+	timer.set_wait_time(wait_time)
+	timer.connect(\"timeout\", self, \"_spawn\")
+	add_child(timer)
+	_spawn()
+
+func mask2string(mask):
+	if mask == 2:  return \"Red\"
+	if mask == 4:  return \"Orange\"
+	if mask == 8:  return \"Yellow\"
+	if mask == 16: return \"Green\"
+	if mask == 32: return \"Blue\"
+	if mask == 64: return \"Purple\"
+
+func _spawn():
+	var color_mask = 1 << counter
+
+	while not colors & color_mask and counter <= 6:
+		counter += 1
+		color_mask = 1 << counter
+
+	if counter > 6:
+		timer.stop()
+		timer.queue_free()
+		timer = null
+		return
+
+	var color_string = mask2string(color_mask)
+	var ring = ring_scene.instance()
+	ring.color_string = color_string
+	add_child(ring)
+	ring.spawn()
+
+	counter += 1
+"
+
+[node name="player" instance=ExtResource( 1 )]
+
+[node name="particles_background" type="Particles2D" parent="."]
+
+visibility/opacity = 0.6
+transform/pos = Vector2( -320, -738 )
+transform/scale = Vector2( 2, 2 )
+z/z = -3
+config/amount = 200
+config/lifetime = 8.0
+config/preprocess = 8.0
+config/process_mode = 1
+config/half_extents = Vector2( 800, 350 )
+config/local_space = false
+config/texture = ExtResource( 2 )
+params/direction = 45.0
+params/spread = 30.0
+params/linear_velocity = 50.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 0.5
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 0.3
+randomness/spread = 0.3
+randomness/linear_velocity = -0.4
+randomness/damping = 0.2
+randomness/initial_size = 0.3
+randomness/final_size = -0.2
+color/color = Color( 0.773438, 0.773438, 0.773438, 1 )
+
+[node name="camera" type="Camera2D" parent="."]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="mask_background" type="Light2D" parent="camera"]
+
+visibility/visible = false
+transform/scale = Vector2( 0.722214, 1.18277 )
+enabled = true
+editor_only = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 3
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 126
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="spawner" type="Node" parent="."]
+
+script/script = SubResource( 1 )
+ring_scene = ExtResource( 4 )
+wait_time = 0.5
+
+[node name="Timer" type="Timer" parent="spawner"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+
