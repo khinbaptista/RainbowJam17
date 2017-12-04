@@ -59,7 +59,7 @@ transform/pos = Vector2( -112.26, -6.78512 )
 transform/scale = Vector2( 0.27, 0.27 )
 frames = SubResource( 3 )
 animation = "default"
-modulate = Color( 1, 0.728271, 0.34375, 1 )
+modulate = Color( 0.945313, 1, 0, 1 )
 
 [node name="green" type="AnimatedSprite" parent="."]
 
@@ -67,7 +67,7 @@ transform/pos = Vector2( 118.055, -10.8663 )
 transform/scale = Vector2( 0.27, 0.27 )
 frames = SubResource( 3 )
 animation = "default"
-modulate = Color( 1, 0.728271, 0.34375, 1 )
+modulate = Color( 0.148438, 1, 0, 1 )
 
 [node name="blue" type="AnimatedSprite" parent="."]
 
@@ -75,7 +75,7 @@ transform/pos = Vector2( -133.422, 151.494 )
 transform/scale = Vector2( 0.27, 0.27 )
 frames = SubResource( 3 )
 animation = "default"
-modulate = Color( 1, 0.728271, 0.34375, 1 )
+modulate = Color( 0.0078125, 0, 1, 1 )
 
 [node name="purple" type="AnimatedSprite" parent="."]
 
@@ -83,6 +83,6 @@ transform/pos = Vector2( 137.105, 144.928 )
 transform/scale = Vector2( 0.27, 0.27 )
 frames = SubResource( 3 )
 animation = "default"
-modulate = Color( 1, 0.728271, 0.34375, 1 )
+modulate = Color( 0.265625, 0, 1, 1 )
 
 
