@@ -23,18 +23,67 @@ script/script = SubResource( 1 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 
-colors_learned = 2
+colors_learned = 126
 
 [node name="platform" parent="." instance=ExtResource( 2 )]
 
-[node name="platform1" parent="." instance=ExtResource( 2 )]
+[node name="platform1" parent="." groups=[
+"color",
+] instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 421.216, 19.5266 )
-color_alignment = 1
+transform/pos = Vector2( 361.996, -23.0376 )
+color_string = "Red"
+
+[node name="platform2" parent="." groups=[
+"color",
+] instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 248.424, -311.979 )
+color_string = "Orange"
+
+[node name="platform3" parent="." groups=[
+"color",
+] instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -112.336, -320.33 )
+color_string = "Yellow"
+
+[node name="platform4" parent="." groups=[
+"color",
+] instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -377.895, -56.4412 )
+color_string = "Green"
+
+[node name="platform5" parent="." groups=[
+"color",
+] instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -297.726, 334.382 )
+color_string = "Blue"
+
+[node name="platform6" parent="." groups=[
+"color",
+] instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 193.308, 316.009 )
+color_string = "Purple"
 
 [node name="ring" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 443.532, -91.4741 )
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 806.648, -425.867 )
+transform/scale = Vector2( 10, 10 )
+
+[node name="mask" parent="ring"]
+
+range/item_mask = 2
+
+[node name="negative" parent="ring"]
+
+collision/layers = 2
+collision/mask = 2
 
 
-[editable path="platform1"]
+[editable path="ring"]

@@ -3,73 +3,8 @@
 [ext_resource path="res://Character/Player/player_raw.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Particles/round.png" type="Texture" id=2]
 [ext_resource path="res://Viewports/empty_mask.png" type="Texture" id=3]
-[ext_resource path="res://Colors/ring.tscn" type="PackedScene" id=4]
-
-[sub_resource type="GDScript" id=1]
-
-script/source = "extends Node
-
-export(PackedScene) var ring_scene
-export(float, 0.0, 60.0, 0.1) var wait_time = 0.5
-
-onready var player = get_parent()
-
-var position
-var colors
-
-var timer
-var counter
-
-func _ready():
-	set_process_input(true)
-
-func _input(event):
-	if event.is_action_pressed(\"beams\") and not event.is_echo():
-		spawn()
-
-func spawn():
-	if timer: return
-	position = player.get_global_pos()
-	colors = player.colors_learned
-	counter = 1
-
-	timer = Timer.new()
-	timer.set_one_shot(false)
-	timer.set_autostart(true)
-	timer.set_wait_time(wait_time)
-	timer.connect(\"timeout\", self, \"_spawn\")
-	add_child(timer)
-	_spawn()
-
-func mask2string(mask):
-	if mask == 2:  return \"Red\"
-	if mask == 4:  return \"Orange\"
-	if mask == 8:  return \"Yellow\"
-	if mask == 16: return \"Green\"
-	if mask == 32: return \"Blue\"
-	if mask == 64: return \"Purple\"
-
-func _spawn():
-	var color_mask = 1 << counter
-
-	while not colors & color_mask and counter <= 6:
-		counter += 1
-		color_mask = 1 << counter
-
-	if counter > 6:
-		timer.stop()
-		timer.queue_free()
-		timer = null
-		return
-
-	var color_string = mask2string(color_mask)
-	var ring = ring_scene.instance()
-	ring.color_string = color_string
-	add_child(ring)
-	ring.spawn()
-
-	counter += 1
-"
+[ext_resource path="res://Colors/spawner.gd" type="Script" id=4]
+[ext_resource path="res://Colors/ring.tscn" type="PackedScene" id=5]
 
 [node name="player" instance=ExtResource( 1 )]
 
@@ -155,15 +90,8 @@ shadow/item_mask = 1
 
 [node name="spawner" type="Node" parent="."]
 
-script/script = SubResource( 1 )
-ring_scene = ExtResource( 4 )
-wait_time = 0.5
-
-[node name="Timer" type="Timer" parent="spawner"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
+script/script = ExtResource( 4 )
+ring_scene = ExtResource( 5 )
+wait_time = 1.5
 
 

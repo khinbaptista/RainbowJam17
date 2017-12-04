@@ -128,7 +128,7 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
-color_alignment = 0
+color_string = "Normal"
 active = true
 use_timers = false
 destructible = false
@@ -178,12 +178,10 @@ autostart = false
 
 [connection signal="area_enter" from="." to="." method="_on_platform_area_enter"]
 
-[connection signal="area_exit" from="." to="." method="_on_platform_area_exit"]
-
 [connection signal="timeout" from="timer_on" to="." method="destroy"]
 
-[connection signal="timeout" from="timer_off" to="timer_on" method="start"]
-
 [connection signal="timeout" from="timer_off" to="." method="spawn"]
+
+[connection signal="timeout" from="timer_off" to="timer_on" method="start"]
 
 

@@ -8,20 +8,20 @@
 [ext_resource path="res://Character/sprites/idle/003.png" type="Texture" id=6]
 [ext_resource path="res://Character/sprites/idle/004.png" type="Texture" id=7]
 [ext_resource path="res://Character/sprites/idle/005.png" type="Texture" id=8]
-[ext_resource path="res://Character/sprites/walk-up/000.png" type="Texture" id=9]
-[ext_resource path="res://Character/sprites/walk-up/001.png" type="Texture" id=10]
-[ext_resource path="res://Character/sprites/walk-up/002.png" type="Texture" id=11]
-[ext_resource path="res://Character/sprites/walk-up/003.png" type="Texture" id=12]
-[ext_resource path="res://Character/sprites/walk-up/004.png" type="Texture" id=13]
-[ext_resource path="res://Character/sprites/walk-up/005.png" type="Texture" id=14]
-[ext_resource path="res://Character/sprites/run-down/001.png" type="Texture" id=15]
+[ext_resource path="res://Character/sprites/run-down/009.png" type="Texture" id=9]
+[ext_resource path="res://Character/sprites/run-down/000.png" type="Texture" id=10]
+[ext_resource path="res://Character/sprites/run-down/001.png" type="Texture" id=11]
+[ext_resource path="res://Character/sprites/dash-right/003.png" type="Texture" id=12]
+[ext_resource path="res://Character/sprites/dash-right/004.png" type="Texture" id=13]
+[ext_resource path="res://Character/sprites/dash-right/002.png" type="Texture" id=14]
+[ext_resource path="res://Character/sprites/dash-right/001.png" type="Texture" id=15]
 [ext_resource path="res://Character/sprites/run-up/000.png" type="Texture" id=16]
-[ext_resource path="res://Character/sprites/run-down/009.png" type="Texture" id=17]
-[ext_resource path="res://Character/sprites/run-down/000.png" type="Texture" id=18]
-[ext_resource path="res://Character/sprites/dash-right/001.png" type="Texture" id=19]
-[ext_resource path="res://Character/sprites/dash-right/002.png" type="Texture" id=20]
-[ext_resource path="res://Character/sprites/dash-right/003.png" type="Texture" id=21]
-[ext_resource path="res://Character/sprites/dash-right/004.png" type="Texture" id=22]
+[ext_resource path="res://Character/sprites/walk-up/000.png" type="Texture" id=17]
+[ext_resource path="res://Character/sprites/walk-up/001.png" type="Texture" id=18]
+[ext_resource path="res://Character/sprites/walk-up/002.png" type="Texture" id=19]
+[ext_resource path="res://Character/sprites/walk-up/003.png" type="Texture" id=20]
+[ext_resource path="res://Character/sprites/walk-up/004.png" type="Texture" id=21]
+[ext_resource path="res://Character/sprites/walk-up/005.png" type="Texture" id=22]
 [ext_resource path="res://Character/sprites/run-right/008.png" type="Texture" id=23]
 [ext_resource path="res://Character/sprites/dash-right/005.png" type="Texture" id=24]
 [ext_resource path="res://Character/sprites/dash-right/008.png" type="Texture" id=25]
@@ -112,12 +112,22 @@ animations = [ {
 "name": "idle",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "walk-up-loop",
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "respawn",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "dash-right-loop",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "dash-right-begin",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 11 ) ],
 "loop": false,
 "name": "walk-down-begin",
 "speed": 8.0
@@ -127,29 +137,19 @@ animations = [ {
 "name": "walk-up-begin",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 18 ) ],
-"loop": false,
-"name": "respawn",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "dash-right-begin",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": true,
-"name": "dash-right-loop",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 23 ) ],
-"loop": false,
-"name": "walk-right-begin",
+"name": "walk-up-loop",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 23 ) ],
 "loop": false,
 "name": "walk-right-stop",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "walk-right-begin",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 25 ) ],
@@ -167,7 +167,7 @@ animations = [ {
 "name": "run-down-loop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 33 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 33 ), ExtResource( 33 ) ],
 "loop": false,
 "name": "run-down-begin",
 "speed": 8.0
@@ -177,7 +177,7 @@ animations = [ {
 "name": "dash-down-loop",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "run-down-stop",
 "speed": 8.0
@@ -262,7 +262,7 @@ animations = [ {
 "name": "walk-down-loop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": false,
 "name": "walk-down-stop",
 "speed": 8.0
@@ -278,12 +278,12 @@ animations = [ {
 "speed": 1.0
 } ]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 34.1707
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=4]
 
 script/source = "extends Area2D
 
@@ -322,7 +322,7 @@ func _fixed_process(delta):
 		return
 "
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=5]
 
 custom_solver_bias = 0.0
 radius = 104.86
@@ -389,18 +389,18 @@ animation = "idle"
 visibility/visible = false
 transform/scale = Vector2( 0.55, 0.35 )
 input/pickable = true
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = SubResource( 5 )
+script/script = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="groundcheck"]
 
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -409,7 +409,7 @@ _update_shape_index = 0
 editor/display_folded = true
 visibility/visible = false
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -72 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -421,7 +421,7 @@ script/script = ExtResource( 85 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_reach"]
 
 transform/pos = Vector2( 0, -72 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 0
 
