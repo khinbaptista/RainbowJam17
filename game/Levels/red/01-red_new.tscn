@@ -711,7 +711,7 @@ custom_solver_bias = 0.0
 a = Vector2( -4.05936, 1114.02 )
 b = Vector2( 1430.72, 348.809 )
 
-[sub_resource type="CapsuleShape2D" id=206]
+[sub_resource type="CapsuleShape2D" id=122]
 
 custom_solver_bias = 0.0
 radius = 240.435
@@ -1182,7 +1182,6 @@ duration_on = 0.5
 [node name="platform9" parent="platforms" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( -969.583, -2898.65 )
-color_alignment = 1
 duration_on = 0.5
 
 [node name="platform10" parent="platforms" instance=ExtResource( 2 )]
@@ -1360,7 +1359,7 @@ duration_off = 2.0
 [node name="platform37" parent="platforms" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( -138.14, -8250.39 )
-color_alignment = 1
+color_string = "Red"
 duration_on = 2.0
 duration_off = 2.0
 
@@ -1393,7 +1392,6 @@ duration_off = 2.0
 [node name="platform42" parent="platforms" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( -1376.16, -6510.39 )
-color_alignment = 1
 duration_on = 2.0
 duration_off = 2.0
 
@@ -1420,7 +1418,6 @@ duration_off = 2.0
 [node name="platform46" parent="platforms" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( -861.186, -5715.91 )
-color_alignment = 1
 duration_on = 2.0
 duration_off = 2.0
 
@@ -1439,7 +1436,6 @@ duration_off = 2.0
 [node name="platform49" parent="platforms" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( -1184.95, -5174.22 )
-color_alignment = 1
 duration_on = 2.0
 duration_off = 2.0
 
@@ -1473,7 +1469,6 @@ duration_off = 2.0
 [node name="platform54" parent="platforms" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( -1884.49, -2902.48 )
-color_alignment = 1
 duration_on = 2.0
 duration_off = 2.0
 
@@ -2576,6 +2571,7 @@ transform/pos = Vector2( 1122.19, 3999.31 )
 "ground",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 113.987, -4507.02 )
 transform/scale = Vector2( 0.23, 0.23 )
 input/pickable = true
@@ -2815,9 +2811,10 @@ _update_shape_index = 0
 
 [node name="move_camera" type="Area2D" parent="island3"]
 
+editor/display_folded = true
 transform/pos = Vector2( 3116.43, -1230.66 )
 input/pickable = true
-shapes/0/shape = SubResource( 206 )
+shapes/0/shape = SubResource( 122 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 276.601, -740.898 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -2832,7 +2829,7 @@ wait_time = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="island3/move_camera"]
 
 transform/pos = Vector2( 276.601, -740.898 )
-shape = SubResource( 206 )
+shape = SubResource( 122 )
 trigger = false
 _update_shape_index = 0
 
@@ -3465,7 +3462,7 @@ editor/display_folded = true
 
 [node name="sprite1" parent="crystal/sprite"]
 
-frame = 6
+frame = 4
 
 [node name="Enemies" type="YSort" parent="."]
 
@@ -3534,12 +3531,6 @@ editor/display_folded = true
 transform/pos = Vector2( 393.287, -1501.38 )
 transform/rot = 90.0
 transform/scale = Vector2( 2.23609, 7.9375 )
-
-[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 3 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 1361.91, -1391.6 )
-transform/scale = Vector2( 2.85995, 2.35458 )
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource( 3 )]
 
@@ -3659,12 +3650,6 @@ transform/scale = Vector2( 2.89209, 2.37379 )
 
 editor/display_folded = true
 transform/pos = Vector2( -1183.88, -5463.1 )
-transform/scale = Vector2( 2.89209, 2.37379 )
-
-[node name="Checkpoint15" parent="Checkpoints" instance=ExtResource( 3 )]
-
-editor/display_folded = true
-transform/pos = Vector2( -1664.96, -6771.86 )
 transform/scale = Vector2( 2.89209, 2.37379 )
 
 [node name="Coins" type="Node2D" parent="."]

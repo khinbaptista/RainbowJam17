@@ -11,7 +11,7 @@ var waiting = false
 
 onready var target = get_node("target")
 onready var player = get_node(Globals.get("player_path"))
-onready var camera = player.get_node("Camera2D")
+onready var camera = player.get_node("camera")
 
 signal finished
 

@@ -1,13 +1,11 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Iris (Continuous Loop).wav" type="Sample" id=3]
 [ext_resource path="res://Sounds/dash1.wav" type="Sample" id=4]
-[ext_resource path="res://Character/player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Viewports/all_masks.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Levels/red/01-red_new.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Viewports/BeamManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Character/Player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/red/01-red_new.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -39,7 +37,7 @@ script/script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
 
-transform/pos = Vector2( 421.179, -5162.03 )
+transform/pos = Vector2( 432.94, -5237.74 )
 transform/scale = Vector2( 152.303, 180.328 )
 z/z = -3
 texture = ExtResource( 2 )
@@ -64,42 +62,13 @@ default/chorus_send = 0.0
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( -4.9231, -275.966 )
-
-[node name="Camera2D" type="Camera2D" parent="player"]
-
-editor/display_folded = true
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 1, 1 )
-limit/left = -10000000
-limit/top = -10000000
-limit/right = 10000000
-limit/bottom = 10000000
-drag_margin/h_enabled = true
-drag_margin/v_enabled = true
-smoothing/enable = true
-smoothing/speed = 7.0
-drag_margin/left = 0.2
-drag_margin/top = 0.1
-drag_margin/right = 0.2
-drag_margin/bottom = 0.1
-
-[node name="all_masks" parent="player/Camera2D" instance=ExtResource( 6 )]
-
-transform/scale = Vector2( 0.15, 0.3 )
+transform/pos = Vector2( -6.12451, -267.998 )
 
 [node name="navigation" type="Navigation2D" parent="."]
 
+editor/display_folded = true
 script/script = SubResource( 2 )
 
-[node name="red" parent="navigation" instance=ExtResource( 7 )]
-
-[node name="BeamManager" parent="." instance=ExtResource( 8 )]
-
-transform/rot = 1.0
-speed = 0.4
-scale_to_appear = 0.18
+[node name="red" parent="navigation" instance=ExtResource( 6 )]
 
 
