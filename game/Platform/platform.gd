@@ -13,9 +13,6 @@ var activated = true
 
 func set_color(color):
 	.set_color(color)
-
-	set_layer_mask(color_mask)
-	set_collision_mask(color_mask)
 	if sprite: sprite.set_light_mask(color_mask)
 
 func _ready():
@@ -34,8 +31,6 @@ func _ready():
 
 	if color_string != "Normal":	# has a color
 		sprite.hide()
-		set_collision_mask_bit(0, false)
-		set_layer_mask_bit(0, false)
 	elif active:
 		spawn()
 	else:
@@ -44,8 +39,6 @@ func _ready():
 func _process(delta):
 	if sprite.get_animation().basename() == "destroy" and sprite.get_frame() == sprite.get_sprite_frames().get_frame_count("destroy")-1:
 		sprite.hide()
-		set_collision_mask_bit(0, false)
-		set_layer_mask_bit(0, false)
 
 func color_revealed():	# called from the group by the beam manager when the player learns the color
 	spawn()
@@ -54,10 +47,7 @@ func spawn():
 	sprite.show()
 	sprite.play("spawn")
 	anim.play_backwards("destroy_collider")
-
-	set_collision_mask_bit(0, true)
-	set_layer_mask_bit(0, true)
-
+	
 	if destructible:
 		activated = false
 		yield(anim, "finished")
@@ -74,7 +64,7 @@ func _on_platform_area_enter( area ):
 		var player = area.get_parent()
 		if not player.is_connected("death", self, "spawn"):
 			player.connect("death", self, "spawn")
-
+		
 		get_node("timer_on").set_wait_time(duration_on)
 		get_node("timer_on").start()
 		activated = true

@@ -2,6 +2,7 @@ extends Node
 
 export(PackedScene) var ring_scene
 export(float, 0.0, 60.0, 0.1) var wait_time = 0.5
+export(Vector2) var offset = Vector2()
 
 onready var player = get_parent()
 
@@ -25,11 +26,11 @@ func spawn():
 	if timer:
 		timer.stop()
 		timer = null
-
-	position = player.get_global_pos()
+	
+	position = player.get_global_pos() + offset
 	colors = player.colors_learned
 	counter = 1
-
+	
 	timer = Timer.new()
 	timer.set_one_shot(false)
 	timer.set_autostart(true)

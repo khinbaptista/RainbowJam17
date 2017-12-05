@@ -50,11 +50,12 @@ func update_colors():
 
 	sprite.set_modulate(colors[color_string.to_lower()])
 	mask.set_item_mask(color_mask)
-
-	positive.set_layer_mask(color_mask | Globals.get("Beams/NormalMask"))
-	negative.set_layer_mask(color_mask | Globals.get("Beams/NormalMask"))
-	positive.set_collision_mask(color_mask | Globals.get("Beams/NormalMask"))
-	negative.set_collision_mask(color_mask | Globals.get("Beams/NormalMask"))
+	
+#	var mask = color_mask | Globals.get("Beams/NormalMask")
+#	positive.set_layer_mask(mask)
+#	negative.set_layer_mask(mask)
+#	positive.set_collision_mask(mask)
+#	negative.set_collision_mask(mask)
 
 func set_color(string):
 	color_string = string
@@ -73,8 +74,7 @@ func spawn():
 func _process(delta):
 	var ratio = scale_speed * ease(min(timer / full_speed_timer, 1.0), ease_speed) * delta
 	set_scale(get_scale() + Vector2(ratio, ratio))
-	#scale(Vector2(ratio, ratio))
-
+	
 	if not fading:
 		timer += delta
 		if timer >= duration:
@@ -83,6 +83,8 @@ func _process(delta):
 func despawn():
 	if fading: return
 	fading = true
+	
+	positive.fade()
 
 	anim.play("despawn")
 	yield(anim, "finished")
@@ -92,8 +94,9 @@ func despawn():
 		queue_free()
 
 func is_inside(body):
-	return body in positive.get_overlapping_bodies() and \
-		not body in negative.get_overlapping_bodies()
+	var in_pos = body in positive.get_overlapping_bodies() or body in positive.get_overlapping_areas()
+	var in_not = body in negative.get_overlapping_bodies() or body in negative.get_overlapping_areas()
+	return in_pos and not in_not
 
 ##################################################
 ##################################################

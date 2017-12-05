@@ -180,8 +180,8 @@ autostart = false
 
 [connection signal="timeout" from="timer_on" to="." method="destroy"]
 
-[connection signal="timeout" from="timer_off" to="." method="spawn"]
-
 [connection signal="timeout" from="timer_off" to="timer_on" method="start"]
+
+[connection signal="timeout" from="timer_off" to="." method="spawn"]
 
 
