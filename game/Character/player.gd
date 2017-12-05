@@ -18,6 +18,7 @@ var dashing = false  # is the player dashing?
 var grounded = false # is the player standing on ground?
 var dead = false     # is the player dead?
 var falling = false  # is the player falling?
+var hasting = false  # is the player using the haste upgrade?
 
 ########## Variables for death
 
@@ -31,6 +32,7 @@ export var fall_speed = 350
 
 var coins = 0
 var moveDir = "down"		# the direction in which the player is moving (animation)
+var haste_ratio = 1.5		# haste upgrade ratio to increase player speed
 
 ########## Nodes
 
@@ -87,6 +89,8 @@ func _input(event):
 		get_node("/root/loader").change_scene("res://Menu/start_menu.tscn")
 	elif event.is_action_pressed("dash") and not event.is_echo():
 		dash(last_movement)
+	#elif event.is_action_pressed("haste") and not event.is_echo():
+		#haste()
 
 func _process(delta):
 	if not grounded and not fall_timer_counting() and not dashing and not dead and not falling:
@@ -183,6 +187,15 @@ func get_walking_slow():
 
 func set_speed(speed):
 	get_node("Actions/move").speed = speed
+	
+func multiply_speed(ratio):
+	get_node("Actions/move").speed *= ratio
+	
+########## Upgrades
+
+func haste():
+	multiply_speed(haste_ratio)
+	hasting = true
 
 ########## Color stuff
 
