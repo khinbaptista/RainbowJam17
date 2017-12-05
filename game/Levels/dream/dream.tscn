@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://Levels/dream/dream.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Iris (Continuous Loop).wav" type="Sample" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Tools/press_e.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Tools/press_q.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Monument/Monument.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -113,6 +114,7 @@ script/script = ExtResource( 1 )
 
 [node name="background_layer" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = -2
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -2437,6 +2439,7 @@ transform/pos = Vector2( 13812.6, -908.04 )
 
 [node name="effect_layer" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 5
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -2558,6 +2561,10 @@ transform/pos = Vector2( 11067.2, -913.12 )
 [node name="Checkpoint19" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 12478.9, -913.12 )
+
+[node name="Monument" parent="." instance=ExtResource( 15 )]
+
+transform/pos = Vector2( -862.296, -436.697 )
 
 
 [editable path="BeamManager"]
