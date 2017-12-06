@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=1]
+[gd_scene load_steps=103 format=1]
 
 [ext_resource path="res://Character/player.gd" type="Script" id=1]
 [ext_resource path="res://Character/sprites/shadow.png" type="Texture" id=2]
@@ -89,16 +89,15 @@
 [ext_resource path="res://Sounds/Music.tscn" type="PackedScene" id=87]
 [ext_resource path="res://Character/actions/action_move.gd" type="Script" id=88]
 [ext_resource path="res://Character/actions/action_dash.gd" type="Script" id=89]
-[ext_resource path="res://Character/actions/action_haste.gd" type="Script" id=90]
-[ext_resource path="res://Character/states/player_fsm.gd" type="Script" id=91]
-[ext_resource path="res://Character/states/idle.gd" type="Script" id=92]
-[ext_resource path="res://Character/states/move.gd" type="Script" id=93]
-[ext_resource path="res://Character/states/dash.gd" type="Script" id=94]
-[ext_resource path="res://Character/states/dash-stop.gd" type="Script" id=95]
-[ext_resource path="res://Character/states/dead.gd" type="Script" id=96]
-[ext_resource path="res://Character/states/respawn.gd" type="Script" id=97]
-[ext_resource path="res://Character/states/falling.gd" type="Script" id=98]
-[ext_resource path="res://Character/states/stopped.gd" type="Script" id=99]
+[ext_resource path="res://Character/states/player_fsm.gd" type="Script" id=90]
+[ext_resource path="res://Character/states/idle.gd" type="Script" id=91]
+[ext_resource path="res://Character/states/move.gd" type="Script" id=92]
+[ext_resource path="res://Character/states/dash.gd" type="Script" id=93]
+[ext_resource path="res://Character/states/dash-stop.gd" type="Script" id=94]
+[ext_resource path="res://Character/states/dead.gd" type="Script" id=95]
+[ext_resource path="res://Character/states/respawn.gd" type="Script" id=96]
+[ext_resource path="res://Character/states/falling.gd" type="Script" id=97]
+[ext_resource path="res://Character/states/stopped.gd" type="Script" id=98]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -434,85 +433,70 @@ wait_time = 0.4
 one_shot = true
 autostart = false
 
-[node name="haste" type="Node" parent="Actions"]
-
-script/script = ExtResource( 90 )
-enabled = true
-player_path = NodePath("../..")
-haste_ratio = 5
-haste_duration = 10
-
-[node name="cooldown" type="Timer" parent="Actions/haste"]
-
-process_mode = 1
-wait_time = 5.0
-one_shot = false
-autostart = false
-
 [node name="FSM" type="Node" parent="."]
 
-script/script = ExtResource( 91 )
+script/script = ExtResource( 90 )
 
 [node name="idle" type="Node" parent="FSM"]
 
-script/script = ExtResource( 92 )
+script/script = ExtResource( 91 )
 player_sprite = NodePath("../../Sprite")
 wait_time = 2.0
 
 [node name="move-begin" type="Node" parent="FSM"]
 
-script/script = ExtResource( 93 )
+script/script = ExtResource( 92 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 stage = "begin"
 
 [node name="move-loop" type="Node" parent="FSM"]
 
-script/script = ExtResource( 93 )
+script/script = ExtResource( 92 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 stage = "loop"
 
 [node name="move-stop" type="Node" parent="FSM"]
 
-script/script = ExtResource( 93 )
+script/script = ExtResource( 92 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 stage = "stop"
 
 [node name="dash" type="Node" parent="FSM"]
 
-script/script = ExtResource( 94 )
+script/script = ExtResource( 93 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 dash_action = NodePath("../../Actions/dash")
 
 [node name="dash-stop" type="Node" parent="FSM"]
 
-script/script = ExtResource( 95 )
+script/script = ExtResource( 94 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 
 [node name="dead" type="Node" parent="FSM"]
 
-script/script = ExtResource( 96 )
+script/script = ExtResource( 95 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 
 [node name="respawn" type="Node" parent="FSM"]
 
-script/script = ExtResource( 97 )
+script/script = ExtResource( 96 )
 player_sprite = NodePath("../../Sprite")
 
 [node name="falling" type="Node" parent="FSM"]
 
-script/script = ExtResource( 98 )
+script/script = ExtResource( 97 )
 player_path = NodePath("../..")
 player_sprite = NodePath("../../Sprite")
 
 [node name="stopped" type="Node" parent="FSM"]
 
-script/script = ExtResource( 99 )
+script/script = ExtResource( 98 )
 player_sprite = NodePath("../../Sprite")
 
 [connection signal="timeout" from="timer_idle" to="Sprite" method="play" binds= [ "idle" ]]
