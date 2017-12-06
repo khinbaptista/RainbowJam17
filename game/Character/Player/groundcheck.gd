@@ -9,6 +9,7 @@ func _fixed_process(delta):
 	var overlap = get_overlapping_areas()
 	var ground = []
 	var standing_colors = []
+	var over_enemy_beam = false
 	
 	for area in overlap:
 		if area.is_in_group("positive_beam"):
@@ -16,6 +17,8 @@ func _fixed_process(delta):
 				standing_colors.append(area.get_parent().color_string)
 		elif area.is_in_group("ground"):
 			ground.append(area)
+		elif area.is_in_group("enemy_beam"):
+			over_enemy_beam = true
 	
 	if ground.empty():
 		player.grounded = false
@@ -30,6 +33,10 @@ func _fixed_process(delta):
 		
 		if color == "Normal":
 			player.grounded = true
+			return
+		
+		if over_enemy_beam:
+			player.grounded = false
 			return
 		
 		if color in standing_colors:

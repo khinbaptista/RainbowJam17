@@ -5,15 +5,7 @@ extends Node2D
 
 onready var positive = get_node("positive")
 onready var negative = get_node("negative")
-onready var sprite   = get_node("sprite")
-onready var mask     = get_node("mask")
 onready var anim     = get_node("anim")
-
-##################################################
-
-export(String, "Red", "Orange", "Yellow", "Green", "Blue", "Purple") var color_string = "Red" setget set_color
-var color_index
-var color_mask
 
 ##################################################
 
@@ -23,44 +15,6 @@ export(float) var full_speed_timer = 5.0
 export(float) var duration = 5.0
 var timer
 var fading
-
-##################################################
-
-export(Color) var red_color
-export(Color) var orange_color
-export(Color) var yellow_color
-export(Color) var green_color
-export(Color) var blue_color
-export(Color) var purple_color
-var colors = {}
-
-##################################################
-########## Functions (tool + gameplay)
-
-func _ready():
-	update_colors()
-
-func update_colors():
-	colors.red    = red_color
-	colors.orange = orange_color
-	colors.yellow = yellow_color
-	colors.green  = green_color
-	colors.blue   = blue_color
-	colors.purple = purple_color
-
-	sprite.set_modulate(colors[color_string.to_lower()])
-	mask.set_item_mask(color_mask)
-
-#	var mask = color_mask | Globals.get("Beams/NormalMask")
-#	positive.set_layer_mask(mask)
-#	negative.set_layer_mask(mask)
-#	positive.set_collision_mask(mask)
-#	negative.set_collision_mask(mask)
-
-func set_color(string):
-	color_string = string
-	color_index = Globals.get("Beams/" + color_string)
-	color_mask = Globals.get("Beams/" + color_string + "Mask")
 
 ##################################################
 ########## Gameplay functions
@@ -84,7 +38,7 @@ func despawn():
 	if fading: return
 	fading = true
 	
-	positive.fade()
+	#positive.fade()
 	
 	anim.play("despawn")
 	yield(anim, "finished")
