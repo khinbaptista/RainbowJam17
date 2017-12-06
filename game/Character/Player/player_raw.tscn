@@ -11,17 +11,17 @@
 [ext_resource path="res://Character/sprites/run-down/009.png" type="Texture" id=9]
 [ext_resource path="res://Character/sprites/run-down/000.png" type="Texture" id=10]
 [ext_resource path="res://Character/sprites/run-down/001.png" type="Texture" id=11]
-[ext_resource path="res://Character/sprites/dash-down/005.png" type="Texture" id=12]
-[ext_resource path="res://Character/sprites/dash-down/008.png" type="Texture" id=13]
-[ext_resource path="res://Character/sprites/dash-down/007.png" type="Texture" id=14]
-[ext_resource path="res://Character/sprites/dash-right/000.png" type="Texture" id=15]
-[ext_resource path="res://Character/sprites/dash-right/001.png" type="Texture" id=16]
-[ext_resource path="res://Character/sprites/dash-right/002.png" type="Texture" id=17]
-[ext_resource path="res://Character/sprites/dash-right/003.png" type="Texture" id=18]
-[ext_resource path="res://Character/sprites/dash-right/004.png" type="Texture" id=19]
-[ext_resource path="res://Character/sprites/death-up/003.png" type="Texture" id=20]
-[ext_resource path="res://Character/sprites/death-up/004.png" type="Texture" id=21]
-[ext_resource path="res://Character/sprites/death-up/005.png" type="Texture" id=22]
+[ext_resource path="res://Character/sprites/dash-right/001.png" type="Texture" id=12]
+[ext_resource path="res://Character/sprites/dash-right/002.png" type="Texture" id=13]
+[ext_resource path="res://Character/sprites/dash-down/005.png" type="Texture" id=14]
+[ext_resource path="res://Character/sprites/dash-down/008.png" type="Texture" id=15]
+[ext_resource path="res://Character/sprites/dash-down/007.png" type="Texture" id=16]
+[ext_resource path="res://Character/sprites/dash-right/000.png" type="Texture" id=17]
+[ext_resource path="res://Character/sprites/death-up/003.png" type="Texture" id=18]
+[ext_resource path="res://Character/sprites/death-up/004.png" type="Texture" id=19]
+[ext_resource path="res://Character/sprites/death-up/005.png" type="Texture" id=20]
+[ext_resource path="res://Character/sprites/dash-right/003.png" type="Texture" id=21]
+[ext_resource path="res://Character/sprites/dash-right/004.png" type="Texture" id=22]
 [ext_resource path="res://Character/sprites/run-up/000.png" type="Texture" id=23]
 [ext_resource path="res://Character/sprites/run-up/002.png" type="Texture" id=24]
 [ext_resource path="res://Character/sprites/run-right/006.png" type="Texture" id=25]
@@ -119,7 +119,12 @@ animations = [ {
 "name": "respawn",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "dash-right-begin",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 15 ) ],
 "loop": false,
 "name": "dash-down-stop",
 "speed": 8.0
@@ -134,25 +139,20 @@ animations = [ {
 "name": "walk-down-stop",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": false,
 "name": "stopped",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": false,
-"name": "dash-right-begin",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "dash-right-loop",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "death-up",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "dash-right-loop",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 24 ) ],
 "loop": false,
