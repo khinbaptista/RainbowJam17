@@ -1,13 +1,34 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
-[ext_resource path="res://Colors/ring.gd" type="Script" id=1]
+[ext_resource path="res://Colors/enemy_ring.gd" type="Script" id=1]
 [ext_resource path="res://Colors/radial_mask.png" type="Texture" id=2]
-[ext_resource path="res://Colors/ring_bound.gd" type="Script" id=3]
+
+[sub_resource type="CanvasItemShader" id=5]
+
+_code = {
+"fragment": "color to_grayscale(color c) {
+	float v = 0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b;
+	return color(v, v, v, c.a);
+}
+
+COLOR = to_grayscale(vec4(texscreen(SCREEN_UV), tex(TEXTURE, UV).a));
+",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="CanvasItemMaterial" id=6]
+
+shader/shader = SubResource( 5 )
+shader/shading_mode = 0
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 7.55229
+radius = 7.37729
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -47,54 +68,31 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[node name="ring" type="Node2D"]
+[node name="enemy_ring" type="Node2D"]
 
-z/z = 3
+z/z = 5
 script/script = ExtResource( 1 )
-color_string = "Red"
 scale_speed = 50.0
 ease_speed = 1.0
 full_speed_timer = 1.0
 duration = 10.0
-red_color = Color( 1, 0, 0.2, 0.113725 )
-orange_color = Color( 1, 0.501961, 0, 0.113725 )
-yellow_color = Color( 1, 0.901961, 0, 0.113725 )
-green_color = Color( 0.101961, 0.701961, 0.301961, 0.113725 )
-blue_color = Color( 0.101961, 0.4, 1, 0.113725 )
-purple_color = Color( 0.501961, 0.101961, 0.701961, 0.113725 )
 
 [node name="sprite" type="Sprite" parent="."]
 
 visibility/light_mask = 0
+material/material = SubResource( 6 )
 transform/scale = Vector2( 0.01, 0.01 )
 texture = ExtResource( 2 )
-modulate = Color( 0.742476, 0.364685, 0.933594, 0.113725 )
 
-[node name="mask" type="Light2D" parent="."]
+[node name="gray" type="Sprite" parent="."]
 
+visibility/light_mask = 0
 transform/scale = Vector2( 0.01, 0.01 )
-enabled = true
-editor_only = false
 texture = ExtResource( 2 )
-offset = Vector2( 0, 0 )
-scale = 1.0
-color = Color( 1, 1, 1, 1 )
-energy = 1.0
-mode = 3
-range/height = 0.0
-range/z_min = -1024
-range/z_max = 1024
-range/layer_min = 0
-range/layer_max = 0
-range/item_mask = 64
-shadow/enabled = false
-shadow/color = Color( 0, 0, 0, 0 )
-shadow/buffer_size = 2048
-shadow/esm_multiplier = 80.0
-shadow/item_mask = 1
+modulate = Color( 0.417969, 0.417969, 0.417969, 0.117647 )
 
 [node name="positive" type="Area2D" parent="." groups=[
-"positive_beam",
+"enemy_beam",
 ]]
 
 visibility/visible = false
@@ -106,7 +104,6 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="positive"]
 

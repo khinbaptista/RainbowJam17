@@ -62,7 +62,7 @@ default/chorus_send = 0.0
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( -6.12451, -267.998 )
+transform/pos = Vector2( 313.436, -8160.29 )
 
 [node name="navigation" type="Navigation2D" parent="."]
 

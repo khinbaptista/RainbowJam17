@@ -50,7 +50,7 @@ func update_colors():
 
 	sprite.set_modulate(colors[color_string.to_lower()])
 	mask.set_item_mask(color_mask)
-	
+
 #	var mask = color_mask | Globals.get("Beams/NormalMask")
 #	positive.set_layer_mask(mask)
 #	negative.set_layer_mask(mask)
@@ -76,19 +76,23 @@ func _process(delta):
 	set_scale(get_scale() + Vector2(ratio, ratio))
 	
 	if not fading:
-		timer += delta
+		timer += delta        # freeze friendly timer!
 		if timer >= duration:
 			despawn()
+
+func set_freeze(freeze):
+	if not fading:
+		set_process(not freeze)
 
 func despawn():
 	if fading: return
 	fading = true
 	
 	positive.fade()
-
+	
 	anim.play("despawn")
 	yield(anim, "finished")
-
+	
 	set_process(false)
 	if is_inside_tree() and not is_queued_for_deletion():
 		queue_free()
