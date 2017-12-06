@@ -26,13 +26,25 @@ script/script = SubResource( 1 )
 transform/pos = Vector2( 2.24274, -1.05917 )
 colors_learned = 126
 
-[node name="haste" parent="player/Actions"]
-
-editor/display_folded = true
-
 [node name="holder" type="Position2D" parent="."]
 
 [node name="platform" parent="." instance=ExtResource( 2 )]
+
+[node name="platform2" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 3.42468, 147.266 )
+
+[node name="platform3" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 0, 291.106 )
+
+[node name="platform4" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 0, 434.947 )
+
+[node name="platform5" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 0, 575.363 )
 
 [node name="red" parent="." groups=[
 "color",
@@ -116,4 +128,3 @@ transform/scale = Vector2( 30.7143, 17.8372 )
 texture = ExtResource( 3 )
 
 
-[editable path="player"]

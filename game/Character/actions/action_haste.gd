@@ -7,27 +7,24 @@ onready var cooldown = get_node("cooldown")
 
 var timer = 0
 
-signal done
-
 func can_execute():
 	return cooldown.get_time_left() == 0 and .can_execute()
 
-func _execute(params):
-	if not can_execute():
-		return
+func _ready():
+	set_process_input(true)
 
+func _input(event):
+	if event.type == InputEvent.KEY:
+		if not event.echo and event.pressed and event.scancode == KEY_C:
+			execute()
+
+func _execute(params):
 	cooldown.start()
-	var delta = get_process_delta_time()
 	player_move.set_multiplier(haste_ratio)
 	
 	timer = 0
 	while timer < haste_duration:
-		timer += delta
+		timer += get_process_delta_time()
+		yield(get_tree(), "idle_frame")
 	timer = 0
 	player_move.set_multiplier(1)
-	emit_signal("done")
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
