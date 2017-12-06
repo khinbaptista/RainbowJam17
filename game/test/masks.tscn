@@ -26,6 +26,10 @@ script/script = SubResource( 1 )
 transform/pos = Vector2( 2.24274, -1.05917 )
 colors_learned = 126
 
+[node name="haste" parent="player/Actions"]
+
+editor/display_folded = true
+
 [node name="holder" type="Position2D" parent="."]
 
 [node name="platform" parent="." instance=ExtResource( 2 )]
@@ -112,3 +116,4 @@ transform/scale = Vector2( 30.7143, 17.8372 )
 texture = ExtResource( 3 )
 
 
+[editable path="player"]
