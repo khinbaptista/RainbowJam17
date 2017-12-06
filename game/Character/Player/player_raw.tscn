@@ -440,7 +440,7 @@ script/script = ExtResource( 90 )
 enabled = true
 player_path = NodePath("../..")
 haste_ratio = 5
-haste_duration = 2.0
+haste_duration = 10
 
 [node name="cooldown" type="Timer" parent="Actions/haste"]
 

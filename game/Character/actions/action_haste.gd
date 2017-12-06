@@ -1,7 +1,7 @@
 extends "action.gd"
 
 export(float) var haste_ratio = 5
-export(float) var haste_duration = 2.0
+export(float) var haste_duration = 10
 onready var player_move = player.get_node("Actions/move")
 onready var cooldown = get_node("cooldown")
 
@@ -15,15 +15,16 @@ func can_execute():
 func _execute(params):
 	if not can_execute():
 		return
-	
+
 	cooldown.start()
 	var delta = get_process_delta_time()
-	player_move.multiplier = haste_ratio
+	player_move.set_multiplier(haste_ratio)
 	
+	timer = 0
 	while timer < haste_duration:
 		timer += delta
 	timer = 0
-	player_move.multiplier = 1
+	player_move.set_multiplier(1)
 	emit_signal("done")
 
 func _ready():

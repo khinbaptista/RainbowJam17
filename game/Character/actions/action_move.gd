@@ -16,3 +16,6 @@ func _execute(direction):
 		var normal = player.get_collision_normal()
 		remaining = remaining.slide(normal)
 		player.move(remaining)
+		
+func set_multiplier(value):
+	multiplier = value
