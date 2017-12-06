@@ -11,11 +11,19 @@
 
 [node name="freeze_beams" type="Node" parent="Actions"]
 
+editor/display_folded = true
 script/script = ExtResource( 2 )
 enabled = true
 player_path = NodePath("../..")
 spawner_path = NodePath("../../spawner")
 freeze_duration = 2.0
+
+[node name="cooldown" type="Timer" parent="Actions/freeze_beams"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = true
+autostart = false
 
 [node name="particles_background" type="Particles2D" parent="."]
 
@@ -103,5 +111,7 @@ script/script = ExtResource( 5 )
 ring_scene = ExtResource( 6 )
 wait_time = 1.0
 offset = Vector2( 0, -60 )
+
+[connection signal="timeout" from="Actions/freeze_beams/cooldown" to="Actions/freeze_beams" method="set_action_enabled" binds= [ true ]]
 
 

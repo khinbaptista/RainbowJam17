@@ -12,4 +12,7 @@ func _input(event):
 			execute()
 
 func _execute(params):
+	self.set_action_enabled(false) # wait cooldown
+	get_node("cooldown").start()
 	get_node(spawner_path).freeze(freeze_duration)
+

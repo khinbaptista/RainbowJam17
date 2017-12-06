@@ -5,6 +5,9 @@ export(bool) var enabled = true
 export(NodePath) var player_path = @"../.."
 onready var player = get_node(player_path)
 
+func set_action_enabled(value):
+	enabled = value
+
 func can_execute():
 	return enabled
 
