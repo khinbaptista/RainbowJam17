@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Character/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=3]
-[ext_resource path="res://Colors/enemy_ring.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Colors/ring.tscn" type="PackedScene" id=5]
 
 [sub_resource type="GDScript" id=1]
 
@@ -25,7 +23,7 @@ script/script = SubResource( 1 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 1092.87, -34.4628 )
+transform/pos = Vector2( 2.24274, -1.05917 )
 colors_learned = 126
 
 [node name="holder" type="Position2D" parent="."]
@@ -112,15 +110,5 @@ scale = Vector2( 1, 1 )
 transform/pos = Vector2( 814.415, 448.028 )
 transform/scale = Vector2( 30.7143, 17.8372 )
 texture = ExtResource( 3 )
-
-[node name="enemy_ring" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 897.82, -10.7477 )
-transform/scale = Vector2( 18.1163, 18.1163 )
-
-[node name="ring" parent="." instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 663.663, -131.238 )
-transform/scale = Vector2( 69.2351, 69.2351 )
 
 

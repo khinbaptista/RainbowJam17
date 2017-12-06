@@ -12,6 +12,8 @@ var colors
 var timer
 var counter
 
+var freeze_timer
+
 func _ready():
 	set_process_input(true)
 
@@ -25,6 +27,7 @@ func spawn():
 			child.despawn()
 	if timer:
 		timer.stop()
+		timer.queue_free()
 		timer = null
 	
 	position = player.get_global_pos() + offset
@@ -49,22 +52,49 @@ func mask2string(mask):
 
 func _spawn():
 	var color_mask = 1 << counter
-
+	
 	while not colors & color_mask and counter <= 6:
 		counter += 1
 		color_mask = 1 << counter
-
+	
 	if counter > 6:
 		timer.stop()
 		timer.queue_free()
 		timer = null
 		return
-
+	
 	var color_string = mask2string(color_mask)
 	var ring = ring_scene.instance()
 	ring.color_string = color_string
 	add_child(ring)
 	ring.set_global_pos(position)
 	ring.spawn()
-
+	
 	counter += 1
+
+func freeze(duration):
+	if freeze_timer:
+		freeze_timer.stop()
+		freeze_timer.queue_free()
+		freeze_timer = null
+	
+	freeze_timer = Timer.new()
+	freeze_timer.set_one_shot(true)
+	freeze_timer.set_autostart(true)
+	freeze_timer.set_wait_time(duration)
+	
+	for child in get_children():
+		if child.has_method("set_freeze"):
+			child.set_freeze(true)
+	
+	if timer: timer.stop()
+	add_child(freeze_timer)
+	yield(freeze_timer, "timeout")
+	if timer: timer.start()
+	
+	for child in get_children():
+		if child.has_method("set_freeze"):
+			child.set_freeze(false)
+	
+	freeze_timer.queue_free()
+	freeze_timer = null

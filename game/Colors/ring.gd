@@ -76,9 +76,13 @@ func _process(delta):
 	set_scale(get_scale() + Vector2(ratio, ratio))
 	
 	if not fading:
-		timer += delta
+		timer += delta        # freeze friendly timer!
 		if timer >= duration:
 			despawn()
+
+func set_freeze(freeze):
+	if not fading:
+		set_process(not freeze)
 
 func despawn():
 	if fading: return
