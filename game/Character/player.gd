@@ -39,6 +39,7 @@ var haste_ratio = 1.5		# haste upgrade ratio to increase player speed
 onready var sound = get_node("SamplePlayer2D")
 onready var timer_fall = get_node("timer_fall")
 onready var move_action = get_node("Actions/move")
+onready var haste_action = get_node("Actions/haste")
 
 ########## Helper funcs
 
@@ -89,8 +90,8 @@ func _input(event):
 		get_node("/root/loader").change_scene("res://Menu/start_menu.tscn")
 	elif event.is_action_pressed("dash") and not event.is_echo():
 		dash(last_movement)
-	#elif event.is_action_pressed("haste") and not event.is_echo():
-		#haste()
+	elif event.is_action_pressed("haste") and not event.is_echo():
+		haste()
 
 func _process(delta):
 	if not grounded and not fall_timer_counting() and not dashing and not dead and not falling:
@@ -188,15 +189,18 @@ func get_walking_slow():
 func set_speed(speed):
 	get_node("Actions/move").speed = speed
 	
-func multiply_speed(ratio):
-	get_node("Actions/move").speed *= ratio
-	
 ########## Upgrades
 
 func haste():
-	multiply_speed(haste_ratio)
+	if hasting: return
+	
 	hasting = true
-
+	
+	if haste_action.execute():
+		yield(haste_action, "done")
+		
+	hasting = false
+	
 ########## Color stuff
 
 func advertise_colors():
