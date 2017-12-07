@@ -3188,7 +3188,7 @@ playing = true
 [node name="Birds" parent="island5/Animals/Path2D/PathFollow2D"]
 
 visibility/visible = false
-frame = 3
+frame = 9
 
 [node name="flora45" parent="island5" instance=ExtResource( 7 )]
 
@@ -3460,62 +3460,48 @@ crystal_color = 1
 
 editor/display_folded = true
 
-[node name="sprite1" parent="crystal/sprite"]
-
-frame = 4
-
 [node name="Enemies" type="YSort" parent="."]
 
-editor/display_folded = true
 sort/enabled = true
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 189.797, -4275.08 )
-transform/scale = Vector2( 0.23, 0.23 )
 can_move = false
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 320.659, -4316.59 )
-transform/scale = Vector2( 0.23, 0.23 )
 can_move = false
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 258.958, -4142.64 )
-transform/scale = Vector2( 0.23, 0.23 )
 can_move = false
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 626.985, -3675.01 )
-transform/scale = Vector2( 0.23, 0.23 )
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 1025.11, -3463.46 )
-transform/scale = Vector2( 0.23, 0.23 )
 
 [node name="Enemy6" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 753.071, -3842.84 )
-transform/scale = Vector2( 0.23, 0.23 )
 
 [node name="Enemy7" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 170.111, -4582.88 )
-transform/scale = Vector2( 0.23, 0.23 )
 
 [node name="Enemy9" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 420.329, -4673.32 )
-transform/scale = Vector2( 0.23, 0.23 )
 
 [node name="Enemy11" parent="Enemies" instance=ExtResource( 32 )]
 
 transform/pos = Vector2( 685.62, -5056.18 )
-transform/scale = Vector2( 0.23, 0.23 )
 
 [node name="Checkpoints" type="Node2D" parent="."]
 

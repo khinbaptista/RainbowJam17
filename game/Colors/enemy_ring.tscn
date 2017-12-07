@@ -41,7 +41,7 @@ length = 0.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:visibility/opacity")
+tracks/0/path = NodePath("gray:visibility/opacity")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
@@ -73,13 +73,14 @@ tracks/0/keys = {
 
 z/z = 5
 script/script = ExtResource( 1 )
-scale_speed = 50.0
+scale_speed = 70.0
 ease_speed = 1.0
 full_speed_timer = 1.0
-duration = 10.0
+duration = 3.0
 
 [node name="sprite" type="Sprite" parent="."]
 
+visibility/opacity = 0.0
 visibility/light_mask = 0
 material/material = SubResource( 2 )
 transform/scale = Vector2( 0.01, 0.01 )
