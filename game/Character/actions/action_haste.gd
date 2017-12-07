@@ -5,6 +5,8 @@ export(float) var haste_duration = 10
 onready var player_move = player.get_node("Actions/move")
 onready var cooldown = get_node("cooldown")
 
+signal done
+
 var timer = 0
 
 func can_execute():
@@ -20,11 +22,13 @@ func _input(event):
 
 func _execute(params):
 	cooldown.start()
-	player_move.set_multiplier(haste_ratio)
+	player_move.multiplier += haste_ratio
 	
 	timer = 0
 	while timer < haste_duration:
 		timer += get_process_delta_time()
 		yield(get_tree(), "idle_frame")
 	timer = 0
-	player_move.set_multiplier(1)
+	player_move.multiplier -= haste_ratio
+	
+	emit_signal("done")

@@ -6,6 +6,8 @@ export(Vector2) var offset = Vector2()
 
 onready var player = get_parent()
 
+signal spawning_beams
+
 var position
 var colors
 
@@ -40,6 +42,8 @@ func spawn():
 	timer.set_wait_time(wait_time)
 	timer.connect("timeout", self, "_spawn")
 	add_child(timer)
+	
+	emit_signal("spawning_beams")
 	_spawn()
 
 func mask2string(mask):

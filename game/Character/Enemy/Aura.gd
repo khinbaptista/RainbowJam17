@@ -26,21 +26,25 @@ func on_body_enter(body):
 
 func on_body_exit(body):
 	if player != null and player == body:
-		player_movement.multiplier = 1
-		player_dash.speed_multiplier = 1
+		player_movement.bonus = 0
+		#player_dash.speed_multiplier = 1
 		player.set_walk_slow(false)
-
+		
 		player = null
 		player_movement = null
 		player_dash = null
-
+		
 		set_fixed_process(false)
 
+export var max_decrement = 200.0
 func _fixed_process(delta):
 	var distance = (player.get_global_pos() - self.get_global_pos()).length()
 	var relative = distance / radius
-
+	
 	if relative < 0.001: relative = 0.001
-
-	player_movement.multiplier = relative
-	player_dash.speed_multiplier = sqrt(relative)
+	
+	var decrement = max_decrement - (relative * max_decrement)
+	
+	player_movement.bonus = -decrement
+	
+	#player_dash.speed_multiplier = sqrt(relative)
