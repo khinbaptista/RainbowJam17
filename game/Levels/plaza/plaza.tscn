@@ -1,0 +1,921 @@
+[gd_scene load_steps=32 format=1]
+
+[ext_resource path="res://Levels/plaza/plaza_module1.png" type="Texture" id=1]
+[ext_resource path="res://Levels/plaza/plaza_module3.png" type="Texture" id=2]
+[ext_resource path="res://Levels/plaza/plaza_module2.png" type="Texture" id=3]
+[ext_resource path="res://Levels/plaza/center.png" type="Texture" id=4]
+[ext_resource path="res://Monument/Monument.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Plants/bush_shadow_no_color.png" type="Texture" id=6]
+[ext_resource path="res://Plants/shadow_no_color.png" type="Texture" id=7]
+[ext_resource path="res://Levels/plaza/1.png" type="Texture" id=8]
+[ext_resource path="res://Levels/plaza/2.png" type="Texture" id=9]
+[ext_resource path="res://Levels/plaza/3.png" type="Texture" id=10]
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1477.68, -108.287, 1499.89, -117.541, 1499.62, 1502.71, -1510.01, 1502.71 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -1504.11, 357.049, -1498.4, -626.794, -1464.07, -621.074, 1477.68, -108.287, -1510.01, 1502.71 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -990.762, -1346.89, -1172.02, -1344.37, -1165.82, -1474.02, -603.096, -1471.66 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -990.762, -1346.89, -603.096, -1471.66, -595.693, -1264.39, -988.245, -1268.84 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1281.51, -644.967, -1172.02, -878.625, -1174.54, -1170.66, -1051.18, -1168.14, -131.188, -966.445 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -1051.18, -1168.14, -1048.67, -1271.36, -988.245, -1268.84 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 337.018, -1210.73, 982.801, -1244.93, 1381.45, -1244.57, 1385.15, -644.967, 1281.51, -644.967, 150.106, -966.445 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1292.62, -545.033, 1477.68, -545.033, 1477.68, -108.287 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1292.62, -545.033, 1477.68, -108.287, -1464.07, -621.074 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1281.51, -644.967, 1292.62, -545.033, -1464.07, -621.074, -1459.02, -883.66, -1172.02, -878.625 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 340.719, -1460.56, 978.596, -1467.79, 982.801, -1244.93, 337.018, -1210.73 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -406.93, -1092.29, -133.039, -1094.14, -131.188, -966.445 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 150.106, -966.445, 153.807, -1210.73, 337.018, -1210.73 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -595.693, -1264.39, -414.333, -1256.99, -406.93, -1092.29, -1051.18, -1168.14, -988.245, -1268.84 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -1051.18, -1168.14, -406.93, -1092.29, -131.188, -966.445 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1281.51, -644.967, -131.188, -966.445, 150.106, -966.445 )
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=18]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=19]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=20]
+
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=21]
+
+custom_solver_bias = 0.0
+extents = Vector2( 34.1678, 25.6979 )
+
+[node name="plaza" type="Node2D"]
+
+[node name="module" type="Area2D" parent="." groups=[
+"ground",
+]]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 4 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 5 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 6 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 7 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 8 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 9 )
+shapes/7/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 10 )
+shapes/8/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/8/trigger = false
+shapes/9/shape = SubResource( 11 )
+shapes/9/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/9/trigger = false
+shapes/10/shape = SubResource( 12 )
+shapes/10/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/10/trigger = false
+shapes/11/shape = SubResource( 13 )
+shapes/11/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/11/trigger = false
+shapes/12/shape = SubResource( 14 )
+shapes/12/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/12/trigger = false
+shapes/13/shape = SubResource( 15 )
+shapes/13/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/13/trigger = false
+shapes/14/shape = SubResource( 16 )
+shapes/14/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/14/trigger = false
+shapes/15/shape = SubResource( 17 )
+shapes/15/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/15/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="sprite" type="AnimatedSprite" parent="module"]
+
+frames = SubResource( 1 )
+animation = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="module"]
+
+visibility/visible = false
+build_mode = 0
+polygon = Vector2Array( -1504.11, 357.049, -1498.4, -626.794, -1464.07, -621.074, -1459.02, -883.66, -1172.02, -878.625, -1174.54, -1170.66, -1051.18, -1168.14, -1048.67, -1271.36, -988.245, -1268.84, -990.762, -1346.89, -1172.02, -1344.37, -1165.82, -1474.02, -603.096, -1471.66, -595.693, -1264.39, -414.333, -1256.99, -406.93, -1092.29, -133.039, -1094.14, -131.188, -966.445, 150.106, -966.445, 153.807, -1210.73, 337.018, -1210.73, 340.719, -1460.56, 978.596, -1467.79, 982.801, -1244.93, 1381.45, -1244.57, 1385.15, -644.967, 1281.51, -644.967, 1292.62, -545.033, 1477.68, -545.033, 1477.68, -108.287, 1499.89, -117.541, 1499.62, 1502.71, -1510.01, 1502.71 )
+shape_range = Vector2( 0, 15 )
+trigger = false
+
+[node name="module1" type="Area2D" parent="." groups=[
+"ground",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( 1648.86, 426.581 )
+transform/rot = -90.0
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 4 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 5 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 6 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 7 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 8 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 9 )
+shapes/7/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 10 )
+shapes/8/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/8/trigger = false
+shapes/9/shape = SubResource( 11 )
+shapes/9/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/9/trigger = false
+shapes/10/shape = SubResource( 12 )
+shapes/10/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/10/trigger = false
+shapes/11/shape = SubResource( 13 )
+shapes/11/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/11/trigger = false
+shapes/12/shape = SubResource( 14 )
+shapes/12/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/12/trigger = false
+shapes/13/shape = SubResource( 15 )
+shapes/13/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/13/trigger = false
+shapes/14/shape = SubResource( 16 )
+shapes/14/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/14/trigger = false
+shapes/15/shape = SubResource( 17 )
+shapes/15/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/15/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="sprite" type="AnimatedSprite" parent="module1"]
+
+frames = SubResource( 18 )
+animation = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="module1"]
+
+visibility/visible = false
+build_mode = 0
+polygon = Vector2Array( -1504.11, 357.049, -1498.4, -626.794, -1464.07, -621.074, -1459.02, -883.66, -1172.02, -878.625, -1174.54, -1170.66, -1051.18, -1168.14, -1048.67, -1271.36, -988.245, -1268.84, -990.762, -1346.89, -1172.02, -1344.37, -1165.82, -1474.02, -603.096, -1471.66, -595.693, -1264.39, -414.333, -1256.99, -406.93, -1092.29, -133.039, -1094.14, -131.188, -966.445, 150.106, -966.445, 153.807, -1210.73, 337.018, -1210.73, 340.719, -1460.56, 978.596, -1467.79, 982.801, -1244.93, 1381.45, -1244.57, 1385.15, -644.967, 1281.51, -644.967, 1292.62, -545.033, 1477.68, -545.033, 1477.68, -108.287, 1499.89, -117.541, 1499.62, 1502.71, -1510.01, 1502.71 )
+shape_range = Vector2( 0, 15 )
+trigger = false
+
+[node name="module2" type="Area2D" parent="." groups=[
+"ground",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( 1245.86, 2836.58 )
+transform/rot = 180.0
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 4 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 5 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 6 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 7 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 8 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 9 )
+shapes/7/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 10 )
+shapes/8/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/8/trigger = false
+shapes/9/shape = SubResource( 11 )
+shapes/9/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/9/trigger = false
+shapes/10/shape = SubResource( 12 )
+shapes/10/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/10/trigger = false
+shapes/11/shape = SubResource( 13 )
+shapes/11/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/11/trigger = false
+shapes/12/shape = SubResource( 14 )
+shapes/12/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/12/trigger = false
+shapes/13/shape = SubResource( 15 )
+shapes/13/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/13/trigger = false
+shapes/14/shape = SubResource( 16 )
+shapes/14/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/14/trigger = false
+shapes/15/shape = SubResource( 17 )
+shapes/15/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/15/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="sprite" type="AnimatedSprite" parent="module2"]
+
+frames = SubResource( 19 )
+animation = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="module2"]
+
+visibility/visible = false
+build_mode = 0
+polygon = Vector2Array( -1504.11, 357.049, -1498.4, -626.794, -1464.07, -621.074, -1459.02, -883.66, -1172.02, -878.625, -1174.54, -1170.66, -1051.18, -1168.14, -1048.67, -1271.36, -988.245, -1268.84, -990.762, -1346.89, -1172.02, -1344.37, -1165.82, -1474.02, -603.096, -1471.66, -595.693, -1264.39, -414.333, -1256.99, -406.93, -1092.29, -133.039, -1094.14, -131.188, -966.445, 150.106, -966.445, 153.807, -1210.73, 337.018, -1210.73, 340.719, -1460.56, 978.596, -1467.79, 982.801, -1244.93, 1381.45, -1244.57, 1385.15, -644.967, 1281.51, -644.967, 1292.62, -545.033, 1477.68, -545.033, 1477.68, -108.287, 1499.89, -117.541, 1499.62, 1502.71, -1510.01, 1502.71 )
+shape_range = Vector2( 0, 15 )
+trigger = false
+
+[node name="module3" type="Area2D" parent="." groups=[
+"ground",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( -956.136, 1616.58 )
+transform/rot = 90.0
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 4 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 5 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 6 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 7 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 8 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 9 )
+shapes/7/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 10 )
+shapes/8/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/8/trigger = false
+shapes/9/shape = SubResource( 11 )
+shapes/9/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/9/trigger = false
+shapes/10/shape = SubResource( 12 )
+shapes/10/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/10/trigger = false
+shapes/11/shape = SubResource( 13 )
+shapes/11/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/11/trigger = false
+shapes/12/shape = SubResource( 14 )
+shapes/12/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/12/trigger = false
+shapes/13/shape = SubResource( 15 )
+shapes/13/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/13/trigger = false
+shapes/14/shape = SubResource( 16 )
+shapes/14/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/14/trigger = false
+shapes/15/shape = SubResource( 17 )
+shapes/15/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/15/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="sprite" type="AnimatedSprite" parent="module3"]
+
+frames = SubResource( 20 )
+animation = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="module3"]
+
+visibility/visible = false
+build_mode = 0
+polygon = Vector2Array( -1504.11, 357.049, -1498.4, -626.794, -1464.07, -621.074, -1459.02, -883.66, -1172.02, -878.625, -1174.54, -1170.66, -1051.18, -1168.14, -1048.67, -1271.36, -988.245, -1268.84, -990.762, -1346.89, -1172.02, -1344.37, -1165.82, -1474.02, -603.096, -1471.66, -595.693, -1264.39, -414.333, -1256.99, -406.93, -1092.29, -133.039, -1094.14, -131.188, -966.445, 150.106, -966.445, 153.807, -1210.73, 337.018, -1210.73, 340.719, -1460.56, 978.596, -1467.79, 982.801, -1244.93, 1381.45, -1244.57, 1385.15, -644.967, 1281.51, -644.967, 1292.62, -545.033, 1477.68, -545.033, 1477.68, -108.287, 1499.89, -117.541, 1499.62, 1502.71, -1510.01, 1502.71 )
+shape_range = Vector2( 0, 15 )
+trigger = false
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 445.13, 755.656 )
+transform/scale = Vector2( 1.28688, 0.583644 )
+texture = ExtResource( 4 )
+
+[node name="Monument" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 434.003, 305.68 )
+transform/scale = Vector2( 2, 2 )
+
+[node name="flora" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 1208.82, 1934.65 )
+transform/scale = Vector2( 0.412924, 0.412924 )
+
+[node name="bush" type="Sprite" parent="flora"]
+
+transform/pos = Vector2( 18.8455, 0 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 6 )
+
+[node name="bush5" type="Sprite" parent="flora"]
+
+transform/pos = Vector2( -5973.72, -6520.22 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 6 )
+
+[node name="bush4" type="Sprite" parent="flora"]
+
+transform/pos = Vector2( 3015.13, 3486.25 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 6 )
+
+[node name="bush1" type="Sprite" parent="flora"]
+
+transform/pos = Vector2( -5012.65, 1243.74 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 6 )
+
+[node name="bush2" type="Sprite" parent="flora"]
+
+transform/pos = Vector2( 891.752, -5672.01 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 6 )
+
+[node name="bush3" type="Sprite" parent="flora"]
+
+transform/pos = Vector2( -7701.37, -3693.33 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 6 )
+
+[node name="houses" type="Node" parent="."]
+
+editor/display_folded = true
+
+[node name="shadow_no_color" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( -51.5366, 2370.67 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="shadow_no_color1" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( -1437.48, 2118.9 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="shadow_no_color2" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( -761.297, 1108.94 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="shadow_no_color3" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( -1675.07, 668.974 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="shadow_no_color4" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 523.507, 3398.23 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="shadow_no_color5" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 1859.69, 1631.69 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="shadow_no_color7" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 1851.07, 293.854 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="shadow_no_color8" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 2185.32, -794.16 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="shadow_no_color9" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 832.884, -708.571 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="shadow_no_color10" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( -322.312, -957.308 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="shadow_no_color11" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( -1070.93, -301.088 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="shadow_no_color6" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 1916.86, 3015.43 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="house1" type="Sprite" parent="houses"]
+
+editor/display_folded = true
+transform/pos = Vector2( 929.549, -617.385 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="houses/house1"]
+
+transform/pos = Vector2( -28.007, -7.11133 )
+transform/scale = Vector2( 5.52946, 4.41599 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house1/StaticBody2D"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+[node name="house4" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 10.2969, 2408.13 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D1" type="StaticBody2D" parent="houses/house4"]
+
+transform/pos = Vector2( -27.4814, -18.0651 )
+transform/scale = Vector2( 5.52946, 4.41599 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house4/StaticBody2D1"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+[node name="house11" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( -1606.46, 734.926 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="houses/house11"]
+
+transform/pos = Vector2( -25.2632, -4.86563 )
+transform/scale = Vector2( 5.52946, 4.41599 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house11/StaticBody2D2"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+[node name="house7" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 1934.63, 1725.13 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="houses/house7"]
+
+transform/pos = Vector2( -23.9846, -8.51477 )
+transform/scale = Vector2( 5.52946, 4.41599 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house7/StaticBody2D3"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+[node name="house2" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 1897.33, 389.284 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="houses/house2"]
+
+transform/pos = Vector2( -23.6939, 12.7592 )
+transform/scale = Vector2( 3.63741, 4.41599 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house2/StaticBody2D4"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+[node name="house8" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 1973.69, 3120.67 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="houses/house8"]
+
+transform/pos = Vector2( -31.6964, -3.59082 )
+transform/scale = Vector2( 3.77213, 4.41599 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house8/StaticBody2D5"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+[node name="house5" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( -246.571, -867.57 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="houses/house5"]
+
+transform/pos = Vector2( -27.4337, 3.44174 )
+transform/scale = Vector2( 3.58942, 4.41599 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house5/StaticBody2D6"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+[node name="house10" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( -699.687, 1180.08 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="houses/house10"]
+
+transform/pos = Vector2( -28.5756, 3.48566 )
+transform/scale = Vector2( 3.89068, 4.41599 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house10/StaticBody2D7"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+[node name="house3" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 2197.81, -747.487 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="houses/house3"]
+
+transform/pos = Vector2( -8.13287, -8.28999 )
+transform/scale = Vector2( 4.7531, 5.45116 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house3/StaticBody2D8"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+[node name="house6" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( -1416.02, 2171.9 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="houses/house6"]
+
+transform/pos = Vector2( -10.0959, -4.52831 )
+transform/scale = Vector2( 4.54849, 5.69926 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house6/StaticBody2D9"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+[node name="house12" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( -1020.9, -253.545 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="houses/house12"]
+
+transform/pos = Vector2( -17.1122, -14.4392 )
+transform/scale = Vector2( 4.54848, 5.36846 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house12/StaticBody2D10"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+[node name="house9" type="Sprite" parent="houses"]
+
+transform/pos = Vector2( 552.617, 3410.9 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="houses/house9"]
+
+transform/pos = Vector2( -15.2483, 9.82556 )
+transform/scale = Vector2( 4.38308, 4.41599 )
+input/pickable = false
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 0.951459, 0, 0, 1.22006, 0.57362, -2.24675 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houses/house9/StaticBody2D11"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.57362, -2.24675 )
+transform/scale = Vector2( 0.951459, 1.22006 )
+shape = SubResource( 21 )
+trigger = false
+_update_shape_index = 0
+
+
