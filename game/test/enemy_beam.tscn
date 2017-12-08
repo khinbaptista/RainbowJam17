@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Character/Player/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Character/Enemy/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Character/Enemy/Enemy2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=4]
 
@@ -49,11 +49,12 @@ enabled = true
 [node name="player" parent="." instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 2.24274, -1.05917 )
-colors_learned = 126
+colors_learned = 48
 
-[node name="Enemy" parent="." instance=ExtResource( 2 )]
+[node name="Enemy2" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 0, 408.489 )
+beam_chance = 1.0
 
 [node name="holder" type="Position2D" parent="."]
 
