@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
-[ext_resource path="res://Character/Player/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=3]
-[ext_resource path="res://Colors/enemy_ring.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Colors/enemy_ring.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Colors/radial_mask.png" type="Texture" id=3]
+[ext_resource path="res://Colors/ring.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=5]
 
 [sub_resource type="GDScript" id=1]
 
@@ -22,101 +23,51 @@ func _input(event):
 
 script/script = SubResource( 1 )
 
-[node name="player" parent="." instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 2.24274, -1.05917 )
-colors_learned = 126
-
-[node name="holder" type="Position2D" parent="."]
-
-[node name="platform" parent="." instance=ExtResource( 2 )]
-
-[node name="platform2" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 3.42468, 147.266 )
-
-[node name="platform3" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 0, 291.106 )
-
-[node name="platform4" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 0, 434.947 )
-
-[node name="platform5" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 0, 575.363 )
-
 [node name="red" parent="." groups=[
 "color",
-] instance=ExtResource( 2 )]
+] instance=ExtResource( 1 )]
 
+editor/display_folded = true
 visibility/light_mask = 2
-transform/pos = Vector2( 1040.09, -2.74597 )
+transform/pos = Vector2( 278.883, 197.73 )
 color_string = "Red"
 
-[node name="orange" parent="." groups=[
-"color",
-] instance=ExtResource( 2 )]
+[node name="sprite" parent="red"]
 
 visibility/light_mask = 2
-transform/pos = Vector2( 691.317, 5.21729 )
-color_string = "Orange"
 
-[node name="yellow" parent="." groups=[
-"color",
-] instance=ExtResource( 2 )]
+[node name="platform" parent="." instance=ExtResource( 1 )]
 
-visibility/light_mask = 2
-transform/pos = Vector2( 336.102, 10.7619 )
-color_string = "Yellow"
+transform/pos = Vector2( 138.655, 87.5715 )
+transform/scale = Vector2( 1, 1 )
 
-[node name="platform1" parent="." instance=ExtResource( 2 )]
+[node name="enemy_ring" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 1372.35, 0 )
+editor/display_folded = true
+transform/pos = Vector2( 192.761, 198.698 )
+transform/scale = Vector2( 20, 20 )
+z/z = 0
 
-[node name="orange1" parent="." groups=[
-"color",
-] instance=ExtResource( 2 )]
+[node name="Sprite" type="Sprite" parent="enemy_ring"]
 
-visibility/light_mask = 2
-transform/pos = Vector2( 1368.22, 271.032 )
-color_string = "Orange"
+visibility/light_mask = 0
+transform/scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 3 )
 
-[node name="red1" parent="." groups=[
-"color",
-] instance=ExtResource( 2 )]
+[node name="ring" parent="." instance=ExtResource( 4 )]
 
-visibility/light_mask = 2
-transform/pos = Vector2( 1052.45, 259.978 )
-color_string = "Red"
+editor/display_folded = true
+transform/pos = Vector2( 403.843, 146.212 )
+transform/scale = Vector2( 20, 20 )
+z/z = 0
 
-[node name="green" parent="." groups=[
-"color",
-] instance=ExtResource( 2 )]
+[node name="mask" parent="ring"]
 
-visibility/light_mask = 2
-transform/pos = Vector2( -208.078, 117.258 )
-color_string = "Green"
-
-[node name="blue" parent="." groups=[
-"color",
-] instance=ExtResource( 2 )]
-
-visibility/light_mask = 2
-transform/pos = Vector2( -208.078, -109.887 )
-color_string = "Blue"
-
-[node name="purple" parent="." groups=[
-"color",
-] instance=ExtResource( 2 )]
-
-visibility/light_mask = 2
-transform/pos = Vector2( 4.03491, -218.449 )
-color_string = "Purple"
+range/item_mask = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = -5
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -126,11 +77,9 @@ scale = Vector2( 1, 1 )
 
 transform/pos = Vector2( 814.415, 448.028 )
 transform/scale = Vector2( 30.7143, 17.8372 )
-texture = ExtResource( 3 )
-
-[node name="enemy_ring" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 11.4202, 156.913 )
-transform/scale = Vector2( 6.18419, 6.18419 )
+texture = ExtResource( 5 )
 
 
+[editable path="red"]
+[editable path="enemy_ring"]
+[editable path="ring"]

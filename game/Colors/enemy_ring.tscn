@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Colors/enemy_ring.gd" type="Script" id=1]
-[ext_resource path="res://Colors/radial_mask.png" type="Texture" id=2]
+[ext_resource path="res://Colors/radial_mask_enemy.png" type="Texture" id=2]
 
 [sub_resource type="CanvasItemShader" id=1]
 
@@ -57,7 +57,7 @@ length = 0.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:visibility/opacity")
+tracks/0/path = NodePath("grayscale_effect:visibility/opacity")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
@@ -78,11 +78,9 @@ ease_speed = 1.0
 full_speed_timer = 1.0
 duration = 3.0
 
-[node name="sprite" type="Sprite" parent="."]
+[node name="white" type="Sprite" parent="."]
 
-visibility/opacity = 0.0
 visibility/light_mask = 0
-material/material = SubResource( 2 )
 transform/scale = Vector2( 0.01, 0.01 )
 texture = ExtResource( 2 )
 
@@ -92,6 +90,14 @@ visibility/light_mask = 0
 transform/scale = Vector2( 0.01, 0.01 )
 texture = ExtResource( 2 )
 modulate = Color( 0.417969, 0.417969, 0.417969, 0.117647 )
+
+[node name="grayscale_effect" type="Sprite" parent="."]
+
+visibility/opacity = 0.0
+visibility/light_mask = 0
+material/material = SubResource( 2 )
+transform/scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 2 )
 
 [node name="positive" type="Area2D" parent="." groups=[
 "enemy_beam",
