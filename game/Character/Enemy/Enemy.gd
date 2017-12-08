@@ -4,8 +4,6 @@ export var can_move = true
 export var move_speed = 80
 export var distance_to_player = 80
 
-export(float, 0, 1, 0.01) var beam_chance = 0.2
-
 onready var player = get_node(Globals.get("player_path"))
 onready var sprite = get_node("sprite/Sprite")
 onready var navigation = get_node(Globals.get("navigation_path"))
@@ -15,10 +13,6 @@ var normalized = 0
 
 var grounded = true
 var moving = false
-
-func _ready():
-	if player.has_node("spawner"):
-		player.get_node("spawner").connect("spawning_beams", self, "spawn_beam_chance")
 
 func _process(delta):
 #	process_direction()
@@ -94,7 +88,3 @@ func process_anim():
 		else:
 			if sprite.get_animation().basename() != "walking-up":
 				sprite.play("walking-up")
-
-func spawn_beam_chance():
-	if randf() > beam_chance: return
-	get_node("spawner").spawn()

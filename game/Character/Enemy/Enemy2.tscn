@@ -1,6 +1,6 @@
-[gd_scene load_steps=32 format=1]
+[gd_scene load_steps=34 format=1]
 
-[ext_resource path="res://Character/Enemy/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Character/Enemy/Enemy2.gd" type="Script" id=1]
 [ext_resource path="res://Character/Enemy/Aura.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Character/Enemy/Sprites/walking-right/000.png" type="Texture" id=3]
 [ext_resource path="res://Character/Enemy/Sprites/walking-right/001.png" type="Texture" id=4]
@@ -28,6 +28,8 @@
 [ext_resource path="res://icon.png" type="Texture" id=26]
 [ext_resource path="res://Character/sprites/shadow.png" type="Texture" id=27]
 [ext_resource path="res://Tools/vibration_radial.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Character/Enemy/beam_spawner.gd" type="Script" id=29]
+[ext_resource path="res://Colors/enemy_ring.tscn" type="PackedScene" id=30]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -73,7 +75,7 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 339.2
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy2" type="KinematicBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -86,6 +88,7 @@ script/script = ExtResource( 1 )
 can_move = true
 move_speed = 80
 distance_to_player = 80
+beam_chance = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -171,6 +174,13 @@ shadow/esm_multiplier = 80.0
 shadow/item_mask = 0
 
 [node name="vibration_radial" parent="." instance=ExtResource( 28 )]
+
+[node name="spawner" type="Node" parent="."]
+
+script/script = ExtResource( 29 )
+ring_scene = ExtResource( 30 )
+wait_time = 0.5
+offset = Vector2( 0, 0 )
 
 [connection signal="body_enter" from="Area2D" to="." method="set_active" binds= [ true ]]
 
