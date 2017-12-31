@@ -1,0 +1,270 @@
+[gd_scene load_steps=17 format=1]
+
+[ext_resource path="res://Menu/start_menu_text.gd" type="Script" id=1]
+[ext_resource path="res://Menu/background.png" type="Texture" id=2]
+[ext_resource path="res://Menu/particle.png" type="Texture" id=3]
+[ext_resource path="res://Menu/Ground+tree.png" type="Texture" id=4]
+[ext_resource path="res://Menu/Frames Idle Menu/000.png" type="Texture" id=5]
+[ext_resource path="res://Menu/Frames Idle Menu/001.png" type="Texture" id=6]
+[ext_resource path="res://Menu/Frames Idle Menu/002.png" type="Texture" id=7]
+[ext_resource path="res://Menu/Frames Idle Menu/003.png" type="Texture" id=8]
+[ext_resource path="res://Menu/Frames Idle Menu/004.png" type="Texture" id=9]
+[ext_resource path="res://Menu/LOGO-IRIS.png" type="Texture" id=10]
+[ext_resource path="res://Sounds/menu.opus" type="AudioStream" id=11]
+[ext_resource path="res://Menu/Bungee-Regular.ttf" type="DynamicFontData" id=12]
+
+[sub_resource type="ColorRamp" id=5]
+
+offsets = FloatArray( 0, 0.303922, 0.656863, 1 )
+colors = ColorArray( 0.780392, 0.368627, 0.745098, 0, 1, 0.447059, 0.741176, 1, 0.878906, 0.377655, 0.718349, 1, 0.554051, 0.181274, 0.644531, 0 )
+
+[sub_resource type="SpriteFrames" id=6]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="DynamicFont" id=7]
+
+font/size = 50
+font/use_mipmaps = true
+font/use_filter = true
+font/font = ExtResource( 12 )
+
+[node name="start_menu" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 1 )
+next_scene = null
+
+[node name="background" type="Sprite" parent="."]
+
+transform/pos = Vector2( 778.45, 448.644 )
+transform/scale = Vector2( 0.833395, 0.833266 )
+texture = ExtResource( 2 )
+offset = Vector2( 25.9175, 2.00104 )
+
+[node name="Particles2D1" type="Particles2D" parent="background"]
+
+transform/pos = Vector2( -538.144, -331.916 )
+config/amount = 10
+config/lifetime = 4.0
+config/time_scale = 0.5
+config/preprocess = 4.0
+config/process_mode = 1
+config/half_extents = Vector2( 500, 500 )
+config/texture = ExtResource( 3 )
+params/direction = 315.0
+params/spread = 40.0
+params/linear_velocity = 100.0
+params/spin_velocity = 2.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 1.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.1
+params/final_size = 0.04
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 1.0
+randomness/spread = 5.0
+randomness/linear_velocity = 0.4
+randomness/gravity_strength = 0.4
+randomness/initial_size = 0.3
+randomness/final_size = -0.1
+color/color = Color( 1, 0.447059, 0.741176, 1 )
+color/color_ramp = SubResource( 5 )
+
+[node name="ground+tree" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 1733.07, 478.385 )
+transform/scale = Vector2( 0.869792, 0.869792 )
+texture = ExtResource( 4 )
+offset = Vector2( -1090, -10 )
+
+[node name="idle" type="AnimatedSprite" parent="ground+tree"]
+
+transform/pos = Vector2( -983.456, 16.873 )
+transform/scale = Vector2( 0.34491, 0.34491 )
+frames = SubResource( 6 )
+animation = "default"
+frame = 9
+playing = true
+offset = Vector2( -11.7238, 117.833 )
+
+[node name="Particles2D" type="Particles2D" parent="ground+tree"]
+
+transform/pos = Vector2( -538.144, -331.916 )
+config/amount = 15
+config/lifetime = 4.0
+config/time_scale = 0.5
+config/preprocess = 4.0
+config/process_mode = 1
+config/half_extents = Vector2( 500, 500 )
+config/texture = ExtResource( 3 )
+params/direction = 315.0
+params/spread = 40.0
+params/linear_velocity = 100.0
+params/spin_velocity = 2.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 1.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.2
+params/final_size = 0.1
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 1.0
+randomness/spread = 5.0
+randomness/linear_velocity = 0.4
+randomness/gravity_strength = 0.4
+randomness/initial_size = 0.3
+randomness/final_size = -0.1
+color/color = Color( 1, 0.447059, 0.741176, 1 )
+color/color_ramp = SubResource( 5 )
+
+[node name="logo" type="Sprite" parent="."]
+
+transform/pos = Vector2( 900, 360 )
+transform/scale = Vector2( 0.856389, 0.856389 )
+texture = ExtResource( 10 )
+offset = Vector2( -130, -160 )
+
+[node name="StreamPlayer" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 11 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="ButtonGroup" type="ButtonGroup" parent="."]
+
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 1
+size_flags/vertical = 2
+margin/left = 180.0
+margin/top = 390.0
+margin/right = -180.0
+margin/bottom = 140.0
+alignment = 1
+
+[node name="Play" type="Button" parent="ButtonGroup"]
+
+focus_neighbour/top = NodePath("../Exit")
+focus_neighbour/bottom = NodePath("../Settings")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 50.0
+margin/right = 360.0
+margin/bottom = 100.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color_disabled = Color( 0.609375, 0.609375, 0.609375, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Play"
+flat = true
+
+[node name="Settings" type="Button" parent="ButtonGroup"]
+
+focus_neighbour/top = NodePath("../Play")
+focus_neighbour/bottom = NodePath("../Exit")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 100.0
+margin/right = 360.0
+margin/bottom = 150.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color_disabled = Color( 0.609375, 0.609375, 0.609375, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Settings"
+flat = true
+
+[node name="Exit" type="Button" parent="ButtonGroup"]
+
+focus_neighbour/top = NodePath("../Settings")
+focus_neighbour/bottom = NodePath("../Play")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 150.0
+margin/right = 360.0
+margin/bottom = 200.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color_disabled = Color( 0.609375, 0.609375, 0.609375, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Exit"
+flat = true
+
+
