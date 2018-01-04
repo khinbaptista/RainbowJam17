@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Character/NPC/sprites/NPC2.png" type="Texture" id=1]
+[ext_resource path="res://Character/press_space.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0089
+height = 17.6876
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="NPC" type="KinematicBody2D"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 11.822, 0, 0, 16.515, 11.3609, 43.0959 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 1 )
+animation = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 11.3609, 43.0959 )
+transform/scale = Vector2( 11.822, 16.515 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="text" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="text"]
+
+visibility/visible = false
+rect/scale = Vector2( 5, 5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -402.0
+margin/top = -372.0
+margin/right = -244.0
+margin/bottom = -358.0
+text = "I like crystals, don't you?"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label1" type="Label" parent="text"]
+
+visibility/visible = false
+rect/scale = Vector2( 5, 5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -602.0
+margin/top = -372.0
+margin/right = -361.0
+margin/bottom = -358.0
+text = "Show me some and we can talk again"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="text"]
+
+visibility/visible = false
+rect/scale = Vector2( 5, 5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -482.0
+margin/top = -372.0
+margin/right = -284.0
+margin/bottom = -358.0
+text = "Oh! These crystals seem great"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="text"]
+
+visibility/visible = false
+rect/scale = Vector2( 5, 5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -512.0
+margin/top = -372.0
+margin/right = -305.0
+margin/bottom = -358.0
+text = "I have something for you, take it"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="press_space" parent="." instance=ExtResource( 2 )]
+
+
+[editable path="press_space"]
