@@ -82,27 +82,30 @@ duration = 3.0
 
 visibility/light_mask = 0
 transform/scale = Vector2( 0.01, 0.01 )
+z/z = -2
 texture = ExtResource( 2 )
 
 [node name="gray" type="Sprite" parent="."]
 
 visibility/light_mask = 0
 transform/scale = Vector2( 0.01, 0.01 )
+z/z = 6
 texture = ExtResource( 2 )
 modulate = Color( 0.417969, 0.417969, 0.417969, 0.117647 )
 
 [node name="grayscale_effect" type="Sprite" parent="."]
 
 visibility/opacity = 0.0
-visibility/light_mask = 0
 material/material = SubResource( 2 )
 transform/scale = Vector2( 0.01, 0.01 )
+z/z = 6
 texture = ExtResource( 2 )
 
 [node name="positive" type="Area2D" parent="." groups=[
 "enemy_beam",
 ]]
 
+editor/display_folded = true
 visibility/visible = false
 input/pickable = true
 shapes/0/shape = SubResource( 3 )
@@ -121,6 +124,7 @@ _update_shape_index = 0
 
 [node name="negative" type="Area2D" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 input/pickable = true
 shapes/0/shape = SubResource( 4 )

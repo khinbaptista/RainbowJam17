@@ -29,9 +29,9 @@ func _ready():
 
 [sub_resource type="NavigationPolygon" id=3]
 
-vertices = Vector2Array( 78.2595, 153.165, 70.7229, 480.258, -70.9671, 475.736, -72.4744, 180.297 )
+vertices = Vector2Array( 77.2504, 364.695, 79.101, 618.229, -72.6497, 610.827, -72.6497, 364.695 )
 polygons = [ IntArray( 0, 1, 2, 3 ) ]
-outlines = [ Vector2Array( -72.4744, 180.297, -70.9671, 475.736, 70.7229, 480.258, 78.2595, 153.165 ) ]
+outlines = [ Vector2Array( -72.6497, 364.695, -72.6497, 610.827, 79.101, 618.229, 77.2504, 364.695 ) ]
 
 [node name="Node" type="Node"]
 
@@ -48,8 +48,8 @@ enabled = true
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 2.24274, -1.05917 )
-colors_learned = 48
+transform/pos = Vector2( 2.24274, 137.737 )
+colors_learned = 16
 
 [node name="Enemy2" parent="." instance=ExtResource( 2 )]
 
@@ -67,6 +67,7 @@ transform/pos = Vector2( 3.42468, 147.266 )
 [node name="platform3" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 0, 291.106 )
+color_string = "Green"
 
 [node name="platform4" parent="." instance=ExtResource( 3 )]
 

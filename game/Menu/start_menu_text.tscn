@@ -13,12 +13,12 @@
 [ext_resource path="res://Sounds/menu.opus" type="AudioStream" id=11]
 [ext_resource path="res://Menu/Bungee-Regular.ttf" type="DynamicFontData" id=12]
 
-[sub_resource type="ColorRamp" id=5]
+[sub_resource type="ColorRamp" id=1]
 
 offsets = FloatArray( 0, 0.303922, 0.656863, 1 )
 colors = ColorArray( 0.780392, 0.368627, 0.745098, 0, 1, 0.447059, 0.741176, 1, 0.878906, 0.377655, 0.718349, 1, 0.554051, 0.181274, 0.644531, 0 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
@@ -27,14 +27,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id=3]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=4]
 
 font/size = 50
 font/use_mipmaps = true
@@ -54,7 +54,7 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 script/script = ExtResource( 1 )
-next_scene = null
+next_scene = "res://Levels/world_new.tscn"
 
 [node name="background" type="Sprite" parent="."]
 
@@ -96,7 +96,7 @@ randomness/gravity_strength = 0.4
 randomness/initial_size = 0.3
 randomness/final_size = -0.1
 color/color = Color( 1, 0.447059, 0.741176, 1 )
-color/color_ramp = SubResource( 5 )
+color/color_ramp = SubResource( 1 )
 
 [node name="ground+tree" type="Sprite" parent="."]
 
@@ -111,9 +111,9 @@ offset = Vector2( -1090, -10 )
 
 transform/pos = Vector2( -983.456, 16.873 )
 transform/scale = Vector2( 0.34491, 0.34491 )
-frames = SubResource( 6 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 9
+frame = 15
 playing = true
 offset = Vector2( -11.7238, 117.833 )
 
@@ -150,7 +150,7 @@ randomness/gravity_strength = 0.4
 randomness/initial_size = 0.3
 randomness/final_size = -0.1
 color/color = Color( 1, 0.447059, 0.741176, 1 )
-color/color_ramp = SubResource( 5 )
+color/color_ramp = SubResource( 1 )
 
 [node name="logo" type="Sprite" parent="."]
 
@@ -198,12 +198,12 @@ margin/left = 0.0
 margin/top = 50.0
 margin/right = 360.0
 margin/bottom = 100.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_disabled = Color( 0.609375, 0.609375, 0.609375, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 toggle_mode = true
@@ -225,12 +225,12 @@ margin/left = 0.0
 margin/top = 100.0
 margin/right = 360.0
 margin/bottom = 150.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_disabled = Color( 0.609375, 0.609375, 0.609375, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 toggle_mode = true
@@ -252,12 +252,12 @@ margin/left = 0.0
 margin/top = 150.0
 margin/right = 360.0
 margin/bottom = 200.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_disabled = Color( 0.609375, 0.609375, 0.609375, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 toggle_mode = true

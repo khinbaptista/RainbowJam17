@@ -6,7 +6,7 @@
 [node name="init" type="Node"]
 
 script/script = ExtResource( 1 )
-first_scene = "res://Menu/start_menu.tscn"
+first_scene = "res://Menu/start_menu_text.tscn"
 
 [node name="background" type="TextureFrame" parent="."]
 

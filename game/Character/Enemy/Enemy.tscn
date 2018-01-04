@@ -2,27 +2,27 @@
 
 [ext_resource path="res://Character/Enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Character/Enemy/Aura.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Character/Enemy/Sprites/walking-right/000.png" type="Texture" id=3]
-[ext_resource path="res://Character/Enemy/Sprites/walking-right/001.png" type="Texture" id=4]
-[ext_resource path="res://Character/Enemy/Sprites/walking-right/002.png" type="Texture" id=5]
-[ext_resource path="res://Character/Enemy/Sprites/walking-right/003.png" type="Texture" id=6]
-[ext_resource path="res://Character/Enemy/Sprites/walking-right/004.png" type="Texture" id=7]
-[ext_resource path="res://Character/Enemy/Sprites/walking-right/005.png" type="Texture" id=8]
-[ext_resource path="res://Character/Enemy/Sprites/walking-right/006.png" type="Texture" id=9]
-[ext_resource path="res://Character/Enemy/Sprites/walking-up/001.png" type="Texture" id=10]
-[ext_resource path="res://Character/Enemy/Sprites/walking-up/002.png" type="Texture" id=11]
-[ext_resource path="res://Character/Enemy/Sprites/walking-up/003.png" type="Texture" id=12]
-[ext_resource path="res://Character/Enemy/Sprites/walking-up/004.png" type="Texture" id=13]
-[ext_resource path="res://Character/Enemy/Sprites/walking-up/005.png" type="Texture" id=14]
-[ext_resource path="res://Character/Enemy/Sprites/walking-up/006.png" type="Texture" id=15]
+[ext_resource path="res://Character/Enemy/Sprites/walking-up/001.png" type="Texture" id=3]
+[ext_resource path="res://Character/Enemy/Sprites/walking-up/002.png" type="Texture" id=4]
+[ext_resource path="res://Character/Enemy/Sprites/walking-up/003.png" type="Texture" id=5]
+[ext_resource path="res://Character/Enemy/Sprites/walking-up/004.png" type="Texture" id=6]
+[ext_resource path="res://Character/Enemy/Sprites/walking-up/005.png" type="Texture" id=7]
+[ext_resource path="res://Character/Enemy/Sprites/walking-up/006.png" type="Texture" id=8]
+[ext_resource path="res://Character/Enemy/Sprites/walking-right/000.png" type="Texture" id=9]
+[ext_resource path="res://Character/Enemy/Sprites/walking-down/001.png" type="Texture" id=10]
+[ext_resource path="res://Character/Enemy/Sprites/walking-down/002.png" type="Texture" id=11]
+[ext_resource path="res://Character/Enemy/Sprites/walking-down/003.png" type="Texture" id=12]
+[ext_resource path="res://Character/Enemy/Sprites/walking-down/004.png" type="Texture" id=13]
+[ext_resource path="res://Character/Enemy/Sprites/walking-down/005.png" type="Texture" id=14]
+[ext_resource path="res://Character/Enemy/Sprites/walking-down/006.png" type="Texture" id=15]
 [ext_resource path="res://Character/Enemy/Sprites/walking-up/000.png" type="Texture" id=16]
-[ext_resource path="res://Character/Enemy/Sprites/walking-down/001.png" type="Texture" id=17]
-[ext_resource path="res://Character/Enemy/Sprites/walking-down/002.png" type="Texture" id=18]
-[ext_resource path="res://Character/Enemy/Sprites/walking-down/003.png" type="Texture" id=19]
-[ext_resource path="res://Character/Enemy/Sprites/walking-down/004.png" type="Texture" id=20]
-[ext_resource path="res://Character/Enemy/Sprites/walking-down/005.png" type="Texture" id=21]
-[ext_resource path="res://Character/Enemy/Sprites/walking-down/006.png" type="Texture" id=22]
-[ext_resource path="res://Character/Enemy/Sprites/walking-down/000.png" type="Texture" id=23]
+[ext_resource path="res://Character/Enemy/Sprites/walking-down/000.png" type="Texture" id=17]
+[ext_resource path="res://Character/Enemy/Sprites/walking-right/001.png" type="Texture" id=18]
+[ext_resource path="res://Character/Enemy/Sprites/walking-right/002.png" type="Texture" id=19]
+[ext_resource path="res://Character/Enemy/Sprites/walking-right/003.png" type="Texture" id=20]
+[ext_resource path="res://Character/Enemy/Sprites/walking-right/004.png" type="Texture" id=21]
+[ext_resource path="res://Character/Enemy/Sprites/walking-right/005.png" type="Texture" id=22]
+[ext_resource path="res://Character/Enemy/Sprites/walking-right/006.png" type="Texture" id=23]
 [ext_resource path="res://Tools/z_depth.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Tools/groundcheck.tscn" type="PackedScene" id=25]
 [ext_resource path="res://icon.png" type="Texture" id=26]
@@ -37,19 +37,19 @@ radius = 24.3
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walking-up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
 "loop": false,
 "name": "idle-right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "walking-right",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
-"name": "walking-up",
+"name": "walking-down",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -57,15 +57,15 @@ animations = [ {
 "name": "idle-up",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "walking-down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": false,
 "name": "idle-down",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "walking-right",
+"speed": 8.0
 } ]
 
 [sub_resource type="CircleShape2D" id=3]
@@ -75,6 +75,7 @@ radius = 339.2
 
 [node name="Enemy" type="KinematicBody2D"]
 
+z/z = 5
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -19 )

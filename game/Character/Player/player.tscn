@@ -11,12 +11,19 @@
 
 [node name="player" instance=ExtResource( 1 )]
 
+z/z = 5
+
 [node name="groundcheck" parent="."]
+
+editor/display_folded = true
+
+[node name="Actions" parent="."]
 
 editor/display_folded = true
 
 [node name="haste" type="Node" parent="Actions"]
 
+editor/display_folded = true
 script/script = ExtResource( 2 )
 enabled = true
 player_path = NodePath("../..")
@@ -32,6 +39,7 @@ autostart = false
 
 [node name="freeze_beams" type="Node" parent="Actions"]
 
+editor/display_folded = true
 script/script = ExtResource( 3 )
 enabled = true
 player_path = NodePath("../..")
@@ -47,6 +55,7 @@ autostart = false
 
 [node name="clear_enemy_beams" type="Node" parent="Actions"]
 
+editor/display_folded = true
 script/script = ExtResource( 4 )
 enabled = true
 player_path = NodePath("../..")
@@ -67,7 +76,8 @@ editor/display_folded = true
 visibility/opacity = 0.6
 transform/pos = Vector2( -320, -738 )
 transform/scale = Vector2( 2, 2 )
-z/z = -3
+z/z = 1
+z/relative = false
 config/amount = 200
 config/lifetime = 8.0
 config/preprocess = 8.0

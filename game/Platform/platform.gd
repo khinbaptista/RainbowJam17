@@ -14,6 +14,13 @@ var activated = true
 func set_color(color):
 	.set_color(color)
 	if sprite: sprite.set_light_mask(color_mask)
+	
+	if color_string != "Normal":
+		set("z/z", 2)
+		set("z/relative", false)
+	else:
+		set("z/z", 4)
+		set("z/relative", true)
 
 func _ready():
 	sprite.set_light_mask(color_mask)
