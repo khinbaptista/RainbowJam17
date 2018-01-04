@@ -478,6 +478,8 @@ texture = ExtResource( 6 )
 
 [node name="houses" type="Node" parent="."]
 
+editor/display_folded = true
+
 [node name="shadow_no_color" type="Sprite" parent="houses"]
 
 transform/pos = Vector2( -48.4457, 2370.67 )
@@ -921,5 +923,3 @@ transform/scale = Vector2( 0.2, 0.2 )
 transform/pos = Vector2( 834.923, 1588.81 )
 
 
-[editable path="NPC"]
-[editable path="NPC/press_space"]

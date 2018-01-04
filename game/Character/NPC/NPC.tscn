@@ -1,18 +1,19 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://Character/NPC/sprites/NPC2.png" type="Texture" id=1]
-[ext_resource path="res://Character/press_space.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Character/NPC/NPC.gd" type="Script" id=1]
+[ext_resource path="res://Character/NPC/sprites/NPC2.png" type="Texture" id=2]
+[ext_resource path="res://Character/press_space.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0089
 height = 17.6876
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -21,40 +22,46 @@ animations = [ {
 [node name="NPC" type="KinematicBody2D"]
 
 input/pickable = true
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 11.822, 0, 0, 16.515, 11.3609, 43.0959 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
+script/script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( 11.3609, 43.0959 )
 transform/scale = Vector2( 11.822, 16.515 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="press_space" parent="." instance=ExtResource( 3 )]
+
+editor/display_folded = true
 
 [node name="text" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="text"]
 
 visibility/visible = false
-rect/scale = Vector2( 5, 5 )
+rect/scale = Vector2( 7, 7 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -402.0
-margin/top = -372.0
-margin/right = -244.0
-margin/bottom = -358.0
+margin/left = -554.0
+margin/top = -392.0
+margin/right = -396.0
+margin/bottom = -378.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "I like crystals, don't you?"
 percent_visible = 1.0
 lines_skipped = 0
@@ -63,15 +70,16 @@ max_lines_visible = -1
 [node name="Label1" type="Label" parent="text"]
 
 visibility/visible = false
-rect/scale = Vector2( 5, 5 )
+rect/scale = Vector2( 7, 7 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -602.0
-margin/top = -372.0
-margin/right = -361.0
-margin/bottom = -358.0
+margin/left = -812.0
+margin/top = -392.0
+margin/right = -571.0
+margin/bottom = -378.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Show me some and we can talk again"
 percent_visible = 1.0
 lines_skipped = 0
@@ -80,15 +88,16 @@ max_lines_visible = -1
 [node name="Label2" type="Label" parent="text"]
 
 visibility/visible = false
-rect/scale = Vector2( 5, 5 )
+rect/scale = Vector2( 7, 7 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -482.0
-margin/top = -372.0
-margin/right = -284.0
-margin/bottom = -358.0
+margin/left = -672.0
+margin/top = -392.0
+margin/right = -474.0
+margin/bottom = -378.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Oh! These crystals seem great"
 percent_visible = 1.0
 lines_skipped = 0
@@ -97,21 +106,20 @@ max_lines_visible = -1
 [node name="Label3" type="Label" parent="text"]
 
 visibility/visible = false
-rect/scale = Vector2( 5, 5 )
+rect/scale = Vector2( 7, 7 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -512.0
-margin/top = -372.0
-margin/right = -305.0
-margin/bottom = -358.0
+margin/left = -712.0
+margin/top = -392.0
+margin/right = -505.0
+margin/bottom = -378.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "I have something for you, take it"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-[node name="press_space" parent="." instance=ExtResource( 2 )]
 
 
 [editable path="press_space"]
