@@ -89,13 +89,13 @@ texture = ExtResource( 2 )
 
 visibility/light_mask = 0
 transform/scale = Vector2( 0.01, 0.01 )
-z/z = 6
+z/z = 7
 texture = ExtResource( 2 )
 modulate = Color( 0.417969, 0.417969, 0.417969, 0.117647 )
 
 [node name="grayscale_effect" type="Sprite" parent="."]
 
-visibility/opacity = 0.0
+visibility/light_mask = 0
 material/material = SubResource( 2 )
 transform/scale = Vector2( 0.01, 0.01 )
 z/z = 6

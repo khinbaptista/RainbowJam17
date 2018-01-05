@@ -81,5 +81,4 @@ texture = ExtResource( 4 )
 
 
 [editable path="red"]
-[editable path="enemy_ring"]
 [editable path="ring"]

@@ -49,7 +49,7 @@ tracks/0/keys = {
 
 [node name="ring" type="Node2D"]
 
-z/z = 3
+z/z = 4
 script/script = ExtResource( 1 )
 color_string = "Red"
 scale_speed = 50.0

@@ -48,8 +48,8 @@ enabled = true
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 2.24274, 137.737 )
-colors_learned = 16
+transform/pos = Vector2( 5.25739, 2.07629 )
+colors_learned = 48
 
 [node name="Enemy2" parent="." instance=ExtResource( 2 )]
 
