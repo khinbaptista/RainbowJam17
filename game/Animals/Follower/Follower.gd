@@ -6,6 +6,7 @@ export(bool) var active = false
 
 var target
 var final_pos
+var grounded = true
 onready var sight_area = get_node("sight")
 
 func _ready():
@@ -18,8 +19,8 @@ func _process(delta):
 		active = true
 	else:
 		active = false
-		
-	if active and target:
+
+	if active and target and grounded:
 		final_pos = target.get_pos()
 		var direction = final_pos - get_pos()
 		var remaining = move(direction * speed * delta)

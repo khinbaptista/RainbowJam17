@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Animals/Follower/Follower.gd" type="Script" id=1]
 [ext_resource path="res://Animals/Deer/002.png" type="Texture" id=2]
+[ext_resource path="res://Animals/Follower/grounded.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 198.688, 11.6645 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -22,10 +23,15 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 1319.77
 
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 182.545
+
 [node name="Follower" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1.59301, 0, 0, 28.2675, 12.3443, 190.884 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -38,7 +44,7 @@ active = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -46,7 +52,7 @@ animation = "default"
 visibility/visible = false
 transform/pos = Vector2( 12.3443, 190.884 )
 transform/scale = Vector2( 1.59301, 28.2675 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
@@ -63,7 +69,28 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sight"]
 
+visibility/visible = false
 shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="groundcheck" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1.50617, 0, 0, 0.491492, -68.0413, 494.363 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="groundcheck"]
+
+transform/pos = Vector2( -68.0413, 494.363 )
+transform/scale = Vector2( 1.50617, 0.491492 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
