@@ -11,7 +11,9 @@ var rotating = false
 func _ready():
 	var area = get_node("Area") # activation area
 	area.connect("interacted", self, "on_activated")
-	sprite.play(face)
+	sprite.set_animation(face)
+	sprite.set_frame(2)
+	#sprite.play(face)
 
 func on_activated():
 	if rotating: return
