@@ -52,13 +52,14 @@ z/z = 1
 z/z = 1
 frames = SubResource( 2 )
 animation = "default"
-frame = 3
+frame = 4
 playing = true
 
 [node name="press_e" parent="sprite" instance=ExtResource( 8 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 6.70822e-06, -3.7825 )
 shape = SubResource( 1 )
 trigger = false

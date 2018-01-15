@@ -17,6 +17,7 @@ script/script = ExtResource( 1 )
 [node name="Area2D" type="Area2D" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 transform/pos = Vector2( 3.92041, 213.58 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
