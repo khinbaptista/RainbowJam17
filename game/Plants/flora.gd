@@ -1,7 +1,7 @@
 tool
 extends StaticBody2D
 
-export(String, "Tree", "Bush") var type = "Tree"
+export(String, "Tree", "Bush", "Cactus") var type = "Tree"
 export var flip = false
 export(Color) var modulate = Color("ffffff")
 export var reachable = true
@@ -28,6 +28,7 @@ func _ready():
 
 		get_node("Plants/Bush").hide()
 		get_node("Shadows/Bush_shadow").hide()
+		get_node("Plants/cactus").hide()
 		get_node("Bush_collisionShape").set_trigger(true)
 
 	elif type == "Bush":
@@ -40,7 +41,21 @@ func _ready():
 		get_node("Plants/Tree").hide()
 		get_node("Shadows/Tree_shadow").hide()
 		get_node("Tree_collisionShape").set_trigger(true)
+		get_node("Plants/cactus").hide()
 		get_node("Tree_particles").set_emitting(false)
+		get_node("Tree_particles").hide()
+		
+	elif type == "Cactus":
+		get_node("Plants/cactus").show()
+		sprite = get_node("Plants/cactus")
+		shadowSprite = get_node("Shadows/Bush_shadow")
+
+		get_node("Plants/Tree").hide()
+		get_node("Shadows/Bush_shadow").hide()
+		get_node("Shadows/Tree_shadow").hide()
+		get_node("Tree_collisionShape").set_trigger(true)
+		get_node("Tree_particles").set_emitting(false)
+		get_node("Bush_collisionShape").set_trigger(false)
 		get_node("Tree_particles").hide()
 
 	if flip:
@@ -64,6 +79,7 @@ func _process(delta):
 			sprite = get_node("Plants/Tree")
 
 			get_node("Plants/Bush").hide()
+			get_node("Plants/cactus").hide()
 			get_node("Shadows/Bush_shadow").hide()
 
 		elif type == "Bush":
@@ -73,6 +89,17 @@ func _process(delta):
 			sprite = get_node("Plants/Bush")
 
 			get_node("Plants/Tree").hide()
+			get_node("Plants/cactus").hide()
+			get_node("Shadows/Tree_shadow").hide()
+			get_node("Tree_particles").set_emitting(false)
+			
+		elif type == "Cactus":
+			get_node("Plants/cactus").show()
+			shadowSprite = get_node("Shadows/Bush_shadow")
+			sprite = get_node("Plants/cactus")
+
+			get_node("Plants/Tree").hide()
+			get_node("Shadows/Bush_shadow").hide()
 			get_node("Shadows/Tree_shadow").hide()
 			get_node("Tree_particles").set_emitting(false)
 
