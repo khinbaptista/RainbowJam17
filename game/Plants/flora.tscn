@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Plants/flora.gd" type="Script" id=1]
 [ext_resource path="res://Plants/Tree shadow.png" type="Texture" id=2]
 [ext_resource path="res://Plants/Tree.png" type="Texture" id=3]
 [ext_resource path="res://Plants/Bush + shadow.png" type="Texture" id=4]
-[ext_resource path="res://Menu/particle.png" type="Texture" id=5]
+[ext_resource path="res://Plants/Cactus.png" type="Texture" id=5]
+[ext_resource path="res://Menu/particle.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -64,7 +65,6 @@ _update_shape_index = 1
 
 [node name="Shadows" type="Node2D" parent="."]
 
-editor/display_folded = true
 z/z = 1
 
 [node name="Tree_shadow" type="Sprite" parent="Shadows"]
@@ -95,6 +95,13 @@ transform/scale = Vector2( 0.4, 0.4 )
 z/z = 1
 texture = ExtResource( 4 )
 
+[node name="cactus" type="Sprite" parent="Plants"]
+
+visibility/visible = false
+transform/pos = Vector2( -1, -50 )
+transform/scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 5 )
+
 [node name="Tree_particles" type="Particles2D" parent="."]
 
 transform/pos = Vector2( 0, -181.635 )
@@ -105,7 +112,7 @@ config/time_scale = 0.15
 config/preprocess = 4.0
 config/process_mode = 1
 config/half_extents = Vector2( 100, 100 )
-config/texture = ExtResource( 5 )
+config/texture = ExtResource( 6 )
 params/direction = 330.0
 params/spread = 40.0
 params/linear_velocity = 110.0
