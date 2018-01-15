@@ -23,9 +23,8 @@ func disconnect_pillar_signals():
 		pillar.disconnect("changed", self, "on_pillar_change")
 
 func on_pillar_change():
-	print("checking puzzle completion")
 	for pillar in pillars:
 		if not pillar.is_correct():
 			return
-	print("completed")
+	
 	emit_signal("completed")
