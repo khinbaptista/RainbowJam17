@@ -29,7 +29,8 @@ func _process(delta):
 		active = false
 
 	final_pos = target.get_pos()
-	var direction = final_pos - get_pos()
+	var direction = (final_pos - get_pos()).normalized()
+	
 	if active and target:
 		if ground_check.can_walk(direction):
 			var remaining = move(direction * speed * delta)

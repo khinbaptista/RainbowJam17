@@ -26,7 +26,7 @@ radius = 1319.77
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 14.4314, 61.071 )
+extents = Vector2( 54.1448, 155.102 )
 
 [node name="Follower" type="KinematicBody2D"]
 
@@ -96,18 +96,18 @@ _update_shape_index = 0
 
 [node name="front" type="Position2D" parent="."]
 
-transform/pos = Vector2( -58.4563, 377.461 )
+transform/pos = Vector2( -60, 250 )
 
 [node name="back" type="Position2D" parent="."]
 
-transform/pos = Vector2( -58.4563, 637.461 )
+transform/pos = Vector2( -60, 740 )
 
 [node name="left" type="Position2D" parent="."]
 
-transform/pos = Vector2( -388.456, 507.461 )
+transform/pos = Vector2( -480, 510 )
 
 [node name="right" type="Position2D" parent="."]
 
-transform/pos = Vector2( 291.544, 507.461 )
+transform/pos = Vector2( 370, 510 )
 
 
