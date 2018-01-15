@@ -4,14 +4,18 @@ export(NodePath) var target_path = @"../player"
 export(int) var speed = 1
 export(bool) var active = false
 
+onready var sight_area = get_node("sight")
+onready var ground_check = get_node("groundcheck")
+
+onready var left_mark = get_node("left")
+onready var right_mark = get_node("right")
+onready var up_mark = get_node("front")
+onready var down_mark = get_node("back")
+
 var target
+var cliff_stopper
 var final_pos
 var grounded = true
-onready var up_area = get_node("front")
-onready var down_area = get_node("back")
-onready var right_area = get_node("right")
-onready var left_area = get_node("left")
-onready var sight_area = get_node("sight")
 
 func _ready():
 	if target_path:
@@ -24,46 +28,22 @@ func _process(delta):
 	else:
 		active = false
 
+	final_pos = target.get_pos()
+	var direction = final_pos - get_pos()
 	if active and target:
-		if can_walk():
-			final_pos = target.get_pos()
-			var direction = final_pos - get_pos()
+		if ground_check.can_walk(direction):
 			var remaining = move(direction * speed * delta)
 			if is_colliding():
 				var normal = get_collision_normal()
 				remaining = remaining.slide(normal)
 				move(remaining)
-			
-func can_walk():
-	if not target: return false
-	
-	var can = false
-	var direction = target.get_pos() - get_pos()
-	
-	if abs(direction.x) > abs(direction.y):
-		if direction.x > 0:
-			can = check_area(right_area)
-			#print("R")
-		else:
-			can = check_area(left_area)
-			#print("L")
-	else:
-		if direction.y > 0:
-			can = check_area(down_area)
-			#print("D")
-		else:
-			can = check_area(up_area)
-			#print("U")
-	return can
-	
-func check_area(area):
-	var areas = []
-	areas = area.get_overlapping_areas()
-	var can_go = false
-	
-	for a in areas:
-		if a.is_in_group("ground"):
-			can_go = true
-		elif a.is_in_group("platform"):
-			can_go = true
-	return can_go
+				
+func get_mark_pos(mark):
+	if mark == "right":
+		return right_mark.get_pos()
+	elif mark == "left":
+		return left_mark.get_pos()
+	elif mark == "up":
+		return up_mark.get_pos()
+	elif mark == "down":
+		return down_mark.get_pos()

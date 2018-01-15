@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Animals/Follower/Follower.gd" type="Script" id=1]
 [ext_resource path="res://Animals/Deer/002.png" type="Texture" id=2]
@@ -23,30 +23,10 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 1319.77
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-radius = 51.5447
-
-[sub_resource type="RectangleShape2D" id=6]
-
-custom_solver_bias = 0.0
-extents = Vector2( 185.303, 10 )
-
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 14.5904, 54.4069 )
-
-[sub_resource type="RectangleShape2D" id=5]
-
-custom_solver_bias = 0.0
-extents = Vector2( 9.84043, 10 )
-
-[sub_resource type="RectangleShape2D" id=8]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 41.8727 )
+extents = Vector2( 14.4314, 61.071 )
 
 [node name="Follower" type="KinematicBody2D"]
 
@@ -69,6 +49,7 @@ animation = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 12.3443, 190.884 )
 transform/scale = Vector2( 1.59301, 28.2675 )
 shape = SubResource( 1 )
@@ -94,99 +75,39 @@ _update_shape_index = 0
 
 [node name="groundcheck" type="Area2D" parent="."]
 
-editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 4 )
-shapes/0/transform = Matrix32( 1.50617, 0, 0, 0.491492, -55.6779, 500.545 )
+shapes/0/transform = Matrix32( 2.50291, 0, 0, 0.382019, -45.5196, 499.252 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 3 )
+adjustment = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="groundcheck"]
 
-transform/pos = Vector2( -55.6779, 500.545 )
-transform/scale = Vector2( 1.50617, 0.491492 )
+transform/pos = Vector2( -45.5196, 499.252 )
+transform/scale = Vector2( 2.50291, 0.382019 )
 shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
-[node name="back" type="Area2D" parent="."]
+[node name="front" type="Position2D" parent="."]
 
-input/pickable = true
-shapes/0/shape = SubResource( 6 )
-shapes/0/transform = Matrix32( 1.36268, 0, 0, 4.28563, -56.5611, 592.713 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+transform/pos = Vector2( -58.4563, 377.461 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="back"]
+[node name="back" type="Position2D" parent="."]
 
-transform/pos = Vector2( -56.5611, 592.713 )
-transform/scale = Vector2( 1.36268, 4.28563 )
-shape = SubResource( 6 )
-trigger = false
-_update_shape_index = 0
+transform/pos = Vector2( -58.4563, 637.461 )
 
-[node name="right" type="Area2D" parent="."]
+[node name="left" type="Position2D" parent="."]
 
-input/pickable = true
-shapes/0/shape = SubResource( 7 )
-shapes/0/transform = Matrix32( 2.74633, 0, 0, 0.844769, 241.946, 496.801 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+transform/pos = Vector2( -388.456, 507.461 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+[node name="right" type="Position2D" parent="."]
 
-transform/pos = Vector2( 241.946, 496.801 )
-transform/scale = Vector2( 2.74633, 0.844769 )
-shape = SubResource( 7 )
-trigger = false
-_update_shape_index = 0
-
-[node name="front" type="Area2D" parent="."]
-
-input/pickable = true
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 25.9116, 0, 0, 3.86377, -55.3334, 402.771 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="front"]
-
-transform/pos = Vector2( -55.3334, 402.771 )
-transform/scale = Vector2( 25.9116, 3.86377 )
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="left" type="Area2D" parent="."]
-
-input/pickable = true
-shapes/0/shape = SubResource( 8 )
-shapes/0/transform = Matrix32( 4.07542, 0, 0, 1.11705, -353.98, 494.747 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
-
-transform/pos = Vector2( -353.98, 494.747 )
-transform/scale = Vector2( 4.07542, 1.11705 )
-shape = SubResource( 8 )
-trigger = false
-_update_shape_index = 0
+transform/pos = Vector2( 291.544, 507.461 )
 
 

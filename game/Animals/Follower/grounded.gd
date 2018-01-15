@@ -1,68 +1,42 @@
 extends Area2D
 
 onready var follower = get_parent()
-onready var up_area = get_node("../front")
-onready var down_area = get_node("../back")
-onready var right_area = get_node("../right")
-onready var left_area = get_node("../left")
+
+export(float) var adjustment = 20
 
 var found_ground
+var can_walk = false
 
-func _ready():
-	set_process(true)
-
-func _process(delta):
-	if follower.active:
-		pass
-		#can_walk()
-		#if can_walk():
-			#var overlap = get_overlapping_areas()
-			#found_ground = false
-			
-			#for area in overlap:
-				#if area.is_in_group("ground"):
-					#found_ground = true
-				#elif area.is_in_group("platform"):
-					#found_ground = true
-				#else:
-					#found_ground = false or found_ground
-			
-			#if found_ground:
-				#follower.grounded = true
-			#else:
-				#follower.grounded = false
-				
-func can_walk():
-	if not follower.target: return false
-	
-	var can = false
-	var direction = follower.target.get_pos() - follower.get_pos()
+func can_walk(direction):
+	var current_pos = get_pos()
+	var next_pos
 	
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
-			can = check_area(right_area)
-			#print("R")
+			next_pos = follower.get_mark_pos("right")
 		else:
-			can = check_area(left_area)
-			#print("L")
+			next_pos = follower.get_mark_pos("left")
 	else:
 		if direction.y > 0:
-			can = check_area(down_area)
-			#print("D")
+			next_pos = follower.get_mark_pos("down")
 		else:
-			can = check_area(up_area)
-			#print("U")
-			
-	follower.can_walk = can
-	return can
+			next_pos = follower.get_mark_pos("up")
 	
-func check_area(area):
-	var areas = area.get_overlapping_areas()
-	var can_go = false
+	set_pos(next_pos)
+	var overlap = get_overlapping_areas()
+	found_ground = false
 	
-	for a in areas:
-		if a.is_in_group("ground"):
-			can_go = true
-		elif a.is_in_group("platform"):
-			can_go = true
-	return can_go
+	for area in overlap:
+		if area.is_in_group("ground"):
+			found_ground = true
+		elif area.is_in_group("platform"):
+			found_ground = true
+		else:
+			found_ground = false or found_ground
+	
+	if found_ground:
+		can_walk = true
+	else:
+		can_walk = false
+	set_pos(current_pos)
+	return can_walk
