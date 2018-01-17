@@ -13,6 +13,16 @@ uniform color color4;
 uniform color color5;
 uniform color color6;
 uniform color color7;
+uniform color color8;
+uniform color color9;
+uniform color color10;
+uniform color color11;
+uniform color color12;
+uniform color color13;
+uniform color color14;
+uniform color color15;
+uniform color color16;
+uniform color color17;
 
 color to_grayscale(color c) {
 	float v = 0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b;
@@ -63,6 +73,46 @@ if (color_count >= 6 && !done && compare_colors(color6, screen, threshold)) {
 }
 
 if (color_count >= 7 && !done && compare_colors(color7, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+}
+
+if (color_count >= 8 && !done && compare_colors(color8, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+}
+
+if (color_count >= 9 && !done && compare_colors(color9, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+}
+
+if (color_count >= 10 && !done && compare_colors(color10, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+}
+
+if (color_count >= 11 && !done && compare_colors(color11, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+}
+
+if (color_count >= 12 && !done && compare_colors(color12, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+}
+
+if (color_count >= 13 && !done && compare_colors(color13, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+}
+
+if (color_count >= 14 && !done && compare_colors(color14, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+}
+
+if (color_count >= 15 && !done && compare_colors(color15, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+}
+
+if (color_count >= 16 && !done && compare_colors(color16, screen, threshold)) {
+	COLOR = to_grayscale(screen);
+}
+
+if (color_count >= 17 && !done && compare_colors(color17, screen, threshold)) {
 	COLOR = to_grayscale(screen);
 }
 ",

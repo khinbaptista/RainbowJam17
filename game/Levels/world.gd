@@ -6,3 +6,7 @@ func _ready():
 	music.set_loop_begin(0)
 	music.set_loop_end(music.get_length())
 	get_node("SamplePlayer").play("Iris (Continuous Loop)")
+
+
+func _on_player_new_color_learned( color ):
+	get_node("player/camera/Node2D/AnimatedSprite").play("transition")

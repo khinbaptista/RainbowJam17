@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
 export(NodePath) var target_path = @"../player"
-export(int) var speed = 1
+export(int) var speed = 100
+export var distance = 100
 export(bool) var active = false
 
 onready var sight_area = get_node("sight")
 onready var ground_check = get_node("groundcheck")
+onready var sprite = get_node("AnimatedSprite")
 
 onready var left_mark = get_node("left")
 onready var right_mark = get_node("right")
@@ -25,11 +27,29 @@ func _ready():
 func _process(delta):
 	if sight_area.overlaps_body(target):
 		active = true
+		sprite.play("walk right")
 	else:
 		active = false
+		sprite.play("default")
 
 	final_pos = target.get_pos()
-	var direction = (final_pos - get_pos()).normalized()
+	final_pos.y -= 170
+	
+	var vect = final_pos - get_pos()
+	var direction = (Vector2(0,0))
+	if vect.x > distance or vect.x < -distance: direction.x=(vect).normalized().x
+	if vect.y > distance or vect.y < -distance: direction.y=(vect).normalized().y
+	
+	if direction == Vector2(0,0):
+		active = false
+		sprite.play("default")
+	
+	print(distance)
+	print(vect.x)
+	print(vect.y)
+	
+	if direction.x < 0: sprite.set_flip_h(true)
+	elif direction.x > 0 and sprite.is_flipped_h(): sprite.set_flip_h(false)
 	
 	if active and target:
 		if ground_check.can_walk(direction):

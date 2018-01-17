@@ -114,11 +114,11 @@ tracks/3/keys = {
 }
 
 [node name="platform" type="Area2D" groups=[
-"ground",
 "platform",
+"ground",
 ]]
 
-visibility/light_mask = 1024
+visibility/light_mask = 525312
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.84202, -7.47263 )
@@ -180,8 +180,8 @@ autostart = false
 
 [connection signal="timeout" from="timer_on" to="." method="destroy"]
 
-[connection signal="timeout" from="timer_off" to="timer_on" method="start"]
-
 [connection signal="timeout" from="timer_off" to="." method="spawn"]
+
+[connection signal="timeout" from="timer_off" to="timer_on" method="start"]
 
 

@@ -54,6 +54,7 @@ _update_shape_index = 0
 
 [node name="shadows" type="Node2D" parent="."]
 
+editor/display_folded = true
 z/z = 1
 
 [node name="coin1" type="Light2D" parent="shadows"]
@@ -155,6 +156,8 @@ shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
 [node name="cracks" type="Node2D" parent="."]
+
+editor/display_folded = true
 
 [node name="coin1" type="Sprite" parent="cracks"]
 
@@ -268,7 +271,9 @@ shadow/item_mask = 1
 
 [node name="press_e" parent="sprite" instance=ExtResource( 16 )]
 
-transform/pos = Vector2( 8.1078, -279.263 )
+editor/display_folded = true
+transform/pos = Vector2( -0.426521, -157.344 )
+transform/scale = Vector2( 0.5, 0.5 )
 
 [node name="z_depth" parent="." instance=ExtResource( 17 )]
 
@@ -277,3 +282,4 @@ transform/pos = Vector2( 0, 27.7465 )
 [node name="vibration_radial" parent="." instance=ExtResource( 18 )]
 
 
+[editable path="sprite/press_e"]

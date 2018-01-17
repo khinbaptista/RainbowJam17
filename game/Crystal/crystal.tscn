@@ -52,10 +52,13 @@ z/z = 1
 z/z = 1
 frames = SubResource( 2 )
 animation = "default"
-frame = 4
+frame = 6
 playing = true
 
 [node name="press_e" parent="sprite" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/scale = Vector2( 1.2, 1.2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -70,3 +73,4 @@ _update_shape_index = 0
 [node name="z_depth" parent="." instance=ExtResource( 10 )]
 
 
+[editable path="sprite/press_e"]

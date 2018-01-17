@@ -1,13 +1,20 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://Animals/Follower/Follower.gd" type="Script" id=1]
-[ext_resource path="res://Animals/Deer/002.png" type="Texture" id=2]
-[ext_resource path="res://Animals/Follower/grounded.gd" type="Script" id=3]
+[ext_resource path="res://Animals/Jackal/000.png" type="Texture" id=2]
+[ext_resource path="res://Animals/Jackal/001.png" type="Texture" id=3]
+[ext_resource path="res://Animals/Jackal/002.png" type="Texture" id=4]
+[ext_resource path="res://Animals/Jackal/003.png" type="Texture" id=5]
+[ext_resource path="res://Animals/Jackal/004.png" type="Texture" id=6]
+[ext_resource path="res://Animals/Jackal/005.png" type="Texture" id=7]
+[ext_resource path="res://Animals/Jackal/006.png" type="Texture" id=8]
+[ext_resource path="res://Animals/Follower/grounded.gd" type="Script" id=9]
+[ext_resource path="res://Character/sprites/shadow.png" type="Texture" id=10]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 198.688, 11.6645 )
+radius = 185.345
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -16,12 +23,17 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walk right",
+"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 1319.77
+radius = 812.741
 
 [sub_resource type="RectangleShape2D" id=4]
 
@@ -32,26 +44,27 @@ extents = Vector2( 54.1448, 155.102 )
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1.59301, 0, 0, 28.2675, 12.3443, 190.884 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -30.9279, 385.609 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 target_path = NodePath("../player")
-speed = 1
+speed = 100
+distance = 100
 active = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
+transform/pos = Vector2( -9.27271, 361.632 )
 frames = SubResource( 2 )
 animation = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 visibility/visible = false
-transform/pos = Vector2( 12.3443, 190.884 )
-transform/scale = Vector2( 1.59301, 28.2675 )
+transform/pos = Vector2( -30.9279, 385.609 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -60,7 +73,7 @@ _update_shape_index = 0
 
 input/pickable = true
 shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 353.198 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -69,6 +82,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sight"]
 
+transform/pos = Vector2( 0, 353.198 )
 shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
@@ -77,18 +91,19 @@ _update_shape_index = 0
 
 input/pickable = true
 shapes/0/shape = SubResource( 4 )
-shapes/0/transform = Matrix32( 2.50291, 0, 0, 0.382019, -45.5196, 499.252 )
+shapes/0/transform = Matrix32( 2.50291, 0, 0, 0.382019, -49.4539, 506.902 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 3 )
+script/script = ExtResource( 9 )
 adjustment = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="groundcheck"]
 
-transform/pos = Vector2( -45.5196, 499.252 )
+visibility/visible = false
+transform/pos = Vector2( -49.4539, 506.902 )
 transform/scale = Vector2( 2.50291, 0.382019 )
 shape = SubResource( 4 )
 trigger = false
@@ -109,5 +124,29 @@ transform/pos = Vector2( -480, 510 )
 [node name="right" type="Position2D" parent="."]
 
 transform/pos = Vector2( 370, 510 )
+
+[node name="shadow" type="Light2D" parent="."]
+
+transform/pos = Vector2( -42.5636, 513.278 )
+transform/scale = Vector2( 1.21348, 0.576687 )
+enabled = true
+editor_only = false
+texture = ExtResource( 10 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.3
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 0
 
 

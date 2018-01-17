@@ -1,76 +1,143 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=36 format=1]
 
 [ext_resource path="res://Character/Player/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Levels/orange/orange island.png" type="Texture" id=2]
-[ext_resource path="res://Platform/platform_orange.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Plants/flora.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Animals/Follower/Follower.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Colors/selective_grayscale.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Modular islands/Orange/With bottom/003.png" type="Texture" id=3]
+[ext_resource path="res://Modular islands/Orange/With bottom/010.png" type="Texture" id=4]
+[ext_resource path="res://Modular islands/Orange/With bottom/004.png" type="Texture" id=5]
+[ext_resource path="res://Modular islands/Orange/With bottom/002.png" type="Texture" id=6]
+[ext_resource path="res://Modular islands/Orange/004.png" type="Texture" id=7]
+[ext_resource path="res://Modular islands/Orange/003.png" type="Texture" id=8]
+[ext_resource path="res://Platform/platform_orange.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Plants/orange bush shadow.png" type="Texture" id=11]
+[ext_resource path="res://Plants/orange bush.png" type="Texture" id=12]
+[ext_resource path="res://Character/sprites/shadow.png" type="Texture" id=13]
+[ext_resource path="res://Plants/orange tree.png" type="Texture" id=14]
+[ext_resource path="res://Menu/particle.png" type="Texture" id=15]
+[ext_resource path="res://Animals/Follower/Follower.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 521, -450.5, 727, -451.5, 723, -172.5, 599, -172.5, 157, -377.5 )
+points = Vector2Array( -293.62, -51.345, -460.45, -49.0752, -458.747, -240.873, -336.746, -391.814, -239.712, -392.949 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 274, -815.5, 520, -816.5, 521, -450.5, 274, -622.5 )
+points = Vector2Array( 260.327, -363.068, -3.01708, -600.636, -3.71379, -647.313, 98.0013, -648.01, 260.327, -587.399 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -509, 295.5, -673, 295.5, -672, -498.5, -384, -501.5, -55, -374.5 )
+points = Vector2Array( -320.857, -581.91, -355.472, -581.91, -354.84, -734.398, -221.077, -735.791, -108.216, -601.332 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 315, 411.5, 311, 648.5, 139, 645.5, 136, 553.5 )
+points = Vector2Array( -137.004, -11.0561, -137.571, 60.4424, -293.62, 61.0099, -293.62, -51.345, -239.712, -392.949 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -384, -501.5, -384, -790.5, -56, -790.5, -55, -374.5 )
+points = Vector2Array( -458.747, -240.873, -522.302, -242.008, -521.734, -402.596, -336.746, -401.461, -336.746, -391.814 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -98, 552.5, -100, 805.5, -329, 804.5, -333, 558.5 )
+points = Vector2Array( 395.483, -129.681, 441.464, -129.681, 441.464, -75.3403, 263.114, -73.2503 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 599, -172.5, 592, 511.5, 446, 511.5, 441, 411.5 )
+points = Vector2Array( -240.847, -467.853, -320.29, -467.853, -320.857, -581.91, -108.216, -601.332 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 157, -377.5, 157, -620.5, 274, -622.5, 521, -450.5 )
+points = Vector2Array( 283.318, -678.664, 351.592, -654.977, 351.592, -588.096, 260.327, -587.399, 98.0013, -648.01 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -333, 558.5, -505, 557.5, -509, 295.5, -98, 552.5 )
+points = Vector2Array( -221.077, -735.791, -220.381, -760.872, -110.306, -758.782, -108.216, -601.332 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -55, -374.5, 157, -377.5, 599, -172.5, 441, 411.5, 315, 411.5, -509, 295.5 )
+points = Vector2Array( 149.558, 24.1257, 49.687, 24.6931, 49.1195, -12.1911, 151.646, -23.7861 )
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -509, 295.5, 315, 411.5, 136, 553.5, -98, 552.5 )
+points = Vector2Array( 98.0013, -648.01, 99.3947, -733.701, 282.621, -733.005, 283.318, -678.664 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 366.223, -678.664, 366.919, -655.673, 351.592, -654.977, 283.318, -678.664 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 339.749, -280.164, 396.18, -278.77, 395.483, -129.681, 263.114, -73.2503 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 263.114, -73.2503, 261.721, -23.7861, 151.646, -23.7861, -239.712, -392.949 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 294.465, -298.277, 339.749, -296.884, 339.749, -280.164, 263.114, -73.2503 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 260.327, -363.068, 291.678, -361.675, 294.465, -298.277 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 49.1195, -12.1911, -137.004, -11.0561, -239.712, -392.949, 151.646, -23.7861 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -108.216, -601.332, -3.01708, -600.636, 260.327, -363.068, 294.465, -298.277, 263.114, -73.2503, -239.712, -392.949, -240.847, -467.853 )
+
+[sub_resource type="ColorRamp" id=19]
+
+offsets = FloatArray( 0, 0.19883, 0.818713, 1 )
+colors = ColorArray( 0.785156, 0.582533, 0.377243, 0, 1, 0.805964, 0.609375, 1, 1, 0.701961, 0.4, 1, 0.644531, 0.415667, 0.183792, 0 )
 
 [node name="orange" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 
+transform/pos = Vector2( -951.131, 100.992 )
+colors_learned = 6
+
+[node name="Node2D" type="Node2D" parent="player"]
+
+transform/pos = Vector2( 951.131, -100.992 )
+z/z = 4
+
+[node name="selective_grayscale" parent="player/Node2D" instance=ExtResource( 2 )]
+
+rect/scale = Vector2( 2, 2 )
+margin/left = -2544.0
+margin/top = -741.0
+margin/right = -943.0
+margin/bottom = 161.0
+
 [node name="island" type="Area2D" parent="." groups=[
 "ground",
 ]]
 
-transform/pos = Vector2( -0.524246, 0.857967 )
+editor/display_folded = true
+transform/pos = Vector2( -56.2959, 317.399 )
 transform/scale = Vector2( 0.7, 0.7 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -106,60 +173,204 @@ shapes/9/trigger = false
 shapes/10/shape = SubResource( 11 )
 shapes/10/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
 shapes/10/trigger = false
+shapes/11/shape = SubResource( 12 )
+shapes/11/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/11/trigger = false
+shapes/12/shape = SubResource( 13 )
+shapes/12/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/12/trigger = false
+shapes/13/shape = SubResource( 14 )
+shapes/13/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/13/trigger = false
+shapes/14/shape = SubResource( 15 )
+shapes/14/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/14/trigger = false
+shapes/15/shape = SubResource( 16 )
+shapes/15/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/15/trigger = false
+shapes/16/shape = SubResource( 17 )
+shapes/16/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/16/trigger = false
+shapes/17/shape = SubResource( 18 )
+shapes/17/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/17/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 
-[node name="sprite" type="Sprite" parent="island"]
+[node name="3" type="Sprite" parent="island"]
 
 visibility/light_mask = 1024
-transform/pos = Vector2( 0, -2.20703 )
+transform/pos = Vector2( 224.842, -161.008 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
+
+[node name="10" type="Sprite" parent="island"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( 9.67069, -531.033 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="4" type="Sprite" parent="island"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( -346.172, -229.34 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="2" type="Sprite" parent="island"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( -94.6221, -145.537 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="4 2" type="Sprite" parent="island"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( -346.172, -229.34 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="3 2" type="Sprite" parent="island"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( 224.842, -161.008 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island"]
 
 visibility/behind_parent = true
 transform/pos = Vector2( 0, -0.5 )
 build_mode = 0
-polygon = Vector2Array( -329, 804.5, -100, 805.5, -98, 552.5, 136, 553.5, 139, 645.5, 311, 648.5, 315, 411.5, 441, 411.5, 446, 511.5, 592, 511.5, 599, -172.5, 723, -172.5, 727, -451.5, 521, -450.5, 520, -816.5, 274, -815.5, 274, -622.5, 157, -620.5, 157, -377.5, -55, -374.5, -56, -790.5, -384, -790.5, -384, -501.5, -672, -498.5, -673, 295.5, -509, 295.5, -505, 557.5, -333, 558.5 )
-shape_range = Vector2( 0, 10 )
+polygon = Vector2Array( -354.84, -734.398, -221.077, -735.791, -220.381, -760.872, -110.306, -758.782, -108.216, -601.332, -3.01708, -600.636, -3.71379, -647.313, 98.0013, -648.01, 99.3947, -733.701, 282.621, -733.005, 283.318, -678.664, 366.223, -678.664, 366.919, -655.673, 351.592, -654.977, 351.592, -588.096, 260.327, -587.399, 260.327, -363.068, 291.678, -361.675, 294.465, -298.277, 339.749, -296.884, 339.749, -280.164, 396.18, -278.77, 395.483, -129.681, 441.464, -129.681, 441.464, -75.3403, 263.114, -73.2503, 261.721, -23.7861, 151.646, -23.7861, 149.558, 24.1257, 49.687, 24.6931, 49.1195, -12.1911, -137.004, -11.0561, -137.571, 60.4424, -293.62, 61.0099, -293.62, -51.345, -460.45, -49.0752, -458.747, -240.873, -522.302, -242.008, -521.734, -402.596, -336.746, -401.461, -336.746, -391.814, -239.712, -392.949, -240.847, -467.853, -320.29, -467.853, -320.857, -581.91, -355.472, -581.91 )
+shape_range = Vector2( 0, 17 )
 trigger = false
 
 [node name="platforms" type="Node2D" parent="."]
 
 transform/pos = Vector2( -2958.22, 2605.86 )
 
-[node name="platform" parent="platforms" instance=ExtResource( 3 )]
+[node name="platform" parent="platforms" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 2308.22, -2505.86 )
+destructible = true
 
-[node name="platform1" parent="platforms" instance=ExtResource( 3 )]
+[node name="platform1" parent="platforms" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 2023.27, -2507.98 )
+transform/pos = Vector2( 2000.66, -2507.98 )
 
-[node name="Checkpoint" parent="." instance=ExtResource( 4 )]
+[node name="platform2" parent="platforms" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 3376.86, -2746.14 )
+destructible = true
+duration_on = 3.0
+
+[node name="platform3" parent="platforms" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 3697.54, -2746.14 )
+use_timers = true
+duration_on = 3.0
+duration_off = 2.0
+
+[node name="platform4" parent="platforms" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 4009.86, -2746.14 )
+use_timers = true
+duration_on = 3.0
+duration_off = 2.0
+
+[node name="Checkpoint" parent="." instance=ExtResource( 10 )]
 
 transform/pos = Vector2( -934.468, 87.6151 )
 transform/scale = Vector2( 2.85938, 2.39063 )
 
 [node name="flora" type="Node2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( -170, -50 )
 
-[node name="flora" parent="flora" instance=ExtResource( 5 )]
+[node name="Sprite1" type="Sprite" parent="flora"]
 
-editor/display_folded = true
-transform/pos = Vector2( -90, -80 )
-type = "Cactus"
+transform/pos = Vector2( 329.955, 209.325 )
+texture = ExtResource( 11 )
 
-[node name="Follower" parent="." instance=ExtResource( 6 )]
+[node name="Sprite" type="Sprite" parent="flora"]
 
-transform/pos = Vector2( -340, -30 )
-transform/scale = Vector2( 0.2, 0.2 )
-speed = 100
+transform/pos = Vector2( 329.955, 209.325 )
+texture = ExtResource( 12 )
+
+[node name="Sprite2" type="Light2D" parent="flora"]
+
+transform/pos = Vector2( -64.0511, -111.186 )
+transform/scale = Vector2( 1.31035, 0.491832 )
+enabled = true
+editor_only = false
+texture = ExtResource( 13 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.3
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="Sprite3" type="Sprite" parent="flora"]
+
+transform/pos = Vector2( -19.6606, -228.716 )
+texture = ExtResource( 14 )
+
+[node name="Particles2D" type="Particles2D" parent="flora"]
+
+transform/pos = Vector2( -6.13867, -263.893 )
+transform/rot = 13.608
+z/z = 1
+config/amount = 10
+config/lifetime = 2.0
+config/time_scale = 0.15
+config/preprocess = 4.0
+config/process_mode = 1
+config/half_extents = Vector2( 200, 100 )
+config/texture = ExtResource( 15 )
+params/direction = 330.0
+params/spread = 40.0
+params/linear_velocity = 110.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 1.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.05
+params/final_size = 0.02
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 1.0
+randomness/spread = 5.0
+randomness/linear_velocity = -0.4
+randomness/gravity_strength = 0.4
+randomness/initial_size = 0.3
+randomness/final_size = -0.1
+color/color = Color( 1, 0.447059, 0.741176, 1 )
+color/color_ramp = SubResource( 19 )
+
+[node name="Follower" parent="." instance=ExtResource( 16 )]
+
+transform/pos = Vector2( -175.161, 84.5398 )
+transform/scale = Vector2( 0.4, 0.4 )
 
 
-[editable path="flora/flora"]

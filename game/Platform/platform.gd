@@ -9,14 +9,17 @@ export(float) var duration_off = 3.0
 onready var sprite = get_node("sprite")
 onready var anim = get_node("AnimationPlayer")
 
+var light_mask = 0
+
 var activated = true
 
 func set_color(color):
 	.set_color(color)
-	if sprite: sprite.set_light_mask(color_mask)
+	if sprite: sprite.set_light_mask(color_mask + light_mask)
 
 func _ready():
-	sprite.set_light_mask(color_mask)
+	light_mask = sprite.get_light_mask()
+	sprite.set_light_mask(color_mask + light_mask)
 
 	set_process(true)
 
