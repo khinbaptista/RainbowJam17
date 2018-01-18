@@ -1,46 +1,9 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Levels/red/01-red_new.gd" type="Script" id=1]
-[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Character/Enemy/Enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Coin/coin.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Lights/radial light 2.png" type="Texture" id=7]
-
-[sub_resource type="CanvasItemShader" id=1]
-
-_code = {
-"fragment": "uniform float speed_y = 2.5;
-uniform float speed_x = 2.5;
-
-vec2 uv = SCREEN_UV;
-
-float y = 0.0;
-float x = 0.0;
-
-y = UV.y + TIME * speed_y;
-x = UV.x + TIME * speed_x;
-uv.y += cos(x+y) * 0.005 * cos(y);
-uv.x += sin(y-x) * 0.005 * sin(y);
-
-if(uv.y < 0.5) {y = 0.5 - uv.y;}
-COLOR = vec4(texscreen(vec2(uv.x,y)), 0.7);
-
-",
-"fragment_ofs": 0,
-"light": "",
-"light_ofs": 0,
-"vertex": "",
-"vertex_ofs": 0
-}
-
-[sub_resource type="CanvasItemMaterial" id=2]
-
-shader/shader = SubResource( 1 )
-shader/shading_mode = 0
-shader_param/speed_y = 2.5
-shader_param/speed_x = 2.5
+[ext_resource path="res://Platform/platform-blue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Character/Enemy/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=4]
 
 [node name="blue" type="Node2D"]
 
@@ -48,45 +11,24 @@ script/script = ExtResource( 1 )
 
 [node name="platforms" type="Node2D" parent="."]
 
-editor/display_folded = true
+[node name="platform" parent="platforms" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 1019.25, -1104.99 )
 
 [node name="platform1" parent="platforms" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 1009.83, -1078.59 )
-
-[node name="platform2" parent="platforms" instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 983.921, -854.665 )
-
-[node name="platform3" parent="platforms" instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 750.743, -952.748 )
+transform/pos = Vector2( 697.316, -1002.46 )
 
 [node name="tempPlatforms" type="Node2D" parent="platforms"]
 
 [node name="hiddenPlatforms" type="Node2D" parent="platforms"]
-
-[node name="crystal" parent="." instance=ExtResource( 3 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 652.745, -1302.4 )
-transform/scale = Vector2( 0.421875, 0.421875 )
-crystal_color = 5
-
-[node name="sprite" parent="crystal"]
-
-editor/display_folded = true
-
-[node name="sprite1" parent="crystal/sprite"]
-
-frame = 1
 
 [node name="Enemies" type="YSort" parent="."]
 
 editor/display_folded = true
 sort/enabled = true
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 4 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1013.55, -1102.19 )
 can_move = false
@@ -95,29 +37,11 @@ can_move = false
 
 editor/display_folded = true
 
-[node name="Checkpoint1" parent="Checkpoints" instance=ExtResource( 5 )]
+[node name="Checkpoint1" parent="Checkpoints" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 393.287, -1501.38 )
 transform/rot = 90.0
 transform/scale = Vector2( 2.23609, 7.9375 )
 
-[node name="Coins" type="Node2D" parent="."]
 
-editor/display_folded = true
-
-[node name="coin" parent="Coins" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 1365.86, -1404.52 )
-
-[node name="water" type="Sprite" parent="."]
-
-material/material = SubResource( 2 )
-transform/pos = Vector2( 1038.61, -662.102 )
-transform/scale = Vector2( 7.977, 4.25562 )
-z/z = 3
-z/relative = false
-texture = ExtResource( 7 )
-
-
-[editable path="crystal"]
