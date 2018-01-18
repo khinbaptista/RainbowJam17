@@ -1,13 +1,15 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://Levels/yellow/pillar/Pillar.gd" type="Script" id=1]
-[ext_resource path="res://Levels/yellow/pillar/000.png" type="Texture" id=2]
-[ext_resource path="res://Levels/yellow/pillar/001.png" type="Texture" id=3]
-[ext_resource path="res://Levels/yellow/pillar/002.png" type="Texture" id=4]
-[ext_resource path="res://Levels/yellow/pillar/004.png" type="Texture" id=5]
-[ext_resource path="res://Levels/yellow/pillar/005.png" type="Texture" id=6]
-[ext_resource path="res://Levels/yellow/pillar/003.png" type="Texture" id=7]
-[ext_resource path="res://Levels/yellow/pillar/ActivationArea.gd" type="Script" id=8]
+[ext_resource path="res://Levels/yellow/pillar/scratches floor.png" type="Texture" id=2]
+[ext_resource path="res://Levels/yellow/pillar/004.png" type="Texture" id=3]
+[ext_resource path="res://Levels/yellow/pillar/005.png" type="Texture" id=4]
+[ext_resource path="res://Levels/yellow/pillar/000.png" type="Texture" id=5]
+[ext_resource path="res://Levels/yellow/pillar/001.png" type="Texture" id=6]
+[ext_resource path="res://Levels/yellow/pillar/002.png" type="Texture" id=7]
+[ext_resource path="res://Levels/yellow/pillar/003.png" type="Texture" id=8]
+[ext_resource path="res://Levels/yellow/pillar/ActivationArea.gd" type="Script" id=9]
+[ext_resource path="res://Levels/yellow/pillar/shadow.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -18,17 +20,17 @@ height = 120.0
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "moon",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": false,
 "name": "sun",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "moon",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "ouroboros",
 "speed": 5.0
@@ -54,6 +56,12 @@ bounce = 0.0
 script/script = ExtResource( 1 )
 face = "sun"
 correct_face = "sun"
+
+[node name="scratches floor" type="Sprite" parent="."]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( 1, 58.955 )
+texture = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 
@@ -82,7 +90,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 8 )
+script/script = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
 
@@ -90,5 +98,28 @@ transform/pos = Vector2( 0, 90 )
 shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
+
+[node name="Light2D" type="Light2D" parent="."]
+
+transform/pos = Vector2( 0, 59.98 )
+enabled = true
+editor_only = false
+texture = ExtResource( 10 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.1
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
 
 
