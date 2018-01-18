@@ -66,6 +66,9 @@ func align_last_movement():
 	else:
 		forget_last_movement()	# shouldn't happen ever
 
+func apply_force(vect):
+	move_action.execute(vect)
+
 ########## Funcs
 
 func _ready():
