@@ -6,16 +6,10 @@ export var distance = 100
 export(bool) var active = false
 
 onready var sight_area = get_node("sight")
-onready var ground_check = get_node("groundcheck")
+onready var stop_check = get_node("stopcheck")
 onready var sprite = get_node("AnimatedSprite")
 
-onready var left_mark = get_node("left")
-onready var right_mark = get_node("right")
-onready var up_mark = get_node("front")
-onready var down_mark = get_node("back")
-
 var target
-var cliff_stopper
 var final_pos
 var grounded = true
 
@@ -52,19 +46,9 @@ func _process(delta):
 	elif direction.x > 0 and sprite.is_flipped_h(): sprite.set_flip_h(false)
 	
 	if active and target:
-		if ground_check.can_walk(direction):
+		if stop_check.can_walk(direction):
 			var remaining = move(direction * speed * delta)
 			if is_colliding():
 				var normal = get_collision_normal()
 				remaining = remaining.slide(normal)
 				move(remaining)
-				
-func get_mark_pos(mark):
-	if mark == "right":
-		return right_mark.get_pos()
-	elif mark == "left":
-		return left_mark.get_pos()
-	elif mark == "up":
-		return up_mark.get_pos()
-	elif mark == "down":
-		return down_mark.get_pos()
