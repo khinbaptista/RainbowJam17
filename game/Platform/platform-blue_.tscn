@@ -1,0 +1,186 @@
+[gd_scene load_steps=13 format=1]
+
+[ext_resource path="res://Platform/platform.gd" type="Script" id=1]
+[ext_resource path="res://Platform/Blue/000.png" type="Texture" id=2]
+[ext_resource path="res://Platform/Blue/001.png" type="Texture" id=3]
+[ext_resource path="res://Platform/Blue/006.png" type="Texture" id=4]
+[ext_resource path="res://Platform/Blue/005.png" type="Texture" id=5]
+[ext_resource path="res://Platform/Blue/004.png" type="Texture" id=6]
+[ext_resource path="res://Platform/Blue/003.png" type="Texture" id=7]
+[ext_resource path="res://Platform/Blue/002.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 85.0498, 63.7005 )
+
+[sub_resource type="SpriteFrames" id=5]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "hint",
+"speed": 5.0
+}, {
+"frames": [ null, ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "spawn",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), null ],
+"loop": false,
+"name": "destroy",
+"speed": 8.0
+} ]
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "destroy_collider"
+length = 1.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0.9, 1.1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.84202, -7.47263 ), Vector2( 1000, 1000 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "hint"
+length = 2.5
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:animation")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ "hint" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:frame")
+tracks/1/interp = 0
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 2, 2.2 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite:transform/pos")
+tracks/2/interp = 0
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 2.1, 2.3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 5 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sprite:playing")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="platform" type="Area2D" groups=[
+"platform",
+"ground",
+]]
+
+visibility/light_mask = 1024
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.84202, -7.47263 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+color_string = "Normal"
+active = true
+use_timers = false
+destructible = false
+duration_on = 5.0
+duration_off = 3.0
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+
+visibility/light_mask = 1024
+transform/scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 5 )
+animation = "destroy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 1.84202, -7.47263 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/destroy_collider = SubResource( 3 )
+anims/hint = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="timer_on" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="timer_off" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[connection signal="area_enter" from="." to="." method="_on_platform_area_enter"]
+
+[connection signal="timeout" from="timer_on" to="." method="destroy"]
+
+[connection signal="timeout" from="timer_off" to="timer_on" method="start"]
+
+[connection signal="timeout" from="timer_off" to="." method="spawn"]
+
+
