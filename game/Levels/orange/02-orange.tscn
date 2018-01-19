@@ -1,12 +1,17 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=56 format=1]
 
 [ext_resource path="res://Character/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/orange/orange island.png" type="Texture" id=2]
 [ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Platform/platform_orange.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Plants/flora.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Animals/Follower/Follower.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Modular islands/Orange/With bottom/011.png" type="Texture" id=4]
+[ext_resource path="res://Modular islands/Orange/With bottom/006.png" type="Texture" id=5]
+[ext_resource path="res://Platform/platform_orange.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Modular islands/Orange/With bottom/010.png" type="Texture" id=7]
+[ext_resource path="res://Switch/switch.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Crystal/crystal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Plants/Orange/orange_tree.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Plants/Orange/orange_bush.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Animals/Follower/Follower.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -62,6 +67,166 @@ points = Vector2Array( -55, -374.5, 157, -377.5, 599, -172.5, 441, 411.5, 315, 4
 
 custom_solver_bias = 0.0
 points = Vector2Array( -509, 295.5, 315, 411.5, 136, 553.5, -98, 552.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -299.476, 259.642, -299.476, 329.642, -359.476, 319.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -819.476, 699.642, -819.476, 649.642, -579.476, 659.642, -769.476, 699.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -449.476, 919.642, -619.476, 929.642, -769.476, 929.642, -769.476, 699.642, -579.476, 659.642, -229.476, 699.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -229.476, 699.642, -579.476, 659.642, -579.476, 369.642, -449.476, 369.642, -359.476, 409.642, -189.476, 699.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -449.476, 369.642, -449.476, 119.642, -399.476, 119.642, -299.476, 259.642, -359.476, 319.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -399.476, 119.642, -399.476, -270.358, -279.476, -270.358, 170.524, -130.358, 170.524, 79.642, -29.4758, 269.642, -299.476, 259.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 170.524, -130.358, -279.476, -270.358, -279.476, -350.358, -259.476, -350.358, 10.5242, -340.358, 360.524, -170.358, 360.524, -130.358 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -259.476, -350.358, -259.476, -390.358, 10.5242, -390.358, 10.5242, -340.358 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 10.5242, -340.358, 410.524, -340.358, 410.524, -170.358, 360.524, -170.358 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -29.4758, 269.642, 170.524, 79.642, 220.524, 79.642, 220.524, 239.642, 190.524, 349.642, -29.4758, 329.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=22]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 220.524, 239.642, 330.524, 239.642, 330.524, 349.642, 190.524, 349.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -359.476, 409.642, -189.476, 409.642, -189.476, 699.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=24]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -229.476, 699.642, -229.476, 909.642, -379.476, 919.642, -449.476, 919.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=25]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -449.476, 919.642, -459.476, 969.642, -609.476, 969.642, -619.476, 929.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=26]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -449.476, 369.642, -359.476, 319.642, -359.476, 409.642 )
+
+[sub_resource type="ConvexPolygonShape2D" id=27]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -50, 190, -40, 230, -150, 220 )
+
+[sub_resource type="ConvexPolygonShape2D" id=28]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 280, 190, 190, 200, 190, 90, 350, -80 )
+
+[sub_resource type="ConvexPolygonShape2D" id=29]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -460, -70, -510, -70, -510, -290, -330, -280, -160, -100 )
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 130, -160, 120, -280, 380, -290, 380, -210, 350, -80, 190, 90 )
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -20, -100, -20, -160, 130, -160 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 380, -210, 500, -210, 500, -170, 480, -170 )
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 480, -170, 480, -80, 350, -80, 380, -210 )
+
+[sub_resource type="ConvexPolygonShape2D" id=34]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 350, -80, 350, 240, 280, 240, 280, 190 )
+
+[sub_resource type="ConvexPolygonShape2D" id=35]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 130, -160, 190, 90, -50, 90, -20, -100 )
+
+[sub_resource type="ConvexPolygonShape2D" id=36]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -310, 190, -350, 90, -160, -100, -20, -100, -50, 90, -150, 220 )
+
+[sub_resource type="ConvexPolygonShape2D" id=37]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -50, 130, -20, 130, -20, 190, -50, 190 )
+
+[sub_resource type="ConvexPolygonShape2D" id=38]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -160, 260, -310, 260, -310, 190, -150, 220 )
+
+[sub_resource type="ConvexPolygonShape2D" id=39]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -310, 190, -350, 190, -350, 90 )
+
+[sub_resource type="ConvexPolygonShape2D" id=40]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -350, 90, -460, 90, -460, -70, -160, -100 )
+
+[sub_resource type="ConvexPolygonShape2D" id=41]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -320, -320, -170, -320, -160, -100, -330, -280 )
+
+[sub_resource type="ConvexPolygonShape2D" id=42]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -150, 220, -50, 90, -50, 130 )
+
+[sub_resource type="ConvexPolygonShape2D" id=43]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -150, 220, -50, 130, -50, 190 )
 
 [node name="orange" type="Node2D"]
 
@@ -141,27 +306,219 @@ editor/display_folded = true
 transform/pos = Vector2( 25.8846, -106.257 )
 transform/scale = Vector2( 18.0671, 24.9553 )
 
-[node name="spawn_location" parent="island/Checkpoint"]
+[node name="island1" type="Area2D" parent="." groups=[
+"ground",
+]]
 
-transform/pos = Vector2( 19.7893, -25.4046 )
+editor/display_folded = true
+transform/pos = Vector2( -2790.52, 350.858 )
+input/pickable = true
+shapes/0/shape = SubResource( 12 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 13 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 14 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 15 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 16 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 17 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 18 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 19 )
+shapes/7/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 20 )
+shapes/8/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/8/trigger = false
+shapes/9/shape = SubResource( 21 )
+shapes/9/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/9/trigger = false
+shapes/10/shape = SubResource( 22 )
+shapes/10/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/10/trigger = false
+shapes/11/shape = SubResource( 23 )
+shapes/11/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/11/trigger = false
+shapes/12/shape = SubResource( 24 )
+shapes/12/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/12/trigger = false
+shapes/13/shape = SubResource( 25 )
+shapes/13/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/13/trigger = false
+shapes/14/shape = SubResource( 26 )
+shapes/14/transform = Matrix32( 1, 0, 0, 1, 0, -0.5 )
+shapes/14/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
 
-[node name="Particles2D" parent="island/Checkpoint/Node"]
+[node name="sprite" type="Sprite" parent="island1"]
 
-transform/pos = Vector2( 11.2047, -47.2897 )
+visibility/light_mask = 1024
+transform/pos = Vector2( 0.52417, -0.857971 )
+transform/scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island1"]
+
+visibility/behind_parent = true
+transform/pos = Vector2( 0, -0.5 )
+build_mode = 0
+polygon = Vector2Array( -229.476, 909.642, -229.476, 699.642, -189.476, 699.642, -189.476, 409.642, -359.476, 409.642, -359.476, 319.642, -299.476, 329.642, -299.476, 259.642, -29.4758, 269.642, -29.4758, 329.642, 190.524, 349.642, 330.524, 349.642, 330.524, 239.642, 220.524, 239.642, 220.524, 79.642, 170.524, 79.642, 170.524, -130.358, 360.524, -130.358, 360.524, -170.358, 410.524, -170.358, 410.524, -340.358, 10.5242, -340.358, 10.5242, -390.358, -259.476, -390.358, -259.476, -350.358, -279.476, -350.358, -279.476, -270.358, -399.476, -270.358, -399.476, 119.642, -449.476, 119.642, -449.476, 369.642, -579.476, 369.642, -579.476, 659.642, -819.476, 649.642, -819.476, 699.642, -769.476, 699.642, -769.476, 929.642, -619.476, 929.642, -609.476, 969.642, -459.476, 969.642, -449.476, 919.642, -379.476, 919.642 )
+shape_range = Vector2( 0, 14 )
+trigger = false
+
+[node name="Checkpoint" parent="island1" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( -99.4758, -20.858 )
+transform/scale = Vector2( 10.391, 14.3527 )
+
+[node name="sprite2" type="Sprite" parent="island1"]
+
+transform/pos = Vector2( -407.477, 689.142 )
+transform/scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 5 )
 
 [node name="platforms" type="Node2D" parent="."]
 
 transform/pos = Vector2( -2958.22, 2605.86 )
 
-[node name="platform" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform" parent="platforms" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 2363.27, -2507.98 )
+transform/pos = Vector2( 2563.27, -2527.98 )
 
-[node name="platform1" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform1" parent="platforms" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 2023.27, -2507.98 )
+transform/pos = Vector2( 2391.22, -2527.86 )
 
-[node name="crystal" parent="." instance=ExtResource( 5 )]
+[node name="platform2" parent="platforms" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2219.22, -2527.86 )
+
+[node name="platform3" parent="platforms" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2046.22, -2527.86 )
+
+[node name="platform4" parent="platforms" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1666.22, -2527.86 )
+
+[node name="platform5" parent="platforms" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1286.22, -2527.86 )
+
+[node name="platform6" parent="platforms" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 896.22, -2527.86 )
+
+[node name="platform7" parent="platforms" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -361.78, -1205.86 )
+active = false
+
+[node name="island2" type="Area2D" parent="." groups=[
+"ground",
+]]
+
+transform/pos = Vector2( -3070.52, 1790.86 )
+input/pickable = true
+shapes/0/shape = SubResource( 27 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 28 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 29 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 30 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 31 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 32 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 33 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 34 )
+shapes/7/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 35 )
+shapes/8/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/8/trigger = false
+shapes/9/shape = SubResource( 36 )
+shapes/9/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/9/trigger = false
+shapes/10/shape = SubResource( 37 )
+shapes/10/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/10/trigger = false
+shapes/11/shape = SubResource( 38 )
+shapes/11/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/11/trigger = false
+shapes/12/shape = SubResource( 39 )
+shapes/12/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/12/trigger = false
+shapes/13/shape = SubResource( 40 )
+shapes/13/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/13/trigger = false
+shapes/14/shape = SubResource( 41 )
+shapes/14/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/14/trigger = false
+shapes/15/shape = SubResource( 42 )
+shapes/15/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/15/trigger = false
+shapes/16/shape = SubResource( 43 )
+shapes/16/transform = Matrix32( 1, 0, 0, 1, 0.52417, -0.85791 )
+shapes/16/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="sprite" type="Sprite" parent="island2"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( 0.52417, -0.857971 )
+transform/scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island2"]
+
+visibility/behind_parent = true
+transform/pos = Vector2( 0.52417, -0.85791 )
+build_mode = 0
+polygon = Vector2Array( -510, -290, -510, -70, -460, -70, -460, 90, -350, 90, -350, 190, -310, 190, -310, 260, -160, 260, -150, 220, -40, 230, -50, 190, -20, 190, -20, 130, -50, 130, -50, 90, 190, 90, 190, 200, 280, 190, 280, 240, 350, 240, 350, -80, 480, -80, 480, -170, 500, -170, 500, -210, 380, -210, 380, -290, 120, -280, 130, -160, -20, -160, -20, -100, -160, -100, -170, -320, -320, -320, -330, -280 )
+shape_range = Vector2( 0, 16 )
+trigger = false
+
+[node name="Checkpoint" parent="island2" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/pos = Vector2( -9.47583, -0.85791 )
+transform/scale = Vector2( 4.51678, 4.05691 )
+
+[node name="switch" parent="island2" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( -349.476, -130.858 )
+transform/scale = Vector2( 0.3, 0.3 )
+target_path = NodePath("../../platforms/platform7")
+
+[node name="crystal" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 32.7762, -24.142 )
 transform/scale = Vector2( 0.421875, 0.421875 )
@@ -169,24 +526,38 @@ crystal_color = 2
 
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( -934.468, 87.6151 )
+transform/pos = Vector2( -1670, 60 )
 transform/scale = Vector2( 2.85938, 2.39063 )
 
 [node name="flora" type="Node2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -170, -50 )
 
-[node name="flora" parent="flora" instance=ExtResource( 6 )]
+[node name="orange_tree" parent="flora" instance=ExtResource( 10 )]
 
-editor/display_folded = true
-type = "Cactus"
+transform/pos = Vector2( 60, -130 )
 
-[node name="Follower" parent="." instance=ExtResource( 7 )]
+[node name="orange_bush" parent="flora" instance=ExtResource( 11 )]
 
-transform/pos = Vector2( -143.393, 114.511 )
+transform/pos = Vector2( -2350, 170 )
+
+[node name="orange_bush 2" parent="flora" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( -2490, 610 )
+
+[node name="orange_bush 3" parent="flora" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( -3290, 1030 )
+
+[node name="orange_tree 2" parent="flora" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( -2710, 50 )
+
+[node name="Follower" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( -3200, 1060 )
 transform/scale = Vector2( 0.5, 0.5 )
 
 
 [editable path="player"]
-[editable path="island/Checkpoint"]
-[editable path="flora/flora"]

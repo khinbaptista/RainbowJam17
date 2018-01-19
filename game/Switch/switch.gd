@@ -4,10 +4,12 @@ var active = false
 
 onready var animations = get_node("animations")
 
-signal switch_activated
+export(NodePath) var target_path
 
 func interaction():
+	var target = get_node(target_path)
 	animations.play("on")
 	active = true
-	emit_signal("switch_activated")
+	if target.has_method("activate"):
+		target.activate()
 	
