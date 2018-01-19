@@ -36,6 +36,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
 target_path = null
+stopper = null
 
 [node name="press_e" parent="." instance=ExtResource( 2 )]
 

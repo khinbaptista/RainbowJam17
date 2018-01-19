@@ -8,4 +8,4 @@ func _ready():
 	pass
 
 func interaction():
-	get_node("/root/loader").change_scene("res://Levels/world_new.tscn")
+	get_node("/root/loader").change_scene("res://Levels/plaza/plaza.tscn")

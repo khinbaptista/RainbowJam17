@@ -18,8 +18,9 @@ func _process(delta):
 	process_layer()
 
 func interaction():
-	player.learn_color(1 << crystal_color)
-	queue_free()
+	if not is_hidden():
+		player.learn_color(1 << crystal_color)
+		queue_free()
 
 func process_layer():
 	if layer == "front" and player.get_global_pos().y > get_global_pos().y:
@@ -30,3 +31,6 @@ func process_layer():
 		sprite.set_z(3)
 		press_e.set_z(3)
 		layer = "front"
+		
+func activate():
+	show()

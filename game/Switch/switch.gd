@@ -4,12 +4,18 @@ var active = false
 
 onready var animations = get_node("animations")
 
-export(NodePath) var target_path
+export(Array) var target_path
+export(NodePath) var stopper
 
 func interaction():
-	var target = get_node(target_path)
+	var target
+	for t in target_path:
+		target = get_node(t)
+		if target.has_method("activate"):
+			target.activate()
+	if stopper:
+		get_node(stopper).active = false
 	animations.play("on")
 	active = true
-	if target.has_method("activate"):
-		target.activate()
+
 	

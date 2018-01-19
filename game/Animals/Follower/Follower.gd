@@ -38,9 +38,9 @@ func _process(delta):
 		active = false
 		sprite.play("default")
 	
-	print(distance)
-	print(vect.x)
-	print(vect.y)
+	#print(distance)
+	#print(vect.x)
+	#print(vect.y)
 	
 	if direction.x < 0: sprite.set_flip_h(true)
 	elif direction.x > 0 and sprite.is_flipped_h(): sprite.set_flip_h(false)
