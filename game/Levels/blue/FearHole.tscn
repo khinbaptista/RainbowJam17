@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=1]
+[gd_scene load_steps=26 format=1]
 
 [ext_resource path="res://Levels/blue/FearHole.gd" type="Script" id=1]
 [ext_resource path="res://Modular islands/Blue/004.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Modular islands/Blue/001.png" type="Texture" id=5]
 [ext_resource path="res://Levels/blue/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/blue/Monster.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Crystal/blue-crystal.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -103,6 +104,7 @@ func on_body_enter(body):
 [node name="FearHole" type="Node2D"]
 
 script/script = ExtResource( 1 )
+crystal_path = NodePath("crystal")
 
 [node name="WaitReload" type="Timer" parent="."]
 
@@ -598,12 +600,17 @@ _update_shape_index = 0
 
 [node name="player" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 121.667, 47.9937 )
+transform/pos = Vector2( 5704.4, -403.887 )
 
 [node name="Monster" parent="." instance=ExtResource( 7 )]
 
-transform/pos = Vector2( -351.438, 28.5583 )
+transform/pos = Vector2( 5231.29, -423.323 )
 running = true
 speed = 300.0
+
+[node name="crystal" parent="." instance=ExtResource( 8 )]
+
+visibility/visible = false
+transform/pos = Vector2( 8719.9, -395.257 )
 
 

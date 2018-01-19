@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://Crystal/color-crystal.gd" type="Script" id=1]
+[ext_resource path="res://Crystal/sprites/Blue.png" type="Texture" id=2]
+[ext_resource path="res://Tools/press_e.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tools/vibration_radial.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tools/z_depth.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Lights/radial light 2.png" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 31.7871
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="crystal" type="StaticBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 6.70822e-06, -3.7825 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+crystal_color = 5
+vibration_distance = 300
+
+[node name="sprite" type="Node2D" parent="."]
+
+transform/pos = Vector2( 0, -34.0427 )
+transform/scale = Vector2( 0.3, 0.3 )
+z/z = 1
+
+[node name="sprite1" type="AnimatedSprite" parent="sprite"]
+
+z/z = 1
+frames = SubResource( 2 )
+animation = "default"
+playing = true
+
+[node name="press_e" parent="sprite" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+transform/scale = Vector2( 1.2, 1.2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 6.70822e-06, -3.7825 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="vibration_radial" parent="." instance=ExtResource( 4 )]
+
+[node name="z_depth" parent="." instance=ExtResource( 5 )]
+
+[node name="Light2D" type="Light2D" parent="."]
+
+transform/scale = Vector2( 20, 20 )
+enabled = true
+editor_only = false
+texture = ExtResource( 6 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 0.445313, 0.804993, 1, 1 )
+energy = 1.0
+mode = 0
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+
+[editable path="sprite/press_e"]

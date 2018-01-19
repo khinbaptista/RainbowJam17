@@ -50,7 +50,6 @@ func dissolve():
 	get_node("anim").play("dissolve")
 	
 	yield(get_node("anim"), "finished")
-	print("Monster dissolved")
 	emit_signal("dissolved")
 
 func attack():
