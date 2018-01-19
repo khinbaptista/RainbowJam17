@@ -11,7 +11,7 @@ func _ready():
 	levels.append("res://Levels/plaza/plaza.tscn")
 	levels.append("res://Levels/world_new.tscn")
 	levels.append("res://Levels/orange/02-orange.tscn")
-	#levels.append("res://Levels/yellow/")
+	levels.append("res://Levels/yellow/trailer-yellow.tscn")
 	#levels.append("res://Levels/green/")
 	levels.append("res://Levels/blue/blue trailer.tscn")
 	##levels.append("res://Levels/purple/")
@@ -22,7 +22,7 @@ func advance_level():
 
 func set_player(p):
 	player = p
-	player.colors_learned = colors_learned
+	#player.colors_learned = colors_learned
 	player.connect("new_color_learned", self, "on_new_color")
 
 func on_new_color(color):
