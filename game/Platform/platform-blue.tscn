@@ -1,21 +1,20 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Platform/platform.gd" type="Script" id=1]
-[ext_resource path="res://Platform/Yellow/001.png" type="Texture" id=2]
-[ext_resource path="res://Platform/Yellow/002.png" type="Texture" id=3]
-[ext_resource path="res://Platform/Yellow/003.png" type="Texture" id=4]
-[ext_resource path="res://Platform/Yellow/004.png" type="Texture" id=5]
-[ext_resource path="res://Platform/Yellow/005.png" type="Texture" id=6]
-[ext_resource path="res://Platform/Yellow/006.png" type="Texture" id=7]
-[ext_resource path="res://Platform/Yellow/007.png" type="Texture" id=8]
-[ext_resource path="res://Platform/Yellow/008.png" type="Texture" id=9]
+[ext_resource path="res://Platform/Blue/000.png" type="Texture" id=2]
+[ext_resource path="res://Platform/Blue/001.png" type="Texture" id=3]
+[ext_resource path="res://Platform/Blue/006.png" type="Texture" id=4]
+[ext_resource path="res://Platform/Blue/005.png" type="Texture" id=5]
+[ext_resource path="res://Platform/Blue/004.png" type="Texture" id=6]
+[ext_resource path="res://Platform/Blue/003.png" type="Texture" id=7]
+[ext_resource path="res://Platform/Blue/002.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 85.0498, 63.7005 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -28,14 +27,14 @@ animations = [ {
 "name": "hint",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": false,
-"name": "destroy",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"frames": [ null, ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": false,
 "name": "spawn",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), null ],
+"loop": false,
+"name": "destroy",
 "speed": 8.0
 } ]
 
@@ -139,7 +138,7 @@ duration_off = 3.0
 
 visibility/light_mask = 1024
 transform/scale = Vector2( 0.3, 0.3 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "destroy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
