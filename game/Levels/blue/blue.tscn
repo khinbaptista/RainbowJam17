@@ -1,9 +1,269 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=73 format=1]
 
 [ext_resource path="res://Levels/red/01-red_new.gd" type="Script" id=1]
-[ext_resource path="res://Platform/platform-blue.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Character/Enemy/Enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Checkpoint/Checkpoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Platform/platform_orange.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Platform/platform-yellow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Platform/platform-blue.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Modular islands/Blue/With bottom/010.png" type="Texture" id=6]
+[ext_resource path="res://Modular islands/Blue/With bottom/009.png" type="Texture" id=7]
+[ext_resource path="res://Modular islands/Blue/With bottom/004.png" type="Texture" id=8]
+[ext_resource path="res://Modular islands/Blue/With bottom/002.png" type="Texture" id=9]
+[ext_resource path="res://Modular islands/Blue/004.png" type="Texture" id=10]
+[ext_resource path="res://Modular islands/Blue/With bottom/007.png" type="Texture" id=11]
+[ext_resource path="res://Modular islands/Blue/With bottom/008.png" type="Texture" id=12]
+[ext_resource path="res://Modular islands/Blue/001.png" type="Texture" id=13]
+[ext_resource path="res://Modular islands/Blue/With bottom/012.png" type="Texture" id=14]
+[ext_resource path="res://Modular islands/Blue/With bottom/013.png" type="Texture" id=15]
+[ext_resource path="res://Modular islands/Blue/012.png" type="Texture" id=16]
+[ext_resource path="res://Levels/blue/hole lid/000.png" type="Texture" id=17]
+[ext_resource path="res://Levels/blue/hole lid/001.png" type="Texture" id=18]
+[ext_resource path="res://Levels/blue/hole lid/002.png" type="Texture" id=19]
+[ext_resource path="res://Levels/blue/hole lid/003.png" type="Texture" id=20]
+[ext_resource path="res://Plants/Coral 1.png" type="Texture" id=21]
+[ext_resource path="res://Character/sprites/shadow.png" type="Texture" id=22]
+[ext_resource path="res://Plants/Coral 2.png" type="Texture" id=23]
+[ext_resource path="res://Lights/radial light 2.png" type="Texture" id=24]
+[ext_resource path="res://Character/blue NPC.png" type="Texture" id=25]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 3901.22, -2977.09, 3992.64, -2978.88, 3993.71, -2793.9, 3911.26, -2793.18, 3048.58, -2800.96 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 3910.18, -2694.24, 4106.63, -2697.11, 4107.35, -1833.51 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 4281.22, 2768.73, 4517.82, 1326.54, 4970.23, 1325.47, 4969.51, 1461.33, 4511.01, 2921.45, 4281.58, 2920.37 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2171.92, -2199.18, 1920.49, -2198.39, 1923.27, -2843.07, 2663.67, -2841.08, 2663.28, -2800.96 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 3929.54, 236.026, 4379.8, 235.309, 4377.65, 666.209, 3928.83, 413.835 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1828.33, 1345.16, 1825.55, 418.859, 2409.46, 419.256, 2408.66, 530.079, 1996.35, 1346.75 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6909.47, -3158.78, 6909.07, -2502.56, 6458.46, -2505.51, 5481.56, -3852.74 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6075.8, 3313.99, 6076.16, 3374.93, 5372.09, 3375.29, 5371.73, 3189.24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6063.61, 1275.64, 6063.61, 1183.86, 6333.19, 1183.15, 6331.76, 1704.74, 6213.82, 1704.39 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6606.94, -2188.68, 6606.21, -1405.07, 6357.01, -1406.54, 6357.93, -1634.91, 6457.72, -2190.15 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2171.53, -1683.6, 3457.06, -1272.84, 3457.77, -986.771, 3136.93, -987.487, 1895.86, -1274.07 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6214.17, 2431.75, 5371.73, 3189.24, 4508.86, 3184.57, 4511.01, 2921.45, 4969.51, 1461.33, 5623.39, 1461.33, 6213.82, 1704.39 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 3127.22, -4271.05, 3579.65, -4272.25, 3579.65, -3636.3, 3126.83, -4174.13 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6499.89, 2809.24, 6662.64, 2808.88, 6662.64, 3314.71, 6075.8, 3313.99 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 5481.56, -3852.74, 7014.32, -3854.69, 7013.83, -3160.73, 6909.47, -3158.78 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 4011.64, 2768.73, 2431.7, 2190.04, 2163.18, 1601.37, 4377.65, 666.209, 4518.89, 666.209, 4517.82, 1326.54, 4281.22, 2768.73 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6214.17, 2431.75, 6499.53, 2431.04, 6499.89, 2809.24, 6075.8, 3313.99, 5371.73, 3189.24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 4856.23, -2791.75, 4597.76, -3101.12, 4406.25, -3828.56, 5149.45, -3949.79, 5481.56, -3950.27, 5481.56, -3852.74, 5183.89, -2677.75 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2431.7, 2190.04, 2161.6, 2189.64, 2163.18, 1601.37 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2602.5, 118.565, 3136.93, -588.492, 3245.91, -588.492, 3245.19, 414.552, 2602.9, 532.065 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 3992.36, -3635.51, 3991.96, -3827.76, 4406.25, -3828.56 )
+
+[sub_resource type="ConvexPolygonShape2D" id=22]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2724.85, -3557.26, 2586.61, -3557.66, 2586.22, -4173.34, 3126.83, -4174.13, 3579.65, -3636.3 )
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 5368.86, -2424.66, 5183.17, -2425.38, 5183.89, -2677.75, 5481.56, -3852.74 )
+
+[sub_resource type="ConvexPolygonShape2D" id=24]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 4406.23, -4169.24, 5148.48, -4171.68, 5149.45, -3949.79, 4406.25, -3828.56 )
+
+[sub_resource type="ConvexPolygonShape2D" id=25]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 4011.64, 2768.73, 4011.03, 3101.25, 2365.37, 3100.06, 2432.5, 2874.84 )
+
+[sub_resource type="ConvexPolygonShape2D" id=26]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2212.84, -609.927, 1893.48, -611.516, 1895.86, -1274.07, 3136.93, -987.487 )
+
+[sub_resource type="ConvexPolygonShape2D" id=27]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1818.8, -1274.07, 1818, -1682.41, 2171.53, -1683.6, 1895.86, -1274.07 )
+
+[sub_resource type="ConvexPolygonShape2D" id=28]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2602.5, 118.565, 2072.22, 117.373, 2072.22, -196.824, 2211.25, -198.413 )
+
+[sub_resource type="ConvexPolygonShape2D" id=29]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 4261.5, -1832.8, 4261.86, -1275.35, 3457.06, -1272.84, 4107.35, -1833.51 )
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 4856.23, -2791.75, 4598.12, -2792.11, 4597.76, -3101.12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2602.9, 532.065, 2163.18, 1601.37, 1997.55, 1600.97, 1996.35, 1346.75, 2408.66, 530.079 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6457.72, -2190.15, 5778.97, -1748.91, 5595.43, -1750.7, 5592.2, -2347.23, 6458.46, -2505.51 )
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2365.37, 3100.06, 2364.97, 2876.03, 2432.5, 2874.84 )
+
+[sub_resource type="ConvexPolygonShape2D" id=34]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 4011.64, 2768.73, 2432.5, 2874.84, 2431.7, 2190.04 )
+
+[sub_resource type="ConvexPolygonShape2D" id=35]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 3901.22, -3104.35, 3047.38, -3100.46, 2726.43, -3104.43, 2724.85, -3557.26, 3579.65, -3636.3, 3992.36, -3635.51 )
+
+[sub_resource type="ConvexPolygonShape2D" id=36]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6357.93, -1634.91, 5780.77, -1635.27, 5778.97, -1748.91, 6457.72, -2190.15 )
+
+[sub_resource type="ConvexPolygonShape2D" id=37]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 5481.56, -3852.74, 6458.46, -2505.51, 5592.2, -2347.23, 5369.58, -2349.73, 5368.86, -2424.66 )
+
+[sub_resource type="ConvexPolygonShape2D" id=38]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 5183.89, -2677.75, 4858.02, -2678.11, 4856.23, -2791.75 )
+
+[sub_resource type="ConvexPolygonShape2D" id=39]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 4406.25, -3828.56, 4597.76, -3101.12, 3901.22, -3104.35, 3992.36, -3635.51 )
+
+[sub_resource type="ConvexPolygonShape2D" id=40]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 3047.38, -3100.46, 3901.22, -3104.35, 3901.22, -2977.09, 3048.58, -2800.96 )
+
+[sub_resource type="ConvexPolygonShape2D" id=41]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 3048.58, -2800.96, 3911.26, -2793.18, 3910.18, -2694.24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=42]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 5623.39, 1461.33, 5624.82, 1281.01, 6063.61, 1275.64, 6213.82, 1704.39 )
+
+[sub_resource type="ConvexPolygonShape2D" id=43]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2171.92, -2199.18, 2663.28, -2800.96, 3048.58, -2800.96, 3910.18, -2694.24, 4107.35, -1833.51, 3457.06, -1272.84, 2171.53, -1683.6 )
+
+[sub_resource type="ConvexPolygonShape2D" id=44]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 2211.25, -198.413, 2212.84, -609.927, 3136.93, -987.487, 3136.93, -588.492, 2602.5, 118.565 )
+
+[sub_resource type="ConvexPolygonShape2D" id=45]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 3245.19, 414.552, 3928.83, 413.835, 4377.65, 666.209, 2163.18, 1601.37, 2602.9, 532.065 )
+
+[sub_resource type="SpriteFrames" id=47]
+
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="ColorRamp" id=46]
+
+offsets = FloatArray( 0, 0.0818713, 0.637427, 1 )
+colors = ColorArray( 1, 1, 1, 0, 1, 1, 1, 0.588235, 1, 1, 1, 0.588235, 1, 1, 1, 0 )
 
 [node name="blue" type="Node2D"]
 
@@ -11,37 +271,974 @@ script/script = ExtResource( 1 )
 
 [node name="platforms" type="Node2D" parent="."]
 
-[node name="platform" parent="platforms" instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 1019.25, -1104.99 )
-
-[node name="platform1" parent="platforms" instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 697.316, -1002.46 )
+editor/display_folded = true
 
 [node name="tempPlatforms" type="Node2D" parent="platforms"]
 
 [node name="hiddenPlatforms" type="Node2D" parent="platforms"]
 
+[node name="platform 4" parent="platforms" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 1402.95, 513.653 )
+color_string = "Red"
+
+[node name="platform 3" parent="platforms" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1403.62, 224.87 )
+color_string = "Orange"
+
+[node name="platform 2" parent="platforms" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1402.63, -76.4236 )
+color_string = "Yellow"
+
+[node name="platform" parent="platforms" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1073.51, 516.825 )
+
+[node name="platform1" parent="platforms" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1073.51, 783.084 )
+color_string = "Blue"
+
 [node name="Enemies" type="YSort" parent="."]
 
-editor/display_folded = true
 sort/enabled = true
-
-[node name="Enemy" parent="Enemies" instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 1013.55, -1102.19 )
-can_move = false
 
 [node name="Checkpoints" type="Node2D" parent="."]
 
+[node name="Island 1" type="Area2D" parent="." groups=[
+"ground",
+]]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 2 )
+shapes/1/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 3 )
+shapes/2/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 4 )
+shapes/3/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 5 )
+shapes/4/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 6 )
+shapes/5/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 7 )
+shapes/6/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 8 )
+shapes/7/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 9 )
+shapes/8/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/8/trigger = false
+shapes/9/shape = SubResource( 10 )
+shapes/9/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/9/trigger = false
+shapes/10/shape = SubResource( 11 )
+shapes/10/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/10/trigger = false
+shapes/11/shape = SubResource( 12 )
+shapes/11/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/11/trigger = false
+shapes/12/shape = SubResource( 13 )
+shapes/12/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/12/trigger = false
+shapes/13/shape = SubResource( 14 )
+shapes/13/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/13/trigger = false
+shapes/14/shape = SubResource( 15 )
+shapes/14/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/14/trigger = false
+shapes/15/shape = SubResource( 16 )
+shapes/15/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/15/trigger = false
+shapes/16/shape = SubResource( 17 )
+shapes/16/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/16/trigger = false
+shapes/17/shape = SubResource( 18 )
+shapes/17/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/17/trigger = false
+shapes/18/shape = SubResource( 19 )
+shapes/18/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/18/trigger = false
+shapes/19/shape = SubResource( 20 )
+shapes/19/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/19/trigger = false
+shapes/20/shape = SubResource( 21 )
+shapes/20/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/20/trigger = false
+shapes/21/shape = SubResource( 22 )
+shapes/21/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/21/trigger = false
+shapes/22/shape = SubResource( 23 )
+shapes/22/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/22/trigger = false
+shapes/23/shape = SubResource( 24 )
+shapes/23/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/23/trigger = false
+shapes/24/shape = SubResource( 25 )
+shapes/24/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/24/trigger = false
+shapes/25/shape = SubResource( 26 )
+shapes/25/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/25/trigger = false
+shapes/26/shape = SubResource( 27 )
+shapes/26/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/26/trigger = false
+shapes/27/shape = SubResource( 28 )
+shapes/27/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/27/trigger = false
+shapes/28/shape = SubResource( 29 )
+shapes/28/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/28/trigger = false
+shapes/29/shape = SubResource( 30 )
+shapes/29/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/29/trigger = false
+shapes/30/shape = SubResource( 31 )
+shapes/30/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/30/trigger = false
+shapes/31/shape = SubResource( 32 )
+shapes/31/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/31/trigger = false
+shapes/32/shape = SubResource( 33 )
+shapes/32/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/32/trigger = false
+shapes/33/shape = SubResource( 34 )
+shapes/33/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/33/trigger = false
+shapes/34/shape = SubResource( 35 )
+shapes/34/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/34/trigger = false
+shapes/35/shape = SubResource( 36 )
+shapes/35/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/35/trigger = false
+shapes/36/shape = SubResource( 37 )
+shapes/36/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/36/trigger = false
+shapes/37/shape = SubResource( 38 )
+shapes/37/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/37/trigger = false
+shapes/38/shape = SubResource( 39 )
+shapes/38/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/38/trigger = false
+shapes/39/shape = SubResource( 40 )
+shapes/39/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/39/trigger = false
+shapes/40/shape = SubResource( 41 )
+shapes/40/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/40/trigger = false
+shapes/41/shape = SubResource( 42 )
+shapes/41/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/41/trigger = false
+shapes/42/shape = SubResource( 43 )
+shapes/42/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/42/trigger = false
+shapes/43/shape = SubResource( 44 )
+shapes/43/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/43/trigger = false
+shapes/44/shape = SubResource( 45 )
+shapes/44/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
+shapes/44/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="10" type="Sprite" parent="Island 1"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( 189.012, -1288.8 )
+texture = ExtResource( 6 )
+
+[node name="9" type="Sprite" parent="Island 1"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( 1296.74, -949.576 )
+texture = ExtResource( 7 )
+
+[node name="4" type="Sprite" parent="Island 1"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( -522.422, -685.209 )
+texture = ExtResource( 8 )
+
+[node name="2" type="Sprite" parent="Island 1"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( -22.0861, -518.221 )
+texture = ExtResource( 9 )
+
+[node name="4 2" type="Sprite" parent="Island 1"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( -522.422, -685.209 )
+texture = ExtResource( 10 )
+
+[node name="7" type="Sprite" parent="Island 1"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( -491.361, 36.6298 )
+texture = ExtResource( 11 )
+
+[node name="8" type="Sprite" parent="Island 1"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( -459.809, 917.276 )
+texture = ExtResource( 12 )
+
+[node name="1" type="Sprite" parent="Island 1"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( 187.409, 898.751 )
+texture = ExtResource( 13 )
+
+[node name="12" type="Sprite" parent="Island 1"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( -23.7018, 1624.19 )
+texture = ExtResource( 14 )
+
+[node name="13" type="Sprite" parent="Island 1"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( 951.322, 1620.04 )
+texture = ExtResource( 15 )
+
+[node name="12 2" type="Sprite" parent="Island 1"]
+
+visibility/light_mask = 1024
+transform/pos = Vector2( -23.7018, 1624.19 )
+texture = ExtResource( 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Island 1"]
+
+visibility/visible = false
+transform/pos = Vector2( -1835.15, 388.801 )
+transform/scale = Vector2( 0.5, 0.5 )
+build_mode = 0
+polygon = Vector2Array( 6357.01, -1406.54, 6606.21, -1405.07, 6606.94, -2188.68, 6457.72, -2190.15, 6458.46, -2505.51, 6909.07, -2502.56, 6909.47, -3158.78, 7013.83, -3160.73, 7014.32, -3854.69, 5481.56, -3852.74, 5481.56, -3950.27, 5149.45, -3949.79, 5148.48, -4171.68, 4406.23, -4169.24, 4406.25, -3828.56, 3991.96, -3827.76, 3992.36, -3635.51, 3579.65, -3636.3, 3579.65, -4272.25, 3127.22, -4271.05, 3126.83, -4174.13, 2586.22, -4173.34, 2586.61, -3557.66, 2724.85, -3557.26, 2726.43, -3104.43, 3047.38, -3100.46, 3048.58, -2800.96, 2663.28, -2800.96, 2663.67, -2841.08, 1923.27, -2843.07, 1920.49, -2198.39, 2171.92, -2199.18, 2171.53, -1683.6, 1818, -1682.41, 1818.8, -1274.07, 1895.86, -1274.07, 1893.48, -611.516, 2212.84, -609.927, 2211.25, -198.413, 2072.22, -196.824, 2072.22, 117.373, 2602.5, 118.565, 2602.9, 532.065, 2408.66, 530.079, 2409.46, 419.256, 1825.55, 418.859, 1828.33, 1345.16, 1996.35, 1346.75, 1997.55, 1600.97, 2163.18, 1601.37, 2161.6, 2189.64, 2431.7, 2190.04, 2432.5, 2874.84, 2364.97, 2876.03, 2365.37, 3100.06, 4011.03, 3101.25, 4011.64, 2768.73, 4281.22, 2768.73, 4281.58, 2920.37, 4511.01, 2921.45, 4508.86, 3184.57, 5371.73, 3189.24, 5372.09, 3375.29, 6076.16, 3374.93, 6075.8, 3313.99, 6662.64, 3314.71, 6662.64, 2808.88, 6499.89, 2809.24, 6499.53, 2431.04, 6214.17, 2431.75, 6213.82, 1704.39, 6331.76, 1704.74, 6333.19, 1183.15, 6063.61, 1183.86, 6063.61, 1275.64, 5624.82, 1281.01, 5623.39, 1461.33, 4969.51, 1461.33, 4970.23, 1325.47, 4517.82, 1326.54, 4518.89, 666.209, 4377.65, 666.209, 4379.8, 235.309, 3929.54, 236.026, 3928.83, 413.835, 3245.19, 414.552, 3245.91, -588.492, 3136.93, -588.492, 3136.93, -987.487, 3457.77, -986.771, 3457.06, -1272.84, 4261.86, -1275.35, 4261.5, -1832.8, 4107.35, -1833.51, 4106.63, -2697.11, 3910.18, -2694.24, 3911.26, -2793.18, 3993.71, -2793.9, 3992.64, -2978.88, 3901.22, -2977.09, 3901.22, -3104.35, 4597.76, -3101.12, 4598.12, -2792.11, 4856.23, -2791.75, 4858.02, -2678.11, 5183.89, -2677.75, 5183.17, -2425.38, 5368.86, -2424.66, 5369.58, -2349.73, 5592.2, -2347.23, 5595.43, -1750.7, 5778.97, -1748.91, 5780.77, -1635.27, 6357.93, -1634.91 )
+shape_range = Vector2( 0, 44 )
+trigger = false
+
+[node name="hole lid" type="AnimatedSprite" parent="Island 1"]
+
+transform/pos = Vector2( -55.4885, 1030.83 )
+frames = SubResource( 47 )
+animation = "default"
+frame = 3
+playing = true
+
+[node name="flora" type="Node2D" parent="."]
+
 editor/display_folded = true
 
-[node name="Checkpoint1" parent="Checkpoints" instance=ExtResource( 4 )]
+[node name="Sprite" type="Sprite" parent="flora"]
 
 editor/display_folded = true
-transform/pos = Vector2( 393.287, -1501.38 )
-transform/rot = 90.0
-transform/scale = Vector2( 2.23609, 7.9375 )
+transform/pos = Vector2( 1044.4, -601.785 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 21 )
+
+[node name="Light2D" type="Light2D" parent="flora/Sprite"]
+
+transform/pos = Vector2( 41.2969, 206.992 )
+transform/rot = -3.85472
+transform/scale = Vector2( 1, 0.855917 )
+enabled = true
+editor_only = false
+texture = ExtResource( 22 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.2
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1024
+
+[node name="Sprite3" type="Sprite" parent="flora"]
+
+editor/display_folded = true
+transform/pos = Vector2( 1612.4, -1436.36 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 21 )
+flip_h = true
+
+[node name="Light2D" type="Light2D" parent="flora/Sprite3"]
+
+transform/pos = Vector2( -3.73291, 206.992 )
+transform/rot = -3.85472
+transform/scale = Vector2( 1, 0.855917 )
+enabled = true
+editor_only = false
+texture = ExtResource( 22 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.2
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1024
+
+[node name="Sprite6" type="Sprite" parent="flora"]
+
+editor/display_folded = true
+transform/pos = Vector2( 41.3656, 590.409 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 21 )
+flip_h = true
+
+[node name="Light2D" type="Light2D" parent="flora/Sprite6"]
+
+transform/pos = Vector2( -3.73291, 206.992 )
+transform/rot = -3.85472
+transform/scale = Vector2( 1, 0.855917 )
+enabled = true
+editor_only = false
+texture = ExtResource( 22 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.2
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1024
+
+[node name="Sprite7" type="Sprite" parent="flora"]
+
+editor/display_folded = true
+transform/pos = Vector2( -472.352, 1563.05 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 21 )
+flip_h = true
+
+[node name="Light2D" type="Light2D" parent="flora/Sprite7"]
+
+transform/pos = Vector2( -3.73291, 206.992 )
+transform/rot = -3.85472
+transform/scale = Vector2( 1, 0.855917 )
+enabled = true
+editor_only = false
+texture = ExtResource( 22 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.2
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1024
+
+[node name="Sprite8" type="Sprite" parent="flora"]
+
+transform/pos = Vector2( -420.98, 1593.87 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 21 )
+
+[node name="Light2D" type="Light2D" parent="flora/Sprite8"]
+
+transform/pos = Vector2( 27.9873, 206.992 )
+transform/rot = -3.85472
+transform/scale = Vector2( 1, 0.855917 )
+enabled = true
+editor_only = false
+texture = ExtResource( 22 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.2
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1024
+
+[node name="Sprite9" type="Sprite" parent="flora"]
+
+transform/pos = Vector2( -791.831, -263.404 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 21 )
+
+[node name="Light2D" type="Light2D" parent="flora/Sprite9"]
+
+transform/pos = Vector2( 27.9873, 206.992 )
+transform/rot = -3.85472
+transform/scale = Vector2( 1, 0.855917 )
+enabled = true
+editor_only = false
+texture = ExtResource( 22 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.2
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1024
+
+[node name="Sprite2" type="Sprite" parent="flora"]
+
+editor/display_folded = true
+transform/pos = Vector2( 264.956, -1512.57 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 23 )
+
+[node name="Light2D1" type="Light2D" parent="flora/Sprite2"]
+
+transform/pos = Vector2( 9.69602, 165.748 )
+transform/rot = -7.5774
+transform/scale = Vector2( 1.0679, 0.737169 )
+enabled = true
+editor_only = false
+texture = ExtResource( 22 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.2
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1024
+
+[node name="Particles2D" type="Particles2D" parent="flora/Sprite2"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( 51.6219, -94.6404 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="Particles2D1" type="Particles2D" parent="flora/Sprite2"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( -95.3803, 109.578 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="Particles2D2" type="Particles2D" parent="flora/Sprite2"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( -33.7626, -150.827 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="Sprite5" type="Sprite" parent="flora"]
+
+editor/display_folded = true
+transform/pos = Vector2( 1206.07, 1445.89 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 23 )
+
+[node name="Light2D1" type="Light2D" parent="flora/Sprite5"]
+
+transform/pos = Vector2( 9.69602, 165.748 )
+transform/rot = -7.5774
+transform/scale = Vector2( 1.0679, 0.737169 )
+enabled = true
+editor_only = false
+texture = ExtResource( 22 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.2
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1024
+
+[node name="Particles2D" type="Particles2D" parent="flora/Sprite5"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( 51.6219, -94.6404 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="Particles2D1" type="Particles2D" parent="flora/Sprite5"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( -95.3803, 109.578 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="Particles2D2" type="Particles2D" parent="flora/Sprite5"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( -33.7626, -150.827 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="Sprite1" type="Sprite" parent="flora"]
+
+editor/display_folded = true
+transform/pos = Vector2( 1539.58, -988.131 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 23 )
+
+[node name="Light2D1" type="Light2D" parent="flora/Sprite1"]
+
+transform/pos = Vector2( 9.69602, 165.748 )
+transform/rot = -7.5774
+transform/scale = Vector2( 1.0679, 0.737169 )
+enabled = true
+editor_only = false
+texture = ExtResource( 22 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.2
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1024
+
+[node name="Particles2D3" type="Particles2D" parent="flora/Sprite1"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( 133.344, 72.4813 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="Particles2D4" type="Particles2D" parent="flora/Sprite1"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( -60.6465, -61.6356 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="Particles2D5" type="Particles2D" parent="flora/Sprite1"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( -95.373, 101.221 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="Sprite4" type="Sprite" parent="flora"]
+
+editor/display_folded = true
+transform/pos = Vector2( -785.256, 866.145 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 23 )
+
+[node name="Light2D1" type="Light2D" parent="flora/Sprite4"]
+
+transform/pos = Vector2( 9.69602, 165.748 )
+transform/rot = -7.5774
+transform/scale = Vector2( 1.0679, 0.737169 )
+enabled = true
+editor_only = false
+texture = ExtResource( 22 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.2
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1024
+
+[node name="Particles2D3" type="Particles2D" parent="flora/Sprite4"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( 133.344, 72.4813 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="Particles2D4" type="Particles2D" parent="flora/Sprite4"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( -60.6465, -61.6356 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="Particles2D5" type="Particles2D" parent="flora/Sprite4"]
+
+visibility/blend_mode = 1
+transform/pos = Vector2( -95.373, 101.221 )
+config/amount = 3
+config/lifetime = 10.0
+config/preprocess = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 24 )
+params/direction = 180.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.7
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 0.3
+randomness/linear_velocity = 0.2
+randomness/initial_size = 0.1
+randomness/final_size = 0.1
+color/color_ramp = SubResource( 46 )
+
+[node name="NPC" type="Sprite" parent="."]
+
+transform/pos = Vector2( -372.594, 634.417 )
+transform/scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 25 )
+flip_h = true
 
 

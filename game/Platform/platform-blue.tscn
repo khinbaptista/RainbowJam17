@@ -14,7 +14,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 85.0498, 63.7005 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -113,8 +113,8 @@ tracks/3/keys = {
 }
 
 [node name="platform" type="Area2D" groups=[
-"platform",
 "ground",
+"platform",
 ]]
 
 visibility/light_mask = 1024
@@ -138,7 +138,7 @@ duration_off = 3.0
 
 visibility/light_mask = 1024
 transform/scale = Vector2( 0.3, 0.3 )
-frames = SubResource( 5 )
+frames = SubResource( 2 )
 animation = "destroy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
