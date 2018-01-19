@@ -201,6 +201,7 @@ script/script = SubResource( 4 )
 
 [node name="waterfall" type="Node2D" parent="."]
 
+editor/display_folded = true
 visibility/self_opacity = 0.0
 transform/pos = Vector2( -54, -1886 )
 transform/scale = Vector2( -0.24, 0.3 )

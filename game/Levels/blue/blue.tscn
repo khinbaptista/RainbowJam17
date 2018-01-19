@@ -1,30 +1,79 @@
-[gd_scene load_steps=73 format=1]
+[gd_scene load_steps=80 format=1]
 
-[ext_resource path="res://Levels/red/01-red_new.gd" type="Script" id=1]
-[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Platform/platform_orange.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Platform/platform-yellow.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Platform/platform-blue.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Modular islands/Blue/With bottom/010.png" type="Texture" id=6]
-[ext_resource path="res://Modular islands/Blue/With bottom/009.png" type="Texture" id=7]
-[ext_resource path="res://Modular islands/Blue/With bottom/004.png" type="Texture" id=8]
-[ext_resource path="res://Modular islands/Blue/With bottom/002.png" type="Texture" id=9]
-[ext_resource path="res://Modular islands/Blue/004.png" type="Texture" id=10]
-[ext_resource path="res://Modular islands/Blue/With bottom/007.png" type="Texture" id=11]
-[ext_resource path="res://Modular islands/Blue/With bottom/008.png" type="Texture" id=12]
-[ext_resource path="res://Modular islands/Blue/001.png" type="Texture" id=13]
-[ext_resource path="res://Modular islands/Blue/With bottom/012.png" type="Texture" id=14]
-[ext_resource path="res://Modular islands/Blue/With bottom/013.png" type="Texture" id=15]
-[ext_resource path="res://Modular islands/Blue/012.png" type="Texture" id=16]
-[ext_resource path="res://Levels/blue/hole lid/000.png" type="Texture" id=17]
-[ext_resource path="res://Levels/blue/hole lid/001.png" type="Texture" id=18]
-[ext_resource path="res://Levels/blue/hole lid/002.png" type="Texture" id=19]
-[ext_resource path="res://Levels/blue/hole lid/003.png" type="Texture" id=20]
-[ext_resource path="res://Plants/Coral 1.png" type="Texture" id=21]
-[ext_resource path="res://Character/sprites/shadow.png" type="Texture" id=22]
-[ext_resource path="res://Plants/Coral 2.png" type="Texture" id=23]
-[ext_resource path="res://Lights/radial light 2.png" type="Texture" id=24]
-[ext_resource path="res://Character/blue NPC.png" type="Texture" id=25]
+[ext_resource path="res://Platform/platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Platform/platform_orange.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Platform/platform-yellow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Platform/platform-blue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Modular islands/Blue/With bottom/010.png" type="Texture" id=5]
+[ext_resource path="res://Modular islands/Blue/With bottom/009.png" type="Texture" id=6]
+[ext_resource path="res://Modular islands/Blue/With bottom/004.png" type="Texture" id=7]
+[ext_resource path="res://Modular islands/Blue/With bottom/002.png" type="Texture" id=8]
+[ext_resource path="res://Modular islands/Blue/004.png" type="Texture" id=9]
+[ext_resource path="res://Modular islands/Blue/With bottom/007.png" type="Texture" id=10]
+[ext_resource path="res://Modular islands/Blue/With bottom/008.png" type="Texture" id=11]
+[ext_resource path="res://Modular islands/Blue/001.png" type="Texture" id=12]
+[ext_resource path="res://Modular islands/Blue/With bottom/012.png" type="Texture" id=13]
+[ext_resource path="res://Modular islands/Blue/With bottom/013.png" type="Texture" id=14]
+[ext_resource path="res://Modular islands/Blue/012.png" type="Texture" id=15]
+[ext_resource path="res://Levels/blue/hole lid/000.png" type="Texture" id=16]
+[ext_resource path="res://Levels/blue/hole lid/001.png" type="Texture" id=17]
+[ext_resource path="res://Levels/blue/hole lid/002.png" type="Texture" id=18]
+[ext_resource path="res://Levels/blue/hole lid/003.png" type="Texture" id=19]
+[ext_resource path="res://Plants/Coral 1.png" type="Texture" id=20]
+[ext_resource path="res://Character/sprites/shadow.png" type="Texture" id=21]
+[ext_resource path="res://Plants/Coral 2.png" type="Texture" id=22]
+[ext_resource path="res://Lights/radial light 2.png" type="Texture" id=23]
+[ext_resource path="res://Character/blue NPC.png" type="Texture" id=24]
+[ext_resource path="res://Tools/press_e.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Levels/blue/text.png" type="Texture" id=26]
+
+[sub_resource type="GDScript" id=51]
+
+script/source = "extends Node2D
+
+func _on_hidden_platforms_1_body_enter( body ):
+	get_node(\"island3/move_camera\")._set_active(true)
+	get_node(\"platforms/hiddenPlatforms/hidden_4\").set_collision_mask_bit(0, 1)
+	get_node(\"platforms/hiddenPlatforms/hidden_4\").set_layer_mask_bit(0, 1)
+	for N in get_node(\"platforms/hiddenPlatforms/1\").get_children():
+		if N.has_method(\"spawn\"):
+			N.spawn()
+	get_node(\"platforms/hiddenPlatforms/hidden_1\").queue_free()
+
+
+func _on_hidden_2_body_enter( body ):
+	for N in get_node(\"platforms/hiddenPlatforms/2\").get_children():
+		if N.has_method(\"spawn\"):
+			N.spawn()
+	get_node(\"platforms/hiddenPlatforms/hidden_2\").queue_free()
+
+
+func _on_hidden_3_body_enter( body ):
+	for N in get_node(\"platforms/hiddenPlatforms/3\").get_children():
+		if N.has_method(\"spawn\"):
+			N.spawn()
+	get_node(\"platforms/hiddenPlatforms/hidden_3\").queue_free()
+
+func _on_hidden_4_body_enter( body ):
+	for N in get_node(\"platforms/hiddenPlatforms/4\").get_children():
+		if N.has_method(\"spawn\"):
+			N.spawn()
+		elif N.has_method(\"set_enabled\"):
+			N.set_enabled(true)
+	get_node(\"platforms/hiddenPlatforms/hidden_4\").queue_free()
+
+func _on_Checkpoint13_body_enter( body ):
+	get_node(\"island2/move_camera1\")._set_active(true)
+
+
+func _on_Sprite_draw():
+	if not get_node(\"Island 1/hole lid\").get_animation().basename() == \"open\":
+		get_node(\"Island 1/hole lid\").play(\"open\")
+
+
+func _on_Area2D_body_enter( body ):
+	get_node(\"/root/loader\").change_scene(\"res://Levels/blue/FearHole.tscn\")
+"
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -254,20 +303,63 @@ points = Vector2Array( 3245.19, 414.552, 3928.83, 413.835, 4377.65, 666.209, 216
 [sub_resource type="SpriteFrames" id=47]
 
 animations = [ {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": false,
-"name": "default",
+"name": "open",
 "speed": 5.0
 } ]
+
+[sub_resource type="ConvexPolygonShape2D" id=52]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -80.0202, -41.4945, -13.5326, 59.1149, -11.8277, 86.3715, -44.4323, 76.7516, -74.2665, 46.689, -89.8229, 5.0022 )
+
+[sub_resource type="ConvexPolygonShape2D" id=53]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 74.9046, -49.1105, 88.9693, 0.59314, 71.2819, 50.2964, 39.1035, 77.1523, 11.1872, 83.9666, 11.8265, 59.1149, 38.8904, -80.3755 )
+
+[sub_resource type="ConvexPolygonShape2D" id=54]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -80.0202, -41.4945, -42.7275, -78.7721, -6.71331, -88.3922, 38.8904, -80.3755, 11.8265, 59.1149, -13.5326, 59.1149 )
+
+[sub_resource type="RectangleShape2D" id=50]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [sub_resource type="ColorRamp" id=46]
 
 offsets = FloatArray( 0, 0.0818713, 0.637427, 1 )
 colors = ColorArray( 1, 1, 1, 0, 1, 1, 1, 0.588235, 1, 1, 1, 0.588235, 1, 1, 1, 0 )
 
+[sub_resource type="GDScript" id=48]
+
+script/source = "extends Node2D
+
+onready var sprite = get_node(\"Sprite\")
+
+func _ready():
+	get_node(\"Area2D\").connect(\"body_enter\", self, \"show_help\")
+	get_node(\"Area2D\").connect(\"body_exit\", self, \"hide_help\")
+
+func show_help(body):
+	if (body.get_type() == \"KinematicBody2D\"):
+		sprite.show()
+
+func hide_help(body):
+	if (body.get_type() == \"KinematicBody2D\"):
+		sprite.hide()"
+
 [node name="blue" type="Node2D"]
 
-script/script = ExtResource( 1 )
+script/script = SubResource( 51 )
 
 [node name="platforms" type="Node2D" parent="."]
 
@@ -277,26 +369,26 @@ editor/display_folded = true
 
 [node name="hiddenPlatforms" type="Node2D" parent="platforms"]
 
-[node name="platform 4" parent="platforms" instance=ExtResource( 2 )]
+[node name="platform 4" parent="platforms" instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 1402.95, 513.653 )
 color_string = "Red"
 
-[node name="platform 3" parent="platforms" instance=ExtResource( 3 )]
+[node name="platform 3" parent="platforms" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 1403.62, 224.87 )
 color_string = "Orange"
 
-[node name="platform 2" parent="platforms" instance=ExtResource( 4 )]
+[node name="platform 2" parent="platforms" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1402.63, -76.4236 )
 color_string = "Yellow"
 
-[node name="platform" parent="platforms" instance=ExtResource( 5 )]
+[node name="platform" parent="platforms" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1073.51, 516.825 )
 
-[node name="platform1" parent="platforms" instance=ExtResource( 5 )]
+[node name="platform1" parent="platforms" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1073.51, 783.084 )
 color_string = "Blue"
@@ -311,7 +403,6 @@ sort/enabled = true
 "ground",
 ]]
 
-editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 0.5, 0, 0, 0.5, -1835.15, 388.801 )
@@ -457,67 +548,67 @@ angular_damp = 1.0
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 189.012, -1288.8 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="9" type="Sprite" parent="Island 1"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 1296.74, -949.576 )
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="4" type="Sprite" parent="Island 1"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( -522.422, -685.209 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="2" type="Sprite" parent="Island 1"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( -22.0861, -518.221 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="4 2" type="Sprite" parent="Island 1"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( -522.422, -685.209 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="7" type="Sprite" parent="Island 1"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( -491.361, 36.6298 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="8" type="Sprite" parent="Island 1"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( -459.809, 917.276 )
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="1" type="Sprite" parent="Island 1"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 187.409, 898.751 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="12" type="Sprite" parent="Island 1"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( -23.7018, 1624.19 )
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 
 [node name="13" type="Sprite" parent="Island 1"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( 951.322, 1620.04 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 
 [node name="12 2" type="Sprite" parent="Island 1"]
 
 visibility/light_mask = 1024
 transform/pos = Vector2( -23.7018, 1624.19 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Island 1"]
 
@@ -533,9 +624,55 @@ trigger = false
 
 transform/pos = Vector2( -55.4885, 1030.83 )
 frames = SubResource( 47 )
-animation = "default"
-frame = 3
-playing = true
+animation = "idle"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Island 1/hole lid"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 52 )
+shapes/0/transform = Matrix32( 1.86397, 0, 0, 0.990968, -0.461083, 64.9455 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 53 )
+shapes/1/transform = Matrix32( 1.86397, 0, 0, 0.990968, -0.461083, 64.9455 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 54 )
+shapes/2/transform = Matrix32( 1.86397, 0, 0, 0.990968, -0.461083, 64.9455 )
+shapes/2/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Island 1/hole lid/StaticBody2D"]
+
+transform/pos = Vector2( -0.461083, 64.9455 )
+transform/scale = Vector2( 1.86397, 0.990968 )
+build_mode = 0
+polygon = Vector2Array( -11.8277, 86.3715, -44.4323, 76.7516, -74.2665, 46.689, -89.8229, 5.0022, -80.0202, -41.4945, -42.7275, -78.7721, -6.71331, -88.3922, 38.8904, -80.3755, 74.9046, -49.1105, 88.9693, 0.59314, 71.2819, 50.2964, 39.1035, 77.1523, 11.1872, 83.9666, 11.8265, 59.1149, -13.5326, 59.1149 )
+shape_range = Vector2( 0, 2 )
+trigger = false
+
+[node name="Area2D" type="Area2D" parent="Island 1/hole lid"]
+
+transform/pos = Vector2( 11.7615, 217.587 )
+input/pickable = true
+shapes/0/shape = SubResource( 50 )
+shapes/0/transform = Matrix32( 1.86397, 0, 0, 0.990968, -12.9576, -73.9866 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Island 1/hole lid/Area2D"]
+
+transform/pos = Vector2( -12.9576, -73.9866 )
+transform/scale = Vector2( 1.86397, 0.990968 )
+shape = SubResource( 50 )
+trigger = false
+_update_shape_index = 0
 
 [node name="flora" type="Node2D" parent="."]
 
@@ -546,7 +683,7 @@ editor/display_folded = true
 editor/display_folded = true
 transform/pos = Vector2( 1044.4, -601.785 )
 transform/scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 
 [node name="Light2D" type="Light2D" parent="flora/Sprite"]
 
@@ -555,7 +692,7 @@ transform/rot = -3.85472
 transform/scale = Vector2( 1, 0.855917 )
 enabled = true
 editor_only = false
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -578,7 +715,7 @@ shadow/item_mask = 1024
 editor/display_folded = true
 transform/pos = Vector2( 1612.4, -1436.36 )
 transform/scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 flip_h = true
 
 [node name="Light2D" type="Light2D" parent="flora/Sprite3"]
@@ -588,7 +725,7 @@ transform/rot = -3.85472
 transform/scale = Vector2( 1, 0.855917 )
 enabled = true
 editor_only = false
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -611,7 +748,7 @@ shadow/item_mask = 1024
 editor/display_folded = true
 transform/pos = Vector2( 41.3656, 590.409 )
 transform/scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 flip_h = true
 
 [node name="Light2D" type="Light2D" parent="flora/Sprite6"]
@@ -621,7 +758,7 @@ transform/rot = -3.85472
 transform/scale = Vector2( 1, 0.855917 )
 enabled = true
 editor_only = false
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -644,7 +781,7 @@ shadow/item_mask = 1024
 editor/display_folded = true
 transform/pos = Vector2( -472.352, 1563.05 )
 transform/scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 flip_h = true
 
 [node name="Light2D" type="Light2D" parent="flora/Sprite7"]
@@ -654,7 +791,7 @@ transform/rot = -3.85472
 transform/scale = Vector2( 1, 0.855917 )
 enabled = true
 editor_only = false
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -676,7 +813,7 @@ shadow/item_mask = 1024
 
 transform/pos = Vector2( -420.98, 1593.87 )
 transform/scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 
 [node name="Light2D" type="Light2D" parent="flora/Sprite8"]
 
@@ -685,7 +822,7 @@ transform/rot = -3.85472
 transform/scale = Vector2( 1, 0.855917 )
 enabled = true
 editor_only = false
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -707,7 +844,7 @@ shadow/item_mask = 1024
 
 transform/pos = Vector2( -791.831, -263.404 )
 transform/scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 
 [node name="Light2D" type="Light2D" parent="flora/Sprite9"]
 
@@ -716,7 +853,7 @@ transform/rot = -3.85472
 transform/scale = Vector2( 1, 0.855917 )
 enabled = true
 editor_only = false
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -739,7 +876,7 @@ shadow/item_mask = 1024
 editor/display_folded = true
 transform/pos = Vector2( 264.956, -1512.57 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 23 )
+texture = ExtResource( 22 )
 
 [node name="Light2D1" type="Light2D" parent="flora/Sprite2"]
 
@@ -748,7 +885,7 @@ transform/rot = -7.5774
 transform/scale = Vector2( 1.0679, 0.737169 )
 enabled = true
 editor_only = false
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -774,7 +911,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -805,7 +942,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -836,7 +973,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -864,7 +1001,7 @@ color/color_ramp = SubResource( 46 )
 editor/display_folded = true
 transform/pos = Vector2( 1206.07, 1445.89 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 23 )
+texture = ExtResource( 22 )
 
 [node name="Light2D1" type="Light2D" parent="flora/Sprite5"]
 
@@ -873,7 +1010,7 @@ transform/rot = -7.5774
 transform/scale = Vector2( 1.0679, 0.737169 )
 enabled = true
 editor_only = false
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -899,7 +1036,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -930,7 +1067,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -961,7 +1098,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -989,7 +1126,7 @@ color/color_ramp = SubResource( 46 )
 editor/display_folded = true
 transform/pos = Vector2( 1539.58, -988.131 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 23 )
+texture = ExtResource( 22 )
 
 [node name="Light2D1" type="Light2D" parent="flora/Sprite1"]
 
@@ -998,7 +1135,7 @@ transform/rot = -7.5774
 transform/scale = Vector2( 1.0679, 0.737169 )
 enabled = true
 editor_only = false
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -1024,7 +1161,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -1055,7 +1192,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -1086,7 +1223,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -1114,7 +1251,7 @@ color/color_ramp = SubResource( 46 )
 editor/display_folded = true
 transform/pos = Vector2( -785.256, 866.145 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 23 )
+texture = ExtResource( 22 )
 
 [node name="Light2D1" type="Light2D" parent="flora/Sprite4"]
 
@@ -1123,7 +1260,7 @@ transform/rot = -7.5774
 transform/scale = Vector2( 1.0679, 0.737169 )
 enabled = true
 editor_only = false
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -1149,7 +1286,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -1180,7 +1317,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -1211,7 +1348,7 @@ config/amount = 3
 config/lifetime = 10.0
 config/preprocess = 10.0
 config/process_mode = 1
-config/texture = ExtResource( 24 )
+config/texture = ExtResource( 23 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 20.0
@@ -1238,7 +1375,52 @@ color/color_ramp = SubResource( 46 )
 
 transform/pos = Vector2( -372.594, 634.417 )
 transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 25 )
+texture = ExtResource( 24 )
 flip_h = true
 
+[node name="press_e" parent="NPC" instance=ExtResource( 25 )]
 
+transform/pos = Vector2( -14.1815, -437.937 )
+transform/scale = Vector2( 2.12786, 2.12786 )
+script/script = SubResource( 48 )
+
+[node name="Area2D" parent="NPC/press_e"]
+
+editor/display_folded = false
+
+[node name="Sprite" parent="NPC/press_e"]
+
+transform/pos = Vector2( 3.13916, 68.9116 )
+transform/scale = Vector2( 1.29781, 1.29781 )
+texture = ExtResource( 26 )
+
+[node name="shadow" type="Light2D" parent="NPC"]
+
+transform/pos = Vector2( 6.23279, 282.866 )
+transform/scale = Vector2( 0.649838, 0.649838 )
+enabled = true
+editor_only = false
+texture = ExtResource( 21 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.3
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[connection signal="body_enter" from="Island 1/hole lid/Area2D" to="." method="_on_Area2D_body_enter"]
+
+[connection signal="draw" from="NPC/press_e/Sprite" to="." method="_on_Sprite_draw"]
+
+
+[editable path="NPC/press_e"]

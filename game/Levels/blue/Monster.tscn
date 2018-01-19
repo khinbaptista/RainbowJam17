@@ -1,7 +1,23 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=24 format=1]
 
 [ext_resource path="res://Levels/blue/Monster.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Character/Enemy/Monster/Transformation/000.png" type="Texture" id=2]
+[ext_resource path="res://Character/Enemy/Monster/Transformation/001.png" type="Texture" id=3]
+[ext_resource path="res://Character/Enemy/Monster/Transformation/002.png" type="Texture" id=4]
+[ext_resource path="res://Character/Enemy/Monster/Transformation/003.png" type="Texture" id=5]
+[ext_resource path="res://Character/Enemy/Monster/Transformation/004.png" type="Texture" id=6]
+[ext_resource path="res://Character/Enemy/Monster/Transformation/005.png" type="Texture" id=7]
+[ext_resource path="res://Character/Enemy/Monster/Transformation/006.png" type="Texture" id=8]
+[ext_resource path="res://Character/Enemy/Monster/Transformation/007.png" type="Texture" id=9]
+[ext_resource path="res://Character/Enemy/Monster/Transformation/008.png" type="Texture" id=10]
+[ext_resource path="res://Character/Enemy/Monster/Running/000.png" type="Texture" id=11]
+[ext_resource path="res://Character/Enemy/Monster/Running/001.png" type="Texture" id=12]
+[ext_resource path="res://Character/Enemy/Monster/Running/002.png" type="Texture" id=13]
+[ext_resource path="res://Character/Enemy/Monster/Running/003.png" type="Texture" id=14]
+[ext_resource path="res://Character/Enemy/Monster/Running/004.png" type="Texture" id=15]
+[ext_resource path="res://Character/Enemy/Monster/Running/005.png" type="Texture" id=16]
+[ext_resource path="res://Character/sprites/shadow.png" type="Texture" id=17]
+[ext_resource path="res://Lights/radial light 2.png" type="Texture" id=18]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -15,6 +31,16 @@ animations = [ {
 "loop": false,
 "name": "default",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "transform",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=3]
@@ -29,24 +55,24 @@ length = 3.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:modulate")
+tracks/0/path = NodePath("sprite:visibility/visible")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
+"times": FloatArray( 3 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:modulate")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
 "times": FloatArray( 0, 3 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("sprite:visibility/visible")
-tracks/1/interp = 1
-tracks/1/imported = false
-tracks/1/keys = {
-"times": FloatArray( 3 ),
-"transitions": FloatArray( 1 ),
-"update": 1,
-"values": [ false ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("shape:trigger")
@@ -58,6 +84,11 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true ]
 }
+
+[sub_resource type="ColorRamp" id=5]
+
+offsets = FloatArray( 0, 0.0643275, 0.350877, 1 )
+colors = ColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [node name="Monster" type="KinematicBody2D" groups=[
 "fear_monster",
@@ -78,6 +109,8 @@ speed = 100.0
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 
+transform/pos = Vector2( 28.6549, -72.5311 )
+transform/scale = Vector2( 0.244883, 0.244883 )
 frames = SubResource( 2 )
 animation = "default"
 
@@ -115,5 +148,58 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
+
+[node name="shadow" type="Light2D" parent="."]
+
+transform/pos = Vector2( 34.2573, 49.7646 )
+transform/scale = Vector2( 0.421493, 0.421493 )
+enabled = true
+editor_only = false
+texture = ExtResource( 17 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.3
+mode = 1
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1024
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+visibility/opacity = 0.8
+transform/pos = Vector2( -20.8177, -44.9637 )
+config/amount = 100
+config/lifetime = 5.0
+config/emit_timeout = 1.0
+config/emitting = false
+config/process_mode = 1
+config/half_extents = Vector2( 50, 150 )
+config/texture = ExtResource( 18 )
+params/direction = 90.0
+params/spread = 90.0
+params/linear_velocity = 50.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 180.0
+params/gravity_strength = 5.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 5.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color_ramp = SubResource( 5 )
 
 

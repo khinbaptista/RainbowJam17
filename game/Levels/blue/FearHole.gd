@@ -9,6 +9,9 @@ func _ready():
 	get_node("player").connect("death", self, "on_player_death")
 	get_node("Monster").connect("player_killed", self, "on_player_death")
 	get_node("Monster").connect("dissolved", self, "on_victory")
+	get_node("Monster/sprite").play("transform")
+	yield(get_node("Monster/sprite"), "finished")
+	get_node("Monster/sprite").play("run")
 
 func on_player_death():
 	get_tree().set_pause(true)

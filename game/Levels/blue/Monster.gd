@@ -27,7 +27,7 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	if running:
+	if running and get_node("sprite").get_animation().basename() != "transform":
 		update_direction()
 		run(delta)
 
@@ -48,6 +48,7 @@ func on_body_enter_reach(body):
 func dissolve():
 	running = false
 	get_node("anim").play("dissolve")
+	get_node("Particles2D").set_emitting(true)
 	
 	yield(get_node("anim"), "finished")
 	emit_signal("dissolved")
