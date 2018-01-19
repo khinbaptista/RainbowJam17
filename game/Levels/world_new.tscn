@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://Levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Colors/color transition animation/005.png" type="Texture" id=12]
 [ext_resource path="res://Colors/color transition animation/006.png" type="Texture" id=13]
 [ext_resource path="res://Levels/red/01-red_new.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Tools/teleporter.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -136,41 +137,22 @@ script/script = SubResource( 4 )
 
 [node name="red" parent="navigation" instance=ExtResource( 14 )]
 
-[node name="island2" parent="navigation/red"]
-
-visibility/visible = false
-
-[node name="island3" parent="navigation/red"]
-
-visibility/visible = false
-
-[node name="island4" parent="navigation/red"]
-
-visibility/visible = false
-
-[node name="island5" parent="navigation/red"]
-
-visibility/visible = false
-
-[node name="island6" parent="navigation/red"]
-
-visibility/visible = false
-
-[node name="island7" parent="navigation/red"]
-
-visibility/visible = false
-
-[node name="Enemies" parent="navigation/red"]
-
-editor/display_folded = true
-visibility/visible = false
-
 [node name="Checkpoints" parent="navigation/red"]
 
 editor/display_folded = true
+
+[node name="teleporter" parent="." instance=ExtResource( 15 )]
+
+transform/pos = Vector2( -60, -930 )
+active = false
+
+[node name="Particles2D" parent="teleporter"]
+
+color/color = Color( 1, 1, 1, 0.992157 )
 
 [connection signal="new_color_learned" from="player" to="." method="_on_player_new_color_learned"]
 
 
 [editable path="player"]
 [editable path="navigation/red"]
+[editable path="teleporter"]
