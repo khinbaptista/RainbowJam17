@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=1]
+[gd_scene load_steps=34 format=1]
 
 [ext_resource path="res://Character/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/plaza/plaza_module1.png" type="Texture" id=2]
@@ -11,8 +11,7 @@
 [ext_resource path="res://Levels/plaza/1.png" type="Texture" id=9]
 [ext_resource path="res://Levels/plaza/2.png" type="Texture" id=10]
 [ext_resource path="res://Levels/plaza/3.png" type="Texture" id=11]
-[ext_resource path="res://Tools/teleporter.gd" type="Script" id=12]
-[ext_resource path="res://Particles/round.png" type="Texture" id=13]
+[ext_resource path="res://Tools/teleporter.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -134,11 +133,6 @@ animations = [ {
 
 custom_solver_bias = 0.0
 extents = Vector2( 34.1678, 25.6979 )
-
-[sub_resource type="CircleShape2D" id=22]
-
-custom_solver_bias = 0.0
-radius = 70.0
 
 [node name="plaza" type="Node2D"]
 
@@ -924,57 +918,8 @@ _update_shape_index = 0
 
 [node name="levels" type="Node2D" parent="."]
 
-editor/display_folded = true
+[node name="red" parent="levels" instance=ExtResource( 12 )]
 
-[node name="red" type="Node2D" parent="levels"]
-
-transform/pos = Vector2( -690, -390 )
-script/script = ExtResource( 12 )
-nextScene = "res://Levels/world_new.tscn"
-
-[node name="Particles2D" type="Particles2D" parent="levels/red"]
-
-transform/scale = Vector2( 2.375, 2.375 )
-config/amount = 32
-config/lifetime = 4.0
-config/process_mode = 1
-config/texture = ExtResource( 13 )
-params/direction = 0.0
-params/spread = 20.0
-params/linear_velocity = 40.0
-params/spin_velocity = 2.0
-params/orbit_velocity = 2.0
-params/gravity_direction = 0.0
-params/gravity_strength = 2.0
-params/radial_accel = 2.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 1.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-color/color = Color( 1, 0.203125, 0.203125, 1 )
-
-[node name="Area2D" type="Area2D" parent="levels/red"]
-
-input/pickable = true
-shapes/0/shape = SubResource( 22 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 50, 10 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/red/Area2D"]
-
-transform/pos = Vector2( 50, 10 )
-shape = SubResource( 22 )
-trigger = false
-_update_shape_index = 0
-
-[connection signal="body_enter" from="levels/red/Area2D" to="levels/red" method="_on_Area2D_body_enter"]
+active = true
 
 
