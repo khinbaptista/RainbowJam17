@@ -47,5 +47,11 @@ func _on_body_enter( body ):
 		camera.set_follow_smoothing(speed)
 		wait = true
 
+func trigger():
+	set_process(true)
+	camera.set_enable_follow_smoothing(true)
+	camera.set_follow_smoothing(speed)
+	wait = true
+
 func _set_active(active_):
 	active = active_

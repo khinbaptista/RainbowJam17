@@ -166,7 +166,7 @@ default/chorus_send = 0.0
 [node name="player" parent="." instance=ExtResource( 5 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 1193.28, -1093.82 )
+transform/pos = Vector2( 1221, -1152 )
 colors_learned = 62
 
 [node name="Actions" parent="player"]
@@ -366,13 +366,13 @@ transform/scale = Vector2( 1, 1 )
 transform/pos = Vector2( -500, 0 )
 frames = SubResource( 5 )
 animation = "default"
+frame = 2
 playing = true
 
 [node name="m" type="AnimatedSprite" parent="waterfall/horizontal/block7"]
 
 frames = SubResource( 6 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="r" type="AnimatedSprite" parent="waterfall/horizontal/block7"]
@@ -381,7 +381,7 @@ transform/pos = Vector2( 381.469, 0 )
 transform/scale = Vector2( 0.525404, 1 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="block8" type="Node2D" parent="waterfall/horizontal"]
@@ -395,6 +395,7 @@ transform/scale = Vector2( 1, 1 )
 transform/pos = Vector2( -501.35, -0.41095 )
 frames = SubResource( 5 )
 animation = "default"
+frame = 2
 playing = true
 flip_v = true
 
@@ -403,7 +404,6 @@ flip_v = true
 transform/pos = Vector2( -1.34967, -0.410538 )
 frames = SubResource( 6 )
 animation = "default"
-frame = 1
 playing = true
 flip_v = true
 
@@ -413,7 +413,7 @@ transform/pos = Vector2( 380.119, -0.410568 )
 transform/scale = Vector2( 0.525404, 1 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 flip_v = true
 

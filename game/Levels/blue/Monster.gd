@@ -47,10 +47,10 @@ func on_body_enter_reach(body):
 
 func dissolve():
 	running = false
-	get_node("anim").play("dissolve")
+	get_node("sprite").play("dissolve")
 	get_node("Particles2D").set_emitting(true)
 	
-	yield(get_node("anim"), "finished")
+	yield(get_node("sprite"), "finished")
 	emit_signal("dissolved")
 
 func attack():

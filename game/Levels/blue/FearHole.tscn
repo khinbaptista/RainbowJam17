@@ -402,7 +402,7 @@ speed = 300.0
 [node name="crystal" parent="." instance=ExtResource( 10 )]
 
 visibility/visible = false
-transform/pos = Vector2( 8719.9, -395.257 )
+transform/pos = Vector2( 6592.17, -332.959 )
 
 
 [editable path="player"]
