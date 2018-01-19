@@ -86,6 +86,7 @@ func _ready():
 
 	get_node("FSM/idle").connect("idle_anim_start", self, "forget_last_movement")
 
+	get_node("/root/progress").set_player(self)
 	advertise_colors()
 
 func _input(event):
