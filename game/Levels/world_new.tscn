@@ -109,7 +109,6 @@ default/chorus_send = 0.0
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 1.18921, -237.57 )
 
 [node name="camera" parent="player"]
@@ -118,7 +117,6 @@ editor/display_folded = false
 
 [node name="Node2D" type="Node2D" parent="player/camera"]
 
-visibility/visible = false
 z/z = 100
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="player/camera/Node2D"]
