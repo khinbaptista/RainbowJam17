@@ -51,7 +51,7 @@ collision/margin = 0.08
 script/script = ExtResource( 1 )
 target_path = NodePath("../player")
 speed = 100
-distance = 100
+distance = 50
 active = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

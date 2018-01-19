@@ -12,8 +12,7 @@ func can_walk(direction):
 	
 	for area in overlap:
 		if area.is_in_group("stop"):
-			can_walk = false
-		else:
-			can_walk = true
-	
+			area.notify = true
+			if area.active:
+				can_walk = false
 	return can_walk
