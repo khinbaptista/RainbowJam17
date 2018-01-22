@@ -69,7 +69,6 @@ z/z = 1
 [node name="Tree_shadow" type="Sprite" parent="Shadows"]
 
 transform/pos = Vector2( 0, -114.845 )
-transform/scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 
 [node name="Bush_shadow" type="Sprite" parent="Shadows"]
@@ -82,7 +81,6 @@ transform/pos = Vector2( 0, -17.9192 )
 [node name="Tree" type="Sprite" parent="Plants"]
 
 transform/pos = Vector2( 0, -114.845 )
-transform/scale = Vector2( 0.7, 0.7 )
 z/z = 1
 texture = ExtResource( 3 )
 
@@ -90,7 +88,6 @@ texture = ExtResource( 3 )
 
 visibility/visible = false
 transform/pos = Vector2( 0, -17.9192 )
-transform/scale = Vector2( 0.4, 0.4 )
 z/z = 1
 texture = ExtResource( 4 )
 
@@ -98,7 +95,6 @@ texture = ExtResource( 4 )
 
 visibility/visible = false
 transform/pos = Vector2( -1, -50 )
-transform/scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 5 )
 
 [node name="Tree_particles" type="Particles2D" parent="."]

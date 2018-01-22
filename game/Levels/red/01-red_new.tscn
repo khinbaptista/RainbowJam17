@@ -1825,7 +1825,6 @@ enabled = false
 "ground",
 ]]
 
-editor/display_folded = true
 transform/scale = Vector2( 2, 2 )
 input/pickable = true
 shapes/0/shape = SubResource( 6 )
@@ -1889,7 +1888,6 @@ angular_damp = 1.0
 editor/display_folded = true
 visibility/light_mask = 1025
 transform/pos = Vector2( -33.5722, -346.878 )
-transform/scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 23 )
 animation = "default"
 playing = true
@@ -1901,9 +1899,7 @@ texture = ExtResource( 6 )
 
 [node name="sprite1" type="AnimatedSprite" parent="island1"]
 
-editor/display_folded = true
-transform/pos = Vector2( -1058.15, -204.762 )
-transform/scale = Vector2( 0.463394, 0.3 )
+transform/pos = Vector2( -672.65, 125.728 )
 frames = SubResource( 23 )
 animation = "default"
 playing = true
@@ -1918,8 +1914,7 @@ texture = ExtResource( 6 )
 
 [node name="sprite2" type="Sprite" parent="island1"]
 
-editor/display_folded = true
-transform/pos = Vector2( 729.891, -73.6944 )
+transform/pos = Vector2( 734.891, -73.6942 )
 transform/scale = Vector2( 0.178197, 0.172331 )
 texture = ExtResource( 5 )
 offset = Vector2( -260.038, -473.352 )
@@ -1929,8 +1924,8 @@ region_rect = Rect2( 0, 3000, 3000, 3000 )
 
 [node name="GrayOverlay1" type="Sprite" parent="island1/sprite2"]
 
-transform/pos = Vector2( 763.632, -1587.5 )
-transform/scale = Vector2( 1.68353, 1.74084 )
+transform/pos = Vector2( -267.69, -471.77 )
+transform/scale = Vector2( 3.32465, 3.32465 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="island1"]
@@ -2306,7 +2301,6 @@ modulate = Color( 0.890196, 0.890196, 0.890196, 0.647059 )
 "ground",
 ]]
 
-editor/display_folded = true
 transform/pos = Vector2( -527.328, -2826.57 )
 transform/scale = Vector2( 0.28, 0.28 )
 input/pickable = true
@@ -3188,7 +3182,7 @@ playing = true
 [node name="Birds" parent="island5/Animals/Path2D/PathFollow2D"]
 
 visibility/visible = false
-frame = 9
+frame = 6
 
 [node name="flora45" parent="island5" instance=ExtResource( 7 )]
 
@@ -3459,6 +3453,10 @@ crystal_color = 1
 [node name="sprite" parent="crystal"]
 
 editor/display_folded = true
+
+[node name="sprite1" parent="crystal/sprite"]
+
+frame = 8
 
 [node name="Enemies" type="YSort" parent="."]
 
