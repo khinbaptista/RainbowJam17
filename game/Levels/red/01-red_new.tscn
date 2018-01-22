@@ -1885,7 +1885,6 @@ angular_damp = 1.0
 
 [node name="sprite" type="AnimatedSprite" parent="island1"]
 
-editor/display_folded = true
 visibility/light_mask = 1025
 transform/pos = Vector2( -33.5722, -346.878 )
 frames = SubResource( 23 )
@@ -2025,7 +2024,6 @@ _update_shape_index = 11
 
 [node name="flora" type="Node2D" parent="island1"]
 
-editor/display_folded = true
 transform/scale = Vector2( 0.5, 0.5 )
 z/z = 1
 
@@ -2045,7 +2043,6 @@ editor/display_folded = true
 [node name="flora33" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -760.534, -1142.66 )
-type = "Bush"
 reachable = false
 
 [node name="flora34" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
@@ -2085,13 +2082,11 @@ reachable = false
 [node name="flora40" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -819.993, -968.355 )
-type = "Bush"
 reachable = false
 
 [node name="flora41" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -836.578, -916.608 )
-type = "Bush"
 reachable = false
 
 [node name="flora42" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
@@ -2102,7 +2097,6 @@ reachable = false
 [node name="flora43" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -675.367, -803.163 )
-type = "Bush"
 reachable = false
 
 [node name="Deer" parent="island1/flora/deer_side" instance=ExtResource( 8 )]
@@ -2117,7 +2111,6 @@ type = "Birds"
 [node name="flora44" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -756.592, -656.958 )
-type = "Bush"
 reachable = false
 
 [node name="flora45" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
@@ -2139,7 +2132,6 @@ reachable = false
 [node name="flora48" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -709.641, -484.958 )
-type = "Bush"
 reachable = false
 
 [node name="flora49" parent="island1/flora/deer_side" instance=ExtResource( 7 )]
@@ -2150,33 +2142,28 @@ reachable = false
 [node name="flora2" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -630.869, 63.3169 )
-type = "Bush"
 modulate = Color( 0.756863, 0.756863, 0.756863, 0.615686 )
 reachable = false
 
 [node name="flora3" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -933.051, -23.8352 )
-type = "Bush"
 modulate = Color( 0.878431, 0.878431, 0.878431, 0.615686 )
 reachable = false
 
 [node name="flora4" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -570.596, -99.5843 )
-type = "Bush"
 modulate = Color( 0.878431, 0.878431, 0.878431, 0.615686 )
 reachable = false
 
 [node name="flora5" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -289.836, -554.404 )
-type = "Bush"
 
 [node name="flora6" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -366.474, -480.161 )
-type = "Bush"
 
 [node name="flora7" parent="island1/flora" instance=ExtResource( 7 )]
 
@@ -2195,7 +2182,6 @@ transform/pos = Vector2( 631.355, -1170.03 )
 [node name="flora10" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 475.784, -1189.58 )
-type = "Bush"
 
 [node name="flora11" parent="island1/flora" instance=ExtResource( 7 )]
 
@@ -2236,12 +2222,10 @@ transform/pos = Vector2( 347.89, -661.194 )
 [node name="flora19" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 455.369, -613.548 )
-type = "Bush"
 
 [node name="flora20" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 249.299, -565.492 )
-type = "Bush"
 
 [node name="flora21" parent="island1/flora" instance=ExtResource( 7 )]
 
@@ -2275,7 +2259,6 @@ flip = true
 [node name="flora28" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 501.524, -279.678 )
-type = "Bush"
 
 [node name="flora29" parent="island1/flora" instance=ExtResource( 7 )]
 
@@ -2288,7 +2271,6 @@ transform/pos = Vector2( 1399, -174.092 )
 [node name="flora31" parent="island1/flora" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 840.844, -119.775 )
-type = "Bush"
 modulate = Color( 0.87451, 0.87451, 0.87451, 0.627451 )
 reachable = false
 
@@ -2999,7 +2981,6 @@ z/z = 1
 transform/pos = Vector2( 705.016, -100.498 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
-type = "Bush"
 
 [node name="CollisionPolygon2D 2" type="CollisionPolygon2D" parent="island4"]
 
@@ -3152,7 +3133,6 @@ z/z = 1
 transform/pos = Vector2( -1333.21, -460.746 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
-type = "Bush"
 
 [node name="Animals" parent="island5" instance=ExtResource( 8 )]
 
@@ -3182,14 +3162,13 @@ playing = true
 [node name="Birds" parent="island5/Animals/Path2D/PathFollow2D"]
 
 visibility/visible = false
-frame = 6
+frame = 2
 
 [node name="flora45" parent="island5" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -1544.71, -176.545 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
-type = "Bush"
 
 [node name="flora37" parent="island5" instance=ExtResource( 7 )]
 
@@ -3229,7 +3208,6 @@ flip = true
 transform/pos = Vector2( -2099.89, 530.652 )
 transform/scale = Vector2( 3.57143, 3.57143 )
 z/z = 1
-type = "Bush"
 
 [node name="RigidBody2D" type="StaticBody2D" parent="island5"]
 
@@ -3356,7 +3334,6 @@ flip = true
 
 transform/pos = Vector2( 123.594, 247.187 )
 z/z = 1
-type = "Bush"
 flip = true
 
 [node name="CollisionPolygon2D 2" type="CollisionPolygon2D" parent="island6"]
@@ -3433,14 +3410,12 @@ texture = ExtResource( 19 )
 
 transform/pos = Vector2( -241.326, -192.178 )
 z/z = 1
-type = "Bush"
 flip = true
 
 [node name="flora3" parent="island7" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 201.435, 522.023 )
 z/z = 1
-type = "Bush"
 flip = true
 
 [node name="crystal" parent="." instance=ExtResource( 31 )]
@@ -3456,7 +3431,7 @@ editor/display_folded = true
 
 [node name="sprite1" parent="crystal/sprite"]
 
-frame = 8
+frame = 5
 
 [node name="Enemies" type="YSort" parent="."]
 

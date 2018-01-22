@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://Plants/flora_red_tree.gd" type="Script" id=1]
+[ext_resource path="res://Plants/Tree shadow.png" type="Texture" id=2]
+[ext_resource path="res://Plants/Tree.png" type="Texture" id=3]
+[ext_resource path="res://Menu/particle.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 9.20645
+height = 59.892
+
+[sub_resource type="ColorRamp" id=2]
+
+offsets = FloatArray( 0, 0.19883, 0.818713, 1 )
+colors = ColorArray( 0.785156, 0.38031, 0.592783, 0, 1, 0.447059, 0.737255, 1, 1, 0.447059, 0.737255, 1, 0.640625, 0.185181, 0.424208, 0 )
+
+[node name="flora_red_tree" type="StaticBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, -7.86336, -0.951302 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+type = "Tree"
+flip = false
+modulate = Color( 1, 1, 1, 1 )
+reachable = true
+
+[node name="Tree_collisionShape" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -7.86336, -0.951302 )
+transform/rot = 90.0
+shape = SubResource( 1 )
+trigger = true
+_update_shape_index = 0
+
+[node name="Shadows" type="Node2D" parent="."]
+
+z/z = 1
+
+[node name="Tree_shadow" type="Sprite" parent="Shadows"]
+
+transform/pos = Vector2( 0, -114.845 )
+texture = ExtResource( 2 )
+
+[node name="Plants" type="Node2D" parent="."]
+
+[node name="Tree" type="Sprite" parent="Plants"]
+
+transform/pos = Vector2( 0, -114.845 )
+z/z = 1
+texture = ExtResource( 3 )
+
+[node name="Tree_particles" type="Particles2D" parent="."]
+
+transform/pos = Vector2( 0, -181.635 )
+z/z = 1
+config/amount = 10
+config/lifetime = 2.0
+config/time_scale = 0.15
+config/preprocess = 4.0
+config/process_mode = 1
+config/half_extents = Vector2( 100, 100 )
+config/texture = ExtResource( 4 )
+params/direction = 330.0
+params/spread = 40.0
+params/linear_velocity = 110.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 1.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.05
+params/final_size = 0.02
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 1.0
+randomness/spread = 5.0
+randomness/linear_velocity = -0.4
+randomness/gravity_strength = 0.4
+randomness/initial_size = 0.3
+randomness/final_size = -0.1
+color/color = Color( 1, 0.447059, 0.741176, 1 )
+color/color_ramp = SubResource( 2 )
+
+
