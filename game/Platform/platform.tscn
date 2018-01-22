@@ -1,14 +1,21 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://Platform/platform.gd" type="Script" id=1]
 [ext_resource path="res://Platform/sprites/000.png" type="Texture" id=2]
 [ext_resource path="res://Platform/sprites/002.png" type="Texture" id=3]
-[ext_resource path="res://Platform/sprites/001.png" type="Texture" id=4]
-[ext_resource path="res://Platform/sprites/003.png" type="Texture" id=5]
-[ext_resource path="res://Platform/sprites/004.png" type="Texture" id=6]
-[ext_resource path="res://Platform/sprites/005.png" type="Texture" id=7]
-[ext_resource path="res://Platform/sprites/006.png" type="Texture" id=8]
-[ext_resource path="res://Platform/sprites/007.png" type="Texture" id=9]
+[ext_resource path="res://Platform/sprites/007.png" type="Texture" id=4]
+[ext_resource path="res://Platform/sprites/006.png" type="Texture" id=5]
+[ext_resource path="res://Platform/sprites/005.png" type="Texture" id=6]
+[ext_resource path="res://Platform/sprites/004.png" type="Texture" id=7]
+[ext_resource path="res://Platform/sprites/003.png" type="Texture" id=8]
+[ext_resource path="res://Platform/sprites/001.png" type="Texture" id=9]
+[ext_resource path="res://Platform/sprites/001_r.png" type="Texture" id=10]
+[ext_resource path="res://Platform/sprites/002_r.png" type="Texture" id=11]
+[ext_resource path="res://Platform/sprites/003_r.png" type="Texture" id=12]
+[ext_resource path="res://Platform/sprites/004_r.png" type="Texture" id=13]
+[ext_resource path="res://Platform/sprites/005_r.png" type="Texture" id=14]
+[ext_resource path="res://Platform/sprites/006_r.png" type="Texture" id=15]
+[ext_resource path="res://Platform/sprites/007_r.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -28,15 +35,15 @@ animations = [ {
 "name": "hint",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": false,
-"name": "destroy",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 2 ) ],
 "loop": false,
 "name": "spawn",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "destroy",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=3]
@@ -114,8 +121,8 @@ tracks/3/keys = {
 }
 
 [node name="platform" type="Area2D" groups=[
-"platform",
 "ground",
+"platform",
 ]]
 
 visibility/light_mask = 525312
@@ -138,7 +145,6 @@ duration_off = 3.0
 [node name="sprite" type="AnimatedSprite" parent="."]
 
 visibility/light_mask = 1024
-transform/scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
 animation = "destroy"
 
@@ -180,8 +186,8 @@ autostart = false
 
 [connection signal="timeout" from="timer_on" to="." method="destroy"]
 
-[connection signal="timeout" from="timer_off" to="." method="spawn"]
-
 [connection signal="timeout" from="timer_off" to="timer_on" method="start"]
+
+[connection signal="timeout" from="timer_off" to="." method="spawn"]
 
 
