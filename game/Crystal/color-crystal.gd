@@ -9,6 +9,8 @@ onready var press_e = get_node("sprite/press_e")
 
 var layer = "behind"
 
+signal caught
+
 func _ready():
 	set_process(false)
 	if player.knows_color(1 << crystal_color):
@@ -20,6 +22,7 @@ func _process(delta):
 func interaction():
 	if not is_hidden():
 		player.learn_color(1 << crystal_color)
+		emit_signal("caught")
 		queue_free()
 
 func process_layer():

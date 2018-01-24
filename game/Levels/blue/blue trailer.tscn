@@ -1,6 +1,6 @@
 [gd_scene load_steps=40 format=1]
 
-[ext_resource path="res://Levels/world.gd" type="Script" id=1]
+[ext_resource path="res://Levels/blue/blue.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Iris (Continuous Loop).wav" type="Sample" id=3]
 [ext_resource path="res://Sounds/dash1.wav" type="Sample" id=4]
@@ -119,17 +119,17 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="ColorRamp" id=46]
+[sub_resource type="ColorRamp" id=8]
 
 offsets = FloatArray( 0, 0.0818713, 0.637427, 1 )
 colors = ColorArray( 1, 1, 1, 0, 1, 1, 1, 0.588235, 1, 1, 1, 0.588235, 1, 1, 1, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=47]
+[sub_resource type="ConvexPolygonShape2D" id=9]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -621, 38, -996, -265, -41, -1854, 115, -1161, -256, 46 )
 
-[sub_resource type="ConvexPolygonShape2D" id=48]
+[sub_resource type="ConvexPolygonShape2D" id=10]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 389, -266, -256, 46, 115, -1161, 247, -1061 )
@@ -168,10 +168,6 @@ default/chorus_send = 0.0
 editor/display_folded = true
 transform/pos = Vector2( 1221, -1152 )
 colors_learned = 62
-
-[node name="Actions" parent="player"]
-
-editor/display_folded = true
 
 [node name="camera" parent="player"]
 
@@ -338,7 +334,6 @@ flip_v = true
 
 editor/display_folded = true
 transform/pos = Vector2( -753.846, 2980 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="l" type="Sprite" parent="waterfall/horizontal/block6"]
 
@@ -359,20 +354,19 @@ texture = ExtResource( 17 )
 
 editor/display_folded = true
 transform/pos = Vector2( -753.846, 2980 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="l" type="AnimatedSprite" parent="waterfall/horizontal/block7"]
 
 transform/pos = Vector2( -500, 0 )
 frames = SubResource( 5 )
 animation = "default"
-frame = 2
 playing = true
 
 [node name="m" type="AnimatedSprite" parent="waterfall/horizontal/block7"]
 
 frames = SubResource( 6 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="r" type="AnimatedSprite" parent="waterfall/horizontal/block7"]
@@ -381,21 +375,19 @@ transform/pos = Vector2( 381.469, 0 )
 transform/scale = Vector2( 0.525404, 1 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 
 [node name="block8" type="Node2D" parent="waterfall/horizontal"]
 
 editor/display_folded = true
 transform/pos = Vector2( -753.846, 3480 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="l" type="AnimatedSprite" parent="waterfall/horizontal/block8"]
 
 transform/pos = Vector2( -501.35, -0.41095 )
 frames = SubResource( 5 )
 animation = "default"
-frame = 2
 playing = true
 flip_v = true
 
@@ -404,6 +396,7 @@ flip_v = true
 transform/pos = Vector2( -1.34967, -0.410538 )
 frames = SubResource( 6 )
 animation = "default"
+frame = 1
 playing = true
 flip_v = true
 
@@ -413,14 +406,13 @@ transform/pos = Vector2( 380.119, -0.410568 )
 transform/scale = Vector2( 0.525404, 1 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 flip_v = true
 
 [node name="block9" type="Node2D" parent="waterfall/horizontal"]
 
 transform/pos = Vector2( -755.196, 3979.59 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="l" type="Sprite" parent="waterfall/horizontal/block9"]
 
@@ -626,15 +618,16 @@ randomness/spread = 0.3
 randomness/linear_velocity = 0.2
 randomness/initial_size = 0.1
 randomness/final_size = 0.1
-color/color_ramp = SubResource( 46 )
+color/color_ramp = SubResource( 8 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
+editor/display_folded = true
 input/pickable = false
-shapes/0/shape = SubResource( 47 )
+shapes/0/shape = SubResource( 9 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 48 )
+shapes/1/shape = SubResource( 10 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
 collision/layers = 1

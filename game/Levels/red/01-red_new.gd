@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	get_node("/root/progress").current_level = 1
+
 func _on_hidden_platforms_1_body_enter( body ):
 	get_node("island3/move_camera")._set_active(true)
 	get_node("platforms/hiddenPlatforms/hidden_4").set_collision_mask_bit(0, 1)
@@ -33,3 +36,8 @@ func _on_hidden_4_body_enter( body ):
 
 func _on_Checkpoint13_body_enter( body ):
 	get_node("island2/move_camera1")._set_active(true)
+
+
+func _on_finish_body_enter( body ):
+	if body.is_in_group("player"):
+		get_node("/root/progress").advance_level()

@@ -31,7 +31,11 @@ script/source = "extends Node2D
 # var b = \"textvar\"
 
 func _ready():
-	set_process(true)
+	get_node(\"/root/progress\").current_level = 3
+	#set_process(true)
+
+func finished():
+	get_node(\"/root/progress\").advance_level()
 
 func _process(delta):
 	print(\"\\nwait_time left: \", get_node(\"player/wind/timer_wait\").get_time_left())
@@ -587,6 +591,8 @@ transform/pos = Vector2( 260, -20 )
 transform/scale = Vector2( 0.8, 0.8 )
 face = "ouroboros"
 correct_face = "moon"
+
+[connection signal="caught" from="random islands/crystal" to="." method="finished"]
 
 [connection signal="completed" from="Puzzle" to="platform" method="activate"]
 
