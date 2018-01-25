@@ -24,4 +24,5 @@ func on_victory():
 	crystal.set_hidden(false)
 
 func finished():
-	get_node("/root/progress").advance_level()
+	#get_node("/root/progress").advance_level()
+	get_node("/root/loader").change_scene("res://Menu/Credits.tscn")
