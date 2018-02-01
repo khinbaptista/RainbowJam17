@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=1]
+[gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://Levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Colors/WhiteBox.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Colors/color transition animation/006.png" type="Texture" id=13]
 [ext_resource path="res://Levels/red/01-red_new.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Tools/teleporter.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Animals/Butterfly/Butterfly.tscn" type="PackedScene" id=16]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -109,6 +110,7 @@ default/chorus_send = 0.0
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 1.18921, -237.57 )
 
 [node name="camera" parent="player"]
@@ -131,6 +133,7 @@ animation = "default"
 
 [node name="navigation" type="Navigation2D" parent="."]
 
+editor/display_folded = true
 script/script = SubResource( 4 )
 
 [node name="red" parent="navigation" instance=ExtResource( 14 )]
@@ -141,6 +144,7 @@ editor/display_folded = true
 
 [node name="teleporter" parent="." instance=ExtResource( 15 )]
 
+editor/display_folded = true
 transform/pos = Vector2( -60, -930 )
 active = false
 
@@ -148,9 +152,20 @@ active = false
 
 color/color = Color( 1, 1, 1, 0.992157 )
 
+[node name="Butterfly" parent="." instance=ExtResource( 16 )]
+
+transform/pos = Vector2( 493.324, -645.116 )
+z/z = 102
+
+[node name="target" parent="Butterfly"]
+
+visibility/visible = true
+transform/pos = Vector2( -1142.64, -5788.1 )
+
 [connection signal="new_color_learned" from="player" to="." method="_on_player_new_color_learned"]
 
 
 [editable path="player"]
 [editable path="navigation/red"]
 [editable path="teleporter"]
+[editable path="Butterfly"]

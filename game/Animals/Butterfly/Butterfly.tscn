@@ -1,0 +1,170 @@
+[gd_scene load_steps=15 format=1]
+
+[ext_resource path="res://Animals/Butterfly/Butterfly.gd" type="Script" id=1]
+[ext_resource path="res://Animals/Butterfly/000.png" type="Texture" id=2]
+[ext_resource path="res://Animals/Butterfly/001.png" type="Texture" id=3]
+[ext_resource path="res://Animals/Butterfly/002.png" type="Texture" id=4]
+[ext_resource path="res://Animals/Butterfly/003.png" type="Texture" id=5]
+[ext_resource path="res://Animals/Butterfly/001 flip.png" type="Texture" id=6]
+[ext_resource path="res://Animals/Butterfly/000 flip.png" type="Texture" id=7]
+[ext_resource path="res://Animals/Butterfly/005.png" type="Texture" id=8]
+[ext_resource path="res://Animals/Butterfly/004.png" type="Texture" id=9]
+[ext_resource path="res://Particles/round.png" type="Texture" id=10]
+[ext_resource path="res://Lights/radial light 2.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "left",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "up",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "circle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "down",
+"speed": 4.0
+} ]
+
+[sub_resource type="ColorRamp" id=2]
+
+offsets = FloatArray( 0, 1 )
+colors = ColorArray( 1, 0, 0.2, 1, 0.501961, 0, 0.101961, 0 )
+
+[sub_resource type="Animation" id=3]
+
+length = 3.2
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.15048, 227.641 ), Vector2( -205.719, 183.226 ), Vector2( -296.135, -0.602051 ), Vector2( -263.176, -276.242 ), Vector2( -1.11053, -339.06 ), Vector2( 217.928, -246.889 ), Vector2( 256.839, 5.66943 ), Vector2( 192.116, 213.813 ), Vector2( -2.15048, 227.641 ) ]
+}
+
+[node name="Butterfly" type="Node2D"]
+
+transform/scale = Vector2( 0.2, 0.2 )
+z/z = 101
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+player_path = NodePath("../../player")
+speed = 150
+max_distance = 1000
+trigger_distance = 200
+call_time = 3
+
+[node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
+
+visibility/light_mask = 0
+transform/pos = Vector2( -205.719, 183.226 )
+frames = SubResource( 1 )
+animation = "down"
+frame = 1
+playing = true
+
+[node name="Particles2D" type="Particles2D" parent="KinematicBody2D/Sprite"]
+
+visibility/opacity = 0.4
+visibility/behind_parent = true
+visibility/light_mask = 32768
+transform/pos = Vector2( 0.776823, 9.78279 )
+config/amount = 60
+config/lifetime = 3.0
+config/preprocess = 3.0
+config/process_mode = 1
+config/half_extents = Vector2( 50, 20 )
+config/local_space = false
+config/texture = ExtResource( 10 )
+params/direction = 0.0
+params/spread = 60.0
+params/linear_velocity = 5.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.6
+params/final_size = 0.1
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 0.2
+randomness/linear_velocity = 0.3
+randomness/gravity_strength = 0.2
+color/color_ramp = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="KinematicBody2D/Sprite"]
+
+transform/pos = Vector2( 2.15048, 25.6447 )
+enabled = true
+editor_only = false
+texture = ExtResource( 11 )
+offset = Vector2( 0, 0 )
+scale = 5.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.5
+mode = 0
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 32768
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 0
+
+[node name="Timer" type="Timer" parent="KinematicBody2D"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/circle = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [ "circle", "circle", 1.0 ]
+autoplay = ""
+
+[node name="target" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 11 )
+modulate = Color( 1, 0, 0.960938, 1 )
+
+[connection signal="timeout" from="KinematicBody2D/Timer" to="KinematicBody2D" method="_on_Timer_timeout"]
+
+
